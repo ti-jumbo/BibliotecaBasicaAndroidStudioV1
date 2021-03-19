@@ -1,0 +1,33 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">190dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="largura_botoes_inicio">110dp</dimen>
+    <dimen name="altura_botoes_inicio">110dp</dimen>
+    <dimen name="tamanho_texto_botoes_inicio">10dp</dimen>
+    <dimen name="padding_flex_box_inicio">10dp</dimen>
+    <dimen name="padding_layout_botao_inicio">10dp</dimen>
+    <dimen name="padding_botao_inicio">10dp</dimen>
+    <dimen name="texto_negrito">-1</dimen>
+    <dimen name="margem_menu_principal">10dp</dimen>
+    <dimen name="tamanho_icone_menu_princial">30dp</dimen>
+    <dimen name="tamanho_texto_itens_menu_principal">15dp</dimen>
+    <dimen name="espaco_esquerdo_texto_item_menu_principal">20dp</dimen>
+    <dimen name="padding_item_menu">10dp</dimen>
+    <dimen name="tamanho_linha_divisor_menu_principal">3dp</dimen>
+    <dimen name="tamanho_texto_padrao">11sp</dimen>
+    <dimen name="tamanho_texto_titulo_menu">25sp</dimen>
+    <dimen name="tamanho_texto_lv_conversa">16sp</dimen>
+    <dimen name="tamanho_texto_titulo_lv_padrao">15sp</dimen>
+    <dimen name="tamanho_texto_16sp">16sp</dimen>
+    <dimen name="tamanho_texto_18sp">18sp</dimen>
+    <dimen name="tamanho_texto_tabela_preco">10sp</dimen>
+    <dimen name="tamanho_borda_tablelayout">2dp</dimen>
+    <dimen name="altura_barra_pesq">62dp</dimen>
+    <dimen name="margem_edit_pesquisa">8dp</dimen>
+    <dimen name="tamanho_botao_pesquisa">50dp</dimen>
+    <dimen name="margem_botao_pesquisa">5dp</dimen>
+</resources>

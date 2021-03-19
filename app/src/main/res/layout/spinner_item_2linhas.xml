@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_item_spinner"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/spinner">
+
+    <TextView
+        android:id="@+id/textViewSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:paddingRight="30dp"
+        android:singleLine="false"/>
+
+    <TextView
+        android:id="@+id/textViewSpinnerLinha2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:singleLine="false"/>
+
+    <View
+        android:id="@+id/linha_divisor_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/cinzatransp" />
+
+</LinearLayout>
