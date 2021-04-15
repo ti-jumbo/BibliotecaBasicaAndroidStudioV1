@@ -109,14 +109,12 @@ public class TComHttp extends TComHttpBase {
             if (objs.funcoesInternet.getConectado() == true ) {
                 this.interromper = false;
                 if (urls == null || urls.length == 0) {
-                    objs.funcoesBasicas.log(objs.funcoesInternet.getIpWebService());
-                    objs.funcoesBasicas.log(objs.funcoesInternet.getIpWebService().toString().matches("[0-9]"));
-                    objs.funcoesBasicas.log(objs.funcoesInternet.getIpWebService().toString().matches("[0-9]{1,3}"));
-                    objs.funcoesBasicas.log(objs.funcoesInternet.getIpWebService().toString().matches("[0-9]{1,3}."));
-                    objs.funcoesBasicas.log(objs.funcoesInternet.getIpWebService().toString().matches("[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}"));
-                    objs.funcoesBasicas.log(objs.funcoesInternet.getIpWebService().toString().matches("[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}:[0-9]{1,5}"));
                     if (objs.funcoesInternet.getIpWebService() != null && (objs.funcoesInternet.getIpWebService().toString().matches("[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}") || objs.funcoesInternet.getIpWebService().toString().matches("[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}:[0-9]{1,5}")) ) {
-                        url = new URL("http://" + objs.funcoesInternet.getIpWebService() + "/SisJD/php/funcoes/requisicao/requisicaows.php");
+                        if (this.getCaminhoWebService() != null) {
+                            url = new URL("http://" + objs.funcoesInternet.getIpWebService() + this.getCaminhoWebService());
+                        } else {
+                            url = new URL("http://" + objs.funcoesInternet.getIpWebService() + objs.funcoesInternet.getCaminhoWebService());
+                        }
                     } else {
                         this.interromper = true;
                         objs.funcoesBasicas.log("ipexterno invalido: " + objs.funcoesInternet.getIpWebService());

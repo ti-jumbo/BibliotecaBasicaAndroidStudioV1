@@ -498,11 +498,13 @@ public class TSql extends SQLiteOpenHelper {
                 objs.funcoesBasicas.log("tabela " + nomeTab + " nao existe, criando");
                 criar_tabela(nomeTab);
             }
-
+            objs.funcoesBasicas.log("atualizando tabela " + nomeTab + ": " + campoPrimaryKey + "=" + valorPrimaryKey);
+            valorPrimaryKey = valorPrimaryKey.replaceAll("'","");
             int rows = db.update(nomeTab, cnjvalores, campoPrimaryKey + " = ?", new String[]{valorPrimaryKey});
             if (rows == 0) {
+                objs.funcoesBasicas.log("nao atualizou, registro nao existe, tentando inserir");
                 //put sobrescreve se ja existir ou cria se nao existir
-                cnjvalores.put(campoPrimaryKey, valorPrimaryKey.replaceAll("'",""));
+                cnjvalores.put(campoPrimaryKey, valorPrimaryKey);
                 db.insert(nomeTab, null, cnjvalores);
             }
         } catch (SQLiteException e) {

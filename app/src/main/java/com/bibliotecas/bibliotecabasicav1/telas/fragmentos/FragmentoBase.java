@@ -113,7 +113,7 @@ public abstract class FragmentoBase extends Fragment {
 
     public ViewGroup getLayoutPrincipal(){
         try {
-            if (this.layoutPrincipal == null ) {
+            /*if (this.layoutPrincipal == null ) {
                 if (this.view != null) {
                     if (this.view.getId() == this.idLayoutPrincipal) {
                         this.layoutPrincipal = (ViewGroup) this.view;
@@ -131,21 +131,45 @@ public abstract class FragmentoBase extends Fragment {
                         }
                     }
                 }
-            }
-            return this.layoutPrincipal;
+            }*/
+            return (ViewGroup) this.getView();
         } catch (Exception e) {
             objs.funcoesBasicas.mostrarErro(e);
             return null;
         }
     }
 
-    public void mostrar_carregando(){
+    private void _mostrar_carregando_ui(){
         try {
-            if (this.viewCarregando != null) {
-                this.viewCarregando.mostrar();
+            String fnome = "_mostrar_carregando_ui";
+            objs.funcoesBasicas.logi(cnome,fnome);
+            if (viewCarregando != null) {
+                ((ViewGroup)getView()).removeView(viewCarregando);
+                viewCarregando = null;
+            }
+            viewCarregando = new ViewCarregando((ViewGroup) getView(), getContext());
+            if (viewCarregando != null) {
+                viewCarregando.mostrar();
             } else {
                 objs.funcoesBasicas.log("objeto carregando nao encontrado");
             }
+            objs.funcoesBasicas.logf(cnome,fnome);
+        } catch (Exception e) {
+            objs.funcoesBasicas.mostrarErro(e);
+        }
+    }
+
+    public void mostrar_carregando(){
+        try {
+            String fnome = "mostrar_carregando";
+            objs.funcoesBasicas.logi(cnome,fnome);
+            this.getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    _mostrar_carregando_ui();
+                }
+            });
+            objs.funcoesBasicas.logf(cnome,fnome);
         } catch (Exception e) {
             objs.funcoesBasicas.mostrarErro(e);
         }
@@ -153,9 +177,12 @@ public abstract class FragmentoBase extends Fragment {
 
     public void esconder_carregando(){
         try {
+            String fnome = "esconder_carregando";
+            objs.funcoesBasicas.logi(cnome,fnome);
             if (this.viewCarregando != null) {
                 this.viewCarregando.esconder();
             }
+            objs.funcoesBasicas.logf(cnome,fnome);
         } catch (Exception e) {
             objs.funcoesBasicas.mostrarErro(e);
         }

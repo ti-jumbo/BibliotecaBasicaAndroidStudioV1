@@ -76,7 +76,10 @@ public class GraficoBase extends ConstraintLayout {
         this.setBackgroundColor(this.cor_fundo);
         this.alturaTela = Float.valueOf(this.objs.funcoesTela.getScreenHeight());
         this.larguraTela = Float.valueOf(this.objs.funcoesTela.getScreenWidth());
-        this.alturaGrafico = this.alturaTela - this.objs.variaveisBasicas.getActivityPrincipal().getActionBarHeight();//150; //ACTION BAR
+        this.alturaGrafico = this.alturaTela;
+        if (this.objs.variaveisBasicas.getActivityPrincipal() != null) {
+            this.alturaGrafico = this.alturaGrafico - this.objs.variaveisBasicas.getActivityPrincipal().getActionBarHeight();
+        }
         objs.funcoesBasicas.log("alturas: " + this.alturaGrafico + " " + this.alturaTela);
         this.larguraGrafico = this.larguraTela ;
         this.alturaInternaGrafico = this.alturaGrafico - (this.margemRetangular * 2);

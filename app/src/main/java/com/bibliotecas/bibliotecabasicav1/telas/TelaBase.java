@@ -303,11 +303,19 @@ public abstract class TelaBase extends AppCompatActivity {
 
     public void mostrar_carregando(){
         try {
-            if (this.viewCarregando != null) {
-                this.viewCarregando.mostrar();
-            } else {
-                objs.funcoesBasicas.log("imagemcarregando nao encontrado");
+            String fnome = "mostrar_carregando";
+            objs.funcoesBasicas.logi(cnome,fnome);
+            if (viewCarregando != null) {
+                this.getLayoutPricipal().removeView(viewCarregando);
+                viewCarregando = null;
             }
+            viewCarregando = new ViewCarregando(getLayoutPricipal(), getApplicationContext());
+            if (viewCarregando != null) {
+                viewCarregando.mostrar();
+            } else {
+                objs.funcoesBasicas.log("objeto carregando nao encontrado");
+            }
+            objs.funcoesBasicas.logf(cnome,fnome);
         } catch (Exception e) {
             objs.funcoesBasicas.mostrarErro(e);
         }
@@ -315,13 +323,18 @@ public abstract class TelaBase extends AppCompatActivity {
 
     public void esconder_carregando(){
         try {
+            String fnome = "esconder_carregando";
+            objs.funcoesBasicas.logi(cnome,fnome);
             if (this.viewCarregando != null) {
                 this.viewCarregando.esconder();
             }
+            objs.funcoesBasicas.logf(cnome,fnome);
         } catch (Exception e) {
             objs.funcoesBasicas.mostrarErro(e);
         }
+
     }
+
     public TelaBase getInstancia(){
         try {
             return this.getClass().cast(this);
@@ -377,7 +390,13 @@ public abstract class TelaBase extends AppCompatActivity {
 
     public int getActionBarHeight() {
         try {
-            int actionBarHeight = getActionBar().getHeight();//getSupportActionBar().getHeight();
+            int actionBarHeight = 0;
+            if (getActionBar() != null) {
+                actionBarHeight = getActionBar().getHeight();//getSupportActionBar().getHeight();
+            } else if (getSupportActionBar() != null) {
+                actionBarHeight = getSupportActionBar().getHeight();
+            }
+
             if (actionBarHeight != 0) {
                 actionBarHeight = actionBarHeight + 50;
                 objs.funcoesBasicas.log("altura action bar a: " + actionBarHeight);

@@ -2,11 +2,13 @@ package com.bibliotecas.bibliotecabasicav1.classesbasicas.graficos;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.JsonReader;
 import android.view.ViewGroup;
 
 import androidx.constraintlayout.widget.ConstraintSet;
 
 import com.bibliotecas.bibliotecabasicav1.R;
+import com.bibliotecas.bibliotecabasicav1.classesbasicas.desenho.ViewBarraEscalonada;
 import com.bibliotecas.bibliotecabasicav1.classesbasicas.desenho.ViewDesenhoBarraTexto;
 import com.bibliotecas.bibliotecabasicav1.classesbasicas.desenho.ViewDesenhoRetanguloTexto;
 import com.bibliotecas.bibliotecabasicav1.classesbasicas.desenho.ViewDesenhoTexto;
@@ -41,23 +43,42 @@ public class GraficoBarrasEscalonadas extends GraficoBarras {
         return retorno;
     }
 
-    public ViewDesenhoRetanguloTexto criarRetanguloEscalonadoTexto(int pValor, String legenda, int indiceBarra, int corBarra, int corFundo) {
-        ViewDesenhoRetanguloTexto retorno = null;
-        retorno = new ViewDesenhoRetanguloTexto(getContext(),this.larguraBarraInt, pValor,Math.round(this.espessuraContornoBarraEscalonada),this.corBarra,corFundo,legenda);
+    public ViewBarraEscalonada criarRetanguloEscalonadoTexto(
+            int pValor,
+            String legenda,
+            int indiceBarra,
+            int corBarra,
+            int corFundo,
+            int pValorBarraInterna,
+            String legendaBarraInterna,
+            JSONArray dados,
+            int corBarraInterna) {
+        ViewBarraEscalonada retorno = null;
+        retorno = new ViewBarraEscalonada(
+                getContext(),
+                this.larguraBarraInt,
+                pValor,
+                Math.round(this.espessuraContornoBarraEscalonada),
+                this.corBarra,
+                corFundo,
+                legenda,
+                pValorBarraInterna,
+                legendaBarraInterna,
+                corBarraInterna);
         this.layoutInterno.addView(retorno);
         this.csLayoutInterno.clone(this.layoutInterno);
         this.csLayoutInterno.connect(retorno.getId(), ConstraintSet.BOTTOM,this.layoutInterno.getId(), ConstraintSet.BOTTOM, this.posBaseBarras);
         if (indiceBarra == 0) {
             this.csLayoutInterno.connect(retorno.getId(), ConstraintSet.LEFT, this.idUltBarraCriada, ConstraintSet.LEFT, this.espacoEntreBarrasInt);
         } else {
-            this.csLayoutInterno.connect(retorno.getId(), ConstraintSet.LEFT, this.idUltBarraCriada, ConstraintSet.RIGHT, Math.round(this.espacoEntreBarrasInt + this.espessuraContornoBarraEscalonada));
+            this.csLayoutInterno.connect(retorno.getId(), ConstraintSet.LEFT, this.idUltBarraCriada, ConstraintSet.RIGHT, this.espacoEntreBarrasInt);
         }
         this.csLayoutInterno.applyTo(this.layoutInterno);
         this.idUltBarraCriada = retorno.getId();
         return retorno;
     }
 
-    public void criarLegendaSuperior(String legenda, ViewDesenhoRetanguloTexto retanguloRef, int corFundo) {
+    public void criarLegendaSuperior(String legenda, ViewBarraEscalonada retanguloRef, int corFundo) {
         ViewDesenhoTexto v = null;
         v = new ViewDesenhoTexto(getContext(),this.larguraBarraInt, 20,15, Color.BLACK,corFundo,legenda);
         this.layoutInterno.addView(v);
@@ -66,6 +87,8 @@ public class GraficoBarrasEscalonadas extends GraficoBarras {
         this.csLayoutInterno.connect(v.getId(), ConstraintSet.LEFT, retanguloRef.getId(), ConstraintSet.LEFT, 0);
         this.csLayoutInterno.applyTo(this.layoutInterno);
     }
+
+
 
     public void criarGraficoBarrasEscalonadas(JSONArray matrizDados) {
         try {
@@ -137,18 +160,30 @@ public class GraficoBarrasEscalonadas extends GraficoBarras {
             }
             this.posBaseBarras = this.posBaseBarras + 20;
             this.idUltBarraCriada = this.layoutInterno.getId();
-            ViewDesenhoRetanguloTexto retangulo = null;
+            ViewBarraEscalonada retangulo = null;
             if (matrizDados.length() > 0) {
                 for (int i = 0; i < this.qtBarras; i++) {
                     linha = matrizDados.getJSONArray(i);
                     valorString = linha.get(indCampoValorEscala).toString();
                     valorReal = Integer.parseInt(valorString);
                     valorEscala = (int) (valorReal * multiplicador);
-                    retangulo = this.criarRetanguloEscalonadoTexto(valorEscala, valorString, i, Color.BLUE, Color.TRANSPARENT);
-                    valorString = linha.get(indCampoValorBarra).toString();
-                    valorReal = Integer.parseInt(valorString);
-                    valorEscala = (int) (valorReal * multiplicador);
-                    this.criarBarraEscalonada(valorEscala, valorString, matrizDados.getJSONArray(i), i, corBarra, retangulo);
+
+                    String valorStringBarraInterna = linha.get(indCampoValorBarra).toString();
+                    Integer valorRealBarraInterna = Integer.parseInt(valorStringBarraInterna);
+                    Integer valorEscalaBarraInterna = (int) (valorRealBarraInterna * multiplicador);
+
+                    retangulo = this.criarRetanguloEscalonadoTexto(
+                            valorEscala,
+                            valorString,
+                            i,
+                            Color.BLUE,
+                            Color.TRANSPARENT,
+                            valorEscalaBarraInterna,
+                            valorStringBarraInterna,
+                            matrizDados.getJSONArray(i),
+                            corBarra);
+
+                    /*this.criarBarraEscalonada(valorEscala, valorString, matrizDados.getJSONArray(i), i, corBarra, retangulo);*/
                     valorString = linha.get(indCampoPerc).toString();
                     valorReal = Integer.parseInt(valorString);
                     cor = Color.YELLOW;

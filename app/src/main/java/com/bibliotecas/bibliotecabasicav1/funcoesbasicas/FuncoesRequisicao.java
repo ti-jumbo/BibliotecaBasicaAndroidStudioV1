@@ -109,6 +109,10 @@ public class FuncoesRequisicao extends FuncoesBase {
                     if (comhttp.req.getJSONObject("retorno") != null) {
                         JSONObject joDados = comhttp.req.getJSONObject("retorno").getJSONObject("dados_retornados");
                         if (joDados != null) {
+                            if (joDados.has("dados")) {
+                                joDados = joDados.getJSONObject("dados");
+                            }
+
                             JSONObject joTabela = joDados.getJSONObject("tabela");
                             if (joTabela != null) {
                                 retorno = joTabela.getJSONArray("dados");

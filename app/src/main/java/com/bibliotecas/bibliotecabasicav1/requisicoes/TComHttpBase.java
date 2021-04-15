@@ -19,6 +19,7 @@ public abstract class TComHttpBase extends AsyncTask<URL, Integer, Long> {
     protected String metodoReq = "POST";
     public JSONObject req;
     HttpURLConnection client = null;
+    private String caminhoWebService = null;
     int responseCode = 0;
 
     public TComHttpBase(Context pContexto) {
@@ -39,5 +40,13 @@ public abstract class TComHttpBase extends AsyncTask<URL, Integer, Long> {
         } catch (Exception e) {
             objs.funcoesBasicas.mostrarErro(e);
         }
+    }
+
+    public void setCaminhoWebService(String pCaminhoWebService) {
+        this.caminhoWebService = pCaminhoWebService;
+    }
+
+    public String getCaminhoWebService(){
+        return this.caminhoWebService;
     }
 }

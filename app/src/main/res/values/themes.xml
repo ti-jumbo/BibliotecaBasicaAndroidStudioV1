@@ -22,4 +22,68 @@
     <style name="Theme.BibliotecaBasicaV1.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.BibliotecaBasicaV1.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="checkBoxStyle">
+        <item name="colorAccent">@color/azul</item> <!-- for uncheck state -->
+        <item name="android:textColorSecondary">@color/azul</item> <!-- for check state -->
+    </style>
+
+    <style name="BarraPesquisa" >
+        <item name="android:layout_height">@dimen/altura_barra_pesq</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="BarraPesquisa.EditTextPesquisa" parent="@android:style/Widget.DeviceDefault.EditText">
+        <item name="android:background">@android:drawable/editbox_dropdown_dark_frame</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_margin">@dimen/margem_edit_pesquisa</item>
+    </style>
+
+    <style name="BarraPesquisa.BotaoPesquisa" parent="@style/Widget.AppCompat.Button">
+        <item name="android:layout_width">@dimen/tamanho_botao_pesquisa</item>
+        <item name="android:layout_height">@dimen/tamanho_botao_pesquisa</item>
+        <item name="android:layout_margin">@dimen/margem_botao_pesquisa</item>
+        <item name="android:background">@drawable/ic_search_black_24dp</item>
+    </style>
+
+    <style name="EditTextPadraoTexto" parent="@android:style/Widget.DeviceDefault.EditText">
+        <item name="android:background">@android:drawable/editbox_dropdown_dark_frame</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/tamanho_texto_18sp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">10sp</item>
+        <item name="android:paddingTop">3sp</item>
+        <item name="android:paddingRight">15sp</item>
+        <item name="android:paddingBottom">3sp</item>
+    </style>
+
+    <style name="EditTextPadraoNumero" parent="EditTextPadraoTexto">
+        <item name="android:gravity">end</item>
+    </style>
+
+    <style name="TextViewCampoPadrao" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:layout_gravity">center_vertical|right</item>
+        <item name="android:gravity">end</item>
+        <item name="android:paddingLeft">2sp</item>
+        <item name="android:paddingRight">5sp</item>
+    </style>
+
+    <style name="BotaoOkPadrao" parent="@style/Widget.AppCompat.Button">
+        <item name="android:background">@android:drawable/editbox_dropdown_dark_frame</item>
+        <item name="android:text">OK</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="RadioBttonStyle">
+        <item name="colorAccent">@color/azul</item> <!-- for uncheck state -->
+        <item name="android:textColorSecondary">@color/azul</item> <!-- for check state -->
+    </style>
+
+    <style name="Divisor">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">3dp</item>
+        <item name="android:background">@color/azul</item>
+    </style>
 </resources>

@@ -204,6 +204,7 @@ public class Tipos extends ClasseBase {
         public int codusur = 0;
         int codsupervisor = 0;
         public String nome = null;
+        public String senha = null;
         public String tipoUsuario = null;
         public String podeVer = null;
         public Integer codNivelAcesso = 50;

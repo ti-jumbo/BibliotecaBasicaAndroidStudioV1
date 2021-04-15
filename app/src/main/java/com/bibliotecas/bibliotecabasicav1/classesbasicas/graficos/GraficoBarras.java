@@ -20,6 +20,8 @@ import com.bibliotecas.bibliotecabasicav1.classesbasicas.desenho.ViewDesenhoLinh
 
 import org.json.JSONArray;
 
+import java.util.ArrayList;
+
 public class GraficoBarras extends GraficoBase {
     private String cnome = "GraficoBarras";
     public Float areaEsquerdaUtilizada = 0f;
@@ -319,4 +321,5 @@ public class GraficoBarras extends GraficoBase {
             e.printStackTrace();
         }
     }
+
 }

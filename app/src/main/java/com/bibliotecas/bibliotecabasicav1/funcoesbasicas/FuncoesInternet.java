@@ -26,6 +26,7 @@ public class FuncoesInternet extends FuncoesBase {
     private static String ipWebService = "";
     private static String ipWebServiceInterno = "";
     private static String ipWebServiceExterno = "";
+    private static String caminhoWebService = "";
     private static Boolean conectado = false;
 
 
@@ -214,6 +215,14 @@ public class FuncoesInternet extends FuncoesBase {
         }
     }
 
+    public static void setCaminhoWebService(String pCaminhoWebService) {
+        try {
+            FuncoesInternet.getInstancia(contexto,ipsWebServicesExternos,ipWebServiceExterno,ipWebServiceInterno).caminhoWebService = pCaminhoWebService;
+        } catch (Exception e) {
+            objs.funcoesBasicas.mostrarErro(e);
+        }
+    }
+
     public static void setTipoConexaoAtual(String pTipoConexaoAtual) {
         try {
             FuncoesInternet.getInstancia(contexto,ipsWebServicesExternos,ipWebServiceExterno,ipWebServiceInterno).tipoConexaoAtual = pTipoConexaoAtual;
@@ -309,6 +318,14 @@ public class FuncoesInternet extends FuncoesBase {
     public static String getIpWebService() {
         try {
             return FuncoesInternet.getInstancia(contexto,ipsWebServicesExternos,ipWebServiceExterno,ipWebServiceInterno).ipWebService;
+        } catch (Exception e) {
+            objs.funcoesBasicas.mostrarErro(e);
+            return null;
+        }
+    }
+    public static String getCaminhoWebService() {
+        try {
+            return FuncoesInternet.getInstancia(contexto,ipsWebServicesExternos,ipWebServiceExterno,ipWebServiceInterno).caminhoWebService;
         } catch (Exception e) {
             objs.funcoesBasicas.mostrarErro(e);
             return null;

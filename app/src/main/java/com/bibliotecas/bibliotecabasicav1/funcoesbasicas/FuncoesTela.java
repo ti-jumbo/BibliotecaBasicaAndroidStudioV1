@@ -67,10 +67,6 @@ public class FuncoesTela extends FuncoesBase {
             TelaBase telaBase = objs.variaveisBasicas.getActivityAtual();
             if (telaBase != null) {
                 telaBase.esconder_carregando();
-                if (telaBase.fragmentoConteudo != null) {
-                    objs.funcoesBasicas.mostrarmsg(telaBase.getSupportFragmentManager().getPrimaryNavigationFragment().getClass().getName());
-
-                }
             }
         } catch (Exception e) {
             objs.funcoesBasicas.mostrarErro(e);

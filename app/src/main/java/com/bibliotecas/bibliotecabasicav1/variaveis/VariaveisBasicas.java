@@ -394,15 +394,10 @@ public class VariaveisBasicas extends ClasseBase {
         VariaveisBasicas.verificandoSincronizacao = pVerificandoSincronizacao;
     }
 
-    /*public static ArrayList<Integer> getIndexAtalhosPadrao() {
-        return indexAtalhosPadrao;
-    }*/
-
     public static Object procurar_objeto(String nomeCompletoClasse) {
         try {
             String fnome = "procurar_objeto";
             objs.funcoesBasicas.logi(cnome,fnome);
-            objs.funcoesBasicas.log("procurando por: " + nomeCompletoClasse);
             Object retorno = null;
             if (nomeCompletoClasse != null) {
                 nomeCompletoClasse = nomeCompletoClasse.trim();
@@ -411,7 +406,6 @@ public class VariaveisBasicas extends ClasseBase {
                         int qt = objetos.size();
                         if (qt > 0) {
                             for (int i = 0; i < qt; i++) {
-                                objs.funcoesBasicas.log("comparando: " + objetos.get(i).getClass().getName().trim() + " com " + nomeCompletoClasse );
                                 if (objetos.get(i).getClass().getName().trim().equalsIgnoreCase(nomeCompletoClasse)) {
                                     retorno = objetos.get(i);
                                     break;

@@ -173,7 +173,11 @@ public class TComHttpSimples extends TComHttpBase {
                     this.conexaoInterrompida = false;
                     if (urls == null || urls.length == 0) {
                         if (objs.funcoesInternet.getIpWebService() != null && (objs.funcoesInternet.getIpWebService().toString().matches("[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}") || objs.funcoesInternet.getIpWebService().toString().matches("[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}:[0-9]{1,5}"))) {
-                            url = new URL("http://" + objs.funcoesInternet.getIpWebService() + "/SisJD/php/funcoes/requisicao/requisicao_simples.php");
+                            if (this.getCaminhoWebService() != null) {
+                                url = new URL("http://" + objs.funcoesInternet.getIpWebService() + this.getCaminhoWebService());
+                            } else {
+                                url = new URL("http://" + objs.funcoesInternet.getIpWebService() + objs.funcoesInternet.getCaminhoWebService());
+                            }
                         } else {
                             this.temConexao = false;
                             objs.funcoesBasicas.log("ipexterno invalido: " + objs.funcoesInternet.getIpWebService());
