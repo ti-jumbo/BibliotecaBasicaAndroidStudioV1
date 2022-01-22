@@ -314,7 +314,6 @@ class Variaveis{
             this.nomes_caminhos_diretorios = {
                 sjd : "/SJD"
             };            
-
             this.nomes_caminhos_diretorios.javascript = this.nomes_caminhos_diretorios.sjd + this.sepdir + this.nomes_diretorios.javascript;
             this.nomes_caminhos_diretorios.php = this.nomes_caminhos_diretorios.sjd + this.sepdir + this.nomes_diretorios.php;
             this.nomes_caminhos_diretorios.images = this.nomes_caminhos_diretorios.sjd + this.sep_dir + this.nomes_diretorios.images;
