@@ -1,0 +1,11 @@
+{
+	"dados_cat":{
+		"versao":1
+	},
+	"apresentaropcoessistemacomo":{
+		"nomeconfig":"apresentaropcoessistemacomo",
+		"nomeconfigvisivel":"apresentar opcoes do sistema como",
+		"valorconfig":"menuesquerdo",
+		"codsituacaoregistro":1
+	}
+}

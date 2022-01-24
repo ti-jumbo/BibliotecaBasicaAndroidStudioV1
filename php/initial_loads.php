@@ -8,7 +8,7 @@
         spl_autoload_register();
     }
 
-    use SJD\php\class\Acess;
+    use SJD\php\classes\Acess;
 
     if (!Acess::logged()) {
         $url = 'http://' . $_SERVER['HTTP_HOST'].rtrim(dirname($_SERVER['PHP_SELF']), '/\\').'/login.php';

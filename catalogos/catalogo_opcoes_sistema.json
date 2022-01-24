@@ -1,0 +1,2821 @@
+{
+   "dados_cat":{
+       "versao":1
+   },
+   "pagina":{
+       "codops":0,
+       "nomeops":"__CHAVE__",
+       "nomeopcaovisivel":"__CHAVE__",
+       "seletorconteudo":"div.div_pagina",
+       "carregamentodinamico":1,
+       "visivel":0,
+       "podemver":"TODOS",
+       "codnivelacessorequerido":9999,
+       "ordem":0,
+       "caminhorecurso":"__CAMINHOBASESJDREL__\\php\\index.php",
+       "arqrecursopreexistente":1,
+       "codsituacaoregistro":1
+    },
+    "inicio":{
+       "codops":1,
+       "nomeops":"__CHAVE__",
+       "nomeopcaovisivel":"__CHAVE__",
+       "seletorconteudo":"div.div_inicio",
+       "carregamentodinamico":1,
+       "icone":"/__NOMEDIRSISJD__/images/home.png",
+       "visivel":0,
+       "podemver":"TODOS",
+       "codnivelacessorequerido":9999,
+       "ordem":1,
+       "caminhorecurso":"__CAMINHOBASESJDREL__\\php\\index.php",
+       "arqrecursopreexistente":1,
+       "diretorioespecifico":"SISJD",
+       "bloco_use":"
+            /*bloco de definicao de usos*/
+            use SJD\\php\\classes\\funcoes\\{
+               FuncoesErro,
+               FuncoesIniciais,
+               requisicao\\FuncoesBasicasRetorno			
+            };
+            use SJD\\php\\classes\\constantes\\{
+               Constantes,
+               Constantes as ConstantesSis,
+               NomesDiretorios, 
+               NomesDiretorios as NomesDiretoriosSis, 
+               NomesCaminhosRelativos, 
+               NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+            };
+      ",  
+       "codsituacaoregistro":1
+    },
+   "login":{
+       "codops":19,
+       "nomeops":"login",
+       "nomeopcaovisivel":"login",
+       "visivel":0,
+       "ordem":"2",
+       "codsituacaoregistro":1
+   },
+   "campanhas":{
+      "codops":3,
+      "nomeops":"__CHAVE__",
+      "nomeopcaovisivel":"__CHAVE__",
+      "seletorconteudo":"div.div_campanhas",
+      "icone":"/__NOMEDIRSISJD__/images/sinergia.png",
+      "carregamentodinamico":1,
+      "visivel":1,
+      "podemver":"TODOS",
+      "codnivelacessorequerido":50,
+      "ordem":3,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"consultar_campanhas",
+            "nomeopcaovisivel":"Consultar Campanhas",
+            "seletorconteudo":"div.div_campanhas",
+            "icone":"/__NOMEDIRSISJD__/images/sinergia.png",
+            "carregamentodinamico":1,
+            "visivel":1,
+            "podemver":"TODOS",
+            "codnivelacessorequerido":50,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "codsituacaoregistro":1,
+            "sub":[
+               {
+                  "codops":"__VALORCHAVESUP__(codops)00",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"consultar_sinergia",
+                  "nomeopcaovisivel":"Sinergia",
+                  "seletorconteudo":"div.div_consultar_sinergia",
+                  "icone":"/__NOMEDIRSISJD__/images/sinergia.png",
+                  "carregamentodinamico":1,
+                  "visivel":1,
+                  "podemver":"TODOS",
+                  "codnivelacessorequerido":50,
+                  "ordem":"__VALORCHAVESUP__(codops)00",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\campanhas\\consultar_campanhas\\consultar_sinergia.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)01",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"consultar_campanhas_estruturadas",
+                  "nomeopcaovisivel":"Consultar Campanhas Estruturadas",
+                  "seletorconteudo":"div.div_consultar_campanhas_estruturadas",
+                  "icone":"/__NOMEDIRSISJD__/images/campanhas_estruturadas.png",
+                  "carregamentodinamico":1,
+                  "visivel":1,
+                  "podemver":"TODOS",
+                  "codnivelacessorequerido":50,
+                  "ordem":"__VALORCHAVESUP__(codops)01",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\campanhas\\consultar_campanhas\\consultar_campanhas_estruturadas.php",
+                  "arqrecursopreexistente":0,
+                  "scripts":"<script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>",
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)02",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"consultar_painel",
+                  "nomeopcaovisivel":"Painel",
+                  "seletorconteudo":"div.div_consultar_sinergia2",
+                  "icone":"/__NOMEDIRSISJD__/images/painel.png",
+                  "carregamentodinamico":1,
+                  "visivel":1,
+                  "podemver":"TODOS",
+                  "codnivelacessorequerido":50,
+                  "ordem":"__VALORCHAVESUP__(codops)02",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\campanhas\\consultar_campanhas\\consultar_painel.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "scripts":"<script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)03",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"consultar_itens_campanha_giro",
+                  "nomeopcaovisivel":"Consultar Itens Campanha Giro",
+                  "seletorconteudo":"div.div_consultar_itens_campanha_giro",
+                  "icone":"/__NOMEDIRSISJD__/images/painel.png",
+                  "carregamentodinamico":1,
+                  "visivel":1,
+                  "podemver":"TODOS",
+                  "codnivelacessorequerido":50,
+                  "ordem":"__VALORCHAVESUP__(codops)03",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\campanhas\\consultar_campanhas\\consultar_itens_campanha_giro.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               }
+            ]
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)01",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"alterar_campanhas",
+            "nomeopcaovisivel":"Alterar Campanhas",
+            "seletorconteudo":"div.div_alterar_campanhas",
+            "icone":"/__NOMEDIRSISJD__/images/sinergia.png",
+            "carregamentodinamico":1,
+            "visivel":1,
+            "codnivelacessorequerido":40,
+            "podemver":"142,115,20,13,6,4,3,2,1,99",
+            "ordem":"__VALORCHAVESUP__(codops)01",
+            "codsituacaoregistro":1,
+            "sub":[
+               {
+                  "codops":"__VALORCHAVESUP__(codops)00",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"alterar_campanhas_sinergia",
+                  "nomeopcaovisivel":"Alterar Sinergia",
+                  "seletorconteudo":"div.div_alterar_sinergia",
+                  "icone":"/__NOMEDIRSISJD__/images/alterar_sinergia.png",
+                  "carregamentodinamico":1,
+                  "visivel":1,
+                  "podemver":"142,115,20,13,6,4,3,2,1,99",
+                  "codnivelacessorequerido":40,
+                  "ordem":"__VALORCHAVESUP__(codops)00",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\campanhas\\alterar_campanhas\\alterar_campanhas_sinergia.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)01",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"alterar_campanhas_estruturadas",
+                  "nomeopcaovisivel":"Alterar Campanhas Estruturadas",
+                  "seletorconteudo":"div.div_alterar_campanhas_estruturadas",
+                  "icone":"/__NOMEDIRSISJD__/images/alterar_campanhas_estruturadas.png",
+                  "carregamentodinamico":1,
+                  "visivel":1,
+                  "podemver":"142,115,20,13,6,4,3,2,1,99",
+                  "codnivelacessorequerido":40,
+                  "ordem":"__VALORCHAVESUP__(codops)01",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\campanhas\\alterar_campanhas\\alterar_campanhas_estruturadas.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)02",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"processamentos_campanhas",
+                  "nomeopcaovisivel":"Processamentos Campanhas",
+                  "seletorconteudo":"div.div_processamentos_campanhas",
+                  "icone":"/__NOMEDIRSISJD__/images/sinergia.png",
+                  "carregamentodinamico":1,
+                  "visivel":1,
+                  "podemver":142,
+                  "codnivelacessorequerido":10,
+                  "ordem":"__VALORCHAVESUP__(codops)02",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\campanhas\\alterar_campanhas\\processamentos_campanhas.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               }
+            ]
+         }
+      ]
+   },
+   "relatorios":{
+      "codops":4,
+      "nomeops":"relatorios",
+      "nomeopcaovisivel":"Relatorios",
+      "seletorconteudo":"",
+      "carregamentodinamico":1,
+      "visivel":1,
+      "podemver":"TODOS",
+      "codnivelacessorequerido":60,
+      "ordem":4,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"relatorio_personalizado",
+            "nomeopcaovisivel":"relatorio personalizado",
+            "seletorconteudo":"div.div_relatorio_personalizado",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/relatorio_personalizado.png",
+            "visivel":1,
+            "podemver":"TODOS",
+            "codnivelacessorequerido":60,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\relatorio_personalizado.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)01",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"positivacoes",
+            "nomeopcaovisivel":"positivacoes",
+            "seletorconteudo":"",
+            "carregamentodinamico":1,
+            "visivel":1,
+            "podemver":"TODOS",
+            "codnivelacessorequerido":60,
+            "ordem":"__VALORCHAVESUP__(codops)01",
+            "codsituacaoregistro":1,
+            "sub":[
+               {
+                  "codops":"__VALORCHAVESUP__(codops)00",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"produtoxrca",
+                  "nomeopcaovisivel":"produtoxrca",
+                  "seletorconteudo":"div.div_produtoxrca",
+                  "icone":"/__NOMEDIRSISJD__/images/produtoxrca.png",
+                  "carregamentodinamico":1,
+                  "visivel":1,
+                  "podemver":"TODOS",
+                  "codnivelacessorequerido":60,
+                  "ordem":"__VALORCHAVESUP__(codops)00",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\positivacoes\\produtoxrca.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)01",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"clientexproduto",
+                  "nomeopcaovisivel":"cliente x produto",
+                  "seletorconteudo":"div.div_clientexproduto",
+                  "icone":"/__NOMEDIRSISJD__/images/clientexproduto.png",
+                  "carregamentodinamico":1,
+                  "visivel":1,
+                  "podemver":"TODOS",
+                  "codnivelacessorequerido":60,
+                  "ordem":"__VALORCHAVESUP__(codops)01",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\positivacoes\\clientexproduto.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)02",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"clientexfornecedor",
+                  "nomeopcaovisivel":"cliente x fornecedor",
+                  "seletorconteudo":"div.div_clientexfornecedor",
+                  "icone":"/__NOMEDIRSISJD__/images/clientexfornecedor.png",
+                  "carregamentodinamico":1,
+                  "visivel":1,
+                  "podemver":"TODOS",
+                  "codnivelacessorequerido":50,
+                  "ordem":"__VALORCHAVESUP__(codops)02",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\positivacoes\\clientexfornecedor.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)03",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"clientesnaopositivados",
+                  "nomeopcaovisivel":"clientes nao positivados",
+                  "seletorconteudo":"div.div_clientesnaopositivados",
+                  "icone":"/__NOMEDIRSISJD__/images/clientes_nao_positivados.png",
+                  "carregamentodinamico":1,
+                  "visivel":1,
+                  "podemver":"TODOS",
+                  "codnivelacessorequerido":60,
+                  "ordem":"__VALORCHAVESUP__(codops)03",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\positivacoes\\clientesnaopositivados.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)04",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"produtosnaopositivados",
+                  "nomeopcaovisivel":"Produtos nao positivados",
+                  "seletorconteudo":"div.div_produtosnaopositivados",
+                  "icone":"/__NOMEDIRSISJD__/images/produtos_nao_positivados.png",
+                  "carregamentodinamico":1,
+                  "visivel":1,
+                  "podemver":"TODOS",
+                  "codnivelacessorequerido":60,
+                  "ordem":"__VALORCHAVESUP__(codops)04",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\positivacoes\\produtosnaopositivados.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)05",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"positivacaopersonalizada",
+                  "nomeopcaovisivel":"positivacao personalizada",
+                  "seletorconteudo":"div.div_positivacaopersonalizada",
+                  "icone":"/__NOMEDIRSISJD__/images/positivacao_personalizada.png",
+                  "carregamentodinamico":1,
+                  "visivel":1,
+                  "podemver":"TODOS",
+                  "codnivelacessorequerido":60,
+                  "ordem":"__VALORCHAVESUP__(codops)05",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\positivacoes\\positivacaopersonalizada.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)06",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"clientesativosxpositivados",
+                  "nomeopcaovisivel":"clientes ativos x positivados",
+                  "seletorconteudo":"div.div_clientesativosxpositivados",
+                  "icone":"/__NOMEDIRSISJD__/images/clienteativoxposit.png",
+                  "carregamentodinamico":1,
+                  "visivel":1,
+                  "podemver":"TODOS",
+                  "codnivelacessorequerido":50,
+                  "ordem":"__VALORCHAVESUP__(codops)06",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\positivacoes\\clientesativosxpositivados.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               }
+            ]
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)02",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"cispe",
+            "nomeopcaovisivel":"cispe",
+            "seletorconteudo":"div.div_cispe",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/cispe.png",
+            "visivel":1,
+            "podemver":"TODOS",
+            "codnivelacessorequerido":60,
+            "ordem":"__VALORCHAVESUP__(codops)02",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\cispe.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)03",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"promotoras",
+            "nomeopcaovisivel":"promotoras",
+            "seletorconteudo":"div.div_promotoras",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/relatorio_promotor.png",
+            "visivel":1,
+            "podemver":"TODOS",
+            "codnivelacessorequerido":60,
+            "ordem":"__VALORCHAVESUP__(codops)03",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\promotoras.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)04",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"freezers",
+            "nomeopcaovisivel":"freezers",
+            "seletorconteudo":"div.div_freezers",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/relatorio_freezer.png",
+            "visivel":1,
+            "podemver":"TODOS",
+            "codnivelacessorequerido":60,
+            "ordem":"__VALORCHAVESUP__(codops)04",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\freezers.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)05",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"critica",
+            "nomeopcaovisivel":"critica",
+            "seletorconteudo":"div.div_critica",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/critica.png",
+            "visivel":1,
+            "podemver":"142,20,1,2,3,13,573,6",
+            "codnivelacessorequerido":40,
+            "ordem":"__VALORCHAVESUP__(codops)05",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\critica.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)06",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"ratingsfoco",
+            "nomeopcaovisivel":"Ratings Foco",
+            "seletorconteudo":"",
+            "carregamentodinamico":1,
+            "visivel":1,
+            "podemver":"142,20,1,2,3,4,13,573,6",
+            "codnivelacessorequerido":60,
+            "ordem":"__VALORCHAVESUP__(codops)06",
+            "codsituacaoregistro":1,
+            "sub":[
+               {
+                  "codops":"__VALORCHAVESUP__(codops)00",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"consultarratingsfocais",
+                  "nomeopcaovisivel":"Consultar Ratings Foco",
+                  "seletorconteudo":"div.div_consultar_ratingsfocais",
+                  "carregamentodinamico":1,
+                  "icone":"/__NOMEDIRSISJD__/images/critica.png",
+                  "visivel":1,
+                  "podemver":"142,20,1,2,3,4,13,573,6",
+                  "codnivelacessorequerido":40,
+                  "ordem":"__VALORCHAVESUP__(codops)00",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\consultarratingsfocais.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)01",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"editarratingsfocais",
+                  "nomeopcaovisivel":"Editar Ratings Foco",
+                  "seletorconteudo":"div.div_editar_ratingsfocais",
+                  "carregamentodinamico":1,
+                  "icone":"/__NOMEDIRSISJD__/images/critica.png",
+                  "visivel":1,
+                  "podemver":"142,2",
+                  "codnivelacessorequerido":20,
+                  "ordem":"__VALORCHAVESUP__(codops)01",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\relatorios\\editarratingsfocais.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               }
+            ]
+         }
+      ]
+   },
+   "clientes":{
+      "codops":2,
+      "nomeops":"clientes",
+      "nomeopcaovisivel":"clientes",
+      "seletorconteudo":"div.clientes",
+      "carregamentodinamico":1,
+      "visivel":1,
+      "podemver":"TODOS",
+      "codnivelacessorequerido":50,
+      "ordem":5,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"pesquisa_basica_cliente",
+            "nomeopcaovisivel":"pesquisa basica cliente",
+            "seletorconteudo":"div.div_pesquisa_basica_cliente",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/cliente.png",
+            "visivel":1,
+            "podemver":"TODOS",
+            "codnivelacessorequerido":50,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\clientes\\pesquisa_basica_cliente.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)01",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"atualizar_clientes_receita",
+            "nomeopcaovisivel":"atualizar da RFB",
+            "seletorconteudo":"div.atualizar_clientes_rfb",
+            "carregamentodinamico":1,
+            "visivel":1,
+            "podemver":142,
+            "codnivelacessorequerido":10,
+            "ordem":"__VALORCHAVESUP__(codops)01",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\clientes\\atualizar_clientes_receita.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)02",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"pesquisa_avancada_cliente",
+            "nomeopcaovisivel":"pesquisa avancada cliente",
+            "seletorconteudo":"div.div_pesquisa_avancada_cliente",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/cliente.png",
+            "visivel":1,
+            "podemver":"TODOS",
+            "codnivelacessorequerido":50,
+            "ordem":"__VALORCHAVESUP__(codops)02",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\clientes\\pesquisa_avancada_cliente.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   },
+   "produtos":{
+      "codops":5,
+      "nomeops":"produtos",
+      "nomeopcaovisivel":"Produtos",
+      "seletorconteudo":"",
+      "carregamentodinamico":1,
+      "visivel":1,
+      "podemver":"TODOS",
+      "codnivelacessorequerido":40,
+      "ordem":6,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"manutencao_grupos_produtos_equivalentes",
+            "nomeopcaovisivel":"Manut. Grupos Prod. Equivalentes",
+            "seletorconteudo":"div.div_manutencao_grupos_produtos_equivalentes",
+            "carregamentodinamico":1,
+            "visivel":1,
+            "podemver":"TODOS",
+            "codnivelacessorequerido":40,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\produtos\\manutencao_grupos_produtos_equivalentes.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)01",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"manutencao_grupos_produtos_giro",
+            "nomeopcaovisivel":"Manut. Grupos Prod. Giro",
+            "seletorconteudo":"div.div_manutencao_grupos_produtos_giro",
+            "carregamentodinamico":1,
+            "visivel":1,
+            "podemver":"TODOS",
+            "codnivelacessorequerido":40,
+            "ordem":"__VALORCHAVESUP__(codops)01",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\produtos\\manutencao_grupos_produtos_giro.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   },
+   "filial":{
+      "codops":6,
+      "nomeops":"filial",
+      "nomeopcaovisivel":"filial",
+      "seletorconteudo":"div.filial",
+      "carregamentodinamico":1,
+      "visivel":0,
+      "podemver":"142",
+      "codnivelacessorequerido":10,
+      "ordem":7,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"pesquisa_basica_filial",
+            "nomeopcaovisivel":"pesquisa basica filial",
+            "seletorconteudo":"div.div_pesquisa_basica_filial",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/lista_pedidos.png",
+            "visivel":1,
+            "podemver":"142",
+            "codnivelacessorequerido":10,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\filial\\pesquisa_basica_filial.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)01",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"pesquisa_avancada_filial",
+            "nomeopcaovisivel":"pesquisa avancada filial",
+            "seletorconteudo":"div.div_pesquisa_avancada_filial",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/lista_pedidos.png",
+            "visivel":1,
+            "podemver":"142",
+            "codnivelacessorequerido":10,
+            "ordem":"__VALORCHAVESUP__(codops)01",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\filial\\pesquisa_avancada_filial.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   },
+   "cidade":{
+      "codops":7,
+      "nomeops":"cidade",
+      "nomeopcaovisivel":"cidade",
+      "seletorconteudo":"div.cidade",
+      "carregamentodinamico":1,
+      "visivel":0,
+      "podemver":"142",
+      "codnivelacessorequerido":10,
+      "ordem":7,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"pesquisa_basica_cidade",
+            "nomeopcaovisivel":"pesquisa basica cidade",
+            "seletorconteudo":"div.div_pesquisa_basica_cidade",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/lista_pedidos.png",
+            "visivel":1,
+            "podemver":"142",
+            "codnivelacessorequerido":10,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\cidade\\pesquisa_basica_cidade.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)01",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"pesquisa_avancada_cidade",
+            "nomeopcaovisivel":"pesquisa avancada cidade",
+            "seletorconteudo":"div.div_pesquisa_avancada_cidade",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/lista_pedidos.png",
+            "visivel":1,
+            "podemver":"142",
+            "codnivelacessorequerido":10,
+            "ordem":"__VALORCHAVESUP__(codops)01",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\cidade\\pesquisa_avancada_cidade.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   },
+   "estado":{
+      "codops":8,
+      "nomeops":"estado",
+      "nomeopcaovisivel":"estado",
+      "seletorconteudo":"div.estado",
+      "carregamentodinamico":1,
+      "visivel":0,
+      "podemver":"142",
+      "codnivelacessorequerido":10,
+      "ordem":7,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"pesquisa_basica_estado",
+            "nomeopcaovisivel":"pesquisa basica estado",
+            "seletorconteudo":"div.div_pesquisa_basica_estado",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/lista_pedidos.png",
+            "visivel":1,
+            "podemver":"142",
+            "codnivelacessorequerido":10,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\estado\\pesquisa_basica_estado.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   },
+   "rca":{
+      "codops":9,
+      "nomeops":"rca",
+      "nomeopcaovisivel":"rca",
+      "seletorconteudo":"div.rca",
+      "carregamentodinamico":1,
+      "visivel":0,
+      "podemver":"142",
+      "codnivelacessorequerido":10,
+      "ordem":7,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"pesquisa_basica_rca",
+            "nomeopcaovisivel":"pesquisa basica rca",
+            "seletorconteudo":"div.div_pesquisa_basica_rca",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/lista_pedidos.png",
+            "visivel":1,
+            "podemver":"142",
+            "codnivelacessorequerido":10,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\rca\\pesquisa_basica_rca.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)01",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"pesquisa_avancada_rca",
+            "nomeopcaovisivel":"pesquisa avancada rca",
+            "seletorconteudo":"div.div_pesquisa_avancada_rca",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/lista_pedidos.png",
+            "visivel":1,
+            "podemver":"142",
+            "codnivelacessorequerido":10,
+            "ordem":"__VALORCHAVESUP__(codops)01",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\rca\\pesquisa_avancada_rca.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   },
+   "gerente":{
+      "codops":10,
+      "nomeops":"gerente",
+      "nomeopcaovisivel":"gerente",
+      "seletorconteudo":"div.gerente",
+      "carregamentodinamico":1,
+      "visivel":0,
+      "podemver":"142",
+      "codnivelacessorequerido":10,
+      "ordem":7,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"pesquisa_basica_gerente",
+            "nomeopcaovisivel":"pesquisa basica gerente",
+            "seletorconteudo":"div.div_pesquisa_basica_gerente",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/lista_pedidos.png",
+            "visivel":1,
+            "podemver":"142",
+            "codnivelacessorequerido":10,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\gerente\\pesquisa_basica_gerente.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   },
+   "supervisor":{
+      "codops":11,
+      "nomeops":"supervisor",
+      "nomeopcaovisivel":"supervisor",
+      "seletorconteudo":"div.supervisor",
+      "carregamentodinamico":1,
+      "visivel":0,
+      "podemver":"142",
+      "codnivelacessorequerido":50,
+      "ordem":7,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"pesquisa_basica_supervisor",
+            "nomeopcaovisivel":"pesquisa basica supervisor",
+            "seletorconteudo":"div.div_pesquisa_basica_supervisor",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/lista_pedidos.png",
+            "visivel":1,
+            "podemver":"142",
+            "codnivelacessorequerido":50,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\supervisor\\pesquisa_basica_supervisor.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   },
+   "regiao":{
+      "codops":12,
+      "nomeops":"regiao",
+      "nomeopcaovisivel":"regiao",
+      "seletorconteudo":"div.regiao",
+      "carregamentodinamico":1,
+      "visivel":0,
+      "podemver":"142",
+      "codnivelacessorequerido":50,
+      "ordem":7,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"pesquisa_basica_regiao",
+            "nomeopcaovisivel":"pesquisa basica regiao",
+            "seletorconteudo":"div.div_pesquisa_basica_regiao",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/lista_pedidos.png",
+            "visivel":1,
+            "podemver":"142",
+            "codnivelacessorequerido":50,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\regiao\\pesquisa_basica_regiao.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   },
+   "praca":{
+      "codops":13,
+      "nomeops":"praca",
+      "nomeopcaovisivel":"praca",
+      "seletorconteudo":"div.praca",
+      "carregamentodinamico":1,
+      "visivel":0,
+      "podemver":"142",
+      "codnivelacessorequerido":50,
+      "ordem":7,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"pesquisa_basica_praca",
+            "nomeopcaovisivel":"pesquisa basica praca",
+            "seletorconteudo":"div.div_pesquisa_basica_praca",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/lista_pedidos.png",
+            "visivel":1,
+            "podemver":"142",
+            "codnivelacessorequerido":50,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\praca\\pesquisa_basica_praca.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   },
+   "rota":{
+      "codops":14,
+      "nomeops":"rota",
+      "nomeopcaovisivel":"rota",
+      "seletorconteudo":"div.rota",
+      "carregamentodinamico":1,
+      "visivel":0,
+      "podemver":"142",
+      "codnivelacessorequerido":50,
+      "ordem":7,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"pesquisa_basica_rota",
+            "nomeopcaovisivel":"pesquisa basica rota",
+            "seletorconteudo":"div.div_pesquisa_basica_rota",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/lista_pedidos.png",
+            "visivel":1,
+            "podemver":"142",
+            "codnivelacessorequerido":50,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\rota\\pesquisa_basica_rota.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   },
+   "pedidos":{
+      "codops":22,
+      "nomeops":"pedidos",
+      "nomeopcaovisivel":"pedidos",
+      "seletorconteudo":"div.pedidos",
+      "carregamentodinamico":1,
+      "visivel":1,
+      "podemver":"TODOS",
+      "codnivelacessorequerido":50,
+      "ordem":7,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"consultar_pedidos",
+            "nomeopcaovisivel":"consultar pedidos",
+            "seletorconteudo":"div.div_consultar_pedido",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/lista_pedidos.png",
+            "visivel":1,
+            "podemver":"TODOS",
+            "codnivelacessorequerido":9999,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\pedidos\\consultar_pedidos.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)01",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"alterar_pedidos",
+            "nomeopcaovisivel":"alterar pedidos",
+            "seletorconteudo":"div.div_alterar_pedido",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/pedidos.png",
+            "visivel":1,
+            "podemver":"142,3,13,2,6,1,95,566,20",
+            "codnivelacessorequerido":40,
+            "ordem":"__VALORCHAVESUP__(codops)01",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\pedidos\\alterar_pedidos.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)02",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"incluir_pedido",
+            "nomeopcaovisivel":"incluir pedido",
+            "seletorconteudo":"div.div_incluir_pedido",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/incluir_pedido.png",
+            "visivel":1,
+            "podemver":"TODOS",
+            "codnivelacessorequerido":100,
+            "codnivelacessoespecifico":100,
+            "ordem":"__VALORCHAVESUP__(codops)02",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\pedidos\\incluir_pedido.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)03",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"importacao_pedidos",
+            "nomeopcaovisivel":"importacao pedidos",
+            "seletorconteudo":"div.div_importacao_pedidos",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/incluir_pedido.png",
+            "visivel":1,
+            "codnivelacessorequerido":40,
+            "podemver":"TODOS",
+            "ordem":"__VALORCHAVESUP__(codops)03",
+            "arqrecursopreexistente":0,
+            "codsituacaoregistro":1,
+            "sub":[
+               {
+                  "codops":"__VALORCHAVESUP__(codops)00",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"validacoes_pedidos",
+                  "nomeopcaovisivel":"validacoes pedidos",
+                  "seletorconteudo":"div.div_validacoes_pedidos",
+                  "carregamentodinamico":1,
+                  "icone":"/__NOMEDIRSISJD__/images/incluir_pedido.png",
+                  "visivel":1,
+                  "codnivelacessorequerido":40,
+                  "podemver":"TODOS",
+                  "ordem":"__VALORCHAVESUP__(codops)00",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\pedidos\\validacoes_pedidos.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               }
+            ]
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)04",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"configuracoes_pedidos",
+            "nomeopcaovisivel":"configuracoes pedidos",
+            "seletorconteudo":"div.div_configuracoes_pedidos",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/incluir_pedido.png",
+            "visivel":1,
+            "codnivelacessorequerido":40,
+            "podemver":"TODOS",
+            "ordem":"__VALORCHAVESUP__(codops)04",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\pedidos\\configuracoes_pedidos.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   },
+   "faturamento":{
+      "codops":17,
+      "nomeops":"faturamento",
+      "nomeopcaovisivel":"faturamento",
+      "seletorconteudo":"div.div_faturamento",
+      "carregamentodinamico":1,
+      "icone":"/__NOMEDIRSISJD__/images/pessoa.png",
+      "visivel":1,
+      "codnivelacessorequerido":40,
+      "podemver":"TODOS",
+      "ordem":9,
+      "arqrecursopreexistente":0,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"devolucao",
+            "nomeopcaovisivel":"devolucao",
+            "seletorconteudo":"div.div_devolucao",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/devolucao.png",
+            "visivel":1,
+            "codnivelacessorequerido":40,
+            "podemver":"TODOS",
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "arqrecursopreexistente":0,
+            "codsituacaoregistro":1,
+            "sub":[
+               {
+                  "codops":"__VALORCHAVESUP__(codops)00",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"cadastro_codigos_devolucao",
+                  "nomeopcaovisivel":"cadastro codigos devolucao",
+                  "seletorconteudo":"div.div_cadastro_codigos_devolucao",
+                  "carregamentodinamico":1,
+                  "icone":"/__NOMEDIRSISJD__/images/devolucao.png",
+                  "visivel":1,
+                  "codnivelacessorequerido":40,
+                  "podemver":"TODOS",
+                  "ordem":"__VALORCHAVESUP__(codops)00",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\comercial\\vendas\\faturamento\\devolucao\\cadastro_codigos_devolucao.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               }
+            ]
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)01",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"vendas",
+            "nomeopcaovisivel":"vendas",
+            "seletorconteudo":"div.div_vendas",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/devolucao.png",
+            "visivel":1,
+            "codnivelacessorequerido":40,
+            "podemver":"TODOS",
+            "ordem":"__VALORCHAVESUP__(codops)01",
+            "arqrecursopreexistente":0,
+            "codsituacaoregistro":1,
+            "sub":[
+               {
+                  "codops":"__VALORCHAVESUP__(codops)00",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"majoracao_vendas_ccrca",
+                  "nomeopcaovisivel":"majoracao vendas cc rca",
+                  "seletorconteudo":"div.div_majorar_vendas_ccrca",
+                  "carregamentodinamico":1,
+                  "icone":"/__NOMEDIRSISJD__/images/devolucao.png",
+                  "visivel":1,
+                  "codnivelacessorequerido":40,
+                  "podemver":"TODOS",
+                  "ordem":"__VALORCHAVESUP__(codops)00",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\comercial\\vendas\\faturamento\\devolucao\\majoracao_vendas_ccrca.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)01",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"relatoio_majoracao_vendas_ccrca",
+                  "nomeopcaovisivel":"relatorio majoracao vendas cc rca",
+                  "seletorconteudo":"div.div_relatorio_majorarcao_vendas_ccrca",
+                  "carregamentodinamico":1,
+                  "icone":"/__NOMEDIRSISJD__/images/devolucao.png",
+                  "visivel":1,
+                  "codnivelacessorequerido":40,
+                  "podemver":"TODOS",
+                  "ordem":"__VALORCHAVESUP__(codops)01",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\comercial\\vendas\\faturamento\\devolucao\\relatoio_majoracao_vendas_ccrca.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)09",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"configuracoes_vendas",
+                  "nomeopcaovisivel":"configuracoes vendas",
+                  "seletorconteudo":"div.div_configuracoes_vendas",
+                  "carregamentodinamico":1,
+                  "icone":"/__NOMEDIRSISJD__/images/devolucao.png",
+                  "visivel":1,
+                  "codnivelacessorequerido":40,
+                  "podemver":"TODOS",
+                  "ordem":"__VALORCHAVESUP__(codops)09",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\comercial\\vendas\\configuracoes_vendas.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               }
+            ]
+         }
+      ]
+   },
+   "precificacao":{
+      "codops":18,
+      "nomeops":"precificacao",
+      "nomeopcaovisivel":"precificacao",
+      "seletorconteudo":"div.div_precificacao",
+      "carregamentodinamico":1,
+      "icone":"/__NOMEDIRSISJD__/images/pessoa.png",
+      "visivel":1,
+      "codnivelacessorequerido":40,
+      "podemver":"TODOS",
+      "ordem":10,
+      "arqrecursopreexistente":0,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"configuracoes_precificacao",
+            "nomeopcaovisivel":"configuracoes precificacao",
+            "seletorconteudo":"div.div_configuracoes_precificacao",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/pessoa.png",
+            "visivel":1,
+            "codnivelacessorequerido":40,
+            "podemver":"TODOS",
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\comercial\\vendas\\precificacao\\configuracoes_precificacao.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   },
+   "compras":{
+      "codops":20,
+      "nomeops":"compras",
+      "nomeopcaovisivel":"compras",
+      "seletorconteudo":"div.div_compras",
+      "carregamentodinamico":1,
+      "icone":"/__NOMEDIRSISJD__/images/pessoa.png",
+      "visivel":1,
+      "codnivelacessorequerido":40,
+      "podemver":"142,20,25,95",
+      "ordem":11,
+      "arqrecursopreexistente":0,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"configuracoes_compras",
+            "nomeopcaovisivel":"configuracoes compras",
+            "seletorconteudo":"div.div_configuracoes_compras",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/pessoa.png",
+            "visivel":1,
+            "codnivelacessorequerido":40,
+            "podemver":"142,20,25,95",
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\comercial\\compras\\configuracoes_compras.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)01",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"reltorios_precos_medios",
+            "nomeopcaovisivel":"configuracoes compras",
+            "seletorconteudo":"div.div_relatorios_precos_medios",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/pessoa.png",
+            "visivel":1,
+            "codnivelacessorequerido":40,
+            "podemver":"142,20,25,95",
+            "ordem":"__VALORCHAVESUP__(codops)01",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\comercial\\compras\\relatorio_precos_medios.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   },
+   "logistica":{
+       "codops":70,
+       "nomeops":"logistica",
+       "nomeopcaovisivel":"logistica",
+       "seletorconteudo":"div.div_logistica",
+       "carregamentodinamico":1,
+       "icone":"/__NOMEDIRSISJD__/images/pessoa.png",
+       "visivel":1,
+       "codnivelacessorequerido":20,
+       "podemver":"142,20,93",
+       "ordem":9,
+       "arqrecursopreexistente":0,
+       "codsituacaoregistro":1,
+       "sub":[
+           {
+               "codops":"__VALORCHAVESUP__(codops)00",
+               "codopssup":"__VALORCHAVESUP__(codops)",
+               "nomeops":"relatorios_logistica",
+               "nomeopcaovisivel":"relatorios",
+               "seletorconteudo":"div.div_relatorios_logistica",
+               "carregamentodinamico":1,
+               "icone":"/__NOMEDIRSISJD__/images/devolucao.png",
+               "visivel":1,
+               "codnivelacessorequerido":20,
+               "podemver":"142,20,93",
+               "ordem":"__VALORCHAVESUP__(codops)00",
+               "arqrecursopreexistente":0,
+               "codsituacaoregistro":1,
+               "sub":[
+                   {
+                       "codops":"__VALORCHAVESUP__(codops)00",
+                       "codopssup":"__VALORCHAVESUP__(codops)",
+                       "nomeops":"veiculo_reserva",
+                       "nomeopcaovisivel":"Veiculo Reserva",
+                       "seletorconteudo":"div.div_veiculo_reserva",
+                       "carregamentodinamico":1,
+                       "icone":"/__NOMEDIRSISJD__/images/devolucao.png",
+                       "visivel":1,
+                       "codnivelacessorequerido":20,
+                       "podemver":"142,20,93",
+                       "ordem":"__VALORCHAVESUP__(codops)00",
+                       "caminhorecurso":"__CAMINHOBASESJDREL__\\logistica\\relatorios_logistica\\veiculo_reserva.php",
+                       "arqrecursopreexistente":0,
+                       "bloco_use":"
+                           /*bloco de definicao de usos*/
+                           use SJD\\php\\classes\\funcoes\\{
+                              FuncoesErro,
+                              FuncoesIniciais,
+                              requisicao\\FuncoesBasicasRetorno			
+                           };
+                           use SJD\\php\\classes\\constantes\\{
+                              Constantes,
+                              Constantes as ConstantesSis,
+                              NomesDiretorios, 
+                              NomesDiretorios as NomesDiretoriosSis, 
+                              NomesCaminhosRelativos, 
+                              NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                           };
+                        ",
+                      "codsituacaoregistro":1
+                   },
+                   {
+                     "codops":"__VALORCHAVESUP__(codops)01",
+                     "codopssup":"__VALORCHAVESUP__(codops)",
+                     "nomeops":"entregas",
+                     "nomeopcaovisivel":"Entregas",
+                     "seletorconteudo":"div.div_entregas",
+                     "carregamentodinamico":1,
+                     "icone":"/__NOMEDIRSISJD__/images/devolucao.png",
+                     "visivel":1,
+                     "codnivelacessorequerido":20,
+                     "podemver":"142,20,93",
+                     "ordem":"__VALORCHAVESUP__(codops)01",
+                     "caminhorecurso":"__CAMINHOBASESJDREL__\\logistica\\relatorios_logistica\\entregas.php",
+                     "arqrecursopreexistente":0,
+                     "bloco_use":"
+                         /*bloco de definicao de usos*/
+                         use SJD\\php\\classes\\funcoes\\{
+                            FuncoesErro,
+                            FuncoesIniciais,
+                            requisicao\\FuncoesBasicasRetorno			
+                         };
+                         use SJD\\php\\classes\\constantes\\{
+                            Constantes,
+                            Constantes as ConstantesSis,
+                            NomesDiretorios, 
+                            NomesDiretorios as NomesDiretoriosSis, 
+                            NomesCaminhosRelativos, 
+                            NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                         };
+                      ",
+                    "codsituacaoregistro":1
+                 }
+               ]
+           }
+       ]
+   },   
+  "gestao":{
+     "codops":16,
+     "nomeops":"gestao",
+     "nomeopcaovisivel":"gestao",
+     "seletorconteudo":"div.div_gestao",
+     "carregamentodinamico":1,
+     "icone":"/__NOMEDIRSISJD__/images/gestao.png",
+     "visivel":1,
+     "codnivelacessorequerido":40,
+     "podemver":"20,142,1,151,251,3,573,130,95,13,2,6",
+     "ordem":9000,
+     "caminhorecurso":"__CAMINHOBASESJDREL__\\gestao\\gestao.php",
+     "arqrecursopreexistente":0,
+     "bloco_use":"
+         /*bloco de definicao de usos*/
+         use SJD\\php\\classes\\funcoes\\{
+            FuncoesErro,
+            FuncoesIniciais,
+            requisicao\\FuncoesBasicasRetorno			
+         };
+         use SJD\\php\\classes\\constantes\\{
+            Constantes,
+            Constantes as ConstantesSis,
+            NomesDiretorios, 
+            NomesDiretorios as NomesDiretoriosSis, 
+            NomesCaminhosRelativos, 
+            NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+         };
+      ",
+     "codsituacaoregistro":1
+  },
+  "downloads":{
+     "codops":9997,
+     "nomeops":"downloads",
+     "nomeopcaovisivel":"downloads",
+     "seletorconteudo":"div.div_downloads",
+     "carregamentodinamico":1,
+     "icone":"/__NOMEDIRSISJD__/images/download.png",
+     "visivel":1,
+     "podemver":"TODOS",
+     "codnivelacessorequerido":50,
+     "ordem":9997,
+     "caminhorecurso":"__CAMINHOBASESJDREL__\\downloads\\downloads.php",
+     "arqrecursopreexistente":0,
+     "bloco_use":"
+         /*bloco de definicao de usos*/
+         use SJD\\php\\classes\\funcoes\\{
+            FuncoesErro,
+            FuncoesIniciais,
+            requisicao\\FuncoesBasicasRetorno			
+         };
+         use SJD\\php\\classes\\constantes\\{
+            Constantes,
+            Constantes as ConstantesSis,
+            NomesDiretorios, 
+            NomesDiretorios as NomesDiretoriosSis, 
+            NomesCaminhosRelativos, 
+            NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+         };
+      ",
+     "codsituacaoregistro":1
+  },
+   "manutencao":{
+      "codops":10000,
+      "nomeops":"manutencao",
+      "nomeopcaovisivel":"manutencao",
+      "seletorconteudo":"div.div_manutencao",
+      "carregamentodinamico":1,
+      "visivel":1,
+      "codnivelacessorequerido":20,
+      "podemver":"20,142",
+      "ordem":10000,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"atualizacoes_sistema",
+            "nomeopcaovisivel":"atualizacoes sistema",
+            "seletorconteudo":"div.div_atualizacoes_sistema",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/config.png",
+            "visivel":1,
+            "podemver":"20,142",
+            "codnivelacessorequerido":20,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\manutencao\\atualizacoes_sistema.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+               ",
+            "codsituacaoregistro":1
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)01",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"editar_catalogos",
+            "nomeopcaovisivel":"editar catalogos",
+            "seletorconteudo":"div.div_editar_catalogos",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/config_doc.png",
+            "visivel":1,
+            "podemver":"20,142",
+            "codnivelacessorequerido":20,
+            "ordem":"__VALORCHAVESUP__(codops)01",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\manutencao\\editar_catalogos.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         },{
+            "codops":"__VALORCHAVESUP__(codops)02",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"atualizacoes_eventuais",
+            "nomeopcaovisivel":"atualizacoes_eventuais sistema",
+            "seletorconteudo":"div.atualizacoes_eventuais",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/config.png",
+            "visivel":1,
+            "podemver":"20,142",
+            "codnivelacessorequerido":20,
+            "ordem":"__VALORCHAVESUP__(codops)02",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\manutencao\\atualizacoes_eventuais.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   },
+   "recuperar_login":{
+      "codops":1900,
+      "nomeops":"recuperar_login",
+      "nomeopcaovisivel":"Recuperar Login",
+      "seletorconteudo":"div.div_recuperar_login",
+      "carregamentodinamico":1,
+      "visivel":0,
+      "podemver":"todos",
+      "codnivelacessorequerido":9999,
+      "ordem":1900,
+      "codsituacaoregistro":1
+   },
+   "cadastrarse":{
+      "codops":1901,
+      "nomeops":"cadastrarse",
+      "nomeopcaovisivel":"cadastrarse",
+      "seletorconteudo":"div.div_cadastrarse",
+      "carregamentodinamico":1,
+      "visivel":0,
+      "podemver":"todos",
+      "codnivelacessorequerido":9999,
+      "ordem":1901,
+      "codsituacaoregistro":1
+   },
+   "estoque":{
+      "codops":21,
+      "nomeops":"estoque",
+      "nomeopcaovisivel":"Estoque",
+      "seletorconteudo":"div.div_estoque",
+      "carregamentodinamico":1,
+      "icone":"/__NOMEDIRSISJD__/images/consultar_estoque.png",
+      "visivel":1,
+      "podemver":"TODOS",
+      "codnivelacessorequerido":9999,
+      "ordem":8,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"consultaestoque",
+            "nomeopcaovisivel":"Consulta Estoque",
+            "seletorconteudo":"div.div_consulta_estoque",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/consultar_estoque.png",
+            "visivel":1,
+            "podemver":"TODOS",
+            "codnivelacessorequerido":9999,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\estoque\\consultaestoque.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   },
+   "configuracoes":{
+      "codops":9999,
+      "nomeops":"configuracoes",
+      "nomeopcaovisivel":"Configuracoes",
+      "seletorconteudo":"div.div_configuracoes",
+      "carregamentodinamico":1,
+      "icone":"/__NOMEDIRSISJD__/images/configuracoes.png",
+      "visivel":1,
+      "podemver":"TODOS",
+      "codnivelacessorequerido":50,
+      "ordem":9999,
+      "codsituacaoregistro":1,
+      "sub":[
+         {
+            "codops":"__VALORCHAVESUP__(codops)00",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"configuracoes_banco_de_dados",
+            "nomeopcaovisivel":"Banco de Dados",
+            "seletorconteudo":"div.div_configuracoes_banco_de_dados",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/configuracoes.png",
+            "visivel":1,
+            "podemver":"20,142,130,530,6,1,2,3,4,5,13",
+            "codnivelacessorequerido":40,
+            "ordem":"__VALORCHAVESUP__(codops)00",
+            "codsituacaoregistro":1,
+            "sub":[
+               {
+                  "codops":"__VALORCHAVESUP__(codops)00",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"configuracoes_banco_de_dados_bancos",
+                  "nomeopcaovisivel":"Bancos de Dados",
+                  "seletorconteudo":"div.div_configuracoes_bancos_de_dados",
+                  "carregamentodinamico":1,
+                  "icone":"/__NOMEDIRSISJD__/images/configuracoes.png",
+                  "visivel":1,
+                  "podemver":"20,142,130,530,6,1,2,3,4,5,13",
+                  "codnivelacessorequerido":40,
+                  "ordem":"__VALORCHAVESUP__(codops)00",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\Configuracoes\\configuracoes_banco_de_dados\\configuracoes_banco_de_dados_bancos.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)01",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"configuracoes_db_usuariuosdb",
+                  "nomeopcaovisivel":"Usuarios DB",
+                  "seletorconteudo":"div.div_configuracoes_db_usuariuosdb",
+                  "carregamentodinamico":1,
+                  "icone":"/__NOMEDIRSISJD__/images/configuracoes.png",
+                  "visivel":1,
+                  "podemver":"20,142,130,530,6,1,2,3,4,5,13",
+                  "codnivelacessorequerido":40,
+                  "ordem":"__VALORCHAVESUP__(codops)01",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\Configuracoes\\configuracoes_banco_de_dados\\configuracoes_db_usuariuosdb.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)02",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"configuracoes_db_tabelassis",
+                  "nomeopcaovisivel":"Tabelas Sistema ",
+                  "seletorconteudo":"div.div_configuracoes_db_tabelassis",
+                  "carregamentodinamico":1,
+                  "icone":"/__NOMEDIRSISJD__/images/configuracoes.png",
+                  "visivel":1,
+                  "podemver":"20,142,130,530,6,1,2,3,4,5,13",
+                  "codnivelacessorequerido":40,
+                  "ordem":"__VALORCHAVESUP__(codops)02",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\Configuracoes\\configuracoes_banco_de_dados\\configuracoes_db_tabelassis.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)03",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"configuracoes_db_tabelasdb",
+                  "nomeopcaovisivel":"Tabelas DB ",
+                  "seletorconteudo":"div.div_configuracoes_db_tabelasdb",
+                  "carregamentodinamico":1,
+                  "icone":"/__NOMEDIRSISJD__/images/configuracoes.png",
+                  "visivel":1,
+                  "podemver":"20,142,130,530,6,1,2,3,4,5,13",
+                  "codnivelacessorequerido":40,
+                  "ordem":"__VALORCHAVESUP__(codops)03",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\Configuracoes\\configuracoes_banco_de_dados\\configuracoes_db_tabelasdb.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)04",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"configuracoes_visoes",
+                  "nomeopcaovisivel":"visoes",
+                  "seletorconteudo":"div.div_configuracoes_visoes",
+                  "carregamentodinamico":1,
+                  "icone":"/__NOMEDIRSISJD__/images/configuracoes.png",
+                  "visivel":1,
+                  "podemver":"20,142,130,530,6,1,2,3,4,5,13",
+                  "codnivelacessorequerido":40,
+                  "ordem":"__VALORCHAVESUP__(codops)04",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\Configuracoes\\configuracoes_banco_de_dados\\configuracoes_visoes.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)05",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"configuracoes_processos",
+                  "nomeopcaovisivel":"processos",
+                  "seletorconteudo":"div.div_configuracoes_processos",
+                  "carregamentodinamico":1,
+                  "icone":"/__NOMEDIRSISJD__/images/configuracoes.png",
+                  "visivel":1,
+                  "podemver":"20,142,130,530,6,1,2,3,4,5,13",
+                  "codnivelacessorequerido":40,
+                  "ordem":"__VALORCHAVESUP__(codops)05",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\Configuracoes\\configuracoes_banco_de_dados\\configuracoes_processos.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)06",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"configuracoes_relacionamentos",
+                  "nomeopcaovisivel":"relacionamentos",
+                  "seletorconteudo":"div.div_configuracoes_relacionamentos",
+                  "carregamentodinamico":1,
+                  "icone":"/__NOMEDIRSISJD__/images/configuracoes.png",
+                  "visivel":1,
+                  "podemver":"20,142,130,530,6,1,2,3,4,5,13",
+                  "codnivelacessorequerido":40,
+                  "ordem":"__VALORCHAVESUP__(codops)06",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\Configuracoes\\configuracoes_banco_de_dados\\configuracoes_relacionamentos.php",
+                  "arqrecursopreexistente":0,
+                  "bloco_use":"
+                     /*bloco de definicao de usos*/
+                     use SJD\\php\\classes\\funcoes\\{
+                        FuncoesErro,
+                        FuncoesIniciais,
+                        requisicao\\FuncoesBasicasRetorno			
+                     };
+                     use SJD\\php\\classes\\constantes\\{
+                        Constantes,
+                        Constantes as ConstantesSis,
+                        NomesDiretorios, 
+                        NomesDiretorios as NomesDiretoriosSis, 
+                        NomesCaminhosRelativos, 
+                        NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                     };
+                  ",
+                  "codsituacaoregistro":1
+               },
+               {
+                  "codops":"__VALORCHAVESUP__(codops)07",
+                  "codopssup":"__VALORCHAVESUP__(codops)",
+                  "nomeops":"configuracoes_ligacoes",
+                  "nomeopcaovisivel":"ligacoes",
+                  "seletorconteudo":"div.div_configuracoes_ligacoes",
+                  "carregamentodinamico":1,
+                  "icone":"/__NOMEDIRSISJD__/images/configuracoes.png",
+                  "visivel":1,
+                  "podemver":"20,142,130,530,6,1,2,3,4,5,13",
+                  "codnivelacessorequerido":40,
+                  "ordem":"__VALORCHAVESUP__(codops)07",
+                  "caminhorecurso":"__CAMINHOBASESJDREL__\\Configuracoes\\configuracoes_banco_de_dados\\configuracoes_ligacoes.php",
+                  "arqrecursopreexistente":0,
+                  "codsituacaoregistro":1,
+                  "sub":[
+                     {
+                        "codops":"__VALORCHAVESUP__(codops)00",
+                        "codopssup":"__VALORCHAVESUP__(codops)",
+                        "nomeops":"configuracoes_ligacoes_tabelasis",
+                        "nomeopcaovisivel":"ligacoes tabela sistema",
+                        "seletorconteudo":"div.div_configuracoes_ligacoes_tabelasis",
+                        "carregamentodinamico":1,
+                        "icone":"/__NOMEDIRSISJD__/images/configuracoes.png",
+                        "visivel":1,
+                        "podemver":"20,142,130,530,6,1,2,3,4,5,13",
+                        "codnivelacessorequerido":40,
+                        "ordem":"__VALORCHAVESUP__(codops)00",
+                        "caminhorecurso":"__CAMINHOBASESJDREL__\\Configuracoes\\configuracoes_banco_de_dados\\configuracoes_ligacoes_tabelasis.php",
+                        "arqrecursopreexistente":0,
+                        "bloco_use":"
+                           /*bloco de definicao de usos*/
+                           use SJD\\php\\classes\\funcoes\\{
+                              FuncoesErro,
+                              FuncoesIniciais,
+                              requisicao\\FuncoesBasicasRetorno			
+                           };
+                           use SJD\\php\\classes\\constantes\\{
+                              Constantes,
+                              Constantes as ConstantesSis,
+                              NomesDiretorios, 
+                              NomesDiretorios as NomesDiretoriosSis, 
+                              NomesCaminhosRelativos, 
+                              NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                           };
+                        ",
+                        "codsituacaoregistro":1
+                     },
+                     {
+                        "codops":"__VALORCHAVESUP__(codops)01",
+                        "codopssup":"__VALORCHAVESUP__(codops)",
+                        "nomeops":"configuracoes_ligacoes_camposis",
+                        "nomeopcaovisivel":"ligacoes campo sistema",
+                        "seletorconteudo":"div.div_configuracoes_ligacoes_camposis",
+                        "carregamentodinamico":1,
+                        "icone":"/__NOMEDIRSISJD__/images/configuracoes.png",
+                        "visivel":1,
+                        "podemver":"20,142,130,530,6,1,2,3,4,5,13",
+                        "codnivelacessorequerido":40,
+                        "ordem":"__VALORCHAVESUP__(codops)01",
+                        "caminhorecurso":"__CAMINHOBASESJDREL__\\Configuracoes\\configuracoes_banco_de_dados\\configuracoes_ligacoes_camposis.php",
+                        "arqrecursopreexistente":0,
+                        "bloco_use":"
+                           /*bloco de definicao de usos*/
+                           use SJD\\php\\classes\\funcoes\\{
+                              FuncoesErro,
+                              FuncoesIniciais,
+                              requisicao\\FuncoesBasicasRetorno			
+                           };
+                           use SJD\\php\\classes\\constantes\\{
+                              Constantes,
+                              Constantes as ConstantesSis,
+                              NomesDiretorios, 
+                              NomesDiretorios as NomesDiretoriosSis, 
+                              NomesCaminhosRelativos, 
+                              NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                           };
+                        ",
+                        "codsituacaoregistro":1
+                     },
+                     {
+                        "codops":"__VALORCHAVESUP__(codops)02",
+                        "codopssup":"__VALORCHAVESUP__(codops)",
+                        "nomeops":"configuracoes_ligacoes_tabeladb",
+                        "nomeopcaovisivel":"ligacoes tabela db",
+                        "seletorconteudo":"div.div_configuracoes_ligacoes_tabeladb",
+                        "carregamentodinamico":1,
+                        "icone":"/__NOMEDIRSISJD__/images/configuracoes.png",
+                        "visivel":1,
+                        "podemver":"20,142,130,530,6,1,2,3,4,5,13",
+                        "codnivelacessorequerido":40,
+                        "ordem":"__VALORCHAVESUP__(codops)02",
+                        "caminhorecurso":"__CAMINHOBASESJDREL__\\Configuracoes\\configuracoes_banco_de_dados\\configuracoes_ligacoes_tabeladb.php",
+                        "arqrecursopreexistente":0,
+                        "bloco_use":"
+                           /*bloco de definicao de usos*/
+                           use SJD\\php\\classes\\funcoes\\{
+                              FuncoesErro,
+                              FuncoesIniciais,
+                              requisicao\\FuncoesBasicasRetorno			
+                           };
+                           use SJD\\php\\classes\\constantes\\{
+                              Constantes,
+                              Constantes as ConstantesSis,
+                              NomesDiretorios, 
+                              NomesDiretorios as NomesDiretoriosSis, 
+                              NomesCaminhosRelativos, 
+                              NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                           };
+                        ",
+                        "codsituacaoregistro":1
+                     },
+                     {
+                        "codops":"__VALORCHAVESUP__(codops)03",
+                        "codopssup":"__VALORCHAVESUP__(codops)",
+                        "nomeops":"configuracoes_ligacoes_campodb",
+                        "nomeopcaovisivel":"ligacoes campo db",
+                        "seletorconteudo":"div.div_configuracoes_ligacoes_campodb",
+                        "carregamentodinamico":1,
+                        "icone":"/__NOMEDIRSISJD__/images/configuracoes.png",
+                        "visivel":1,
+                        "podemver":"20,142,130,530,6,1,2,3,4,5,13",
+                        "codnivelacessorequerido":40,
+                        "ordem":"__VALORCHAVESUP__(codops)03",
+                        "caminhorecurso":"__CAMINHOBASESJDREL__\\Configuracoes\\configuracoes_banco_de_dados\\configuracoes_ligacoes_campodb.php",
+                        "arqrecursopreexistente":0,
+                        "bloco_use":"
+                           /*bloco de definicao de usos*/
+                           use SJD\\php\\classes\\funcoes\\{
+                              FuncoesErro,
+                              FuncoesIniciais,
+                              requisicao\\FuncoesBasicasRetorno			
+                           };
+                           use SJD\\php\\classes\\constantes\\{
+                              Constantes,
+                              Constantes as ConstantesSis,
+                              NomesDiretorios, 
+                              NomesDiretorios as NomesDiretoriosSis, 
+                              NomesCaminhosRelativos, 
+                              NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                           };
+                        ",
+                        "codsituacaoregistro":1
+                     },
+                     {
+                        "codops":"__VALORCHAVESUP__(codops)04",
+                        "codopssup":"__VALORCHAVESUP__(codops)",
+                        "nomeops":"configuracoes_ligacoes_relacionamentos",
+                        "nomeopcaovisivel":"ligacoes relacionamentos",
+                        "seletorconteudo":"div.div_configuracoes_ligacoes_relacionamentos",
+                        "carregamentodinamico":1,
+                        "icone":"/__NOMEDIRSISJD__/images/configuracoes.png",
+                        "visivel":1,
+                        "podemver":"20,142,130,530,6,1,2,3,4,5,13",
+                        "codnivelacessorequerido":40,
+                        "ordem":"__VALORCHAVESUP__(codops)04",
+                        "caminhorecurso":"__CAMINHOBASESJDREL__\\Configuracoes\\configuracoes_banco_de_dados\\configuracoes_ligacoes_relacionamentos.php",
+                        "arqrecursopreexistente":0,
+                        "bloco_use":"
+                           /*bloco de definicao de usos*/
+                           use SJD\\php\\classes\\funcoes\\{
+                              FuncoesErro,
+                              FuncoesIniciais,
+                              requisicao\\FuncoesBasicasRetorno			
+                           };
+                           use SJD\\php\\classes\\constantes\\{
+                              Constantes,
+                              Constantes as ConstantesSis,
+                              NomesDiretorios, 
+                              NomesDiretorios as NomesDiretoriosSis, 
+                              NomesCaminhosRelativos, 
+                              NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+                           };
+                        ",
+                        "codsituacaoregistro":1
+                     }
+                  ]
+               }
+            ]
+         },
+         {
+            "codops":"__VALORCHAVESUP__(codops)01",
+            "codopssup":"__VALORCHAVESUP__(codops)",
+            "nomeops":"meus_dados",
+            "nomeopcaovisivel":"meus dados",
+            "seletorconteudo":"div.meus_dados",
+            "carregamentodinamico":1,
+            "icone":"/__NOMEDIRSISJD__/images/configuracoes.png",
+            "visivel":1,
+            "podemver":"TODOS",
+            "ordem":"__VALORCHAVESUP__(codops)01",
+            "codnivelacessorequerido":9999,
+            "caminhorecurso":"__CAMINHOBASESJDREL__\\Configuracoes\\meus_dados.php",
+            "arqrecursopreexistente":0,
+            "bloco_use":"
+               /*bloco de definicao de usos*/
+               use SJD\\php\\classes\\funcoes\\{
+                  FuncoesErro,
+                  FuncoesIniciais,
+                  requisicao\\FuncoesBasicasRetorno			
+               };
+               use SJD\\php\\classes\\constantes\\{
+                  Constantes,
+                  Constantes as ConstantesSis,
+                  NomesDiretorios, 
+                  NomesDiretorios as NomesDiretoriosSis, 
+                  NomesCaminhosRelativos, 
+                  NomesCaminhosRelativos as NomesCaminhosRelativosSis			
+               };
+            ",
+            "codsituacaoregistro":1
+         }
+      ]
+   }
+}

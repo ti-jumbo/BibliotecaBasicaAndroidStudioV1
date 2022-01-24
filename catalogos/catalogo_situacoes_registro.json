@@ -1,0 +1,13 @@
+{
+    "dados_cat":{
+	    "versao":1
+    },
+	"0":{
+		"codsituacaoregistro":0,
+        "situacaoregistro":"inativo"
+	},
+	"1":{
+		"codsituacaoregistro":1,
+        "situacaoregistro":"ativo"
+	}
+}

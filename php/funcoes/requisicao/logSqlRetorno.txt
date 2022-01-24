@@ -1,0 +1,136 @@
+
+				WITH transmitidos AS (
+					SELECT
+						c.codfilial,
+						i.codprod,
+						SUM(nvl(i.qt, 0)) AS qt
+					FROM
+						jumbo.pcpedcfv   c
+						JOIN jumbo.pcpedifv   i ON ( i.numpedrca = c.numpedrca )
+					WHERE
+						c.importado = 1
+					GROUP BY
+						c.codfilial,
+						i.codprod
+				), estaur AS (
+					SELECT
+						sjdestoque_origem.codfilialorigem   AS "filial",
+						sjdestoque_origem.codprodorigem     AS "codprod",
+						nvl(p.descricao, sjdproduto_origem.descricao) AS "descricao",
+						nvl(nvl(p.unidade, sjdunidades_origem.unidade), 'kg') AS "un",
+						0 AS "qtde jumbo",
+						0 AS "reservado",
+						0 AS "pendente",
+						0 AS "transmitido",
+						0 AS "disponivel jumbo",
+						0 AS "previsao disp jumbo",
+						nvl(sjdestoque_origem.qtfisicodisponivel, 0) AS "disponivel aurora",
+						nvl(sjdestoque_origem.qtfisicodisponivel, 0) AS "disponivel total",
+						nvl(sjdestoque_origem.qtfisicodisponivel, 0) AS "previsao disp total",
+						1 AS "aurora"
+					FROM
+						sjdestoque_origem
+						LEFT OUTER JOIN sjdproduto_origem   sjdproduto_origem ON ( sjdestoque_origem.codprodorigem = sjdproduto_origem.codprod_na_origem )
+						LEFT OUTER JOIN sjdunidades_origem on (sjdunidades_origem.codunidade = sjdproduto_origem.codunidadeorigem)
+						LEFT OUTER JOIN jumbo.pcprodut                p ON ( p.codprod = sjdestoque_origem.codprodorigem )
+					WHERE
+						nvl(sjdestoque_origem.qtfisicodisponivel, 0) > 0
+				), estjum AS (
+					SELECT
+						e.codfilial          AS "filial",
+						e.codprod            AS "codprod",
+						pcprodut.descricao   AS "descricao",
+						pcprodut.unidade     AS "un",
+						nvl(e.qtestger, 0) - ( nvl(e.qtbloqueada, 0) + nvl(e.estmin, 0) ) AS "qtde jumbo",
+						nvl(e.qtreserv, 0) AS "reservado",
+						nvl(e.qtpendente, 0) AS "pendente",
+						nvl(t.qt, 0) AS "transmitido",
+						nvl(e.qtestger, 0) - ( nvl(e.qtbloqueada, 0) + nvl(e.estmin, 0) + nvl(e.qtreserv, 0) ) AS "disponivel jumbo",
+						nvl(e.qtestger, 0) - ( nvl(e.qtbloqueada, 0) + nvl(e.estmin, 0) + nvl(e.qtreserv, 0) + nvl(e.qtpendente, 0) + nvl(t.qt, 0) ) AS "previsao disp jumbo",
+						nvl(ea."disponivel aurora", 0) AS "disponivel aurora",
+						(nvl(e.qtestger, 0) - ( nvl(e.qtbloqueada, 0) + nvl(e.estmin, 0) + nvl(e.qtreserv, 0) )) + nvl(ea."disponivel aurora", 0) AS "disponivel total",
+						(nvl(e.qtestger, 0) - ( nvl(e.qtbloqueada, 0) + nvl(e.estmin, 0) + nvl(e.qtreserv, 0) + nvl(e.qtpendente, 0) + nvl(t.qt, 0) )) + nvl(ea."disponivel aurora", 0) AS "previsao disp total",
+						(
+							CASE
+								WHEN nvl(f.fornecedor, '') LIKE '%AUROR%' THEN
+									1
+								ELSE
+									0
+							END
+						) AS "aurora"
+					FROM
+						jumbo.pcest      e
+						JOIN jumbo.pcprodut   pcprodut ON ( e.codprod = pcprodut.codprod )
+						LEFT OUTER JOIN jumbo.pcfornec   f ON ( f.codfornec = pcprodut.codfornec )
+						LEFT OUTER JOIN transmitidos     t ON ( t.codfilial = e.codfilial
+															AND t.codprod = e.codprod )
+						left outer join estaur ea on (ea."filial" = e.codfilial and ea."codprod" = e.codprod)
+					WHERE
+						nvl(lower(TRIM(pcprodut.revenda)), 'x') = ( lower('S') )
+						AND pcprodut.dtexclusao IS NULL
+						AND lower(nvl(pcprodut.obs2, 'x')) <> lower('FL')
+				)
+				, estjuntos AS (
+					SELECT
+						to_number(ej."filial") AS "filial",
+						ej."codprod",
+						ej."descricao",
+						ej."un",
+						ej."qtde jumbo",
+						ej."reservado",
+						ej."pendente",
+						ej."transmitido" AS "transmitido",
+						ej."disponivel jumbo",
+						ej."previsao disp jumbo",
+						ej."disponivel aurora",
+						ej."disponivel total",
+						ej."previsao disp total",
+						ej."aurora"
+					FROM
+						estjum ej
+					UNION ALL
+					SELECT
+						ea."filial",
+						ea."codprod",
+						ea."descricao",
+						ea."un",
+						ea."qtde jumbo",
+						ea."reservado",
+						ea."pendente",
+						ea."transmitido" AS "transmitido",
+						ea."disponivel jumbo",
+						ea."previsao disp jumbo",
+						ea."disponivel aurora",
+						ea."disponivel total",
+						ea."previsao disp total",
+						ea."aurora"
+					FROM
+						estaur ea
+					where
+						not exists (select 1 from estjum ej where ej."filial" = ea."filial" and ej."codprod" = ea."codprod")
+				)
+				SELECT
+					ej."filial",
+					ej."codprod",
+					nvl(ej."descricao", 'sem descricao') AS "descricao",
+					nvl(ej."un", 'kg') AS "un",
+					nvl(ej."qtde jumbo", 0) AS "qtde jumbo",
+					nvl(ej."reservado", 0) AS "reservado",
+					nvl(ej."pendente", 0) AS "pendente",
+					nvl(ej."transmitido", 0) AS "transmitido",
+					nvl(ej."disponivel jumbo", 0) AS "disponivel jumbo",
+					nvl(ej."previsao disp jumbo", 0) AS "previsao disp jumbo",
+					nvl(ej."disponivel aurora", 0) AS "disponivel aurora",
+					nvl(ej."disponivel total", 0) AS "disponivel total",
+					nvl(ej."previsao disp total", 0) AS "previsao disp total",
+					nvl(ej."aurora", 0) AS "aurora"
+				FROM
+					estjuntos ej
+				WHERE				
+					 1=1 
+					
+					and
+						(nvl(ej."qtde jumbo",0) != 0 or nvl(ej."disponivel aurora",0) !=0)
+					and nvl(ej."previsao disp total",0) != 0
+				order by 1,2	
+			

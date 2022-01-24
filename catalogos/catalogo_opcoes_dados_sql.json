@@ -1,0 +1,820 @@
+{
+	"dados_cat":{
+		"versao":1,
+	   "codsituacaoregistro":1
+	},
+	"opcoes_campanhas":{
+		"codprocesso":4010,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"campestr\";
+			$opcoes[\"subregistros\"][\"ativo\"] = true;
+			$opcoes[\"subregistros\"][\"campo_subregistro\"] = \"CODCAMPESTR\";
+			$opcoes[\"subregistros\"][\"campo_subregistro_pai\"] = \"CODCAMPESTRSUP\";
+			$opcoes[\"subregistros\"][\"aoabrir\"] = \"window.fnhtml.fntabdados.pesquisar_sub_registro(this)\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"linha\";
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_botoes\"] = \"pequeno\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_imgs\"] = \"pequeno\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"copiar\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this,ignorar_condicionantes_tab:true})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"copiar\"][\"aocopiar\"] = \"window.fnsisjd.copiar_campanha({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"aoclicar\"] = \"window.fnsisjd.carregar_dados_campanha_alterar({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;						
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_objetivos_campanhas":{
+		"codprocesso":4020,
+		"opcoes":"
+			$opcoes=\\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tipoelemento\"] = \"tabela_est\";
+			$opcoes[\"tabeladb\"] = \"sjdobjetcampestr\";
+			$opcoes[\"subregistros\"][\"ativo\"]=false;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"]=true;		
+			$opcoes[\"aoincluirregistro\"] = \"window.fnsisjd.preencher_dados_padrao_novo_objetivo_geral({elemento:this})\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"exportacao\"][\"ativo\"]=true;					
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_botoes\"] = \"pequeno\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_imgs\"] = \"pequeno\";			
+			$opcoes[\"corpo\"][\"ativo\"]=true;					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"]=true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"]=true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"]=true;			
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";							
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"aposabriredicaolinha\"] = \"window.fnsisjd.preencher_dados_padrao_linha_objetivos_campanha({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"aposabriredicaocelula\"] = \"window.fnsisjd.preencher_dados_padrao_celula_objetivos_campanha({elemento:this})\";
+			$opcoes[\"rodape\"][\"ativo\"]=false;					
+			$opcoes[\"campos_visiveis\"]=[\"todos\"];					
+			$opcoes[\"campos_ocultos\"]=[];					
+			$opcoes[\"campos_chaves_primaria\"]=[];
+			$opcoes[\"campos_chaves_unica\"]=[];			
+			$opcoes[\"campos_ordenacao\"]=[\"todos\"];					
+			$opcoes[\"campos_filtro\"]=[\"todos\"];		
+			$opcoes[\"corpo\"][\"classe_sub_elementos_colunas\"][3] = \"componente_data\";
+			$opcoes[\"corpo\"][\"classe_sub_elementos_colunas\"][4] = \"componente_data\";
+			$opcoes[\"mantercombobox\"] = false;
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_campanhas_linha_alterar":{
+		"codprocesso":4400,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"campestr\";
+			$opcoes[\"subregistros\"][\"ativo\"] = false;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = false;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=false;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=false;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = false;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnsisjd.salvar_edicao_linha_campanha({elemento:this})\";
+			$opcoes[\"rodape\"][\"ativo\"] = false;	
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"aposabriredicaolinha\"] = \"window.fnsisjd.preencher_dados_padrao_linha_campanha({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"aposabriredicaocelula\"] = \"window.fnsisjd.preencher_dados_padrao_celula_campanha({elemento:this})\";
+			$opcoes[\"mantercombobox\"] = false;
+			$opcoes[\"corpo\"][\"classe_sub_elementos_colunas\"][4] = \"componente_data\";
+			$opcoes[\"corpo\"][\"classe_sub_elementos_colunas\"][5] = \"componente_data\";		
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_campanhas_condicionantes":{
+		"codprocesso":4410,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_comboboxes_condicionante;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"campestr\";
+			$opcoes[\"fetch\"] = \"fetchColumn\";
+			$opcoes[\"numcol\"] = 1;			
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_consulta_campanhas_condicionantes":{
+		"codprocesso":4310,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_comboboxes_condicionante;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"campestr\";
+			$opcoes[\"permite_incluir\"] = false;
+			$opcoes[\"permite_excluir\"] = false;
+			$opcoes[\"permite_selecionar\"] = false;
+			$opcoes[\"permite_selecao\"] = false;
+			$opcoes[\"fetch\"] = \"fetchColumn\";
+			$opcoes[\"numcol\"] = 1;			
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_consultar_campanhas_estruturadas":{
+		"codprocesso":4000,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"campestr\";
+			$opcoes[\"subregistros\"][\"ativo\"] = true;
+			$opcoes[\"subregistros\"][\"campo_subregistro\"] = \"CODCAMPESTR\";
+			$opcoes[\"subregistros\"][\"campo_subregistro_pai\"] = \"CODCAMPESTRSUP\";
+			$opcoes[\"subregistros\"][\"aoabrir\"] = \"window.fnhtml.fntabdados.pesquisar_sub_registro(this)\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = false;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_botoes\"] = \"pequeno\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_imgs\"] = \"pequeno\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = false;
+			$opcoes[\"corpo\"][\"linhas\"][\"aoclicar\"] = \"window.fnsisjd.carregar_dados_campanha_consultar(this)\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"usar_arr_tit\"] = true;
+			$opcoes[\"rodape\"][\"ativo\"] = false;						
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_consultar_campanhas_estruturadas_objetivos":{
+		"codprocesso":41,
+		"opcoes":"
+			$opcoes=\\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tipoelemento\"] = \"tabela_est\";
+			$opcoes[\"tabeladb\"] = \"sjdobjetcampestr\";
+			$opcoes[\"subregistros\"][\"ativo\"]=false;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"exportacao\"][\"ativo\"]=true;					
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_botoes\"] = \"pequeno\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_imgs\"] = \"pequeno\";	
+			$opcoes[\"corpo\"][\"ativo\"]=true;					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"]=false;
+			$opcoes[\"rodape\"][\"ativo\"]=true;					
+			$opcoes[\"campos_visiveis\"]=[\"todos\"];					
+			$opcoes[\"campos_ocultos\"]=[];
+			$opcoes[\"campos_chaves_primaria\"]=[];
+			$opcoes[\"campos_chaves_unica\"]=[];					
+			$opcoes[\"campos_ordenacao\"]=[\"todos\"];					
+			$opcoes[\"campos_filtro\"]=[\"todos\"];							
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_consultar_campanhas_estruturadas_dados":{
+		"codprocesso":4200,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"campestr\";
+			$opcoes[\"subregistros\"][\"ativo\"] = false;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = false;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=false;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=false;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;						
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_objetivos_especificos_campanhas":{
+		"codprocesso":4420,
+		"opcoes":"
+			$opcoes=\\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tipoelemento\"] = \"tabela_est\";
+			$opcoes[\"tabeladb\"] = \"sjdobjetespeccampestr\";
+			$opcoes[\"subregistros\"][\"ativo\"]=false;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"]=true;					
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"especifico\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"funcao_inclusao\"] = \"window.fnsisjd.incluir_registro_objet_especif(this)\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"exportacao\"][\"ativo\"]=true;					
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_botoes\"] = \"pequeno\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_imgs\"] = \"pequeno\";
+			$opcoes[\"corpo\"][\"ativo\"]=true;					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"]=true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"]=true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"]=true;			
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";							
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"aposabriredicaolinha\"] = \"window.fnsisjd.preencher_dados_padrao_linha_objetivos_espec_campanha(this)\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"aposabriredicaocelula\"] = \"window.fnsisjd.preencher_dados_padrao_celula_objetivos_espec_campanha(this)\";
+			$opcoes[\"rodape\"][\"ativo\"]=false;					
+			$opcoes[\"campos_visiveis\"]=[\"todos\"];					
+			$opcoes[\"campos_ocultos\"]=[];
+			$opcoes[\"campos_chaves_primaria\"]=[];
+			$opcoes[\"campos_chaves_unica\"]=[];					
+			$opcoes[\"campos_ordenacao\"]=[\"todos\"];					
+			$opcoes[\"campos_filtro\"]=[\"todos\"];	
+			$opcoes[\"corpo\"][\"classe_sub_elementos_colunas\"][3] = \"componente_data\";
+			$opcoes[\"corpo\"][\"classe_sub_elementos_colunas\"][4] = \"componente_data\";
+			$opcoes[\"mantercombobox\"]=false;
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_lista_codigos_devolucoes":{
+		"codprocesso":10800,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"coddevol\";
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"ocultarcolunas\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;
+			$opcoes[\"campos_chaves_primaria\"]=[\"CODDEVOL\"];
+			$opcoes[\"campos_chaves_unica\"] = [];
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_lista_majorar_ccrca":{
+		"codprocesso":10900,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"usar_arr_tit\"] = true;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"majorarccrca\";
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"ocultarcolunas\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"linha\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;					
+			$opcoes[\"campos_chaves_primaria\"]=[\"CODREG\"];
+			$opcoes[\"campos_chaves_unica\"] = [];
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_lista_visoes":{
+		"codprocesso":8,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"visoes\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;					
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_lista_processos":{
+		"codprocesso":9,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"processo\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;					
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_lista_bancos_dados":{
+		"codprocesso":0,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"db\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;					
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_lista_usuariosdb":{
+		"codprocesso":1,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"usuariodb\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;					
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_lista_tabelassis":{
+		"codprocesso":2,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"tabelasis\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_botoes\"] = \"pequeno\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_imgs\"] = \"pequeno\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"copiar\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"aoclicar\"] = \"window.fnsisjd.carregar_dados_tabelasis(this)\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;			
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_tabelasis_linha":{
+		"codprocesso":3,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"tabelasis\";
+			$opcoes[\"subregistros\"][\"ativo\"] = false;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = false;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=false;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=false;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = false;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"rodape\"][\"ativo\"] = false;	
+			$opcoes[\"mantercombobox\"] = false;
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_camposis":{
+		"codprocesso":4,
+		"opcoes":"
+			$opcoes=\\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tipoelemento\"] = \"tabela_est\";
+			$opcoes[\"tabeladb\"] = \"sjdcamposis\";
+			$opcoes[\"subregistros\"][\"ativo\"]=false;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"]=true;		
+			$opcoes[\"cabecalho\"][\"comandos\"][\"exportacao\"][\"ativo\"]=true;					
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_botoes\"] = \"pequeno\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_imgs\"] = \"pequeno\";
+			$opcoes[\"corpo\"][\"ativo\"]=true;					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"]=true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"]=true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"]=true;			
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";							
+			$opcoes[\"rodape\"][\"ativo\"]=false;					
+			$opcoes[\"mantercombobox\"] = false;
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_lista_tabelasdb":{
+		"codprocesso":5,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"tabeladb\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_botoes\"] = \"pequeno\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_imgs\"] = \"pequeno\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"copiar\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"aoclicar\"] = \"window.fnsisjd.carregar_dados_tabeladb(this)\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;			
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_tabeladb_linha":{
+		"codprocesso":6,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"tabeladb\";
+			$opcoes[\"subregistros\"][\"ativo\"] = false;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = false;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=false;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=false;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = false;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"rodape\"][\"ativo\"] = false;	
+			$opcoes[\"mantercombobox\"] = false;
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_campodb":{
+		"codprocesso":7,
+		"opcoes":"
+			$opcoes=\\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tipoelemento\"] = \"tabela_est\";
+			$opcoes[\"tabeladb\"] = \"sjdcampodb\";
+			$opcoes[\"subregistros\"][\"ativo\"]=false;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"]=true;		
+			$opcoes[\"cabecalho\"][\"comandos\"][\"exportacao\"][\"ativo\"]=true;					
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_botoes\"] = \"pequeno\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_imgs\"] = \"pequeno\";
+			$opcoes[\"corpo\"][\"ativo\"]=true;					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"]=true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"]=true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"]=true;			
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";							
+			$opcoes[\"rodape\"][\"ativo\"]=false;					
+			$opcoes[\"mantercombobox\"] = false;
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_lista_relacionamentos":{
+		"codprocesso":10,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"relacionamentos\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"] = true;				
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;					
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_lista_ligacoes_tabelasis":{
+		"codprocesso":11,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"ligtabelasis\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"] = true;				
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;					
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_lista_ligacoes_camposis":{
+		"codprocesso":12,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"ligcamposis\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"] = true;				
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;					
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_lista_ligacoes_tabeladb":{
+		"codprocesso":13,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"ligtabeladb\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"] = true;				
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;					
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_lista_ligacoes_campodb":{
+		"codprocesso":14,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"ligcampodb\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"] = true;				
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;					
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_lista_ligacoes_relacionamentos":{
+		"codprocesso":15,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"ligrelacionamentos\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"] = true;		
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_validacoes_pedidos":{
+		"codprocesso":4600,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"validacoespeds\";
+			$opcoes[\"subregistros\"][\"ativo\"] = false;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"linha\";
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_botoes\"] = \"pequeno\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_imgs\"] = \"pequeno\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"copiar\"][\"ativo\"] = false;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"aoclicar\"] = \"window.fnsisjd.carregar_dados_validacoes_peds_alterar(this)\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;						
+		",
+	   "codsituacaoregistro":1
+	},
+	"opcoes_itens_validacoes_pedidos":{
+		"codprocesso":4601,
+		"opcoes":"
+			$opcoes=\\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tipoelemento\"] = \"tabela_est\";
+			$opcoes[\"tabeladb\"] = \"sjditensvalidacoespeds\";
+			$opcoes[\"subregistros\"][\"ativo\"]=false;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"]=true;		
+			$opcoes[\"cabecalho\"][\"comandos\"][\"exportacao\"][\"ativo\"]=true;					
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_botoes\"] = \"pequeno\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_imgs\"] = \"pequeno\";
+			$opcoes[\"corpo\"][\"ativo\"]=true;					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"]=true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"]=true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"]=true;			
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";							
+			$opcoes[\"rodape\"][\"ativo\"]=false;					
+			$opcoes[\"campos_visiveis\"]=[\"todos\"];					
+			$opcoes[\"campos_ocultos\"]=[];
+			$opcoes[\"campos_chaves_primaria\"] = [];
+			$opcoes[\"campos_chaves_unica\"]=[];					
+			$opcoes[\"campos_ordenacao\"]=[\"todos\"];					
+			$opcoes[\"campos_filtro\"]=[\"todos\"];		
+			$opcoes[\"mantercombobox\"] = false;
+		",
+	   "codsituacaoregistro":1
+	},
+	"configuracoes_precificacao":{
+		"codprocesso":6000,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"configprecif\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;					
+		",
+	   "codsituacaoregistro":1
+	},
+	"configuracoes_param_pedidos":{
+		"codprocesso":6001,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"param\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = false;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_botoes\"] = \"pequeno\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_imgs\"] = \"pequeno\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"campos_chaves_primaria\"]=[\"CODPARAM\"];
+			$opcoes[\"rodape\"][\"ativo\"] = false;					
+		",
+	   "codsituacaoregistro":1
+	},
+	"configuracoes_compras":{
+		"codprocesso":6003,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"param\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = false;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;					
+		",
+	   "codsituacaoregistro":1
+	},
+	"configuracoes_vendas":{
+		"codprocesso":6004,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"param\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"tipo\"] = \"modal\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = false;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"marcarmultiplo\"] = false;
+			$opcoes[\"rodape\"][\"ativo\"] = false;					
+		",
+	   "codsituacaoregistro":1
+	},
+	"grupos_produtos_linha_alterar":{
+		"codprocesso":10251,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"gruposprodequiv\";
+			$opcoes[\"subregistros\"][\"ativo\"] = false;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = false;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=false;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=false;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = false;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"rodape\"][\"ativo\"] = false;	
+			$opcoes[\"mantercombobox\"] = false;
+		",
+	   "codsituacaoregistro":1
+	},
+	"iten_rating_foco_alterar":{
+		"codprocesso":4503,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"itensrating\";
+			$opcoes[\"subregistros\"][\"ativo\"] = false;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"] = false;
+			$opcoes[\"cabecalho\"][\"filtro\"][\"ativo\"]=false;
+			$opcoes[\"cabecalho\"][\"ordenacao\"][\"ativo\"]=false;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"] = true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"] = false;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"aposabriredicaolinha\"] = \"window.fnsisjd.preencher_dados_padrao_linha_itemrating(this)\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"aposabriredicaocelula\"] = \"preencher_dados_padrao_celula_itemrating(this)\";
+			$opcoes[\"mantercombobox\"] = false;	
+			$opcoes[\"rodape\"][\"ativo\"] = false;	
+		",
+	   "codsituacaoregistro":1
+	},
+	"componentes_iten_rating_foco_alterar":{
+		"codprocesso":4501,
+		"opcoes":"
+			$opcoes=\\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_tabela_est;
+			$opcoes[\"tabeladb\"]=\"sjdcompitemrating\";
+			$opcoes[\"cabecalho\"][\"ativo\"] = true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"inclusao\"][\"ativo\"]=true;
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_botoes\"] = \"pequeno\";
+			$opcoes[\"cabecalho\"][\"comandos\"][\"classe_imgs\"] = \"pequeno\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"ativo\"]=true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"ativo\"]=true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"ativo\"]=true;
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvarnovalinha\"] = \"window.fnhtml.fntabdados.incluir_dados_sql_padrao({elemento:this})\";					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"salvar\"][\"aosalvaredicaolinha\"] = \"window.fnhtml.fntabdados.atualizar_dados_sql_padrao({elemento:this})\";					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"exclusao\"][\"aoexcluirlinha\"] = \"window.fnhtml.fntabdados.excluir_dados_sql_padrao({elemento:this})\";					
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"aposabriredicaolinha\"] = \"window.fnsisjd.preencher_dados_padrao_linha_compitemrating({elemento:this})\";
+			$opcoes[\"corpo\"][\"linhas\"][\"comandos\"][\"edicao\"][\"aposabriredicaocelula\"] = \"window.fnsisjd.preencher_dados_padrao_celula_compitemrating(this)\";
+			$opcoes[\"aoincluirregistro\"] = \"window.fnsisjd.preencher_dados_padrao_nova_linha_compitemrating({elemento:this})\";
+			$opcoes[\"rodape\"][\"ativo\"] = false;
+			$opcoes[\"corpo\"][\"linhas\"][\"marcar\"] = true;
+			$opcoes[\"campos_chaves_primaria\"] = [\"CODCOMPITEMRATING\"];					
+			$opcoes[\"campos_chaves_unica\"]= [];
+			$opcoes[\"campos_ocultos\"]=[\"CODCOMPITEMRATING\",\"CODITEMRATING\"];					
+			$opcoes[\"corpo\"][\"classe_sub_elementos_colunas\"][3] = \"input_combobox\";
+			$opcoes[\"corpo\"][\"propriedades_colunas\"][3] = ' oque=\"dados_literais\" comando=\"consultar\" tipo_objeto=\"lista_itens_simples\" objeto=\"lista_itens_simples\" indcolvisao=\"2\" propriedades_sub_elementos_coluna=\"oque,comando,tipo_objeto,objeto,indcolvisao\" ';
+		",
+	   "codsituacaoregistro":1
+	},	
+	"opcoes_itens_ratings_condicionantes":{
+		"codprocesso":4502,
+		"opcoes":"
+			$opcoes = \\SJD\\php\\classes\\funcoes\\FuncoesHtml::opcoes_comboboxes_condicionante;
+			$opcoes[\"tabeladb\"] = \\SJD\\php\\classes\\variaveis\\VariaveisSql::getInstancia()->getPrefixObjects() . \"itensrating\";
+		",
+	   "codsituacaoregistro":1
+	}
+}

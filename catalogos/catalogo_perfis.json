@@ -1,0 +1,14 @@
+{
+    "0":{
+        "codperfil":"__CHAVE__",
+        "perfil":"ROOT",
+        "ativo":1,
+        "codsituacaoregistro":1
+    },
+    "70":{
+        "codperfil":"__CHAVE__",
+        "perfil":"FINANCEIRO PADRAO",
+        "ativo":1,
+        "codsituacaoregistro":1
+    }
+}

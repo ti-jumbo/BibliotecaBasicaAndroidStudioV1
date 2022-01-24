@@ -1,5 +1,5 @@
 <?php 
-    namespace SJD\php\class;
+    namespace SJD\php\classes;
   
     /**
      * Class to manage access, usually used for check if client is logged or not.

@@ -1,5 +1,5 @@
 <?php
-    namespace SJD\php\class;
+    namespace SJD\php\classes;
 
     /**
      * Class for management session, used for start or close session of client.

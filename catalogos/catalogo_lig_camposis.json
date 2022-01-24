@@ -1,0 +1,5948 @@
+{
+	"dados_cat":{
+		"versao":1
+	},
+   "lista_bancos_dados0":{
+      "codligcamposis":0,
+      "codligtabelasis":0,
+      "codcamposis":31000,
+      "ordem":0,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "lista_bancos_dados1":{
+      "codligcamposis":1,
+      "codligtabelasis":0,
+      "codcamposis":31001,
+      "ordem":1,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_bancos_dados2":{
+      "codligcamposis":2,
+      "codligtabelasis":0,
+      "codcamposis":31002,
+      "ordem":2,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_bancos_dados3":{
+      "codligcamposis":3,
+      "codligtabelasis":0,
+      "codcamposis":31003,
+      "ordem":3,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_bancos_dados4":{
+      "codligcamposis":4,
+      "codligtabelasis":0,
+      "codcamposis":31004,
+      "ordem":4,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_usuariosdb0":{
+      "codligcamposis":1000,
+      "codligtabelasis":10,
+      "codcamposis":32000,
+      "ordem":1000,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "lista_usuariosdb1":{
+      "codligcamposis":1001,
+      "codligtabelasis":10,
+      "codcamposis":32001,
+      "ordem":1001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_usuariosdb2":{
+      "codligcamposis":1002,
+      "codligtabelasis":10,
+      "codcamposis":32002,
+      "ordem":1002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_usuariosdb3":{
+      "codligcamposis":1003,
+      "codligtabelasis":10,
+      "codcamposis":32003,
+      "ordem":1003,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_usuariosdb4":{
+      "codligcamposis":1004,
+      "codligtabelasis":10,
+      "codcamposis":32004,
+      "ordem":1004,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_tabelassis0":{
+      "codligcamposis":2000,
+      "codligtabelasis":20,
+      "codcamposis":18000,
+      "ordem":2000,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "lista_tabelassis1":{
+      "codligcamposis":2001,
+      "codligtabelasis":20,
+      "codcamposis":18001,
+      "ordem":2001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelassis0":{
+      "codligcamposis":3000,
+      "codligtabelasis":30,
+      "codcamposis":18000,
+      "ordem":0,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "linha_tabelassis1":{
+      "codligcamposis":3001,
+      "codligtabelasis":30,
+      "codcamposis":18001,
+      "ordem":1,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelassis2":{
+      "codligcamposis":3002,
+      "codligtabelasis":30,
+      "codcamposis":18002,
+      "ordem":2,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelassis3":{
+      "codligcamposis":3003,
+      "codligtabelasis":30,
+      "codcamposis":18003,
+      "ordem":3,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelassis4":{
+      "codligcamposis":3004,
+      "codligtabelasis":30,
+      "codcamposis":18004,
+      "ordem":4,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelassis5":{
+      "codligcamposis":3005,
+      "codligtabelasis":30,
+      "codcamposis":18005,
+      "ordem":5,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelassis6":{
+      "codligcamposis":3006,
+      "codligtabelasis":30,
+      "codcamposis":18006,
+      "ordem":6,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelassis7":{
+      "codligcamposis":3007,
+      "codligtabelasis":30,
+      "codcamposis":18007,
+      "ordem":7,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelassis8":{
+      "codligcamposis":3008,
+      "codligtabelasis":30,
+      "codcamposis":18008,
+      "ordem":8,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis0":{
+      "codligcamposis":4000,
+      "codligtabelasis":40,
+      "codcamposis":19000,
+      "ordem":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis1":{
+      "codligcamposis":4001,
+      "codligtabelasis":40,
+      "codcamposis":19001,
+      "ordem":1,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis2":{
+      "codligcamposis":4002,
+      "codligtabelasis":40,
+      "codcamposis":19002,
+      "ordem":2,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis3":{
+      "codligcamposis":4003,
+      "codligtabelasis":40,
+      "codcamposis":19003,
+      "ordem":3,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis4":{
+      "codligcamposis":4004,
+      "codligtabelasis":40,
+      "codcamposis":19004,
+      "ordem":4,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis5":{
+      "codligcamposis":4005,
+      "codligtabelasis":40,
+      "codcamposis":19005,
+      "ordem":5,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis6":{
+      "codligcamposis":4006,
+      "codligtabelasis":40,
+      "codcamposis":19006,
+      "ordem":6,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis7":{
+      "codligcamposis":4007,
+      "codligtabelasis":40,
+      "codcamposis":19007,
+      "ordem":7,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis8":{
+      "codligcamposis":4008,
+      "codligtabelasis":40,
+      "codcamposis":19008,
+      "ordem":8,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis9":{
+      "codligcamposis":4009,
+      "codligtabelasis":40,
+      "codcamposis":19009,
+      "ordem":9,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis10":{
+      "codligcamposis":4010,
+      "codligtabelasis":40,
+      "codcamposis":19010,
+      "ordem":10,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis11":{
+      "codligcamposis":4011,
+      "codligtabelasis":40,
+      "codcamposis":19011,
+      "ordem":11,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis12":{
+      "codligcamposis":4012,
+      "codligtabelasis":40,
+      "codcamposis":19012,
+      "ordem":12,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis13":{
+      "codligcamposis":4013,
+      "codligtabelasis":40,
+      "codcamposis":19013,
+      "ordem":13,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis14":{
+      "codligcamposis":4014,
+      "codligtabelasis":40,
+      "codcamposis":19014,
+      "ordem":14,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis15":{
+      "codligcamposis":4015,
+      "codligtabelasis":40,
+      "codcamposis":19015,
+      "ordem":15,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_camposis16":{
+      "codligcamposis":4016,
+      "codligtabelasis":40,
+      "codcamposis":19016,
+      "ordem":16,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_tabelasdb0":{
+      "codligcamposis":5000,
+      "codligtabelasis":50,
+      "codcamposis":15000,
+      "ordem":0,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "lista_tabelasdb1":{
+      "codligcamposis":5001,
+      "codligtabelasis":50,
+      "codcamposis":15003,
+      "ordem":1,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelasdb0":{
+      "codligcamposis":6000,
+      "codligtabelasis":60,
+      "codcamposis":15000,
+      "ordem":0,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "linha_tabelasdb1":{
+      "codligcamposis":6001,
+      "codligtabelasis":60,
+      "codcamposis":15001,
+      "ordem":1,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelasdb2":{
+      "codligcamposis":6002,
+      "codligtabelasis":60,
+      "codcamposis":15002,
+      "ordem":2,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelasdb3":{
+      "codligcamposis":6003,
+      "codligtabelasis":60,
+      "codcamposis":15003,
+      "ordem":3,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelasdb4":{
+      "codligcamposis":6004,
+      "codligtabelasis":60,
+      "codcamposis":15004,
+      "ordem":4,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelasdb5":{
+      "codligcamposis":6005,
+      "codligtabelasis":60,
+      "codcamposis":15005,
+      "ordem":5,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelasdb6":{
+      "codligcamposis":6006,
+      "codligtabelasis":60,
+      "codcamposis":15006,
+      "ordem":6,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelasdb7":{
+      "codligcamposis":6007,
+      "codligtabelasis":60,
+      "codcamposis":15007,
+      "ordem":7,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelasdb8":{
+      "codligcamposis":6008,
+      "codligtabelasis":60,
+      "codcamposis":15008,
+      "ordem":8,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelasdb9":{
+      "codligcamposis":6009,
+      "codligtabelasis":60,
+      "codcamposis":15009,
+      "ordem":9,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelasdb10":{
+      "codligcamposis":6010,
+      "codligtabelasis":60,
+      "codcamposis":15010,
+      "ordem":10,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelasdb11":{
+      "codligcamposis":6011,
+      "codligtabelasis":60,
+      "codcamposis":15011,
+      "ordem":11,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelasdb12":{
+      "codligcamposis":6012,
+      "codligtabelasis":60,
+      "codcamposis":15012,
+      "ordem":12,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "linha_tabelasdb13":{
+      "codligcamposis":6013,
+      "codligtabelasis":60,
+      "codcamposis":15013,
+      "ordem":13,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb0":{
+      "codligcamposis":7000,
+      "codligtabelasis":70,
+      "codcamposis":16000,
+      "ordem":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb1":{
+      "codligcamposis":7001,
+      "codligtabelasis":70,
+      "codcamposis":16001,
+      "ordem":1,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb2":{
+      "codligcamposis":7002,
+      "codligtabelasis":70,
+      "codcamposis":16002,
+      "ordem":2,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb3":{
+      "codligcamposis":7003,
+      "codligtabelasis":70,
+      "codcamposis":16003,
+      "ordem":3,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb4":{
+      "codligcamposis":7004,
+      "codligtabelasis":70,
+      "codcamposis":16004,
+      "ordem":4,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb5":{
+      "codligcamposis":7005,
+      "codligtabelasis":70,
+      "codcamposis":16005,
+      "ordem":5,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb6":{
+      "codligcamposis":7006,
+      "codligtabelasis":70,
+      "codcamposis":16006,
+      "ordem":6,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb7":{
+      "codligcamposis":7007,
+      "codligtabelasis":70,
+      "codcamposis":16007,
+      "ordem":7,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb8":{
+      "codligcamposis":7008,
+      "codligtabelasis":70,
+      "codcamposis":16008,
+      "ordem":8,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb9":{
+      "codligcamposis":7009,
+      "codligtabelasis":70,
+      "codcamposis":16009,
+      "ordem":9,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb10":{
+      "codligcamposis":7010,
+      "codligtabelasis":70,
+      "codcamposis":16010,
+      "ordem":10,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb11":{
+      "codligcamposis":7011,
+      "codligtabelasis":70,
+      "codcamposis":16011,
+      "ordem":11,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb12":{
+      "codligcamposis":7012,
+      "codligtabelasis":70,
+      "codcamposis":16012,
+      "ordem":12,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb13":{
+      "codligcamposis":7013,
+      "codligtabelasis":70,
+      "codcamposis":16013,
+      "ordem":13,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb14":{
+      "codligcamposis":7014,
+      "codligtabelasis":70,
+      "codcamposis":16014,
+      "ordem":14,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb15":{
+      "codligcamposis":7015,
+      "codligtabelasis":70,
+      "codcamposis":16015,
+      "ordem":15,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb16":{
+      "codligcamposis":7016,
+      "codligtabelasis":70,
+      "codcamposis":16016,
+      "ordem":16,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campodb17":{
+      "codligcamposis":7017,
+      "codligtabelasis":70,
+      "codcamposis":16017,
+      "ordem":17,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_visoes0":{
+      "codligcamposis":8000,
+      "codligtabelasis":80,
+      "codcamposis":29000,
+      "ordem":8000,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "lista_visoes1":{
+      "codligcamposis":8001,
+      "codligtabelasis":80,
+      "codcamposis":29001,
+      "ordem":8001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_processos0":{
+      "codligcamposis":9000,
+      "codligtabelasis":90,
+      "codcamposis":30000,
+      "ordem":9000,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "lista_processos1":{
+      "codligcamposis":9001,
+      "codligtabelasis":90,
+      "codcamposis":30001,
+      "ordem":9001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_processos2":{
+      "codligcamposis":9002,
+      "codligtabelasis":90,
+      "codcamposis":30002,
+      "ordem":9002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_relacionamentos0":{
+      "codligcamposis":10000,
+      "codligtabelasis":100,
+      "codcamposis":33000,
+      "ordem":10000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_relacionamentos1":{
+      "codligcamposis":10001,
+      "codligtabelasis":100,
+      "codcamposis":33001,
+      "ordem":10001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_relacionamentos2":{
+      "codligcamposis":10002,
+      "codligtabelasis":100,
+      "codcamposis":33002,
+      "ordem":10002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_relacionamentos3":{
+      "codligcamposis":10003,
+      "codligtabelasis":100,
+      "codcamposis":33003,
+      "ordem":10003,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_relacionamentos4":{
+      "codligcamposis":10004,
+      "codligtabelasis":100,
+      "codcamposis":33004,
+      "ordem":10004,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_relacionamentos5":{
+      "codligcamposis":10005,
+      "codligtabelasis":100,
+      "codcamposis":33005,
+      "ordem":10005,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_relacionamentos6":{
+      "codligcamposis":10006,
+      "codligtabelasis":100,
+      "codcamposis":33006,
+      "ordem":10006,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_relacionamentos7":{
+      "codligcamposis":10007,
+      "codligtabelasis":100,
+      "codcamposis":33007,
+      "ordem":10007,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_tabelasis0":{
+      "codligcamposis":11000,
+      "codligtabelasis":110,
+      "codcamposis":36000,
+      "ordem":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_tabelasis1":{
+      "codligcamposis":11001,
+      "codligtabelasis":110,
+      "codcamposis":36001,
+      "ordem":1,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_tabelasis2":{
+      "codligcamposis":11002,
+      "codligtabelasis":110,
+      "codcamposis":36002,
+      "ordem":2,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_tabelasis3":{
+      "codligcamposis":11003,
+      "codligtabelasis":110,
+      "codcamposis":36003,
+      "ordem":3,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_tabelasis4":{
+      "codligcamposis":11004,
+      "codligtabelasis":110,
+      "codcamposis":36004,
+      "ordem":4,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_camposis0":{
+      "codligcamposis":12000,
+      "codligtabelasis":120,
+      "codcamposis":37000,
+      "ordem":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_camposis1":{
+      "codligcamposis":12001,
+      "codligtabelasis":120,
+      "codcamposis":37001,
+      "ordem":1,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_camposis2":{
+      "codligcamposis":12002,
+      "codligtabelasis":120,
+      "codcamposis":37002,
+      "ordem":2,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_camposis3":{
+      "codligcamposis":12003,
+      "codligtabelasis":120,
+      "codcamposis":37003,
+      "ordem":3,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_camposis4":{
+      "codligcamposis":12004,
+      "codligtabelasis":120,
+      "codcamposis":37004,
+      "ordem":4,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_camposis5":{
+      "codligcamposis":12005,
+      "codligtabelasis":120,
+      "codcamposis":37005,
+      "ordem":5,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_camposis6":{
+      "codligcamposis":12006,
+      "codligtabelasis":120,
+      "codcamposis":37006,
+      "ordem":6,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_camposis7":{
+      "codligcamposis":12007,
+      "codligtabelasis":120,
+      "codcamposis":37007,
+      "ordem":7,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_camposis8":{
+      "codligcamposis":12008,
+      "codligtabelasis":120,
+      "codcamposis":37008,
+      "ordem":8,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_camposis9":{
+      "codligcamposis":12009,
+      "codligtabelasis":120,
+      "codcamposis":37009,
+      "ordem":9,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_camposis10":{
+      "codligcamposis":12010,
+      "codligtabelasis":120,
+      "codcamposis":37010,
+      "ordem":10,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_camposis11":{
+      "codligcamposis":12011,
+      "codligtabelasis":120,
+      "codcamposis":37011,
+      "ordem":11,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_camposis12":{
+      "codligcamposis":12012,
+      "codligtabelasis":120,
+      "codcamposis":37012,
+      "ordem":12,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_tabeladb0":{
+      "codligcamposis":13000,
+      "codligtabelasis":130,
+      "codcamposis":38000,
+      "ordem":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_tabeladb1":{
+      "codligcamposis":13001,
+      "codligtabelasis":130,
+      "codcamposis":38001,
+      "ordem":1,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_tabeladb2":{
+      "codligcamposis":13002,
+      "codligtabelasis":130,
+      "codcamposis":38002,
+      "ordem":2,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_tabeladb3":{
+      "codligcamposis":13003,
+      "codligtabelasis":130,
+      "codcamposis":38003,
+      "ordem":3,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_campodb0":{
+      "codligcamposis":14000,
+      "codligtabelasis":140,
+      "codcamposis":39000,
+      "ordem":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_campodb1":{
+      "codligcamposis":14001,
+      "codligtabelasis":140,
+      "codcamposis":39001,
+      "ordem":1,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_campodb2":{
+      "codligcamposis":14002,
+      "codligtabelasis":140,
+      "codcamposis":39002,
+      "ordem":2,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_campodb3":{
+      "codligcamposis":14003,
+      "codligtabelasis":140,
+      "codcamposis":39003,
+      "ordem":3,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_campodb4":{
+      "codligcamposis":14004,
+      "codligtabelasis":140,
+      "codcamposis":39004,
+      "ordem":4,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_campodb5":{
+      "codligcamposis":14005,
+      "codligtabelasis":140,
+      "codcamposis":39005,
+      "ordem":5,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_campodb6":{
+      "codligcamposis":14006,
+      "codligtabelasis":140,
+      "codcamposis":39006,
+      "ordem":6,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_campodb7":{
+      "codligcamposis":14007,
+      "codligtabelasis":140,
+      "codcamposis":39007,
+      "ordem":7,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_campodb8":{
+      "codligcamposis":14008,
+      "codligtabelasis":140,
+      "codcamposis":39008,
+      "ordem":8,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_campodb9":{
+      "codligcamposis":14009,
+      "codligtabelasis":140,
+      "codcamposis":39009,
+      "ordem":9,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_campodb10":{
+      "codligcamposis":14010,
+      "codligtabelasis":140,
+      "codcamposis":39010,
+      "ordem":10,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_campodb11":{
+      "codligcamposis":14011,
+      "codligtabelasis":140,
+      "codcamposis":39011,
+      "ordem":11,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_relacionamentos0":{
+      "codligcamposis":15000,
+      "codligtabelasis":150,
+      "codcamposis":40000,
+      "ordem":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_relacionamentos1":{
+      "codligcamposis":15001,
+      "codligtabelasis":150,
+      "codcamposis":40001,
+      "ordem":1,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_relacionamentos2":{
+      "codligcamposis":15002,
+      "codligtabelasis":150,
+      "codcamposis":40002,
+      "ordem":2,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_ligacoes_relacionamentos3":{
+      "codligcamposis":15003,
+      "codligtabelasis":150,
+      "codcamposis":40003,
+      "ordem":3,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lorigem0":{
+      "codligcamposis":500000,
+      "codligtabelasis":5000,
+      "codcamposis":13001,
+      "ordem":500000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lorigem_campos_avulsos0":{
+      "codligcamposis":500050,
+      "codligtabelasis":5000,
+      "codcamposis":13000,
+      "ordem":500050,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lorigem_origem0":{
+      "codligcamposis":500900,
+      "codligtabelasis":5009,
+      "codcamposis":9000000,
+      "ordem":9000000,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lorigem_dtsaida0":{
+      "codligcamposis":500980,
+      "codligtabelasis":5009,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "lorigem_qt0":{
+      "codligcamposis":500994,
+      "codligtabelasis":5009,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lorigem_un0":{
+      "codligcamposis":500995,
+      "codligtabelasis":5009,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lorigem_pesoun0":{
+      "codligcamposis":500996,
+      "codligtabelasis":5009,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lorigem_pesotot0":{
+      "codligcamposis":500997,
+      "codligtabelasis":5009,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lorigem_punit0":{
+      "codligcamposis":500998,
+      "codligtabelasis":5009,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lorigem_vltotal0":{
+      "codligcamposis":500999,
+      "codligtabelasis":5009,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lempresa0":{
+      "codligcamposis":501000,
+      "codligtabelasis":5010,
+      "codcamposis":14001,
+      "ordem":501000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lempresa1":{
+      "codligcamposis":501001,
+      "codligtabelasis":5010,
+      "codcamposis":14003,
+      "ordem":501001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lempresa_campos_avulsos0":{
+      "codligcamposis":501050,
+      "codligtabelasis":5010,
+      "codcamposis":14000,
+      "ordem":501050,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lempresa_campos_avulsos1":{
+      "codligcamposis":501051,
+      "codligtabelasis":5010,
+      "codcamposis":14002,
+      "ordem":501051,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lempresa_empresa0":{
+      "codligcamposis":501900,
+      "codligtabelasis":5019,
+      "codcamposis":9000024,
+      "ordem":9000024,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lempresa_dtsaida0":{
+      "codligcamposis":501980,
+      "codligtabelasis":5019,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "lempresa_qt0":{
+      "codligcamposis":501994,
+      "codligtabelasis":5019,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lempresa_un0":{
+      "codligcamposis":501995,
+      "codligtabelasis":5019,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lempresa_pesoun0":{
+      "codligcamposis":501996,
+      "codligtabelasis":5019,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lempresa_pesotot0":{
+      "codligcamposis":501997,
+      "codligtabelasis":5019,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lempresa_punit0":{
+      "codligcamposis":501998,
+      "codligtabelasis":5019,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lempresa_vltotal0":{
+      "codligcamposis":501999,
+      "codligtabelasis":5019,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lfilial0":{
+      "codligcamposis":502000,
+      "codligtabelasis":5020,
+      "codcamposis":4000,
+      "ordem":502000,
+      "criterio_uso":"usar sempre",
+      "alias":"codfilial",
+      "codsituacaoregistro":1
+   },
+   "lfilial1":{
+      "codligcamposis":502001,
+      "codligtabelasis":5020,
+      "codcamposis":4004,
+      "ordem":502001,
+      "criterio_uso":"usar sempre",
+      "alias":"cidade",
+      "codsituacaoregistro":1
+   },
+   "lfilial_campos_avulsos0":{
+      "codligcamposis":502050,
+      "codligtabelasis":5020,
+      "codcamposis":4001,
+      "ordem":502050,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lfilial_campos_avulsos1":{
+      "codligcamposis":502051,
+      "codligtabelasis":5020,
+      "codcamposis":4002,
+      "ordem":502051,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lfilial_campos_avulsos2":{
+      "codligcamposis":502052,
+      "codligtabelasis":5020,
+      "codcamposis":4003,
+      "ordem":502052,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lfilial_campos_avulsos3":{
+      "codligcamposis":502053,
+      "codligtabelasis":5020,
+      "codcamposis":4005,
+      "ordem":502053,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lfilial_codfilial0":{
+      "codligcamposis":502900,
+      "codligtabelasis":5029,
+      "codcamposis":9000005,
+      "ordem":9000005,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lfilial_dtsaida0":{
+      "codligcamposis":502980,
+      "codligtabelasis":5029,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "lfilial_qt0":{
+      "codligcamposis":502994,
+      "codligtabelasis":5029,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lfilial_un0":{
+      "codligcamposis":502995,
+      "codligtabelasis":5029,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lfilial_pesoun0":{
+      "codligcamposis":502996,
+      "codligtabelasis":5029,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lfilial_pesotot0":{
+      "codligcamposis":502997,
+      "codligtabelasis":5029,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lfilial_punit0":{
+      "codligcamposis":502998,
+      "codligtabelasis":5029,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lfilial_vltotal0":{
+      "codligcamposis":502999,
+      "codligtabelasis":5029,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lfornecedor0":{
+      "codligcamposis":503000,
+      "codligtabelasis":5030,
+      "codcamposis":5000,
+      "ordem":503000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lfornecedor1":{
+      "codligcamposis":503001,
+      "codligtabelasis":5030,
+      "codcamposis":5001,
+      "ordem":503001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lfornecedor_campos_avulsos0":{
+      "codligcamposis":503050,
+      "codligtabelasis":5030,
+      "codcamposis":5002,
+      "ordem":503050,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lfornecedor_campos_avulsos1":{
+      "codligcamposis":503051,
+      "codligtabelasis":5030,
+      "codcamposis":5003,
+      "ordem":503051,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lfornecedor_campos_avulsos2":{
+      "codligcamposis":503052,
+      "codligtabelasis":5030,
+      "codcamposis":5004,
+      "ordem":503052,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lfornecedor_campos_avulsos3":{
+      "codligcamposis":503053,
+      "codligtabelasis":5030,
+      "codcamposis":5005,
+      "ordem":503053,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lfornecedor_codfornecedor0":{
+      "codligcamposis":503900,
+      "codligtabelasis":5039,
+      "codcamposis":9000007,
+      "ordem":9000007,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lfornecedor_dtsaida0":{
+      "codligcamposis":503980,
+      "codligtabelasis":5039,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "lfornecedor_qt0":{
+      "codligcamposis":503994,
+      "codligtabelasis":5039,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lfornecedor_un0":{
+      "codligcamposis":503995,
+      "codligtabelasis":5039,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lfornecedor_pesoun0":{
+      "codligcamposis":503996,
+      "codligtabelasis":5039,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lfornecedor_pesotot0":{
+      "codligcamposis":503997,
+      "codligtabelasis":5039,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lfornecedor_punit0":{
+      "codligcamposis":503998,
+      "codligtabelasis":5039,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lfornecedor_vltotal0":{
+      "codligcamposis":503999,
+      "codligtabelasis":5039,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lcidade0":{
+      "codligcamposis":504000,
+      "codligtabelasis":5040,
+      "codcamposis":6001,
+      "ordem":504000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lcidade1":{
+      "codligcamposis":504001,
+      "codligtabelasis":5040,
+      "codcamposis":6002,
+      "ordem":504001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lcidade_campos_avulsos0":{
+      "codligcamposis":504050,
+      "codligtabelasis":5040,
+      "codcamposis":6000,
+      "ordem":504050,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lcidade_cidade_nomecidade":{
+      "codligcamposis":504900,
+      "codligtabelasis":5049,
+      "codcamposis":9000012,
+      "ordem":9000000,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lcidade_cidade_uf":{
+      "codligcamposis":504901,
+      "codligtabelasis":5049,
+      "codcamposis":9000023,
+      "ordem":9000001,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lcidade_dtsaida0":{
+      "codligcamposis":504980,
+      "codligtabelasis":5049,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "lcidade_qt0":{
+      "codligcamposis":504994,
+      "codligtabelasis":5049,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lcidade_un0":{
+      "codligcamposis":504995,
+      "codligtabelasis":5049,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lcidade_pesoun0":{
+      "codligcamposis":504996,
+      "codligtabelasis":5049,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lcidade_pesotot0":{
+      "codligcamposis":504997,
+      "codligtabelasis":5049,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lcidade_punit0":{
+      "codligcamposis":504998,
+      "codligtabelasis":5049,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lcidade_vltotal0":{
+      "codligcamposis":504999,
+      "codligtabelasis":5049,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lsupervisor0":{
+      "codligcamposis":505000,
+      "codligtabelasis":5050,
+      "codcamposis":7000,
+      "ordem":505000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lsupervisor1":{
+      "codligcamposis":505001,
+      "codligtabelasis":5050,
+      "codcamposis":7002,
+      "ordem":505001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lsupervisor_campos_avulsos0":{
+      "codligcamposis":505050,
+      "codligtabelasis":5050,
+      "codcamposis":7001,
+      "ordem":505050,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lsupervisor_codsupervisor0":{
+      "codligcamposis":505900,
+      "codligtabelasis":5059,
+      "codcamposis":9000013,
+      "ordem":9000013,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lsupervisor_dtsaida0":{
+      "codligcamposis":505980,
+      "codligtabelasis":5059,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "lsupervisor_qt0":{
+      "codligcamposis":505994,
+      "codligtabelasis":5059,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lsupervisor_un0":{
+      "codligcamposis":505995,
+      "codligtabelasis":5059,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lsupervisor_pesoun0":{
+      "codligcamposis":505996,
+      "codligtabelasis":5059,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lsupervisor_pesotot0":{
+      "codligcamposis":505997,
+      "codligtabelasis":5059,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lsupervisor_punit0":{
+      "codligcamposis":505998,
+      "codligtabelasis":5059,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lsupervisor_vltotal0":{
+      "codligcamposis":505999,
+      "codligtabelasis":5059,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrca0":{
+      "codligcamposis":506000,
+      "codligtabelasis":5060,
+      "codcamposis":8000,
+      "ordem":506000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lrca1":{
+      "codligcamposis":506001,
+      "codligtabelasis":5060,
+      "codcamposis":8002,
+      "ordem":506001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lrca_campos_avulsos0":{
+      "codligcamposis":506050,
+      "codligtabelasis":5060,
+      "codcamposis":8001,
+      "ordem":506050,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lrca_codrca0":{
+      "codligcamposis":506900,
+      "codligtabelasis":5069,
+      "codcamposis":9000008,
+      "ordem":9000008,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lrca_dtsaida0":{
+      "codligcamposis":506980,
+      "codligtabelasis":5069,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "lrca_qt0":{
+      "codligcamposis":506994,
+      "codligtabelasis":5069,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrca_un0":{
+      "codligcamposis":506995,
+      "codligtabelasis":5069,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrca_pesoun0":{
+      "codligcamposis":506996,
+      "codligtabelasis":5069,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrca_pesotot0":{
+      "codligcamposis":506997,
+      "codligtabelasis":5069,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrca_punit0":{
+      "codligcamposis":506998,
+      "codligtabelasis":5069,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrca_vltotal0":{
+      "codligcamposis":506999,
+      "codligtabelasis":5069,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lramo_de_atividade0":{
+      "codligcamposis":507000,
+      "codligtabelasis":5070,
+      "codcamposis":9000,
+      "ordem":507000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lramo_de_atividade1":{
+      "codligcamposis":507001,
+      "codligtabelasis":5070,
+      "codcamposis":9001,
+      "ordem":507001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lramo_de_atividade1_lcliente0":{
+      "codligcamposis":507100,
+      "codligtabelasis":5071,
+      "codcamposis":2001,
+      "ordem":507100,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lramo_de_atividade1_lcliente1":{
+      "codligcamposis":507101,
+      "codligtabelasis":5071,
+      "codcamposis":2005,
+      "ordem":507101,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lramo_de_atitividade_codramo_de_atitividade0":{
+      "codligcamposis":507900,
+      "codligtabelasis":5079,
+      "codcamposis":9000014,
+      "ordem":9000014,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lramo_de_atitividade_dtsaida0":{
+      "codligcamposis":507980,
+      "codligtabelasis":5079,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "lramo_de_atitividade_qt0":{
+      "codligcamposis":507994,
+      "codligtabelasis":5079,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lramo_de_atitividade_un0":{
+      "codligcamposis":507995,
+      "codligtabelasis":5079,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lramo_de_atitividade_pesoun0":{
+      "codligcamposis":507996,
+      "codligtabelasis":5079,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lramo_de_atitividade_pesotot0":{
+      "codligcamposis":507997,
+      "codligtabelasis":5079,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lramo_de_atitividade_punit0":{
+      "codligcamposis":507998,
+      "codligtabelasis":5079,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lramo_de_atitividade_vltotal0":{
+      "codligcamposis":507999,
+      "codligtabelasis":5079,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "ldepartamento0":{
+      "codligcamposis":508000,
+      "codligtabelasis":5080,
+      "codcamposis":10000,
+      "ordem":508000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "ldepartamento1":{
+      "codligcamposis":508001,
+      "codligtabelasis":5080,
+      "codcamposis":10001,
+      "ordem":508001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "ldepartamento_coddepartamento0":{
+      "codligcamposis":508900,
+      "codligtabelasis":5089,
+      "codcamposis":9000006,
+      "ordem":9000006,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "ldepartamento_dtsaida0":{
+      "codligcamposis":508980,
+      "codligtabelasis":5089,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "ldepartamento_qt0":{
+      "codligcamposis":508994,
+      "codligtabelasis":5089,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "ldepartamento_un0":{
+      "codligcamposis":508995,
+      "codligtabelasis":5089,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "ldepartamento_pesoun0":{
+      "codligcamposis":508996,
+      "codligtabelasis":5089,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "ldepartamento_pesotot0":{
+      "codligcamposis":508997,
+      "codligtabelasis":5089,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "ldepartamento_punit0":{
+      "codligcamposis":508998,
+      "codligtabelasis":5089,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "ldepartamento_vltotal0":{
+      "codligcamposis":508999,
+      "codligtabelasis":5089,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lproduto0":{
+      "codligcamposis":509000,
+      "codligtabelasis":5090,
+      "codcamposis":3000,
+      "ordem":509000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lproduto1":{
+      "codligcamposis":509001,
+      "codligtabelasis":5090,
+      "codcamposis":3003,
+      "ordem":509001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lproduto_campos_avulsos0":{
+      "codligcamposis":509050,
+      "codligtabelasis":5090,
+      "codcamposis":3001,
+      "ordem":509050,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lproduto_campos_avulsos1":{
+      "codligcamposis":509051,
+      "codligtabelasis":5090,
+      "codcamposis":3002,
+      "ordem":509051,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lproduto_codproduto0":{
+      "codligcamposis":509900,
+      "codligtabelasis":5099,
+      "codcamposis":9000002,
+      "ordem":9000002,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lproduto_dtsaida0":{
+      "codligcamposis":509980,
+      "codligtabelasis":5099,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "lproduto_qt0":{
+      "codligcamposis":509994,
+      "codligtabelasis":5099,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lproduto_un0":{
+      "codligcamposis":509995,
+      "codligtabelasis":5099,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lproduto_pesoun0":{
+      "codligcamposis":509996,
+      "codligtabelasis":5099,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lproduto_pesotot0":{
+      "codligcamposis":509997,
+      "codligtabelasis":5099,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lproduto_punit0":{
+      "codligcamposis":509998,
+      "codligtabelasis":5099,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lproduto_vltotal0":{
+      "codligcamposis":509999,
+      "codligtabelasis":5099,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_dtsaida":{
+      "codligcamposis":5010900,
+      "codligtabelasis":50109,
+      "codcamposis":9000021,
+      "ordem":5010900,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_dia_da_semana":{
+      "codligcamposis":5010901,
+      "codligtabelasis":50109,
+      "codcamposis":9000015,
+      "ordem":5010901,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos0":{
+      "codligcamposis":5010950,
+      "codligtabelasis":50109,
+      "codcamposis":9000004,
+      "ordem":5010950,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos1":{
+      "codligcamposis":5010951,
+      "codligtabelasis":50109,
+      "codcamposis":9000014,
+      "ordem":5010951,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos2":{
+      "codligcamposis":5010952,
+      "codligtabelasis":50109,
+      "codcamposis":9000003,
+      "ordem":5010952,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos3":{
+      "codligcamposis":5010953,
+      "codligtabelasis":50109,
+      "codcamposis":9000006,
+      "ordem":5010953,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos4":{
+      "codligcamposis":5010954,
+      "codligtabelasis":50109,
+      "codcamposis":9000005,
+      "ordem":5010954,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos5":{
+      "codligcamposis":5010955,
+      "codligtabelasis":50109,
+      "codcamposis":9000007,
+      "ordem":5010955,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos7":{
+      "codligcamposis":5010956,
+      "codligtabelasis":50109,
+      "codcamposis":9000019,
+      "ordem":5010956,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos8":{
+      "codligcamposis":5010957,
+      "codligtabelasis":50109,
+      "codcamposis":9000002,
+      "ordem":5010957,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos9":{
+      "codligcamposis":5010958,
+      "codligtabelasis":50109,
+      "codcamposis":9000018,
+      "ordem":5010958,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos10":{
+      "codligcamposis":5010959,
+      "codligtabelasis":50109,
+      "codcamposis":9000013,
+      "ordem":5010959,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos11":{
+      "codligcamposis":5010960,
+      "codligtabelasis":50109,
+      "codcamposis":9000008,
+      "ordem":5010960,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos12":{
+      "codligcamposis":5010961,
+      "codligtabelasis":50109,
+      "codcamposis":9000017,
+      "ordem":5010961,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos13":{
+      "codligcamposis":5010962,
+      "codligtabelasis":50109,
+      "codcamposis":9000020,
+      "ordem":5010962,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos14":{
+      "codligcamposis":5010963,
+      "codligtabelasis":50109,
+      "codcamposis":9000011,
+      "ordem":5010963,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos16":{
+      "codligcamposis":5010964,
+      "codligtabelasis":50109,
+      "codcamposis":9000001,
+      "ordem":5010964,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos17":{
+      "codligcamposis":5010965,
+      "codligtabelasis":50109,
+      "codcamposis":9000012,
+      "ordem":5010965,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos18":{
+      "codligcamposis":5010966,
+      "codligtabelasis":50109,
+      "codcamposis":9000010,
+      "ordem":5010966,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos19":{
+      "codligcamposis":5010967,
+      "codligtabelasis":50109,
+      "codcamposis":9000009,
+      "ordem":5010967,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos20":{
+      "codligcamposis":5010968,
+      "codligtabelasis":50109,
+      "codcamposis":9000000,
+      "ordem":5010968,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos21":{
+      "codligcamposis":5010969,
+      "codligtabelasis":50109,
+      "codcamposis":9000024,
+      "ordem":5010969,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos22":{
+      "codligcamposis":5010970,
+      "codligtabelasis":50109,
+      "codcamposis":9000016,
+      "ordem":5010970,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos23":{
+      "codligcamposis":5010971,
+      "codligtabelasis":50109,
+      "codcamposis":9000023,
+      "ordem":5010971,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos24":{
+      "codligcamposis":5010972,
+      "codligtabelasis":50109,
+      "codcamposis":9000030,
+      "ordem":5010972,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_campos_avulsos25":{
+      "codligcamposis":5010973,
+      "codligtabelasis":50109,
+      "codcamposis":9000031,
+      "ordem":5010973,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "levolucao_dtsaida0":{
+      "codligcamposis":5010980,
+      "codligtabelasis":50109,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_qt0":{
+      "codligcamposis":5010994,
+      "codligtabelasis":50109,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_un0":{
+      "codligcamposis":5010995,
+      "codligtabelasis":50109,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_pesoun0":{
+      "codligcamposis":5010996,
+      "codligtabelasis":50109,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_pesotot0":{
+      "codligcamposis":5010997,
+      "codligtabelasis":50109,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_punit0":{
+      "codligcamposis":5010998,
+      "codligtabelasis":50109,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_evolucao_vltotal0":{
+      "codligcamposis":5010999,
+      "codligtabelasis":50109,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lcliente0":{
+      "codligcamposis":5011000,
+      "codligtabelasis":50110,
+      "codcamposis":2001,
+      "ordem":5011000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lcliente1":{
+      "codligcamposis":5011001,
+      "codligtabelasis":50110,
+      "codcamposis":2002,
+      "ordem":5011001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lcliente2":{
+      "codligcamposis":5011002,
+      "codligtabelasis":50110,
+      "codcamposis":2003,
+      "ordem":5011002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lcliente_campos_avulsos_codcli":{
+      "codligcamposis":5011050,
+      "codligtabelasis":50110,
+      "codcamposis":2000,
+      "ordem":5011050,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lcliente_campos_avulsos_codcidade":{
+      "codligcamposis":5011051,
+      "codligtabelasis":50110,
+      "codcamposis":2004,
+      "ordem":5011051,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lcliente_campos_avulsos_codatvidade":{
+      "codligcamposis":5011052,
+      "codligtabelasis":50110,
+      "codcamposis":2005,
+      "ordem":5011052,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lcliente_campos_avulsos_endereco":{
+      "codligcamposis":5011053,
+      "codligtabelasis":50110,
+      "codcamposis":2011,
+      "ordem":5011053,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lcliente_campos_avulsos_numero":{
+      "codligcamposis":5011054,
+      "codligtabelasis":50110,
+      "codcamposis":2012,
+      "ordem":5011054,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lcliente_campos_avulsos_cidade":{
+      "codligcamposis":5011055,
+      "codligtabelasis":50110,
+      "codcamposis":2030,
+      "ordem":5011055,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lcliente_campos_avulsos_estado":{
+      "codligcamposis":5011056,
+      "codligtabelasis":50110,
+      "codcamposis":2031,
+      "ordem":5011056,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lcliente_campos_avulsos_bairro":{
+      "codligcamposis":5011057,
+      "codligtabelasis":50110,
+      "codcamposis":2013,
+      "ordem":5011057,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lcliente_campos_avulsos_cep":{
+      "codligcamposis":5011058,
+      "codligtabelasis":50110,
+      "codcamposis":2025,
+      "ordem":5011058,
+      "criterio_uso":"campo avulso",
+      "codsituacaoregistro":1
+   },
+   "lcliente_codcliente0":{
+      "codligcamposis":5011900,
+      "codligtabelasis":50119,
+      "codcamposis":9000004,
+      "ordem":9000004,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lcliente_dtsaida0":{
+      "codligcamposis":5011980,
+      "codligtabelasis":50119,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "lcliente_qt0":{
+      "codligcamposis":5011994,
+      "codligtabelasis":50119,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lcliente_un0":{
+      "codligcamposis":5011995,
+      "codligtabelasis":50119,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lcliente_pesoun0":{
+      "codligcamposis":5011996,
+      "codligtabelasis":50119,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lcliente_pesotot0":{
+      "codligcamposis":5011997,
+      "codligtabelasis":50119,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lcliente_punit0":{
+      "codligcamposis":5011998,
+      "codligtabelasis":50119,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lcliente_vltotal0":{
+      "codligcamposis":5011999,
+      "codligtabelasis":50119,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_nota_fiscal_numnota":{
+      "codligcamposis":5012900,
+      "codligtabelasis":50129,
+      "codcamposis":9000010,
+      "ordem":5012900,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_nota_fiscal_numtransacao":{
+      "codligcamposis":5012901,
+      "codligtabelasis":50129,
+      "codcamposis":9000009,
+      "ordem":5012901,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_nota_fiscal_dtnota":{
+      "codligcamposis":5012902,
+      "codligtabelasis":50129,
+      "codcamposis":9000021,
+      "ordem":5012902,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_nota_fiscal_cgccli":{
+      "codligcamposis":5012903,
+      "codligtabelasis":50129,
+      "codcamposis":9000004,
+      "ordem":5012903,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_nota_fiscal_razaocli":{
+      "codligcamposis":5012904,
+      "codligtabelasis":50129,
+      "codcamposis":9000016,
+      "ordem":5012904,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lnota_fiscal_dtsaida0":{
+      "codligcamposis":5012980,
+      "codligtabelasis":50129,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_nota_fiscal_qt0":{
+      "codligcamposis":5012994,
+      "codligtabelasis":50129,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_nota_fiscal_un0":{
+      "codligcamposis":5012995,
+      "codligtabelasis":50129,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_nota_fiscal_pesoun0":{
+      "codligcamposis":5012996,
+      "codligtabelasis":50129,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_nota_fiscal_pesotot0":{
+      "codligcamposis":5012997,
+      "codligtabelasis":50129,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_nota_fiscal_punit0":{
+      "codligcamposis":5012998,
+      "codligtabelasis":50129,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_nota_fiscal_vltotal0":{
+      "codligcamposis":5012999,
+      "codligtabelasis":50129,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_itens_nota_fiscal_numnota":{
+      "codligcamposis":5013900,
+      "codligtabelasis":50139,
+      "codcamposis":9000010,
+      "ordem":5013900,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_itens_nota_fiscal_numtransacao":{
+      "codligcamposis":5013901,
+      "codligtabelasis":50139,
+      "codcamposis":9000009,
+      "ordem":5013901,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_itens_nota_fiscal_dtnota":{
+      "codligcamposis":5013902,
+      "codligtabelasis":50139,
+      "codcamposis":9000021,
+      "ordem":5013902,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_itens_nota_fiscal_cgccli":{
+      "codligcamposis":5013903,
+      "codligtabelasis":50139,
+      "codcamposis":9000004,
+      "ordem":5013903,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_itens_nota_fiscal_razaocli":{
+      "codligcamposis":5013904,
+      "codligtabelasis":50139,
+      "codcamposis":9000016,
+      "ordem":5013904,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_itens_nota_fiscal_codprod":{
+      "codligcamposis":5013905,
+      "codligtabelasis":50139,
+      "codcamposis":9000002,
+      "ordem":5013905,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_itens_nota_fiscal_descricao_produto":{
+      "codligcamposis":5013906,
+      "codligtabelasis":50139,
+      "codcamposis":9000017,
+      "ordem":5013906,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "litens_nota_fiscal_dtsaida0":{
+      "codligcamposis":5013980,
+      "codligtabelasis":50139,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_itens_nota_fiscal_qt0":{
+      "codligcamposis":5013994,
+      "codligtabelasis":50139,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_itens_nota_fiscal_un0":{
+      "codligcamposis":5013995,
+      "codligtabelasis":50139,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_itens_nota_fiscal_pesoun0":{
+      "codligcamposis":5013996,
+      "codligtabelasis":50139,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_itens_nota_fiscal_pesotot0":{
+      "codligcamposis":5013997,
+      "codligtabelasis":50139,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_itens_nota_fiscal_punit0":{
+      "codligcamposis":5013998,
+      "codligtabelasis":50139,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_itens_nota_fiscal_vltotal0":{
+      "codligcamposis":5013999,
+      "codligtabelasis":50139,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrota0":{
+      "codligcamposis":5014000,
+      "codligtabelasis":50140,
+      "codcamposis":12000,
+      "ordem":5014000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lrota1":{
+      "codligcamposis":5014001,
+      "codligtabelasis":50140,
+      "codcamposis":12001,
+      "ordem":5014001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lrota1_de_atividade1_lcliente0":{
+      "codligcamposis":5014100,
+      "codligtabelasis":50141,
+      "codcamposis":2001,
+      "ordem":5014100,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lrota1_de_atividade1_lcliente_praca":{
+      "codligcamposis":5014101,
+      "codligtabelasis":50141,
+      "codcamposis":2033,
+      "ordem":5014101,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lrota_codrota0":{
+      "codligcamposis":5014900,
+      "codligtabelasis":50149,
+      "codcamposis":9000018,
+      "ordem":9000018,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lrota_dtsaida0":{
+      "codligcamposis":5014980,
+      "codligtabelasis":50149,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "lrota_qt0":{
+      "codligcamposis":5014994,
+      "codligtabelasis":50149,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrota_un0":{
+      "codligcamposis":5014995,
+      "codligtabelasis":50149,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrota_pesoun0":{
+      "codligcamposis":5014996,
+      "codligtabelasis":50149,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrota_pesotot0":{
+      "codligcamposis":5014997,
+      "codligtabelasis":50149,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrota_punit0":{
+      "codligcamposis":5014998,
+      "codligtabelasis":50149,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrota_vltotal0":{
+      "codligcamposis":5014999,
+      "codligtabelasis":50149,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lpraca0":{
+      "codligcamposis":5015000,
+      "codligtabelasis":50150,
+      "codcamposis":11000,
+      "ordem":5015000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lpraca1":{
+      "codligcamposis":5015001,
+      "codligtabelasis":50150,
+      "codcamposis":11001,
+      "ordem":5015001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lpraca1_de_atividade1_lcliente0":{
+      "codligcamposis":5015100,
+      "codligtabelasis":50151,
+      "codcamposis":2001,
+      "ordem":5015100,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lpraca1_de_atividade1_lcliente1":{
+      "codligcamposis":5015101,
+      "codligtabelasis":50151,
+      "codcamposis":2033,
+      "ordem":5015101,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lpraca_codpraca0":{
+      "codligcamposis":5015900,
+      "codligtabelasis":50159,
+      "codcamposis":9000019,
+      "ordem":9000019,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lpraca_dtsaida0":{
+      "codligcamposis":5015980,
+      "codligtabelasis":50159,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "lpraca_qt0":{
+      "codligcamposis":5015994,
+      "codligtabelasis":50159,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lpraca_un0":{
+      "codligcamposis":5015995,
+      "codligtabelasis":50159,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lpraca_pesoun0":{
+      "codligcamposis":5015996,
+      "codligtabelasis":50159,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lpraca_pesotot0":{
+      "codligcamposis":5015997,
+      "codligtabelasis":50159,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lpraca_punit0":{
+      "codligcamposis":5015998,
+      "codligtabelasis":50159,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lpraca_vltotal0":{
+      "codligcamposis":5015999,
+      "codligtabelasis":50159,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_negocio_aurora_dados_negocio":{
+      "codligcamposis":5016000,
+      "codligtabelasis":50160,
+      "codcamposis":49000,
+      "ordem":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_negocio_aurora_dados_negocio1":{
+      "codligcamposis":5016001,
+      "codligtabelasis":50160,
+      "codcamposis":49001,
+      "ordem":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_negocio_aurora_dados_negocio_ligacao":{
+      "codligcamposis":5016900,
+      "codligtabelasis":50169,
+      "codcamposis":9000026,
+      "ordem":9000026,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_negocio_aurora_dtsaida0":{
+      "codligcamposis":5016980,
+      "codligtabelasis":50169,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_negocio_aurora_qt0":{
+      "codligcamposis":5016994,
+      "codligtabelasis":50169,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_negocio_aurora_un0":{
+      "codligcamposis":5016995,
+      "codligtabelasis":50169,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_negocio_aurora_pesoun0":{
+      "codligcamposis":5016996,
+      "codligtabelasis":50169,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_negocio_aurora_pesotot0":{
+      "codligcamposis":5016997,
+      "codligtabelasis":50169,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_negocio_aurora_punit0":{
+      "codligcamposis":5016998,
+      "codligtabelasis":50169,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_negocio_aurora_vltotal0":{
+      "codligcamposis":5016999,
+      "codligtabelasis":50169,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_categoria_aurora_dados_categoria":{
+      "codligcamposis":5017000,
+      "codligtabelasis":50170,
+      "codcamposis":50000,
+      "ordem":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_categoria_aurora_dados_categoria1":{
+      "codligcamposis":5017001,
+      "codligtabelasis":50170,
+      "codcamposis":50001,
+      "ordem":1,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_categoria_aurora_dados_categoria_ligacao":{
+      "codligcamposis":5017900,
+      "codligtabelasis":50179,
+      "codcamposis":9000027,
+      "ordem":9000027,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_categoria_aurora_dtsaida0":{
+      "codligcamposis":5017980,
+      "codligtabelasis":50179,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_categoria_aurora_qt0":{
+      "codligcamposis":5017994,
+      "codligtabelasis":50179,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_categoria_aurora_un0":{
+      "codligcamposis":5017995,
+      "codligtabelasis":50179,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_categoria_aurora_pesoun0":{
+      "codligcamposis":5017996,
+      "codligtabelasis":50179,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_categoria_aurora_pesotot0":{
+      "codligcamposis":5017997,
+      "codligtabelasis":50179,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_categoria_aurora_punit0":{
+      "codligcamposis":5017998,
+      "codligtabelasis":50179,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "relatorio_venda_visao_categoria_aurora_vltotal0":{
+      "codligcamposis":5017999,
+      "codligtabelasis":50179,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrede_de_clientes0":{
+      "codligcamposis":5018000,
+      "codligtabelasis":50180,
+      "codcamposis":57000,
+      "ordem":5018000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lrede_de_clientes1":{
+      "codligcamposis":5018001,
+      "codligtabelasis":50180,
+      "codcamposis":57001,
+      "ordem":5018001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lrede1_de_atividade1_lcliente0":{
+      "codligcamposis":5018100,
+      "codligtabelasis":50181,
+      "codcamposis":2001,
+      "ordem":5018100,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lrede1_de_atividade1_lcliente1":{
+      "codligcamposis":5018101,
+      "codligtabelasis":50181,
+      "codcamposis":2034,
+      "ordem":5018101,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lrede_de_clientes_codrede_de_clientes0":{
+      "codligcamposis":5018900,
+      "codligtabelasis":50189,
+      "codcamposis":9000028,
+      "ordem":9000028,
+      "criterio_uso":"campo de ligacao",
+      "codsituacaoregistro":1
+   },
+   "lrede_de_clientes_dtsaida0":{
+      "codligcamposis":5018980,
+      "codligtabelasis":50189,
+      "codcamposis":9000021,
+      "ordem":9000021,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "lrede_de_clientes_qt0":{
+      "codligcamposis":5018994,
+      "codligtabelasis":50189,
+      "codcamposis":9009000,
+      "ordem":9009000,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_qttotal\"])) { return $GLOBALS[\"ver_vals_qttotal\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrede_de_clientes_un0":{
+      "codligcamposis":5018995,
+      "codligtabelasis":50189,
+      "codcamposis":9009001,
+      "ordem":9009001,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_un\"])) { return $GLOBALS[\"ver_vals_un\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrede_de_clientes_pesoun0":{
+      "codligcamposis":5018996,
+      "codligtabelasis":50189,
+      "codcamposis":9009002,
+      "ordem":9009002,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesoun\"])) { return $GLOBALS[\"ver_vals_pesoun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrede_de_clientes_pesotot0":{
+      "codligcamposis":5018997,
+      "codligtabelasis":50189,
+      "codcamposis":9009003,
+      "ordem":9009003,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_pesotot\"])) { return $GLOBALS[\"ver_vals_pesotot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrede_de_clientes_punit0":{
+      "codligcamposis":5018998,
+      "codligtabelasis":50189,
+      "codcamposis":9009004,
+      "ordem":9009004,
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valorun\"])) { return $GLOBALS[\"ver_vals_valorun\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lrede_de_clientes_vltotal0":{
+      "codligcamposis":5018999,
+      "codligtabelasis":50189,
+      "codcamposis":9009005,
+      "ordem":9009005,
+      "agrupamento":"sum(nvl(__CAMPO__,0))",
+      "criterio_uso":"usar sempre",
+      "criterio_existencia":"if (isset($GLOBALS[\"ver_vals_valortot\"])) { return $GLOBALS[\"ver_vals_valortot\"]; } else {return false;}",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_origem_dos_dados0":{
+      "codligcamposis":1100000,
+      "codligtabelasis":11000,
+      "codcamposis":13001,
+      "ordem":1100000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_origem_dos_dados1":{
+      "codligcamposis":1100001,
+      "codligtabelasis":11000,
+      "codcamposis":13001,
+      "ordem":1100001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_origem_dos_dados2":{
+      "codligcamposis":1100002,
+      "codligtabelasis":11000,
+      "codcamposis":13001,
+      "ordem":1100002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_empresa0":{
+      "codligcamposis":1101000,
+      "codligtabelasis":11010,
+      "codcamposis":14001,
+      "ordem":1101000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_empresa1":{
+      "codligcamposis":1101001,
+      "codligtabelasis":11010,
+      "codcamposis":14001,
+      "ordem":1101001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_empresa2":{
+      "codligcamposis":1101002,
+      "codligtabelasis":11010,
+      "codcamposis":14001,
+      "ordem":1101002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_filial0":{
+      "codligcamposis":1102000,
+      "codligtabelasis":11020,
+      "codcamposis":4000,
+      "ordem":1102000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_filial1":{
+      "codligcamposis":1102001,
+      "codligtabelasis":11020,
+      "codcamposis":4004,
+      "ordem":1102001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_filial2":{
+      "codligcamposis":1102002,
+      "codligtabelasis":11020,
+      "codcamposis":4000,
+      "ordem":1102002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_fornecedor0":{
+      "codligcamposis":1103000,
+      "codligtabelasis":11030,
+      "codcamposis":5000,
+      "ordem":1103000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_fornecedor1":{
+      "codligcamposis":1103001,
+      "codligtabelasis":11030,
+      "codcamposis":5001,
+      "ordem":1103001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_fornecedor2":{
+      "codligcamposis":1103002,
+      "codligtabelasis":11030,
+      "codcamposis":5000,
+      "ordem":1103002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_cidade0":{
+      "codligcamposis":1104000,
+      "codligtabelasis":11040,
+      "codcamposis":6001,
+      "ordem":1104000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_cidade1":{
+      "codligcamposis":1104001,
+      "codligtabelasis":11040,
+      "codcamposis":6002,
+      "ordem":1104001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_cidade2":{
+      "codligcamposis":1104002,
+      "codligtabelasis":11040,
+      "codcamposis":6001,
+      "ordem":1104002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_supervisor0":{
+      "codligcamposis":1105000,
+      "codligtabelasis":11050,
+      "codcamposis":7000,
+      "ordem":1105000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_supervisor1":{
+      "codligcamposis":1105001,
+      "codligtabelasis":11050,
+      "codcamposis":7002,
+      "ordem":1105001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_supervisor2":{
+      "codligcamposis":1105002,
+      "codligtabelasis":11050,
+      "codcamposis":7000,
+      "ordem":1105002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_rca0":{
+      "codligcamposis":1106000,
+      "codligtabelasis":11060,
+      "codcamposis":8000,
+      "ordem":1106000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_rca1":{
+      "codligcamposis":1106001,
+      "codligtabelasis":11060,
+      "codcamposis":8002,
+      "ordem":1106001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_rca2":{
+      "codligcamposis":1106002,
+      "codligtabelasis":11060,
+      "codcamposis":8000,
+      "ordem":1106002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_ramo_de_atitividade0":{
+      "codligcamposis":1107000,
+      "codligtabelasis":11070,
+      "codcamposis":9000,
+      "ordem":1107000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_ramo_de_atitividade1":{
+      "codligcamposis":1107001,
+      "codligtabelasis":11070,
+      "codcamposis":9001,
+      "ordem":1107001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_ramo_de_atitividade2":{
+      "codligcamposis":1107002,
+      "codligtabelasis":11070,
+      "codcamposis":9000,
+      "ordem":1107002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_departamento0":{
+      "codligcamposis":1108000,
+      "codligtabelasis":11080,
+      "codcamposis":10000,
+      "ordem":1108000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_departamento1":{
+      "codligcamposis":1108001,
+      "codligtabelasis":11080,
+      "codcamposis":10001,
+      "ordem":1108001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_departamento2":{
+      "codligcamposis":1108002,
+      "codligtabelasis":11080,
+      "codcamposis":10000,
+      "ordem":1108002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_produto0":{
+      "codligcamposis":1109000,
+      "codligtabelasis":11090,
+      "codcamposis":3000,
+      "ordem":1109000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_produto1":{
+      "codligcamposis":1109001,
+      "codligtabelasis":11090,
+      "codcamposis":3003,
+      "ordem":1109001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_produto2":{
+      "codligcamposis":1109002,
+      "codligtabelasis":11090,
+      "codcamposis":3000,
+      "ordem":1109002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_produto_revenda":{
+      "codligcamposis":1109003,
+      "codligtabelasis":11090,
+      "codcamposis":3006,
+      "ordem":1109003,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_produto_dtexclusao":{
+      "codligcamposis":1109004,
+      "codligtabelasis":11090,
+      "codcamposis":3007,
+      "ordem":1109004,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_clientes0":{
+      "codligcamposis":1110000,
+      "codligtabelasis":11100,
+      "codcamposis":2001,
+      "ordem":1110000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_clientes1":{
+      "codligcamposis":1110001,
+      "codligtabelasis":11100,
+      "codcamposis":2002,
+      "ordem":1110001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_clientes2":{
+      "codligcamposis":1110002,
+      "codligtabelasis":11100,
+      "codcamposis":2001,
+      "ordem":1110002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_rota0":{
+      "codligcamposis":1111000,
+      "codligtabelasis":11110,
+      "codcamposis":12000,
+      "ordem":1111000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_rota1":{
+      "codligcamposis":1111001,
+      "codligtabelasis":11110,
+      "codcamposis":12001,
+      "ordem":1111001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_rota2":{
+      "codligcamposis":1111002,
+      "codligtabelasis":11110,
+      "codcamposis":12000,
+      "ordem":1111002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_visao_negocio_aurora_negocio":{
+      "codligcamposis":1112000,
+      "codligtabelasis":11120,
+      "codcamposis":49000,
+      "ordem":1112000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_visao_negocio_aurora_negocio0":{
+      "codligcamposis":1112001,
+      "codligtabelasis":11120,
+      "codcamposis":49000,
+      "ordem":1112001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_visao_negocio_aurora_negocio1":{
+      "codligcamposis":1112002,
+      "codligtabelasis":11120,
+      "codcamposis":49000,
+      "ordem":1112002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_visao_categoria_aurora_categoria":{
+      "codligcamposis":1113000,
+      "codligtabelasis":11130,
+      "codcamposis":50000,
+      "ordem":1113000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_visao_categoria_aurora_categoria0":{
+      "codligcamposis":1113001,
+      "codligtabelasis":11130,
+      "codcamposis":50000,
+      "ordem":1113001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_visao_categoria_aurora_categoria1":{
+      "codligcamposis":1113002,
+      "codligtabelasis":11130,
+      "codcamposis":50000,
+      "ordem":1113002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_praca0":{
+      "codligcamposis":1114000,
+      "codligtabelasis":11140,
+      "codcamposis":11000,
+      "ordem":1114000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_praca1":{
+      "codligcamposis":1114001,
+      "codligtabelasis":11140,
+      "codcamposis":11001,
+      "ordem":1114001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_praca2":{
+      "codligcamposis":1114002,
+      "codligtabelasis":11140,
+      "codcamposis":11000,
+      "ordem":1114002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_rede_de_clientes0":{
+      "codligcamposis":1115000,
+      "codligtabelasis":11150,
+      "codcamposis":57000,
+      "ordem":1115000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_rede_de_clientes1":{
+      "codligcamposis":1115001,
+      "codligtabelasis":11150,
+      "codcamposis":57001,
+      "ordem":1115001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_rede_de_clientes2":{
+      "codligcamposis":1115002,
+      "codligtabelasis":11150,
+      "codcamposis":57000,
+      "ordem":1115002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_motorista0":{
+      "codligcamposis":1116000,
+      "codligtabelasis":11160,
+      "codcamposis":63000,
+      "ordem":1116000,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_motorista1":{
+      "codligcamposis":1116001,
+      "codligtabelasis":11160,
+      "codcamposis":63001,
+      "ordem":1116001,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_motorista2":{
+      "codligcamposis":1116002,
+      "codligtabelasis":11160,
+      "codcamposis":63000,
+      "ordem":1116002,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_campos_avulsos0":{
+      "codligcamposis":15000000,
+      "codligtabelasis":150000,
+      "codcamposis":19001,
+      "ordem":0,
+      "criterio_uso":"usar sempre",
+      "alias":"VALOR_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_campos_avulsos1":{
+      "codligcamposis":15000001,
+      "codligtabelasis":150000,
+      "codcamposis":19001,
+      "ordem":1,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_OPCAO",
+      "codsituacaoregistro":1
+   },
+   "lista_condicionantes_campos_avulsos2":{
+      "codligcamposis":15000002,
+      "codligtabelasis":150000,
+      "codcamposis":19001,
+      "ordem":2,
+      "criterio_uso":"usar sempre",
+      "alias":"TEXTO_BOTAO",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_codcampestr_consultar":{
+      "codligcamposis":4000000,
+      "codligtabelasis":40000,
+      "codcamposis":24000,
+      "ordem":4000000,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_codcamapnhasup_consultar":{
+      "codligcamposis":4000001,
+      "codligtabelasis":40000,
+      "codcamposis":24001,
+      "ordem":4000001,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_nome_consultar":{
+      "codligcamposis":4000002,
+      "codligtabelasis":40000,
+      "codcamposis":24002,
+      "ordem":4000002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_alterar_codcampestr":{
+      "codligcamposis":4010000,
+      "codligtabelasis":40100,
+      "codcamposis":24000,
+      "ordem":4010000,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_alterar_codcampestrsup":{
+      "codligcamposis":4010001,
+      "codligtabelasis":40100,
+      "codcamposis":24001,
+      "ordem":4010001,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_alterar_nome":{
+      "codligcamposis":4010002,
+      "codligtabelasis":40100,
+      "codcamposis":24002,
+      "ordem":4010002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_codobjetcampestr_alterar":{
+      "codligcamposis":4020000,
+      "codligtabelasis":40200,
+      "codcamposis":25000,
+      "ordem":4020000,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_codcampestr_alterar":{
+      "codligcamposis":4020001,
+      "codligtabelasis":40200,
+      "codcamposis":25001,
+      "ordem":4020001,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_nome_alterar":{
+      "codligcamposis":4020002,
+      "codligtabelasis":40200,
+      "codcamposis":25002,
+      "ordem":4020002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_dtini_alterar":{
+      "codligcamposis":4020003,
+      "codligtabelasis":40200,
+      "codcamposis":25003,
+      "ordem":4020003,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_dtfim_alterar":{
+      "codligcamposis":4020004,
+      "codligtabelasis":40200,
+      "codcamposis":25004,
+      "ordem":4020004,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_visao_alterar":{
+      "codligcamposis":4020005,
+      "codligtabelasis":40200,
+      "codcamposis":25005,
+      "ordem":4020005,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_unidade_alterar":{
+      "codligcamposis":4020006,
+      "codligtabelasis":40200,
+      "codcamposis":25006,
+      "ordem":4020006,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_valor_alterar":{
+      "codligcamposis":4020007,
+      "codligtabelasis":40200,
+      "codcamposis":25007,
+      "ordem":4020007,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_quant",
+      "codsituacaoregistro":1
+   },
+   "lista_consulta_campanhas_estruturadas_objetivos0":{
+      "codligcamposis":41000,
+      "codligtabelasis":410,
+      "codcamposis":25000,
+      "ordem":0,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_dados_campanha_codcampestr_consultar":{
+      "codligcamposis":4200000,
+      "codligtabelasis":42000,
+      "codcamposis":24000,
+      "ordem":4200000,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_dados_campanha_codcampestrsup_consultar":{
+      "codligcamposis":4200001,
+      "codligtabelasis":42000,
+      "codcamposis":24001,
+      "ordem":4200001,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_dados_campanha_nome_consultar":{
+      "codligcamposis":4200002,
+      "codligtabelasis":42000,
+      "codcamposis":24002,
+      "ordem":4200002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_dados_campanha_visao_consultar":{
+      "codligcamposis":4200003,
+      "codligtabelasis":42000,
+      "codcamposis":24003,
+      "ordem":4200003,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_dados_campanha_dtini_consultar":{
+      "codligcamposis":4200004,
+      "codligtabelasis":42000,
+      "codcamposis":24005,
+      "ordem":4200004,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_dados_campanha_dtfim_consultar":{
+      "codligcamposis":4200005,
+      "codligtabelasis":42000,
+      "codcamposis":24006,
+      "ordem":4200005,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_dados_campanha_vlpremiacao_consultar":{
+      "codligcamposis":4200006,
+      "codligtabelasis":42000,
+      "codcamposis":24007,
+      "ordem":4200006,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_dados_campanha_vlpremiacaototal_consultar":{
+      "codligcamposis":4200007,
+      "codligtabelasis":42000,
+      "codcamposis":24008,
+      "ordem":4200007,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_codobjetcampestr_consultar":{
+      "codligcamposis":4300000,
+      "codligtabelasis":43000,
+      "codcamposis":25000,
+      "ordem":4300000,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_codcampestr_consultar":{
+      "codligcamposis":4300001,
+      "codligtabelasis":43000,
+      "codcamposis":25001,
+      "ordem":4300001,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_nome_consultar":{
+      "codligcamposis":4300002,
+      "codligtabelasis":43000,
+      "codcamposis":25002,
+      "ordem":4300002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_dtini_consultar":{
+      "codligcamposis":4300003,
+      "codligtabelasis":43000,
+      "codcamposis":25003,
+      "ordem":4300003,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_dtfim_consultar":{
+      "codligcamposis":4300004,
+      "codligtabelasis":43000,
+      "codcamposis":25004,
+      "ordem":4300004,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_visao_consultar":{
+      "codligcamposis":4300005,
+      "codligtabelasis":43000,
+      "codcamposis":25005,
+      "ordem":4300005,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_unidade_consultar":{
+      "codligcamposis":4300006,
+      "codligtabelasis":43000,
+      "codcamposis":25006,
+      "ordem":4300006,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_valor_consultar":{
+      "codligcamposis":4300007,
+      "codligtabelasis":43000,
+      "codcamposis":25007,
+      "ordem":4300007,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_quant",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_realizado_consultar":{
+      "codligcamposis":4300008,
+      "codligtabelasis":43000,
+      "codcamposis":25008,
+      "ordem":4300008,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_quant",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_gerais_percrealizado_consultar":{
+      "codligcamposis":4300009,
+      "codligtabelasis":43000,
+      "codcamposis":25008,
+      "ordem":4300008,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_perc",
+      "alias":"\"% Realiz.\"",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_condicionantes_codcampestr_consultar":{
+      "codligcamposis":4310000,
+      "codligtabelasis":43100,
+      "codcamposis":24000,
+      "ordem":0,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_condicionantes_condicionantes_consultar":{
+      "codligcamposis":4310001,
+      "codligtabelasis":43100,
+      "codcamposis":24004,
+      "ordem":4,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_dados_campanha_codcampestr_alterar":{
+      "codligcamposis":4400000,
+      "codligtabelasis":44000,
+      "codcamposis":24000,
+      "ordem":4400000,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_dados_campanha_codcampestrsup_alterar":{
+      "codligcamposis":4400001,
+      "codligtabelasis":44000,
+      "codcamposis":24001,
+      "ordem":4400001,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_dados_campanha_nome_alterar":{
+      "codligcamposis":4400002,
+      "codligtabelasis":44000,
+      "codcamposis":24002,
+      "ordem":4400002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_dados_campanha_visao_alterar":{
+      "codligcamposis":4400003,
+      "codligtabelasis":44000,
+      "codcamposis":24003,
+      "ordem":4400003,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_dados_campanha_dtini_alterar":{
+      "codligcamposis":4400004,
+      "codligtabelasis":44000,
+      "codcamposis":24005,
+      "ordem":4400004,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_dados_campanha_dtfim_alterar":{
+      "codligcamposis":4400005,
+      "codligtabelasis":44000,
+      "codcamposis":24006,
+      "ordem":4400005,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_dados_campanha_vlpremiacao_alterar":{
+      "codligcamposis":4400006,
+      "codligtabelasis":44000,
+      "codcamposis":24007,
+      "ordem":4400006,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_dados_campanha_vlpremiacaototal_alterar":{
+      "codligcamposis":4400007,
+      "codligtabelasis":44000,
+      "codcamposis":24008,
+      "ordem":4400007,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_condicionantes_codcampestr_alterar":{
+      "codligcamposis":4410000,
+      "codligtabelasis":44100,
+      "codcamposis":24000,
+      "ordem":4410000,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "campanhas_estruturadas_condicionantes_condicionantes_alterar":{
+      "codligcamposis":4410001,
+      "codligtabelasis":44100,
+      "codcamposis":24004,
+      "ordem":4410001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_especificos_codobjetcampestr_alterar":{
+      "codligcamposis":4420000,
+      "codligtabelasis":44200,
+      "codcamposis":26000,
+      "ordem":4420000,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_especificos_codcampestr_alterar":{
+      "codligcamposis":4420001,
+      "codligtabelasis":44200,
+      "codcamposis":26001,
+      "ordem":4420001,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_especificos_nome_alterar":{
+      "codligcamposis":4420002,
+      "codligtabelasis":44200,
+      "codcamposis":26002,
+      "ordem":4420002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_especificos_dtini_alterar":{
+      "codligcamposis":4420003,
+      "codligtabelasis":44200,
+      "codcamposis":26007,
+      "ordem":4420003,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_especificos_dtfim_alterar":{
+      "codligcamposis":4420004,
+      "codligtabelasis":44200,
+      "codcamposis":26008,
+      "ordem":4420004,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_especificos_visao_alterar":{
+      "codligcamposis":4420005,
+      "codligtabelasis":44200,
+      "codcamposis":26003,
+      "ordem":4420005,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_especificos_item_alterar":{
+      "codligcamposis":4420006,
+      "codligtabelasis":44200,
+      "codcamposis":26004,
+      "ordem":4420006,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_especificos_unidade_alterar":{
+      "codligcamposis":4420007,
+      "codligtabelasis":44200,
+      "codcamposis":26005,
+      "ordem":4420007,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_campanhas_estruturadas_objetivos_especificos_valor_alterar":{
+      "codligcamposis":4420008,
+      "codligtabelasis":44200,
+      "codcamposis":26006,
+      "ordem":4420008,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_quant",
+      "codsituacaoregistro":1
+   },
+   "lista_itens_ratings_foco_coditemrating":{
+      "codligcamposis":4500000,
+      "codligtabelasis":45000,
+      "codcamposis":60000,
+      "ordem":4500000,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "codsituacaoregistro":1
+   },
+   "lista_itens_ratings_foco_codrating":{
+      "codligcamposis":4500001,
+      "codligtabelasis":45000,
+      "codcamposis":60001,
+      "ordem":4500001,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "codsituacaoregistro":1
+   },
+   "lista_itens_ratings_foco_nome":{
+      "codligcamposis":4500002,
+      "codligtabelasis":45000,
+      "codcamposis":60002,
+      "ordem":4500002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_componentes_item_rating_codcompitem":{
+      "codligcamposis":4501000,
+      "codligtabelasis":45010,
+      "codcamposis":61000,
+      "ordem":4501000,
+      "criterio_uso":"usar sempre",
+      "visivel_inclusao":0,
+      "visivel":0,
+      "bloqueado":1,
+      "codsituacaoregistro":1
+   },
+   "lista_componentes_item_rating_coditemrating":{
+      "codligcamposis":4501001,
+      "codligtabelasis":45010,
+      "codcamposis":61001,
+      "ordem":4501001,
+      "criterio_uso":"usar sempre",
+      "visivel":0,
+      "visivel_inclusao":0,
+      "bloqueado":1,
+      "codsituacaoregistro":1
+   },
+   "lista_componentes_item_rating_visao":{
+      "codligcamposis":4501002,
+      "codligtabelasis":45010,
+      "codcamposis":61002,
+      "ordem":4501002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_componentes_item_rating_coditemvisao":{
+      "codligcamposis":4501003,
+      "codligtabelasis":45010,
+      "codcamposis":61003,
+      "ordem":4501003,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "item_rating_foco_condicionantes_coditemrating_alterar":{
+      "codligcamposis":4502000,
+      "codligtabelasis":45020,
+      "codcamposis":60000,
+      "ordem":4502000,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "item_rating_foco_condicionantes_condicionantes_alterar":{
+      "codligcamposis":4502001,
+      "codligtabelasis":45020,
+      "codcamposis":60005,
+      "ordem":4502001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "iten_rating_foco_alterar_coditemrating":{
+      "codligcamposis":4503000,
+      "codligtabelasis":45030,
+      "codcamposis":60000,
+      "ordem":0,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "iten_rating_foco_alterar_codrating":{
+      "codligcamposis":4503001,
+      "codligtabelasis":45030,
+      "codcamposis":60001,
+      "ordem":1,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "iten_rating_foco_alterar_nome":{
+      "codligcamposis":4503002,
+      "codligtabelasis":45030,
+      "codcamposis":60002,
+      "ordem":2,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "iten_rating_foco_alterar_formaapuracao":{
+      "codligcamposis":4503003,
+      "codligtabelasis":45030,
+      "codcamposis":60003,
+      "ordem":3,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto max_200px",
+      "codsituacaoregistro":1
+   },
+   "iten_rating_foco_alterar_multiplicador":{
+      "codligcamposis":4503004,
+      "codligtabelasis":45030,
+      "codcamposis":60004,
+      "ordem":4,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_validacoes_pedidos_alterar_codvalidacao":{
+      "codligcamposis":4600000,
+      "codligtabelasis":46000,
+      "codcamposis":58000,
+      "ordem":4600000,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_validacoes_pedidos_alterar_nome":{
+      "codligcamposis":4600001,
+      "codligtabelasis":46000,
+      "codcamposis":58001,
+      "ordem":4600001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_validacoes_pedidos_alterar_status":{
+      "codligcamposis":4600002,
+      "codligtabelasis":46000,
+      "codcamposis":58002,
+      "ordem":4600002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_validacoes_pedidos_itens_alterar_coditemvalidacao":{
+      "codligcamposis":4601000,
+      "codligtabelasis":46010,
+      "codcamposis":59000,
+      "ordem":4601000,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_validacoes_pedidos_itens_alterar_codvalidacao":{
+      "codligcamposis":4601001,
+      "codligtabelasis":46010,
+      "codcamposis":59001,
+      "ordem":4601001,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_validacoes_pedidos_itens_alterar_tipo":{
+      "codligcamposis":4601002,
+      "codligtabelasis":46010,
+      "codcamposis":59002,
+      "ordem":4601002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_validacoes_pedidos_itens_alterar_entidade":{
+      "codligcamposis":4601003,
+      "codligtabelasis":46010,
+      "codcamposis":59003,
+      "ordem":4601003,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_validacoes_pedidos_itens_alterar_codentidades":{
+      "codligcamposis":4601004,
+      "codligtabelasis":46010,
+      "codcamposis":59004,
+      "ordem":4601004,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_validacoes_pedidos_itens_alterar_qtmin":{
+      "codligcamposis":4601005,
+      "codligtabelasis":46010,
+      "codcamposis":59005,
+      "ordem":4601005,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_validacoes_pedidos_itens_alterar_qtmax":{
+      "codligcamposis":4601006,
+      "codligtabelasis":46010,
+      "codcamposis":59006,
+      "ordem":4601006,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_validacoes_pedidos_itens_alterar_multiplicadorenquadramento":{
+      "codligcamposis":4601007,
+      "codligtabelasis":46010,
+      "codcamposis":59007,
+      "ordem":4601007,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_validacoes_pedidos_itens_alterar_unidade":{
+      "codligcamposis":4601008,
+      "codligtabelasis":46010,
+      "codcamposis":59008,
+      "ordem":4601008,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_validacoes_pedidos_itens_alterar_rejeitarsemaiormax":{
+      "codligcamposis":4601009,
+      "codligtabelasis":46010,
+      "codcamposis":59009,
+      "ordem":4601009,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_clientes_codcli":{
+      "codligcamposis":10000000,
+      "codligtabelasis":100000,
+      "codcamposis":2000,
+      "ordem":10000000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_clientes_cnpj":{
+      "codligcamposis":10000001,
+      "codligtabelasis":100000,
+      "codcamposis":2001,
+      "ordem":10000001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_clientes_cliente":{
+      "codligcamposis":10000002,
+      "codligtabelasis":100000,
+      "codcamposis":2002,
+      "ordem":10000002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_clientes_fantasia":{
+      "codligcamposis":10000003,
+      "codligtabelasis":100000,
+      "codcamposis":2003,
+      "ordem":10000003,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_produtos_estoque0":{
+      "codligcamposis":10110000,
+      "codligtabelasis":101100,
+      "codcamposis":20000,
+      "ordem":10110000,
+      "criterio_uso":"usar sempre",
+      "alias":"\"filial\"",
+      "formatacao":"cel_numint",
+      "codsituacaoregistro":1
+   },
+   "lista_produtos_estoque1":{
+      "codligcamposis":10110001,
+      "codligtabelasis":101100,
+      "codcamposis":20001,
+      "ordem":10110001,
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_numint",
+      "codsituacaoregistro":1
+   },
+   "lista_produtos_estoque1a":{
+      "codligcamposis":10110002,
+      "codligtabelasis":101100,
+      "codcamposis":20005,
+      "ordem":10110002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_produtos_estoque_unidade":{
+      "codligcamposis":10110003,
+      "codligtabelasis":101100,
+      "codcamposis":20006,
+      "ordem":10110003,
+      "criterio_uso":"usar sempre",
+      "alias":"\"un\"",
+      "codsituacaoregistro":1
+   },
+   "lista_produtos_estoque_qtestjumbo":{
+      "codligcamposis":10110004,
+      "codligtabelasis":101100,
+      "codcamposis":20002,
+      "ordem":10110004,
+      "criterio_uso":"usar sempre",
+      "alias":"\"qtde jumbo\"",
+      "formatacao":"cel_quant",
+      "codsituacaoregistro":1
+   },
+   "lista_produtos_estoque_qtreserva":{
+      "codligcamposis":10110005,
+      "codligtabelasis":101100,
+      "codcamposis":20003,
+      "ordem":10110005,
+      "criterio_uso":"usar sempre",
+      "alias":"\"reservado\"",
+      "formatacao":"cel_quant",
+      "codsituacaoregistro":1
+   },
+   "lista_produtos_estoque3_pendente":{
+      "codligcamposis":10110006,
+      "codligtabelasis":101100,
+      "codcamposis":20007,
+      "ordem":10110006,
+      "criterio_uso":"usar sempre",
+      "alias":"\"pendente\"",
+      "formatacao":"cel_quant",
+      "codsituacaoregistro":1
+   },
+   "lista_produtos_estoque3_transmitido":{
+      "codligcamposis":10110007,
+      "codligtabelasis":101100,
+      "codcamposis":20008,
+      "ordem":10110007,
+      "criterio_uso":"usar sempre",
+      "alias":"\"transmitido\"",
+      "formatacao":"cel_quant",
+      "codsituacaoregistro":1
+   },
+   "lista_produtos_estoque_disponivel_jumbo":{
+      "codligcamposis":10110008,
+      "codligtabelasis":101100,
+      "codcamposis":20004,
+      "ordem":10110008,
+      "criterio_uso":"usar sempre",
+      "alias":"\"disponivel jumbo\"",
+      "formatacao":"cel_quant",
+      "codsituacaoregistro":1
+   },
+   "lista_produtos_estoque_previsao_sisponivel_jumbo":{
+      "codligcamposis":10110009,
+      "codligtabelasis":101100,
+      "codcamposis":20004,
+      "ordem":10110009,
+      "criterio_uso":"usar sempre",
+      "alias":"\"previsao disp jumbo\"",
+      "transformacoes":"estoque_produtos.\"qtde jumbo\" - (estoque_produtos.\"reservado\" + estoque_produtos.\"pendente\" + estoque_produtos.\"transmitido\")",
+      "formatacao":"cel_quant",
+      "codsituacaoregistro":1
+   },
+   "lista_produtos_estoque_disponivel_aurora":{
+      "codligcamposis":10110010,
+      "codligtabelasis":101100,
+      "codcamposis":20004,
+      "ordem":10110010,
+      "criterio_uso":"usar sempre",
+      "alias":"\"disponivel aurora\"",
+      "formatacao":"cel_quant",
+      "codsituacaoregistro":1
+   },
+   "lista_produtos_estoque_disponivel_total":{
+      "codligcamposis":10110011,
+      "codligtabelasis":101100,
+      "codcamposis":20004,
+      "ordem":10110011,
+      "criterio_uso":"usar sempre",
+      "alias":"\"disponivel total\"",
+      "formatacao":"cel_quant",
+      "codsituacaoregistro":1
+   },
+   "lista_produtos_estoque12":{
+      "codligcamposis":10110012,
+      "codligtabelasis":101100,
+      "codcamposis":20004,
+      "ordem":10110012,
+      "criterio_uso":"usar sempre",
+      "transformacoes":"estoque_produtos.\"qtde jumbo\" - (estoque_produtos.\"reservado\" + estoque_produtos.\"pendente\" + estoque_produtos.\"transmitido\") + estoque_produtos.\"disponivel aurora\"",
+      "alias":"\"previsao disp total\"",
+      "formatacao":"cel_quant",
+      "codsituacaoregistro":1
+   },
+   "lista_grupos_produtos_giro_codgrupo":{
+      "codligcamposis":10200000,
+      "codligtabelasis":102000,
+      "codcamposis":56000,
+      "ordem":56000,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "codsituacaoregistro":1
+   },
+   "lista_grupos_produtos_giro_nomegrupo":{
+      "codligcamposis":10200001,
+      "codligtabelasis":102000,
+      "codcamposis":56001,
+      "ordem":56001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_grupos_produtos_equivalentes_codgrupo":{
+      "codligcamposis":10250000,
+      "codligtabelasis":102500,
+      "codcamposis":51000,
+      "ordem":10250000,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "lista_grupos_produtos_equivalentes_codvisivelgrupo":{
+      "codligcamposis":10250001,
+      "codligtabelasis":102500,
+      "codcamposis":51001,
+      "ordem":10250001,
+      "alias":"cod",
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_grupos_produtos_equivalentes_nomegrupo":{
+      "codligcamposis":10250002,
+      "codligtabelasis":102500,
+      "codcamposis":51002,
+      "ordem":10250002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "grupos_produtos_dados_grupos_codgrupoprod_alterar":{
+      "codligcamposis":10251000,
+      "codligtabelasis":102510,
+      "codcamposis":51000,
+      "ordem":10251000,
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "grupos_produtos_dados_grupos_codvisivelgrupo_alterar":{
+      "codligcamposis":10251001,
+      "codligtabelasis":102510,
+      "codcamposis":51001,
+      "ordem":10251001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "grupos_produtos_dados_grupos_nomegrupo_alterar":{
+      "codligcamposis":10251002,
+      "codligtabelasis":102510,
+      "codcamposis":51002,
+      "ordem":10251002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "grupos_produtos_dados_grupos_regra_alterar":{
+      "codligcamposis":10251003,
+      "codligtabelasis":102510,
+      "codcamposis":51003,
+      "ordem":10251003,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto max_200px",
+      "codsituacaoregistro":1
+   },
+   "lista_integrantes_grupos_produtos_equivalentes_codintegrante":{
+      "codligcamposis":10252000,
+      "codligtabelasis":102520,
+      "codcamposis":52000,
+      "ordem":10252000,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "codsituacaoregistro":1
+   },
+   "lista_integrantes_grupos_produtos_equivalentes_codgrupoprodequiv":{
+      "codligcamposis":10252001,
+      "codligtabelasis":102520,
+      "codcamposis":52001,
+      "ordem":10252001,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "codsituacaoregistro":1
+   },
+   "lista_integrantes_grupos_produtos_equivalentes_codprod":{
+      "codligcamposis":10252002,
+      "codligtabelasis":102520,
+      "codcamposis":52002,
+      "ordem":10252002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_integrantes_grupos_produtos_equivalentes_descricao":{
+      "codligcamposis":10252003,
+      "codligtabelasis":102520,
+      "codcamposis":52003,
+      "ordem":10252003,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_pedido_numped":{
+      "codligcamposis":10300000,
+      "codligtabelasis":103000,
+      "codcamposis":41000,
+      "ordem":10300000,
+      "criterio_uso":"usar sempre",
+      "transformacoes":"distinct __CAMPO__",
+      "codsituacaoregistro":1
+   },
+   "lista_pedido_data":{
+      "codligcamposis":10300001,
+      "codligtabelasis":103000,
+      "codcamposis":41001,
+      "ordem":10300001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_pedido_posicao":{
+      "codligcamposis":10300002,
+      "codligtabelasis":103000,
+      "codcamposis":41002,
+      "ordem":10300002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_pedido_codcli":{
+      "codligcamposis":10300003,
+      "codligtabelasis":103000,
+      "codcamposis":41003,
+      "ordem":10300003,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_pedido_codusur":{
+      "codligcamposis":10300004,
+      "codligtabelasis":103000,
+      "codcamposis":41004,
+      "ordem":10300004,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_pedido_codfilial":{
+      "codligcamposis":10300005,
+      "codligtabelasis":103000,
+      "codcamposis":41005,
+      "ordem":10300005,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_pedido_codcob":{
+      "codligcamposis":10300006,
+      "codligtabelasis":103000,
+      "codcamposis":41006,
+      "ordem":10300006,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   },
+   "lista_pedido_codplpag":{
+      "codligcamposis":10300007,
+      "codligtabelasis":103000,
+      "codcamposis":41007,
+      "ordem":10300007,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_pedido_vltotal":{
+      "codligcamposis":10300008,
+      "codligtabelasis":103000,
+      "codcamposis":41008,
+      "ordem":10300008,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_pedido_totpeso":{
+      "codligcamposis":10300009,
+      "codligtabelasis":103000,
+      "codcamposis":41009,
+      "ordem":10300009,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_pedido_numitens":{
+      "codligcamposis":10300010,
+      "codligtabelasis":103000,
+      "codcamposis":41011,
+      "ordem":10300010,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_codigos_devolucao_coddevol":{
+      "codligcamposis":10800000,
+      "codligtabelasis":108000,
+      "codcamposis":43000,
+      "ordem":10800000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_codigos_devolucao_motivo":{
+      "codligcamposis":10800001,
+      "codligtabelasis":108000,
+      "codcamposis":43001,
+      "ordem":10800001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_codigos_devolucao_percestcom":{
+      "codligcamposis":10800002,
+      "codligtabelasis":108000,
+      "codcamposis":43002,
+      "ordem":10800002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_codigos_devolucao_estornacomissao":{
+      "codligcamposis":10800003,
+      "codligtabelasis":108000,
+      "codcamposis":43003,
+      "ordem":10800003,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_codigos_devolucao_tipo":{
+      "codligcamposis":10800004,
+      "codligtabelasis":108000,
+      "codcamposis":43004,
+      "ordem":10800004,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_codigos_devolucao_codconta":{
+      "codligcamposis":10800005,
+      "codligtabelasis":108000,
+      "codcamposis":43005,
+      "ordem":10800005,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_codigos_devolucao_codmotnestle":{
+      "codligcamposis":10800006,
+      "codligtabelasis":108000,
+      "codcamposis":43006,
+      "ordem":10800006,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_codigos_devolucao_codmotfornecnestle":{
+      "codligcamposis":10800007,
+      "codligtabelasis":108000,
+      "codcamposis":43007,
+      "ordem":10800007,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_codigos_devolucao_percestcommot":{
+      "codligcamposis":10800008,
+      "codligtabelasis":108000,
+      "codcamposis":43008,
+      "ordem":10800008,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_codigos_devolucao_manterdebitodescfin":{
+      "codligcamposis":10800009,
+      "codligtabelasis":108000,
+      "codcamposis":43009,
+      "ordem":10800009,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_codigos_devolucao_mantercredito":{
+      "codligcamposis":10800010,
+      "codligtabelasis":108000,
+      "codcamposis":43010,
+      "ordem":10800010,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_codigos_devolucao_bloqueiacliente":{
+      "codligcamposis":10800011,
+      "codligtabelasis":108000,
+      "codcamposis":43011,
+      "ordem":10800011,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_codigos_devolucao_retornovendanaoentregueaodest":{
+      "codligcamposis":10800012,
+      "codligtabelasis":108000,
+      "codcamposis":43012,
+      "ordem":10800012,
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   },
+   "lista_codigos_devolucao_codmotdevdori":{
+      "codligcamposis":10800013,
+      "codligtabelasis":108000,
+      "codcamposis":43013,
+      "ordem":10800013,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_codigos_devolucao_debitavalornfccrca":{
+      "codligcamposis":10800014,
+      "codligtabelasis":108000,
+      "codcamposis":43014,
+      "ordem":10800014,
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   },
+   "lista_codigos_devolucao_percdebvlnfccrca":{
+      "codligcamposis":10800015,
+      "codligtabelasis":108000,
+      "codcamposis":43015,
+      "ordem":10800015,
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_perc",
+      "codsituacaoregistro":1
+   },
+   "lista_majorar_ccrca_codreg":{
+      "codligcamposis":10900000,
+      "codligtabelasis":109000,
+      "codcamposis":48000,
+      "ordem":10900000,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "lista_majorar_ccrca_visao":{
+      "codligcamposis":10900001,
+      "codligtabelasis":109000,
+      "codcamposis":48001,
+      "ordem":10900001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_majorar_ccrca_coditem":{
+      "codligcamposis":10900002,
+      "codligtabelasis":109000,
+      "codcamposis":48002,
+      "ordem":10900002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_majorar_ccrca_percdescmin":{
+      "codligcamposis":10900003,
+      "codligtabelasis":109000,
+      "codcamposis":48003,
+      "ordem":10900003,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_num",
+      "codsituacaoregistro":1
+   },
+   "lista_majorar_ccrca_perdescmax":{
+      "codligcamposis":10900004,
+      "codligtabelasis":109000,
+      "codcamposis":48004,
+      "ordem":10900004,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_num",
+      "codsituacaoregistro":1
+   },
+   "lista_majorar_ccrca_majorarvalordesc":{
+      "codligcamposis":10900005,
+      "codligtabelasis":109000,
+      "codcamposis":48005,
+      "ordem":10900005,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   },
+   "lista_majorar_ccrca_majorarvalorvenda":{
+      "codligcamposis":10900006,
+      "codligtabelasis":109000,
+      "codcamposis":48006,
+      "ordem":10900006,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   },
+   "lista_majorar_ccrca_multiplicadorvalor":{
+      "codligcamposis":10900007,
+      "codligtabelasis":109000,
+      "codcamposis":48007,
+      "ordem":10900007,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_num",
+      "codsituacaoregistro":1
+   },
+   "lista_majorar_ccrca_mantervalorpositivo":{
+      "codligcamposis":10900008,
+      "codligtabelasis":109000,
+      "codcamposis":48008,
+      "ordem":10900008,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   },
+   "lista_majorar_ccrca_considmajoracaojumbo":{
+      "codligcamposis":10900009,
+      "codligtabelasis":109000,
+      "codcamposis":48009,
+      "ordem":10900009,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_produto0_codrca":{
+      "codligcamposis":5000000,
+      "codligtabelasis":50000,
+      "codcamposis":44003,
+      "ordem":5000000,
+      "criterio_uso":"usar sempre",
+      "alias":"codrca",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_produto_codprod":{
+      "codligcamposis":5000001,
+      "codligtabelasis":50000,
+      "codcamposis":44005,
+      "ordem":5000001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_produto_descricao":{
+      "codligcamposis":5000002,
+      "codligtabelasis":50000,
+      "codcamposis":44005,
+      "ordem":5000002,
+      "alias":"descricao",
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_produto_grupogiro":{
+      "codligcamposis":5000003,
+      "codligtabelasis":50000,
+      "codcamposis":44012,
+      "ordem":5000003,
+      "alias":"grupogiro",
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_produto0_objetivo":{
+      "codligcamposis":5000050,
+      "codligtabelasis":50000,
+      "codcamposis":44007,
+      "ordem":5000050,
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "alias":"objetivo",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_produto0_realizado_bruto":{
+      "codligcamposis":5000080,
+      "codligtabelasis":50000,
+      "codcamposis":44011,
+      "ordem":5000080,
+      "alias":"REALIZADOBRUTO",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_produto0_realizado_liquido":{
+      "codligcamposis":5000081,
+      "codligtabelasis":50000,
+      "codcamposis":44011,
+      "ordem":5000081,
+      "alias":"REALIZADOLIQUIDO",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_produto0_percrealizado":{
+      "codligcamposis":5000082,
+      "codligtabelasis":50000,
+      "codcamposis":44011,
+      "ordem":5000082,
+      "alias":"PERCREALIZADO",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_perc_med",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_produto0_percmax":{
+      "codligcamposis":5000083,
+      "codligtabelasis":50000,
+      "codcamposis":44008,
+      "ordem":5000083,
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_perc_med",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_produto0_objetivomax":{
+      "codligcamposis":5000084,
+      "codligtabelasis":50000,
+      "codcamposis":44008,
+      "ordem":5000084,
+      "alias":"OBJETIVOMAX",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_produto0_faltaobjetivomax":{
+      "codligcamposis":5000085,
+      "codligtabelasis":50000,
+      "codcamposis":44008,
+      "ordem":5000085,
+      "alias":"FALTAOBJETIVOMAX",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_produto0_realizado_periodo":{
+      "codligcamposis":5000090,
+      "codligtabelasis":50000,
+      "codcamposis":44009,
+      "ordem":5000090,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_rca0_codrca":{
+      "codligcamposis":5100000,
+      "codligtabelasis":51000,
+      "codcamposis":44003,
+      "ordem":5100000,
+      "criterio_uso":"usar sempre",
+      "alias":"codrca",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_rca_nome":{
+      "codligcamposis":5100001,
+      "codligtabelasis":51000,
+      "codcamposis":44005,
+      "ordem":5100001,
+      "alias":"nome",
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_rca0_objetivo":{
+      "codligcamposis":5100050,
+      "codligtabelasis":51000,
+      "codcamposis":44007,
+      "ordem":5100050,
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "alias":"objetivo",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_rca0_realizado_bruto":{
+      "codligcamposis":5100080,
+      "codligtabelasis":51000,
+      "codcamposis":44011,
+      "ordem":5100080,
+      "alias":"REALIZADOBRUTO",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_rca0_realizado_liquido":{
+      "codligcamposis":5100081,
+      "codligtabelasis":51000,
+      "codcamposis":44011,
+      "ordem":5100081,
+      "alias":"REALIZADOLIQUIDO",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_rca0_percrealizado":{
+      "codligcamposis":5100082,
+      "codligtabelasis":51000,
+      "codcamposis":44011,
+      "ordem":5100082,
+      "alias":"PERCREALIZADO",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_perc_med",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_rca0_objetivomax":{
+      "codligcamposis":5100084,
+      "codligtabelasis":51000,
+      "codcamposis":44008,
+      "ordem":5100084,
+      "alias":"OBJETIVOMAX",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_rca0_faltaobjetivomax":{
+      "codligcamposis":5100085,
+      "codligtabelasis":51000,
+      "codcamposis":44008,
+      "ordem":5100085,
+      "alias":"FALTAOBJETIVOMAX",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_rca0_realizado_periodo":{
+      "codligcamposis":5100090,
+      "codligtabelasis":51000,
+      "codcamposis":44009,
+      "ordem":5100090,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_supervisor0_codsupervisor":{
+      "codligcamposis":5200000,
+      "codligtabelasis":52000,
+      "codcamposis":44003,
+      "ordem":5200000,
+      "criterio_uso":"usar sempre",
+      "alias":"codSUPERVISOR",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_supervisor_nome":{
+      "codligcamposis":5200001,
+      "codligtabelasis":52000,
+      "codcamposis":44005,
+      "ordem":5200001,
+      "alias":"nome",
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_supervisor0_objetivo":{
+      "codligcamposis":5200050,
+      "codligtabelasis":52000,
+      "codcamposis":44007,
+      "ordem":5200050,
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "alias":"objetivo",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_supervisor0_realizado_bruto":{
+      "codligcamposis":5200080,
+      "codligtabelasis":52000,
+      "codcamposis":44011,
+      "ordem":5200080,
+      "alias":"REALIZADOBRUTO",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_supervisor0_realizado_liquido":{
+      "codligcamposis":5200081,
+      "codligtabelasis":52000,
+      "codcamposis":44011,
+      "ordem":5200081,
+      "alias":"REALIZADOLIQUIDO",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_supervisor0_percrealizado":{
+      "codligcamposis":5200082,
+      "codligtabelasis":52000,
+      "codcamposis":44011,
+      "ordem":5200082,
+      "alias":"PERCREALIZADO",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_perc_med",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_supervisor0_objetivomax":{
+      "codligcamposis":5200084,
+      "codligtabelasis":52000,
+      "codcamposis":44008,
+      "ordem":5200084,
+      "alias":"OBJETIVOMAX",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_supervisor0_faltaobjetivomax":{
+      "codligcamposis":5200085,
+      "codligtabelasis":52000,
+      "codcamposis":44008,
+      "ordem":5200085,
+      "alias":"FALTAOBJETIVOMAX",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_supervisor0_realizado_periodo":{
+      "codligcamposis":5200090,
+      "codligtabelasis":52000,
+      "codcamposis":44009,
+      "ordem":5200090,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_filial0_codfilial":{
+      "codligcamposis":5300000,
+      "codligtabelasis":53000,
+      "codcamposis":44003,
+      "ordem":5300000,
+      "criterio_uso":"usar sempre",
+      "alias":"codFILIAL",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_filial_nome":{
+      "codligcamposis":5300001,
+      "codligtabelasis":53000,
+      "codcamposis":44005,
+      "ordem":5300001,
+      "alias":"FILIAL",
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_filial0_objetivo":{
+      "codligcamposis":5300050,
+      "codligtabelasis":53000,
+      "codcamposis":44007,
+      "ordem":5300050,
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "alias":"objetivo",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_filial0_realizado_bruto":{
+      "codligcamposis":5300080,
+      "codligtabelasis":53000,
+      "codcamposis":44011,
+      "ordem":5300080,
+      "alias":"REALIZADOBRUTO",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_filial0_realizado_liquido":{
+      "codligcamposis":5300081,
+      "codligtabelasis":53000,
+      "codcamposis":44011,
+      "ordem":5300081,
+      "alias":"REALIZADOLIQUIDO",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_filial0_percrealizado":{
+      "codligcamposis":5300082,
+      "codligtabelasis":53000,
+      "codcamposis":44011,
+      "ordem":5300082,
+      "alias":"PERCREALIZADO",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_perc_med",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_filial0_objetivomax":{
+      "codligcamposis":5300084,
+      "codligtabelasis":53000,
+      "codcamposis":44008,
+      "ordem":5300084,
+      "alias":"OBJETIVOMAX",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_filial0_faltaobjetivomax":{
+      "codligcamposis":5300085,
+      "codligtabelasis":53000,
+      "codcamposis":44008,
+      "ordem":5300085,
+      "alias":"FALTAOBJETIVOMAX",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_filial0_realizado_periodo":{
+      "codligcamposis":5300090,
+      "codligtabelasis":53000,
+      "codcamposis":44009,
+      "ordem":5300090,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   },
+	"relatorio_meta_departamento0_coddepartamento":{
+      "codligcamposis":5500000,
+      "codligtabelasis":55000,
+      "codcamposis":44003,
+      "ordem":5500000,
+      "criterio_uso":"usar sempre",
+      "alias":"codepto",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_departamento_nome":{
+      "codligcamposis":5500001,
+      "codligtabelasis":55000,
+      "codcamposis":44005,
+      "ordem":5500001,
+      "alias":"departamento",
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_departamento0_objetivo":{
+      "codligcamposis":5500050,
+      "codligtabelasis":55000,
+      "codcamposis":44007,
+      "ordem":5500050,
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "agrupamento":"SUM(__CAMPO__)",
+      "alias":"objetivo",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_departamento0_realizado_bruto":{
+      "codligcamposis":5500080,
+      "codligtabelasis":55000,
+      "codcamposis":44011,
+      "ordem":5500080,
+      "agrupamento":"SUM(__CAMPO__)",
+      "alias":"REALIZADOBRUTO",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_departamento0_realizado_liquido":{
+      "codligcamposis":5500081,
+      "codligtabelasis":55000,
+      "codcamposis":44011,
+      "ordem":5500081,
+      "agrupamento":"SUM(__CAMPO__)",
+      "alias":"REALIZADOLIQUIDO",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_departamento0_percrealizado":{
+      "codligcamposis":5500082,
+      "codligtabelasis":55000,
+      "codcamposis":44011,
+      "ordem":5500082,
+      "agrupamento":"SUM(__CAMPO__)",
+      "alias":"PERCREALIZADO",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_perc_med",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_departamento0_objetivomax":{
+      "codligcamposis":5500084,
+      "codligtabelasis":55000,
+      "codcamposis":44008,
+      "ordem":5500084,
+      "agrupamento":"SUM(__CAMPO__)",
+      "alias":"OBJETIVOMAX",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_departamento0_faltaobjetivomax":{
+      "codligcamposis":5500085,
+      "codligtabelasis":55000,
+      "codcamposis":44008,
+      "ordem":5500085,
+      "agrupamento":"SUM(__CAMPO__)",
+      "alias":"FALTAOBJETIVOMAX",
+      "criterio_uso":"usar sempre",
+      "formatacao":"cel_peso",
+      "codsituacaoregistro":1
+   },
+   "relatorio_meta_departamento0_realizado_periodo":{
+      "codligcamposis":5500090,
+      "codligtabelasis":55000,
+      "codcamposis":44009,
+      "ordem":5500090,
+      "criterio_uso":"condicionante",
+      "codsituacaoregistro":1
+   }, 
+   "lista_objetivos_alterar_campanhas_sinergia_codcampanhasinergia":{
+      "codligcamposis":5800000,
+      "codligtabelasis":58000,
+      "codcamposis":53000,
+      "ordem":5800000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_objetivos_alterar_campanhas_sinergia_nome":{
+      "codligcamposis":5800001,
+      "codligtabelasis":58000,
+      "codcamposis":53001,
+      "ordem":5800001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_objetivos_alterar_campanhas_sinergia_percmaxating":{
+      "codligcamposis":5800002,
+      "codligtabelasis":58000,
+      "codcamposis":53002,
+      "ordem":5800002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_objetivos_alterar_campanhas_sinergia_visao":{
+      "codligcamposis":5800003,
+      "codligtabelasis":58000,
+      "codcamposis":53003,
+      "ordem":5800003,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_objetivos_alterar_campanhas_sinergia_dtini":{
+      "codligcamposis":5800004,
+      "codligtabelasis":58000,
+      "codcamposis":53004,
+      "ordem":5800004,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_objetivos_alterar_campanhas_sinergia_dtfim":{
+      "codligcamposis":5800005,
+      "codligtabelasis":58000,
+      "codcamposis":53005,
+      "ordem":5800005,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_objetivos_alterar_campanhas_sinergia_unidade":{
+      "codligcamposis":5800006,
+      "codligtabelasis":58000,
+      "codcamposis":53006,
+      "ordem":5800006,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_coditemvisao_objetivos_sinergia_codobjetivosinergia":{
+      "codligcamposis":5810000,
+      "codligtabelasis":58100,
+      "codcamposis":44000,
+      "ordem":5810000,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_coditemvisao_objetivos_sinergia_codcampanhasinergia":{
+      "codligcamposis":5810001,
+      "codligtabelasis":58100,
+      "codcamposis":44001,
+      "ordem":5810001,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_coditemvisao_objetivos_sinergia_entidade":{
+      "codligcamposis":5810002,
+      "codligtabelasis":58100,
+      "codcamposis":44002,
+      "ordem":5810002,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_coditemvisao_objetivos_sinergia_codentidade":{
+      "codligcamposis":5810003,
+      "codligtabelasis":58100,
+      "codcamposis":44003,
+      "ordem":5810003,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_coditemvisao_objetivos_sinergia_visao":{
+      "codligcamposis":5810004,
+      "codligtabelasis":58100,
+      "codcamposis":44004,
+      "ordem":5810004,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_coditemvisao_objetivos_sinergia_coditemvisao":{
+      "codligcamposis":5810005,
+      "codligtabelasis":58100,
+      "codcamposis":44005,
+      "ordem":5810005,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_coditemvisao_objetivos_sinergia_unidade":{
+      "codligcamposis":5810006,
+      "codligtabelasis":58100,
+      "codcamposis":44006,
+      "ordem":5810006,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_coditemvisao_objetivos_sinergia_valor":{
+      "codligcamposis":5810007,
+      "codligtabelasis":58100,
+      "codcamposis":44007,
+      "ordem":5810007,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_coditemvisao_objetivos_sinergia_percmaxating":{
+      "codligcamposis":5810008,
+      "codligtabelasis":58100,
+      "codcamposis":44008,
+      "ordem":5810008,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "codsituacaoregistro":1
+   },
+   "lista_coditemvisao_objetivos_sinergia_mes":{
+      "codligcamposis":5810009,
+      "codligtabelasis":58100,
+      "codcamposis":44009,
+      "ordem":5810009,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_coditemvisao_objetivos_sinergia_ano":{
+      "codligcamposis":5810010,
+      "codligtabelasis":58100,
+      "codcamposis":44010,
+      "ordem":5810010,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_precificacao_codconfig":{
+      "codligcamposis":6000000,
+      "codligtabelasis":60000,
+      "codcamposis":54000,
+      "ordem":54000,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_precificacao_config":{
+      "codligcamposis":6000001,
+      "codligtabelasis":60000,
+      "codcamposis":54001,
+      "ordem":54001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_precificacao_valor":{
+      "codligcamposis":6000002,
+      "codligtabelasis":60000,
+      "codcamposis":54002,
+      "ordem":54002,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_pedidos_codparam":{
+      "codligcamposis":6001000,
+      "codligtabelasis":60010,
+      "codcamposis":55000,
+      "ordem":55000,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_pedidos_codprocessorelacionado":{
+      "codligcamposis":6001001,
+      "codligtabelasis":60010,
+      "codcamposis":55001,
+      "ordem":55001,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_pedidos_tipoentidade":{
+      "codligcamposis":6001002,
+      "codligtabelasis":60010,
+      "codcamposis":55002,
+      "ordem":55002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_pedidos_codentidade":{
+      "codligcamposis":6001003,
+      "codligtabelasis":60010,
+      "codcamposis":55003,
+      "ordem":55003,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_pedidos_param":{
+      "codligcamposis":6001004,
+      "codligtabelasis":60010,
+      "codcamposis":55004,
+      "ordem":55004,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_pedidos_valor":{
+      "codligcamposis":6001005,
+      "codligtabelasis":60010,
+      "codcamposis":55005,
+      "ordem":55005,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   },
+   "editar_meus_dados_codusur":{
+      "codligcamposis":6002000,
+      "codligtabelasis":60020,
+      "codcamposis":8000,
+      "ordem":6002000,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "editar_meus_dados_codsupervisor":{
+      "codligcamposis":6002001,
+      "codligtabelasis":60020,
+      "codcamposis":8001,
+      "ordem":6002001,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "editar_meus_dados_nome":{
+      "codligcamposis":6002002,
+      "codligtabelasis":60020,
+      "codcamposis":8002,
+      "ordem":6002002,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "editar_meus_dados_fones":{
+      "codligcamposis":6002003,
+      "codligtabelasis":60020,
+      "codcamposis":8003,
+      "ordem":6002003,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "editar_meus_dados_habilitaenviowhats":{
+      "codligcamposis":6002004,
+      "codligtabelasis":60020,
+      "codcamposis":8004,
+      "ordem":6002004,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "editar_meus_dados_codfilial":{
+      "codligcamposis":6002005,
+      "codligtabelasis":60020,
+      "codcamposis":8005,
+      "ordem":6002005,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "editar_meus_dados_senha":{
+      "codligcamposis":6002006,
+      "codligtabelasis":60020,
+      "codcamposis":8006,
+      "ordem":6002006,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "editar_meus_dados_email":{
+      "codligcamposis":6002007,
+      "codligtabelasis":60020,
+      "codcamposis":8007,
+      "ordem":6002007,
+      "criterio_uso":"usar sempre",
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_compras_codparam":{
+      "codligcamposis":6003000,
+      "codligtabelasis":60030,
+      "codcamposis":55000,
+      "ordem":6003000,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_compras_codprocessorelacionado":{
+      "codligcamposis":6003001,
+      "codligtabelasis":60030,
+      "codcamposis":55001,
+      "ordem":6003001,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_compras_tipoentidade":{
+      "codligcamposis":6003002,
+      "codligtabelasis":60030,
+      "codcamposis":55002,
+      "ordem":6003002,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_compras_codentidade":{
+      "codligcamposis":6003003,
+      "codligtabelasis":60030,
+      "codcamposis":55003,
+      "ordem":6003003,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_compras_param":{
+      "codligcamposis":6003004,
+      "codligtabelasis":60030,
+      "codcamposis":55004,
+      "ordem":6003004,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_compras_valor":{
+      "codligcamposis":6003005,
+      "codligtabelasis":60030,
+      "codcamposis":55005,
+      "ordem":6003005,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_vendas_codparam":{
+      "codligcamposis":6004000,
+      "codligtabelasis":60040,
+      "codcamposis":55000,
+      "ordem":6004000,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_vendas_codprocessorelacionado":{
+      "codligcamposis":6004001,
+      "codligtabelasis":60040,
+      "codcamposis":55001,
+      "ordem":6004001,
+      "criterio_uso":"usar sempre",
+      "bloqueado":1,
+      "visivel":0,
+      "visivel_inclusao":0,
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_vendas_tipoentidade":{
+      "codligcamposis":6004002,
+      "codligtabelasis":60040,
+      "codcamposis":55002,
+      "ordem":6004002,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_vendas_codentidade":{
+      "codligcamposis":6004003,
+      "codligtabelasis":60040,
+      "codcamposis":55003,
+      "ordem":6004003,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_vendas_param":{
+      "codligcamposis":6004004,
+      "codligtabelasis":60040,
+      "codcamposis":55004,
+      "ordem":6004004,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   },
+   "lista_configuracoes_vendas_valor":{
+      "codligcamposis":6004005,
+      "codligtabelasis":60040,
+      "codcamposis":55005,
+      "ordem":6004005,
+      "criterio_uso":"usar sempre",
+      "ignorar_format_aut":1,
+      "formatacao":"cel_texto",
+      "codsituacaoregistro":1
+   }
+}

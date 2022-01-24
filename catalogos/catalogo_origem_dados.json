@@ -1,0 +1,15 @@
+{
+	"dados_cat":{
+		"versao":1
+	},
+   "jumbo":{
+      "codorigem":0,
+      "origem":"JUMBO",
+      "codsituacaoregistro":1
+   },
+   "aurora":{
+      "codorigem":1,
+      "origem":"AURORA",
+      "codsituacaoregistro":1
+   }
+}

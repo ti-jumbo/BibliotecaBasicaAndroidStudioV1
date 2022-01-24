@@ -1,0 +1,21 @@
+{
+	"dados_cat":{
+		"versao":1
+	},
+	"blocobasesql":"
+declare v_nomeobjeto varchar2(4000) default null; proc varchar2(100) default '
+__proc__
+'; 
+/*outras variaveis*/
+BEGIN :retorno:='0';
+__codigo__
+exception when others then :retorno:='Erro encontrado:'||CHR(10)||'Processo: '||proc||CHR(10)||'Mensagem sql: '||sqlerrm(sqlcode)||chr(10)||'Nome Objeto: ' || v_nomeobjeto||chr(10)||'Mensagem formatada: '||dbms_utility.format_error_backtrace||'SQL:' ||''||chr(10)||'Pilha de chamadas: '||dbms_utility.format_call_stack||'Pilha de erros: '||dbms_utility.format_error_stack;END;	
+	",
+	"verificarobjetoexiste":"
+select * into :existe from (select 'SIM' from user_objects where lower(object_type)=trim(lower('
+__object_type__
+')) and lower(object_name)=trim(lower('
+__object_name__
+')) union all select 'NAO' from dual order by 1 DESC) WHERE ROWNUM<=1;	
+	"
+}

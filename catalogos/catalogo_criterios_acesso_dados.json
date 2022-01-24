@@ -1,0 +1,773 @@
+{
+	"dados_cat":{
+		"versao":1
+	},	
+	"00":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":9000000,
+		"criterios":"pcmov.codcli in (__CODCLI__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"00a":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":9010000,
+		"criterios":" to_number(trim(replace(replace(replace(dados_venda_origem.cgc_destino,'.',''),'-',''),'/',''))) = to_number(trim(replace(replace(replace(__CNPJCLIENTE__,'.',''),'-',''),'/','')))",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"0":{
+		"codtipoente":0,
+		"codente":60,
+		"codtabeladb":9000000,
+		"criterios":"pcmov.codfornec in (__CODFORNECUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"0a":{
+		"codtipoente":0,
+		"codente":60,
+		"codtabeladb":9010000,
+		"criterios":" 500632 in (__CODFORNECUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"1":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":9000000,
+		"criterios":"pcmov.codusur = __CODUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"1a":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":9000000,
+		"criterios":"pcmov.codfilial = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"2":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":9010000,
+		"criterios":"dados_vendas_origem.vendedor = __CODUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"2a":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":9010000,
+		"criterios":"dados_vendas_origem.cod_unid = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"3":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":9000000,
+		"criterios":"pcmov.codusur IN (__CODUSURSUBORDINADOS__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"3a":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":9000000,
+		"criterios":"pcmov.codfilial = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"4":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":9010000,
+		"criterios":"dados_vendas_origem.vendedor IN (__CODUSURSUBORDINADOS__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"4a":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":9010000,
+		"criterios":"dados_vendas_origem.cod_unid = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"5":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":9000000,
+		"criterios":"pcmov.codfilial IN (__CODFILIALUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"6":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":9010000,
+		"criterios":"dados_vendas_origem.cod_unid IN (__CODFILIALUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"07":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":34,
+		"criterios":"pcusuari.codusur = __CODVENDEDORCLI__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"08":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":356,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__usuarios_origem.codusur = __CODVENDEDORCLI__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"7":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":34,
+		"criterios":"pcusuari.codusur = __CODUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"8":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":356,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__usuarios_origem.codusur = __CODUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"9":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":34,
+		"criterios":"pcusuari.codusur IN (__CODUSURSUBORDINADOS__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"10":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":356,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__usuarios_origem.codusur IN (__CODUSURSUBORDINADOS__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"11":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":34,
+		"criterios":"pcusuari.codfilial IN (__CODFILIALUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"12":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":356,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__usuarios_origem.codfilial IN (__CODFILIALUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"013":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":30,
+		"criterios":"pcfilial.codigo = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"014":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":353,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__filial_origem.codfilial_erp = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"13":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":30,
+		"criterios":"pcfilial.codigo = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"14":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":353,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__filial_origem.codfilial_erp = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"15":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":30,
+		"criterios":"pcfilial.codigo = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"16":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":353,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__filial_origem.codfilial_erp = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"17":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":30,
+		"criterios":"pcfilial.codigo = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"18":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":353,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__filial_origem.codfilial_erp = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"019":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":27,
+		"criterios":"pcclient.codcli = __CODCLI__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"020":{
+		"codtipoente":0,		
+		"codente":100,
+		"codtabeladb":380,
+		"criterios":" to_number(trim(replace(replace(replace(__FNV_GET_PREFIXOBJECTSDB__cliente_origem.cnpj_cliente,'.',''),'-',''),'/',''))) = to_number(trim(replace(replace(replace(__CNPJCLIENTE__,'.',''),'-',''),'/','')))",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"19":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":27,
+		"criterios":"(pcclient.codusur1 = __CODUSUR__ or pcclient.codusur2 = __CODUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"20":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":380,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__cliente_origem.codvendedor_erp = __CODUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"21":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":27,
+		"criterios":"(pcclient.codusur1 IN (__CODUSURSUBORDINADOS__) or pcclient.codusur2 IN (__CODUSURSUBORDINADOS__))",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"22":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":380,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__cliente_origem.codvendedor_erp IN (__CODUSURSUBORDINADOS__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"23":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":27,
+		"criterios":"pcclient.codfilialnf IN (__CODFILIALUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"24":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":380,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__cliente_origem.codfilial_erp IN (__CODFILIALUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"27":{
+		"codtipoente":0,
+		"codente":60,
+		"codtabeladb":31,
+		"criterios":"pcfornec.codfornec in (__CODFORNECUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"28":{
+		"codtipoente":0,
+		"codente":60,
+		"codtabeladb":28,
+		"criterios":"pcprodut.codfornec in (__CODFORNECUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"29":{
+		"codtipoente":0,
+		"codente":60,
+		"codtabeladb":420,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__produto_origem.codfornec in (__CODFORNECUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"030":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":64,
+		"criterios":"pcest.codfilial = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"30":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":64,
+		"criterios":"pcest.codfilial = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"31":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":64,
+		"criterios":"pcest.codfilial = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"32":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":64,
+		"criterios":"pcest.codfilial = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"033":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":77,
+		"criterios":"pcpedc.codcli = __CODCLI__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"33":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":77,
+		"criterios":"pcpedc.codusur = __CODUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"34":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":77,
+		"criterios":"pcpedc.codusur IN (__CODUSURSUBORDINADOS__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"35":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":77,
+		"criterios":"pcpedc.codfilial = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"criterio_pcpedifv_cliente":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":76,
+		"criterios":" to_number(trim(replace(replace(replace(pcpedifv.cgccli,'.',''),'-',''),'/',''))) = to_number(trim(replace(replace(replace(__CNPJCLIENTE__,'.',''),'-',''),'/','')))",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"criterio_pcpedifv_fornecedor":{
+		"codtipoente":0,
+		"codente":60,
+		"codtabeladb":76,
+		"criterios":"exists (select 1 from __FNV_GET_NOMESCHEMAERP__.pcprodut where pcprodut.codprod = pcpedifv.codprod and pcprodut.codfornec in (__CODFORNECUSUR__))",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"criterio_pcpedifv_usuario":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":76,
+		"criterios":"pcpedifv.codusur = __CODUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"criterio_pcpedifv_supervisor":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":76,
+		"criterios":"pcpedifv.codusur IN (__CODUSURSUBORDINADOS__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"036":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":78,
+		"criterios":"pcpedi.codcli = __CODCLI__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"36aaa":{
+		"codtipoente":0,
+		"codente":60,
+		"codtabeladb":78,
+		"criterios":"exists (select 1 from __FNV_GET_NOMESCHEMAERP__.pcprodut where pcprodut.codprod = pcpedi.codprod and pcprodut.codfornec in (__CODFORNECUSUR__))",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"36":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":78,
+		"criterios":"pcpedi.codusur = __CODUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"37":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":78,
+		"criterios":"pcpedi.codusur IN (__CODUSURSUBORDINADOS__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"criterio_pcnfcanitem_cliente":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":85,
+		"criterios":"pcnfcanitem.codcli = __CODCLI__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"criterio_pcnfcanitem_fornecedor":{
+		"codtipoente":0,
+		"codente":60,
+		"codtabeladb":85,
+		"criterios":"exists (select 1 from __FNV_GET_NOMESCHEMAERP__.pcprodut where pcprodut.codprod = pcnfcanitem.codprod and pcprodut.codfornec in (__CODFORNECUSUR__))",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"criterio_pcnfcanitem_usuario":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":85,
+		"criterios":"pcnfcanitem.codusur = __CODUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"criterio_pcnfcanitem_supervisor":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":85,
+		"criterios":"pcnfcanitem.codusur IN (__CODUSURSUBORDINADOS__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"038":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":75,
+		"criterios":" to_number(trim(replace(replace(replace(pcpedcfv.cgccli,'.',''),'-',''),'/',''))) = to_number(trim(replace(replace(replace(__CNPJCLIENTE__,'.',''),'-',''),'/','')))",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"38":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":75,
+		"criterios":"pcpedcfv.codusur = __CODUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"39":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":75,
+		"criterios":"pcpedcfv.codusur IN (__CODUSURSUBORDINADOS__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"40":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":75,
+		"criterios":"pcpedcfv.codfilial = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"criterio_pcnfcan_cliente":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":84,
+		"criterios":" pcnfcan.codcli = __CODCLI__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"criterio_pcnfcan_usuario":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":84,
+		"criterios":"pcnfcan.codusur = __CODUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"criterio_pcnfcan_supervisor":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":84,
+		"criterios":"pcnfcan.codusur IN (__CODUSURSUBORDINADOS__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"criterio_pcnfcan_cliente_gerente_filial":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":84,
+		"criterios":"pcnfcan.codfilial = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"41":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":892,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__objetivoscampanhas.codusur = __CODUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"42":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":892,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__objetivoscampanhas.codusur IN (__CODUSURSUBORDINADOS__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"43":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":892,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__objetivoscampanhas.codusur IN (__CODSUSURFILIALUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"44":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":610,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__gruposmsgs.codusur = __CODUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"45":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":610,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__gruposmsgs.codusur IN (__CODUSURSUBORDINADOS__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"46":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":610,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__gruposmsgs.codusur IN (__CODSUSURFILIALUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"047":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":700,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__estoque_origem.codfilialorigem = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"47":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":700,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__estoque_origem.codfilialorigem = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"48":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":700,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__estoque_origem.codfilialorigem = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"49":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":700,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__estoque_origem.codfilialorigem = __CODFILIALUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"50":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":33,
+		"criterios":"pcsuperv.codsupervisor = __CODSUPERVUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"51":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":33,
+		"criterios":"pcsuperv.codsupervisor in (__CODUSUR__,__CODSUPERVUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"52":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":33,
+		"criterios":"pcsuperv.codsupervisor in (__CODUSUR__,__CODSUSURFILIALUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"053":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":26,
+		"criterios":"pcnfsaid.codcli = __CODCLI__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"53":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":26,
+		"criterios":"pcnfsaid.codusur = __CODUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"54":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":26,
+		"criterios":"pcnfsaid.codusur in (__CODUSUR__,__CODUSURSUBORDINADOS__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"55":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":26,
+		"criterios":"pcnfsaid.codfilial in (__CODFILIALUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"053a":{
+		"codtipoente":0,
+		"codente":100,
+		"codtabeladb":25,
+		"criterios":"pcnfent.codfornec = __CODCLI__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"53a":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":25,
+		"criterios":"pcnfent.codusurdevol = __CODUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"54a":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":25,
+		"criterios":"pcnfent.codusurdevol in (__CODUSUR__,__CODUSURSUBORDINADOS__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"55a":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":25,
+		"criterios":"pcnfent.codfilial in (__CODFILIALUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"__FNV_GET_PREFIXOBJECTSDB__objetivossinergia_rca":{
+		"codtipoente":0,
+		"codente":50,
+		"codtabeladb":810,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__objetivossinergia.codentidade = __CODUSUR__",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"__FNV_GET_PREFIXOBJECTSDB__objetivossinergia_supervisor":{
+		"codtipoente":0,
+		"codente":40,
+		"codtabeladb":810,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__objetivossinergia.codentidade in (__CODUSUR__,__CODUSURSUBORDINADOS__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"__FNV_GET_PREFIXOBJECTSDB__objetivossinergia_gerente":{
+		"codtipoente":0,
+		"codente":30,
+		"codtabeladb":810,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__objetivossinergia.codentidade in (__CODUSUR__,__CODSUSURFILIALUSUR__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"gerencial_peixes_pcmov":{
+		"codtipoente":0,
+		"codente":21,
+		"codtabeladb":9000000,
+		"criterios":"pcmov.codepto in (__CODEPTO__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"gerencial_peixes_pcprodut":{
+		"codtipoente":0,
+		"codente":21,
+		"codtabeladb":28,
+		"criterios":"pcprodut.codepto in (__CODEPTO__)",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	},
+	"gerencial_peixes___FNV_GET_PREFIXOBJECTSDB__objetivossinergia":{
+		"codtipoente":0,
+		"codente":21,
+		"codtabeladb":810,
+		"criterios":"__FNV_GET_PREFIXOBJECTSDB__objetivossinergia.coditemvisao in (select g.codvisivelgrupo from __FNV_GET_PREFIXOBJECTSDB__integgrupoprod ig join __FNV_GET_PREFIXOBJECTSDB__gruposprodequiv g on (g.codgrupoprod = ig.codgrupoprod) join __FNV_GET_NOMESCHEMAERP__.pcprodut p on (p.codprod =  ig.codprod) join __FNV_GET_NOMESCHEMAERP__.pcdepto d on (d.codepto = p.codepto) where d.codepto in (__CODEPTO__) union all select  to_char(p.codprod) from __FNV_GET_NOMESCHEMAERP__.pcprodut p join __FNV_GET_NOMESCHEMAERP__.pcdepto d on (d.codepto = p.codepto) where d.codepto in (__CODEPTO__))",
+		"habilitado":1,
+	   "codsituacaoregistro":1
+	}
+}

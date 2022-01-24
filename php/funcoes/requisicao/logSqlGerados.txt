@@ -1,0 +1,177 @@
+
+				WITH objetivos_mix_cli AS (
+					SELECT
+						 1 AS codentidade,null as descricao, 
+						SUM(nvl(o.valor, 0)) AS objetivo,
+						SUM(
+							CASE
+								WHEN o.realizado >(o.valor * o.percmaxating / 100) THEN
+									round(o.valor * o.percmaxating / 100, 2)
+								ELSE
+									o.realizado
+							END
+						) AS realizado,
+						null
+					FROM
+						sjdobjetivossinergia o
+						left outer join jumbo.pcusuari u on (u.codusur = o.codentidade)
+						 
+					WHERE				
+						 
+					o.ano = TO_CHAR(SYSDATE, 'yyyy')
+					and lower(trim(o.mes)) = lower(trim(sjdpkg_funcs_data.mes_texto(to_number(to_char(sysdate, 'mm'))))) 
+						AND o.codcampanhasinergia = 1
+						AND o.codentidade IN (
+							u.codusur
+						)
+						
+					GROUP BY
+						 1,null, 
+						null
+				), clientes_jumbo_ativ AS (
+					SELECT
+						c.codusur1 as codentidade,
+						u.nome as descricao,
+						c.codcli,
+						c.cliente,
+						c.fantasia,
+						greatest(nvl(c.dtultcomp, TO_DATE('01/01/0001', 'dd/mm/yyyy')), nvl(ca.dtultcompra_origem, TO_DATE('01/01/0001', 'dd/mm/yyyy'))) AS dtultcomp,
+						c.limcred,
+						c.bloqueio
+					FROM
+						jumbo.pcclient c
+						join jumbo.pcusuari u on (u.codusur = c.codusur1)
+						LEFT OUTER JOIN sjdcliente_origem   ca ON ( ca.codcliente = c.codcli )
+					WHERE
+						c.dtexclusao IS NULL
+						AND c.codusur1 != 150
+						AND c.codcli NOT IN (
+							13519,
+							13363,
+							2848,
+							1919,
+							3829
+						)
+						AND c.codusur1 IN (
+							u.codusur
+						)
+						
+					ORDER BY
+						limcred DESC,
+						greatest(nvl(c.dtultcomp, TO_DATE('01/01/0001', 'dd/mm/yyyy')), nvl(ca.dtultcompra_origem, TO_DATE('01/01/0001', 'dd/mm/yyyy'))) DESC
+				), clientes_aurora_ativ AS (
+					SELECT
+						nvl(c.codusur1, nvl(ca.codvendedororigem,ca.codvendedor_erp)) AS codentidade,
+						u.nome as descricao,
+						nvl(c.codcli, pe.numcnpjcpf) AS codcli,
+						nvl(c.cliente, pe.nomerazao) AS cliente,
+						nvl(c.fantasia, pe.nomerazao) AS fantasia,
+						greatest(nvl(c.dtultcomp, TO_DATE('01/01/0001', 'dd/mm/yyyy')), nvl(ca.dtultcompra_origem, TO_DATE('01/01/0001', 'dd/mm/yyyy'))) AS dtultcomp,
+						nvl(c.limcred, 0) AS limcred,
+						nvl(c.bloqueio, 'N') AS bloqueio
+					FROM
+						sjdcliente_origem   ca
+						left outer join sjdpessoa_origem pe on (pe.codpessoa = ca.codpessoaorigem)
+						join jumbo.pcusuari u on (u.codusur = nvl(ca.codvendedororigem,ca.codvendedor_erp))
+						LEFT OUTER JOIN jumbo.pcclient c ON (c.codcli = ca.codcli_erp)
+					WHERE
+						nvl(c.dtexclusao, NULL) IS NULL
+						AND nvl(c.codusur1, nvl(ca.codvendedororigem,ca.codvendedor_erp)) != 150
+						AND NOT EXISTS (
+							SELECT
+								1
+							FROM
+								clientes_jumbo_ativ cj
+							WHERE
+								cj.codcli = ca.codcliente
+						)
+						AND nvl(c.codcli, pe.numcnpjcpf) NOT IN (
+							13519,
+							13363,
+							2848,
+							1919,
+							3829
+						)
+						AND nvl(c.codusur1, nvl(ca.codvendedororigem,ca.codvendedor_erp)) IN (
+							u.codusur
+						)
+						
+					ORDER BY
+						limcred DESC,
+						greatest(nvl(c.dtultcomp, TO_DATE('01/01/0001', 'dd/mm/yyyy')), nvl(ca.dtultcompra_origem, TO_DATE('01/01/0001', 'dd/mm/yyyy'))) DESC
+				), clientes_juntos_ativ AS (
+					SELECT
+						*
+					FROM
+						clientes_jumbo_ativ
+					UNION ALL
+					SELECT
+						*
+					FROM
+						clientes_aurora_ativ
+				), res_cli_ativos AS (
+					SELECT
+						codentidade,
+						descricao,
+						codcli,
+						cliente,
+						fantasia,
+						MAX(dtultcomp) AS dtultcomp,
+						limcred,
+						bloqueio
+					FROM
+						clientes_juntos_ativ
+					GROUP BY
+						codentidade,
+						descricao,
+						codcli,
+						cliente,
+						fantasia,
+						limcred,
+						bloqueio
+				), res_cli_ativos_resumo AS (
+					SELECT
+						 1 as codentidade, null as descricao, 
+						COUNT(1) AS qtativos
+					FROM
+						res_cli_ativos a
+						 join jumbo.pcusuari u on (u.codusur = a.codentidade) 
+					GROUP BY
+						 1, null 
+				)
+				SELECT
+					ca.codentidade as codentidade,
+					ca.descricao as descricao,
+					ca.qtativos      AS "Qtde Cli Ativos",
+					null as descricao2,
+					'#CCCCCC' as cor,
+					'Clientes Carteira' as legenda,
+					'Existem ' || (ca.qtativos - cli.realizado) || ' disponiveis' as legenda2
+				FROM
+					res_cli_ativos_resumo ca            
+					LEFT OUTER JOIN objetivos_mix_cli   cli ON ( cli.codentidade = ca.codentidade )
+				union all
+				SELECT
+					ca.codentidade as codentidade,
+					ca.descricao as descricao,
+					cli.objetivo      AS "objetivo",
+					null as descricao2,
+					'#007DD6' as cor,
+					'Clientes objetivo' as legenda,
+					'Faltam ' || (cli.objetivo - cli.realizado) || ' para objetivo' as legenda2
+				FROM
+					res_cli_ativos_resumo ca            
+					LEFT OUTER JOIN objetivos_mix_cli   cli ON ( cli.codentidade = ca.codentidade )
+				union all
+				SELECT
+					ca.codentidade as codentidade,
+					ca.descricao as descricao,
+					cli.realizado      AS "realizado",
+					null as descricao2,
+					'#008577' as cor,
+					'Clientes positivados' as legenda,
+					null as legenda2
+				FROM
+					res_cli_ativos_resumo ca            
+					LEFT OUTER JOIN objetivos_mix_cli   cli ON ( cli.codentidade = ca.codentidade )
+				

@@ -1,0 +1,825 @@
+{
+	"dados_cat":{
+		"versao":1
+	},
+	"tcnjnum":{
+		"nometiposql":"tcnjnum",
+		"cabecalho":"
+            create or replace type TCnjNum FORCE is TABLE OF NUMBER;
+		",
+		"corpo":"",
+        "ordemcriacao":0,
+        "codsituacaoregistro":1
+	},
+	"listastrings":{
+		"nometiposql":"listastrings",
+		"cabecalho":"
+            create or replace TYPE listastrings FORCE is varray(5000) of varchar2(4000);
+		",
+		"corpo":"",
+        "ordemcriacao":1,
+        "codsituacaoregistro":1
+	},
+	"TCnjVarchar2":{
+		"nometiposql":"TCnjVarchar2",
+		"cabecalho":"
+            create or replace type TCnjVarchar2 FORCE is TABLE OF VARCHAR2(4000);
+		",
+		"corpo":"",
+        "ordemcriacao":2,
+        "codsituacaoregistro":1
+	},
+	"TCnjStr":{
+		"nometiposql":"TCnjStr",
+		"cabecalho":"
+            create or replace type TCnjStr FORCE is TABLE OF varchar2(4000);
+		",
+		"corpo":"",
+        "ordemcriacao":3,
+        "codsituacaoregistro":1
+	},
+	"TCnjStr32":{
+		"nometiposql":"TCnjStr32",
+		"cabecalho":"
+            create or replace type TCnjStr32 FORCE is table of varchar2(32767);
+		",
+		"corpo":"",
+        "ordemcriacao":4,
+        "codsituacaoregistro":1
+	},
+	"TCnjStrLong":{
+		"nometiposql":"TCnjStrLong",
+		"cabecalho":"
+            create or replace type TCnjStrLong force is TABLE OF varchar2(32767);
+		",
+		"corpo":"",
+        "ordemcriacao":5,
+        "codsituacaoregistro":1
+	},
+	"TTabStr":{
+		"nometiposql":"TTabStr",
+		"cabecalho":"
+            create or replace type TTabStr force is TABLE OF TCnjStr;
+		",
+		"corpo":"",
+        "ordemcriacao":6,
+        "codsituacaoregistro":1
+	},
+	"TCnjClob":{
+		"nometiposql":"TCnjClob",
+		"cabecalho":"
+            create or replace type TCnjClob FORCE is table of Clob;
+		",
+		"corpo":"",
+        "ordemcriacao":7,
+        "codsituacaoregistro":1
+	},
+	"TDadoEstrBase":{
+		"nometiposql":"TDadoEstrBase",
+		"cabecalho":"
+            create or replace type 
+                TDadoEstrBase force 
+            is 
+            object 
+            (
+                id number,
+                id_sup number,
+                nome varchar2(32767),
+                qt_sub number,
+                props varchar2(32767),
+                Constructor Function TDadoEstrBase(
+                    p_id number default null,
+                    p_id_sup number default null,
+                    p_qt_sub number default null,
+                    p_props varchar2 default null
+                )return self as result
+            ) NOT FINAL;    	
+		",
+		"corpo":"
+            create or replace type body
+                TDadoEstrBase is
+                
+            Constructor Function TDadoEstrBase(
+                p_id number default null,
+                p_id_sup number default null,
+                p_qt_sub number default null,
+                p_props varchar2 default null
+            ) return self as result as
+            begin
+                self.id := p_id;
+                self.id_sup := p_id_sup;
+                self.qt_sub := p_qt_sub;
+                self.props := p_props;
+                return;
+            end TDadoEstrBase;
+            
+            end;	
+		",
+        "ordemcriacao":8,
+        "codsituacaoregistro":1
+	},
+	"tchavevalor":{
+		"nometiposql":"tchavevalor",
+		"cabecalho":"
+            create or replace TYPE tchavevalor FORCE IS OBJECT (
+                chave   VARCHAR2(32767),
+                valor   VARCHAR2(32767),
+                CONSTRUCTOR FUNCTION tchavevalor (
+                    p_chave   VARCHAR2 DEFAULT NULL,
+                    p_valor   VARCHAR2 DEFAULT NULL
+                ) RETURN SELF AS RESULT
+            );
+		",
+		"corpo":"
+            create or replace TYPE BODY tchavevalor IS
+                CONSTRUCTOR FUNCTION tchavevalor (
+                    p_chave   VARCHAR2 DEFAULT NULL,
+                    p_valor   VARCHAR2 DEFAULT NULL
+                ) RETURN SELF AS RESULT AS
+                BEGIN
+                    self.chave := p_chave;
+                    self.valor := p_valor;
+                    return;
+                END;
+            
+            END;	
+		",
+        "ordemcriacao":9,
+        "codsituacaoregistro":1
+	},
+	"TListaChaveValor":{
+		"nometiposql":"TListaChaveValor",
+		"cabecalho":"
+            create or replace type TListaChaveValor force is table of TChaveValor;
+		",
+		"corpo":"",
+        "ordemcriacao":10,
+        "codsituacaoregistro":1
+	},
+	"tcnjchavevalor":{
+		"nometiposql":"tcnjchavevalor",
+		"cabecalho":"
+            create or replace TYPE tcnjchavevalor FORCE IS OBJECT (
+                elementos tlistachavevalor,
+                CONSTRUCTOR FUNCTION tcnjchavevalor RETURN SELF AS RESULT,
+                MEMBER PROCEDURE novo (
+                    p_chave   VARCHAR2 DEFAULT NULL,
+                    p_valor   VARCHAR2 DEFAULT NULL
+                )
+            );
+		",
+		"corpo":"
+            create or replace TYPE BODY tcnjchavevalor IS
+                CONSTRUCTOR FUNCTION tcnjchavevalor RETURN SELF AS RESULT IS
+                BEGIN
+                    self.elementos := tlistachavevalor();
+                    return;
+                END tcnjchavevalor;
+            
+                MEMBER PROCEDURE novo (
+                    p_chave   VARCHAR2 DEFAULT NULL,
+                    p_valor   VARCHAR2 DEFAULT NULL
+                ) AS
+                BEGIN
+                    self.elementos.extend;
+                    self.elementos(self.elementos.last) := tchavevalor(p_chave => p_chave, p_valor => p_valor);
+                END;
+            
+            END;	
+		",
+        "ordemcriacao":11,
+        "codsituacaoregistro":1
+	},
+	"TCampoHtml":{
+		"nometiposql":"TCampoHtml",
+		"cabecalho":"
+            create or replace type
+                TCampoHtml force under 
+                TDadoEstrBase(
+                    linha number,        
+                    ind_col number,
+                    colspan number,
+                    rowspan number,
+                    propriedades TCnjChaveValor,
+                    Constructor Function TCampoHtml(
+                        p_id number default null,
+                        p_id_sup number default null,
+                        p_qt_sub number default null,
+                        p_props varchar2 default null
+                    ) return self as result
+                );		
+		",
+		"corpo":"
+            create or replace type body
+                TCampoHtml
+            is
+            Constructor Function TCampoHtml(
+                p_id number default null,
+                p_id_sup number default null,
+                p_qt_sub number default null,
+                p_props varchar2 default null
+            ) return self as result as
+            begin
+                self.id := p_id;
+                self.id_sup := p_id_sup;
+                self.qt_sub := p_qt_sub;
+                self.props := p_props;
+                self.propriedades := TCnjChaveValor();    
+                return;
+            end;
+            
+            end;		
+		",
+        "ordemcriacao":12,
+        "codsituacaoregistro":1
+	},	
+	"TListaCamposHtml":{
+		"nometiposql":"TListaCamposHtml",
+		"cabecalho":"
+            create or replace type TListaCamposHtml force as table of TCampoHtml;
+		",
+		"corpo":"",
+        "ordemcriacao":13,
+        "codsituacaoregistro":1
+	},
+	"tcnjcamposhtml":{
+		"nometiposql":"tcnjcamposhtml",
+		"cabecalho":"
+            create or replace type 
+                TCnjCamposHtml force 
+            as 
+            object(
+                listaCampos TListaCamposHtml,
+                profundidade number,
+                Constructor Function TCnjCamposHtml return self as result,
+                member procedure novoCampo(
+                    p_id number default null,
+                    p_id_sup number default null,
+                    p_nome varchar2 default null,
+                    p_linha number default null
+                ),
+                member function detectar_produndidade_campos return number,
+                member procedure preparar_campos_tab_html,
+                member function procurar(
+                    p_id number
+                ) return TCampoHtml,
+                member function encontrar_pos_final_subbloco(
+                    p_texto clob, 
+                    p_caract_abre varchar2 default '{', 
+                    p_caract_fecha varchar2 default '}'
+                ) return number,
+                member procedure atribuir_campos_tab_html(
+                    p_campos_tab varchar2, 
+                    p_id_campo_sup number default null, 
+                    p_linha number default 1
+                ),
+                member procedure mostrar_campos_html,
+                member function montar_campos_html return clob
+            );
+		",
+		"corpo":"
+            create or replace type body 
+                TCnjCamposHtml 
+            as 
+                
+            Constructor Function TCnjCamposHtml return self as result as
+            begin
+                self.listaCampos := TListaCamposHtml();
+                return;
+            end TCnjCamposHtml;
+            
+            
+            member function detectar_produndidade_campos return number as
+                v_retorno number default null;
+            begin
+                for i in self.listaCampos.first .. self.listaCampos.last loop
+                    if nvl(self.listaCampos(i).linha,0) > nvl(v_retorno,0) then
+                        v_retorno := nvl(self.listaCampos(i).linha,0);
+                    end if;
+                end loop;
+                return v_retorno;
+            end detectar_produndidade_campos;
+            
+            
+            member procedure preparar_campos_tab_html as
+            begin
+                self.profundidade := self.detectar_produndidade_campos;
+                dbms_output.put_line('profundidadeok1: ' || self.profundidade);
+                for i in reverse 1 .. self.profundidade loop
+                    dbms_output.put_line('linha: ' || i);
+                    for j in self.listaCampos.first .. self.listaCampos.last loop
+                        dbms_output.put_line('campo: ' || self.listaCampos(j).id|| ' linha: ' || self.listaCampos(j).linha);
+                        if self.listaCampos(j).linha = i then
+                            dbms_output.put_line('esta na linha');
+                            if (nvl(self.listaCampos(j).qt_sub,0) = 0) and (i < self.profundidade) then
+                                dbms_output.put_line('xxx');
+                                self.listaCampos(j).rowspan := self.profundidade - self.listaCampos(j).linha + 1;
+                            end if;
+                        end if;
+                    end loop;
+                end loop;  
+            end preparar_campos_tab_html; 
+            
+            
+            member function procurar(p_id number) return TCampoHtml as
+            begin
+                for i in self.listacampos.first .. self.listacampos.last loop
+                    if self.listacampos(i).id = p_id then
+                        return self.listacampos(i);
+                    end if;
+                end loop;
+                return null;
+            end procurar;
+            
+            
+            member procedure novoCampo(
+                p_id number default null,
+                p_id_sup number default null,
+                p_nome varchar2 default null,
+                p_linha number default null
+            ) as
+                v_campo_sup TCampoHtml;
+            begin
+                self.listaCampos.extend;
+                self.listaCampos(self.listaCampos.last) := TCampoHtml();
+                self.listaCampos(self.listaCampos.last).id := nvl(p_id,self.listaCampos.last);
+                self.listaCampos(self.listaCampos.last).id_sup := p_id_sup;
+                self.listaCampos(self.listaCampos.last).nome := p_nome;
+                self.listaCampos(self.listaCampos.last).linha := p_linha;
+                if p_id_sup is not null then
+                    dbms_output.put_line('tem sup: ' || p_id_sup);               
+                    self.listaCampos(p_id_sup).qt_sub := nvl(self.listaCampos(p_id_sup).qt_sub,0) + 1;
+                    self.listaCampos(p_id_sup).colspan := self.listaCampos(p_id_sup).qt_sub;
+                    dbms_output.put_line('sup encontrado: ' || self.listaCampos(p_id_sup).qt_sub);
+                end if;
+            end novoCampo;
+            
+            
+            member function encontrar_pos_final_subbloco(
+                p_texto clob, 
+                p_caract_abre varchar2 default '{', 
+                p_caract_fecha varchar2 default '}'
+            ) return number as
+                v_retorno number default null;
+                v_pfecha number default 0;
+                v_texto2 clob default null;
+                v_qtabre number default 0;
+                v_qtfecha number default 0;
+            begin
+                v_pfecha := instr(p_texto,p_caract_fecha);
+                while v_pfecha > 0 loop
+                    v_texto2 := substr(p_texto,1,v_pfecha);
+                    v_qtabre := length(v_texto2) - length(replace(v_texto2,'{',''));
+                    v_qtfecha := length(v_texto2) - length(replace(v_texto2,'}',''));
+                    if v_qtabre < v_qtfecha then
+                        v_retorno := v_pfecha - 1;
+                        exit;
+                    end if;
+                    v_pfecha := instr(p_texto,'}',v_pfecha+1);
+                end loop;
+                return v_retorno;
+            end encontrar_pos_final_subbloco;
+            
+            
+            member procedure atribuir_campos_tab_html(
+                p_campos_tab varchar2, 
+                p_id_campo_sup number default null, 
+                p_linha number default 1
+            ) as
+                v_pininome number default 0;
+                v_pfimnome number default 0;
+                v_pfimcampo number default 0;
+                v_pfimsubbloco number default null;
+                v_p2 number default 0;
+                v_p2t number default 0;
+                v_pvirg number default 0;
+                v_pfecha number default 0;
+                v_qtabre number default 0;
+                v_qtfecha number default 0;
+                v_ind number default 0;
+                v_ind_col number default 0;
+                v_campos1 varchar2(32767) default null;
+                v_campos2 varchar2(32767) default null;
+                v_nome varchar2(32767) default null;
+                v_prim varchar2(1) default null;
+                v_numaberturas number default 0;
+                v_numfechamentos number default 0;
+                v_ind_campo number default 0;
+                v_limitador_loop number default 0;
+                v_campo_sup TCampoHtml;
+            begin
+                v_campos1 := p_campos_tab;
+                dbms_output.put_line('campos inicio: ' || v_campos1);
+                v_pfimsubbloco := encontrar_pos_final_subbloco(v_campos1);
+                if v_pfimsubbloco is not null then
+                    v_campos1 := substr(v_campos1,1,v_pfimsubbloco);
+                end if;
+                dbms_output.put_line('campos inicio refificado: ' || v_campos1);
+                v_pininome := instr(v_campos1,'\"');
+                while (v_pininome > 0) and (v_limitador_loop < 5)loop
+                    v_limitador_loop := v_limitador_loop + 1;
+                    v_numaberturas := v_numaberturas + 1;
+                    v_pfimnome := instr(v_campos1,'\":');
+                    v_nome := substr(v_campos1,v_pininome+1,v_pfimnome - (v_pininome + 1));        
+                    v_campos1 := trim(substr(v_campos1,v_pfimnome + 2,length(v_campos1)));
+                    
+                    self.novocampo(
+                        p_id => null,
+                        p_id_sup => p_id_campo_sup,
+                        p_nome => v_nome,
+                        p_linha => nvl(p_linha,1)
+                    );
+                    
+                    v_ind_campo := self.listaCampos.last;
+                    dbms_output.put_line(
+                        'campo: ' || v_ind_campo 
+                        || '-: id: ' || self.listaCampos(v_ind_campo).id 
+                        ||' nome: ' || self.listaCampos(v_ind_campo).nome 
+                        ||' idsup: ' || self.listaCampos(v_ind_campo).id_sup 
+                        ||' linha: ' || self.listaCampos(v_ind_campo).linha );
+            
+            
+                    
+                    v_prim := substr(v_campos1,1,1);
+                    if v_prim = '{' then
+                        v_pininome := instr(v_campos1,'{');    
+                        v_pfimnome := instr(v_campos1,'\":');
+                        v_nome := substr(v_campos1,v_pininome+2,v_pfimnome - (v_pininome + 2));
+            
+            
+                        if trim(lower(v_nome)) = 'texto' then
+                            v_pfimcampo := instr(v_campos1,'}');
+                            self.listaCampos(v_ind_campo).props := substr(v_campos1,1,v_pfimcampo);
+                            v_campos1 := substr(v_campos1,v_pfimcampo+1,length(v_campos1));     
+                        else
+                            v_campos1 := substr(v_campos1,2,length(v_campos1));
+                            atribuir_campos_tab_html(v_campos1,self.listaCampos(v_ind_campo).id, self.listaCampos(v_ind_campo).linha + 1);
+                            v_pfimsubbloco := null;
+                            v_pfimsubbloco := encontrar_pos_final_subbloco(v_campos1);                
+                            if v_pfimsubbloco is not null then
+                                v_campos1 := substr(v_campos1,v_pfimsubbloco+1,length(v_campos1));
+                            end if;
+                            null;
+                        end if;
+                    else
+                        v_pfimcampo := instr(v_campos1,'\"');
+                        self.listaCampos(v_ind_campo).props := substr(v_campos1,1,v_pfimcampo);
+                        v_campos1 := substr(v_campos1,v_pfimcampo+1,length(v_campos1));            
+                    end if;
+                    v_pininome := instr(v_campos1,'\"');
+                    
+                    dbms_output.put_line('restante: ' || v_campos1);
+                end loop;
+            end atribuir_campos_tab_html;
+            
+            
+            
+            member procedure mostrar_campos_html as
+            begin
+                for i in self.listaCampos.first .. self.listaCampos.last loop
+                    dbms_output.put_line(
+                        'id: ' || self.listaCampos(i).id
+                        ||' nome: ' ||self.listaCampos(i).nome
+                        ||' linha: ' ||self.listaCampos(i).linha
+                        ||' col: ' ||self.listaCampos(i).ind_col
+                        ||' sup: '||self.listaCampos(i).id_sup
+                        ||' qtsub: '||self.listaCampos(i).qt_sub
+                        ||' rowspan: '||self.listaCampos(i).rowspan
+                        ||' colspan: '||self.listaCampos(i).colspan);
+                end loop;
+            end mostrar_campos_html;
+            
+            
+            member function montar_campos_html return clob as
+                v_retorno clob default '';
+                v_cnj_linhas TCnjClob default null;
+            begin
+                v_cnj_linhas := TCnjClob();
+                v_cnj_linhas.extend(self.profundidade+1);
+                for i in v_cnj_linhas.first .. v_cnj_linhas.last loop
+                    v_cnj_linhas(i) := '<tr>';
+                end loop;
+                v_cnj_linhas(v_cnj_linhas.last - 1) := '<tr class=\"linhatitulos\">';
+                v_cnj_linhas(v_cnj_linhas.last) := '<tr class=\"linhafiltros\">';    
+                for i in self.listaCampos.first .. self.listaCampos.last loop
+                    v_cnj_linhas(self.listaCampos(i).linha) := v_cnj_linhas(self.listaCampos(i).linha) 
+                        || '<th rowspan=\"'||nvl(self.listaCampos(i).rowspan,1)||'\" colspan=\"'||nvl(self.listaCampos(i).colspan,1)||'\">' 
+                        || self.listaCampos(i).nome
+                        || '</th>';
+                    if (nvl(self.listaCampos(i).qt_sub,0) <= 0 ) then
+                        v_cnj_linhas(self.profundidade + 1) := v_cnj_linhas(self.profundidade + 1) || '<th>'
+                            || '<input type=\"text\" placeholder=\"(filtro)\" />'
+                            || '</th>';
+                    end if;
+                end loop;
+                for i in v_cnj_linhas.first .. v_cnj_linhas.last loop
+                    v_cnj_linhas(i) := v_cnj_linhas(i) || '</tr>';
+                    v_retorno := v_retorno || v_cnj_linhas(i);
+                end loop;
+                return v_retorno;
+            exception 
+                when others then
+                    dbms_output.put_line(sqlerrm);
+                    dbms_output.put_line(DBMS_UTILITY.format_error_backtrace);
+            end;
+            
+            end;	
+		",
+        "ordemcriacao":14,
+        "codsituacaoregistro":1
+	},
+	"TlinhaTabHtml":{
+		"nometiposql":"TlinhaTabHtml",
+		"cabecalho":"
+            create or replace type TlinhaTabHtml force as object(
+                celulas TCnjStr32,
+                Constructor function TlinhaTabHtml return self as result
+            );
+		",
+		"corpo":"
+            create or replace type body TlinhaTabHtml as
+            Constructor function TlinhaTabHtml return self as result as
+            begin
+                self.celulas := TCnjStr32();
+                return;
+            end;
+            end;	
+		",
+        "ordemcriacao":15,
+        "codsituacaoregistro":1
+	},
+	"TLinhasTabHtml":{
+		"nometiposql":"TLinhasTabHtml",
+		"cabecalho":"
+            create or replace type TLinhasTabHtml as table of TlinhaTabHtml;
+		",
+		"corpo":"",
+        "ordemcriacao":16,
+        "codsituacaoregistro":1
+	},
+	"TTabela":{
+		"nometiposql":"TTabela",
+		"cabecalho":"
+            create or replace type TTabela force as object(
+                prop_style varchar2(32767),
+                titulo clob,
+                linhas TLinhasTabHtml,
+                passo_zebra number,
+                Constructor Function TTabela return self as result
+            );
+		",
+		"corpo":"
+            create or replace type body TTabela as
+                Constructor Function TTabela return self as result is
+                begin
+                    self.titulo := '';
+                    self.prop_style := '';
+                    self.linhas := TLinhasTabHtml();
+                    self.passo_zebra := 1;
+                    return;
+                end;
+            end;	
+		",
+        "ordemcriacao":17,
+        "codsituacaoregistro":1
+	},
+	"TObjHtmlBase":{
+		"nometiposql":"TObjHtmlBase",
+		"cabecalho":"
+            create or replace type 
+                TObjHtmlBase 
+            is 
+            object(
+                index_linear number,
+                index_elemento_sup number,
+                elem_sup ref TObjHtmlBase,
+                tag_abertura varchar2(50),
+                tag_fech_abertura varchar2(50),
+                tag_fechamento varchar2(50),
+                prop_id varchar2(255),
+                prop_name varchar2(255),
+                prop_class varchar2(255),
+                prop_style varchar2(255),    
+                propriedades TCnjChaveValor,
+                conteudo clob,
+                qt_elementos_sub number,
+                Constructor Function TObjHtmlBase(
+                    p_id varchar2 default null,
+                    p_name varchar2 default null,
+                    p_class varchar2 default null,
+                    p_style varchar2 default null
+                ) return self as result,
+                Member Procedure inicializar(
+                    p_id varchar2 default null,
+                    p_name varchar2 default null,
+                    p_class varchar2 default null,
+                    p_style varchar2 default null    
+                ) 
+            ) NOT FINAL;
+		",
+		"corpo":"
+            create or replace type body 
+                TObjHtmlBase 
+            is 
+            
+            Constructor Function TObjHtmlBase(
+                p_id varchar2 default null,
+                p_name varchar2 default null,
+                p_class varchar2 default null,
+                p_style varchar2 default null
+            ) return self as result as
+            begin
+                self.inicializar(
+                    p_id => p_id,
+                    p_name => p_name,
+                    p_class => p_class,
+                    p_style => p_style
+                );
+                return;
+            end;
+            
+            Member Procedure inicializar(
+                p_id varchar2 default null,
+                p_name varchar2 default null,
+                p_class varchar2 default null,
+                p_style varchar2 default null    
+            ) as
+            begin
+                self.prop_id := p_id;
+                self.prop_name := p_name;
+                self.prop_class := p_class;
+                self.prop_style := p_style;
+                self.propriedades := TCnjChaveValor();    
+                self.conteudo := '';
+                self.qt_elementos_sub := 0;
+            end;
+            
+            end;
+		",
+        "ordemcriacao":18,
+        "codsituacaoregistro":1
+	},
+	"TCelulaHtml":{
+		"nometiposql":"TCelulaHtml",
+		"cabecalho":"
+            create or replace type
+                TCelulaHtml
+            under
+                TObjHtmlBase
+            (
+                linha number,
+                coluna number,
+                prop_rowspan number,
+                prop_colspan number,
+                qt_cel_sup number,
+                qt_cel_inf number,
+                qt_cel_ant number,
+                qt_cel_post number,
+                Constructor Function TCelulaHtml(
+                    p_id varchar2 default null,
+                    p_name varchar2 default null,
+                    p_class varchar2 default null,
+                    p_style varchar2 default null
+                ) return self as result,
+                Overriding Member Procedure inicializar(
+                    p_id varchar2 default null,
+                    p_name varchar2 default null,
+                    p_class varchar2 default null,
+                    p_style varchar2 default null    
+                )
+            ) NOT FINAL;		
+        ",
+		"corpo":"
+            create or replace type body 
+                TCelulaHtml
+            is
+            
+            Constructor Function TCelulaHtml(
+                p_id varchar2 default null,
+                p_name varchar2 default null,
+                p_class varchar2 default null,
+                p_style varchar2 default null
+            ) return self as result as
+            begin
+                self.inicializar(
+                    p_id => p_id,
+                    p_name => p_name,
+                    p_class => p_class,
+                    p_style => p_style
+                );
+                return;
+            end TCelulaHtml;
+            
+            Overriding Member Procedure inicializar(
+                p_id varchar2 default null,
+                p_name varchar2 default null,
+                p_class varchar2 default null,
+                p_style varchar2 default null    
+            ) as
+            begin
+                (self as TObjHtmlBase).inicializar(
+                    p_id => p_id,
+                    p_name => p_name,
+                    p_class => p_class,
+                    p_style => p_style    
+                );
+                self.tag_fech_abertura := '>';
+                self.qt_cel_sup := 1;
+                self.qt_cel_inf := 1;
+                self.qt_cel_ant := 1;
+                self.qt_cel_post := 1;
+            end inicializar;
+            
+            end;
+		",
+        "ordemcriacao":19,
+        "codsituacaoregistro":1
+	},
+	"TCelulaTHHtml":{
+		"nometiposql":"TCelulaTHHtml",
+		"cabecalho":"
+            create or replace type 
+                TCelulaTHHtml
+            under
+                TCelulaHtml
+            (
+                index_cel_sup number,
+                Constructor Function TCelulaTHHtml(
+                    p_id varchar2 default null,
+                    p_name varchar2 default null,
+                    p_class varchar2 default null,
+                    p_style varchar2 default null
+                ) return self as result,
+                Overriding Member Procedure inicializar(
+                    p_id varchar2 default null,
+                    p_name varchar2 default null,
+                    p_class varchar2 default null,
+                    p_style varchar2 default null    
+                )
+            ) NOT FINAL;	
+        ",
+		"corpo":"
+            create or replace type body 
+                TCelulaTHHtml
+            is
+            
+            Constructor Function TCelulaTHHtml(
+                p_id varchar2 default null,
+                p_name varchar2 default null,
+                p_class varchar2 default null,
+                p_style varchar2 default null
+            ) return self as result as
+            begin
+                self.inicializar(
+                    p_id => p_id,
+                    p_name => p_name,
+                    p_class => p_class,
+                    p_style => p_style
+                );
+                return;
+            end TCelulaTHHtml;
+            
+            Overriding Member Procedure inicializar(
+                p_id varchar2 default null,
+                p_name varchar2 default null,
+                p_class varchar2 default null,
+                p_style varchar2 default null    
+            ) as
+            begin
+                (self as TCelulaHtml).inicializar(
+                    p_id => p_id,
+                    p_name => p_name,
+                    p_class => p_class,
+                    p_style => p_style    
+                );
+                self.tag_abertura := '<th';
+                self.tag_fech_abertura := '>';
+                self.tag_fechamento := '</th>';
+            end inicializar;
+            
+            end;		
+        ",
+        "ordemcriacao":20,
+        "codsituacaoregistro":1
+	},
+	"TTlinhaTabHtml":{
+		"nometiposql":"TTlinhaTabHtml",
+		"cabecalho":"
+            create or replace type TTlinhaTabHtml as object(
+                celulas TCnjStr32,
+                Constructor function TTlinhaTabHtml return self as result
+            );		
+        ",
+		"corpo":"
+            create or replace type body TTlinhaTabHtml as
+            Constructor function TTlinhaTabHtml return self as result as
+            begin
+                self.celulas := TCnjStr32();
+                return;
+            end;
+            end;
+		",
+        "ordemcriacao":21,
+        "codsituacaoregistro":1
+	}
+}

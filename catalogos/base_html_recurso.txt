@@ -1,0 +1,49 @@
+<?php
+    namespace __NAME_SPACE__;
+
+    __BLOCO_USE__
+
+    /*bloco de inicializacao e protecao*/	
+	if (count(spl_autoload_functions()) === 0) {
+		set_include_path(str_replace("/",DIRECTORY_SEPARATOR,$_SERVER["DOCUMENT_ROOT"]));
+		spl_autoload_extensions(".php");
+		spl_autoload_register();
+	}
+    FuncoesIniciais::processamentos_iniciais(["checar_chamador"=>false,"atribuir_chamador"=>true, "checar_post"=>false]);
+
+    /*codigo*/
+	if (!defined("__VNOMERECURSO__")) {
+		define("__VNOMERECURSO__",pathinfo(__FILE__)["filename"]);
+	}
+    
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SJD</title>    
+	<link href="/bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/sjd/css/estilos.css?<?php echo Constantes::versao_arquivos; ?>" rel="stylesheet" />
+	<script type="text/javascript" src="/jquery/3.6.0/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>    
+
+	<script type="text/javascript">	
+		try {
+			var __CAMINHOBASESISREL__ = "<?php echo NomesCaminhosRelativosSis::sis; ?>",
+			__CAMINHOBASESJDREL__ = "<?php echo NomesCaminhosRelativos::sjd; ?>",
+			__NOMEDIRSISJD__ = "<?php echo NomesDiretorios::base_sjd; ?>",
+			__NOMEDIRSIS__ = "<?php echo NomesDiretoriosSis::base_sis; ?>";
+		} catch(e) {
+			console.log(e);
+			alert(e.message || e);
+		}
+	</script>
+	<script type="module" src="/sjd/javascript/modulos/ModuloPrincipal.js?<?php echo Constantes::versao_arquivos; ?>"></script>
+	__SCRIPTS__
+</head>
+<body onload="window.fnsisjd.iniciar_pagina({elemento:'<?php echo __VNOMERECURSO__; ?>'});">
+	__CONTEUDOHTML__
+</body>
+</html>

@@ -1,0 +1,466 @@
+{
+	"dados_cat":{
+		"versao":1
+	},
+	"pagina":{
+		"codops":0,
+		"codigoexecutavel":"
+		$retorno='
+			var visoes=(\"'.implode(\",\",\\SJD\\php\\classes\\constantes\\Constantes::getInstancia()->getPropInstanciaSis(\"visoes_possiveis\")).'\").split(\",\");
+			var visoes_condicionantes = visoes.join(\",\").split(\",\");
+			';
+		",
+		"codsituacaoregistro":1
+	},
+	"inicio":{
+		"codops":1,
+		"codigoexecutavel":"
+		$retorno='
+				import { vars } from \"/sjd/javascript/modulos/classes/variaveis/Variaveis.js\";
+				import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+				vars.nome_usuario_logado=\"'.$_SESSION[\"nome_usuario\"].'\";
+				fnsisjd.carregar_valores_inicio();
+			';				
+		",
+		"codsituacaoregistro":1
+	},
+	"login":{
+		"codops":19,
+		"codigoexecutavel":"
+		$retorno='
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\";
+			fnhtml.focar_elemento({seletor:\"form.form_login input[name=inputCodUsuario]\"});';
+		",
+		"codsituacaoregistro":1
+	},
+	"relatorio_personalizado":{
+		"codops":400,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\"; 
+			fnhtml.transf_movivel($(\"div.div_relatorio_personalizado div.div_visoes div.div_opcao\"));
+			fnhtml.transf_movivel($(\"div.div_relatorio_personalizado div.div_periodos div.div_opcao\"));
+			fnhtml.transf_movivel($(\"div.div_relatorio_personalizado div.div_condicionantes div.div_opcao\"));';
+		",
+		"codsituacaoregistro":1
+	},
+	"consultar_ratingsfocais":{
+		"codops":406,
+		"codigoexecutavel":"
+		$retorno = ' 
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\"; 
+			fnhtml.transf_movivel($(\"div.div_consultar_ratingsfocais div.div_condicionantes div.div_opcao\"));';
+		",
+		"codsituacaoregistro":1
+	},
+	"pesquisa_basica_cliente":{
+		"codops":200,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"cliente\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"pesquisa_avancada_cliente":{
+		"codops":202,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"avancado\",entity:\"cliente\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"pesquisa_basica_filial":{
+		"codops":600,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"filial\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"pesquisa_avancada_filial":{
+		"codops":601,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";			
+			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"avancado\",entity:\"filial\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"pesquisa_basica_cidade":{
+		"codops":700,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"cidade\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"pesquisa_avancada_cidade":{
+		"codops":701,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";			
+			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"avancado\",entity:\"cidade\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"pesquisa_basica_estado":{
+		"codops":800,
+		"codigoexecutavel":"
+		$retorno = '	
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";		
+			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"estado\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"pesquisa_basica_rca":{
+		"codops":900,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"rca\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"pesquisa_avancada_rca":{
+		"codops":901,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";			
+			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"avancado\",entity:\"rca\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"pesquisa_basica_gerente":{
+		"codops":1000,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"gerente\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"pesquisa_basica_supervisor":{
+		"codops":1100,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"supervisor\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"pesquisa_basica_regiao":{
+		"codops":1200,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"regiao\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"pesquisa_basica_praca":{
+		"codops":1300,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"praca\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"pesquisa_basica_rota":{
+		"codops":1400,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"rota\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"clientesnaopositivados":{
+		"codops":40103,
+		"codigoexecutavel":"
+		$retorno='
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\";  
+			fnhtml.transf_movivel($(\"div.div_clientesnaopositivados div.div_visoes div.div_opcao:not(:first)\"));';
+		",
+		"codsituacaoregistro":1
+	},
+	"produtosnaopositivados":{
+		"codops":40105,
+		"codigoexecutavel":"
+		$retorno=' 
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\"; 
+			fnhtml.transf_movivel($(\"div.div_positivacaopersonalizada div.div_visoes div.div_opcao:not(:first)\"));';
+		",
+		"codsituacaoregistro":1
+	},
+	"consulta_ratings_focais":{
+		"codops":40600,
+		"codigoexecutavel":"
+		$retorno='
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\";  
+			fnhtml.transf_movivel($(\"div.div_consultar_ratingsfocais div.div_visoes div.div_opcao:not(:first)\"));';
+		",
+		"codsituacaoregistro":1
+	},
+	"positivacaopersonalizada":{
+		"codops":40104,
+		"codigoexecutavel":"
+		$retorno=' 
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\"; 
+			fnhtml.transf_movivel($(\"div.div_produtosnaopositivados div.div_opcao\"));';
+		",
+		"codsituacaoregistro":1
+	},
+	"promotoras":{
+		"codops":403,
+		"codigoexecutavel":"
+		$retorno='
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\"; 
+			fnhtml.transf_movivel($(\"div.div_promotoras div.div_visoes div.div_opcao\"));
+			fnhtml.transf_movivel($(\"div.div_promotoras div.div_periodos div.div_opcao\"));';
+		",
+		"codsituacaoregistro":1
+	},
+	"freezers":{
+		"codops":404,
+		"codigoexecutavel":"
+		$retorno=' 
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\"; 
+			fnhtml.transf_movivel($(\"div.div_freezers div.div_visoes div.div_opcao\"));
+			fnhtml.transf_movivel($(\"div.div_freezers div.div_periodos div.div_opcao\"));';		
+		",
+		"codsituacaoregistro":1
+	},
+	"critica":{
+		"codops":405,
+		"codigoexecutavel":"
+		$retorno='
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\";   
+			fnhtml.transf_movivel($(\"div.div_critica div.div_periodos div.div_opcao\"));';		
+		",
+		"codsituacaoregistro":1
+	},
+	"manutencao_opcoes_sistema":{
+		"codops":22,
+		"codigoexecutavel":"
+		$retorno='
+			import { vars } from \"/sjd/javascript/modulos/classes/variaveis/Variaveis.js\";
+			import { fnreq } from \"/sjd/javascript/modulos/classes/requisicao/FuncoesRequisicao.js\";
+			let comhttp=JSON.parse(vars.str_tcomhttp); 
+			comhttp.requisicao.requisitar.oque=\"dados_sql\"; 
+			comhttp.requisicao.requisitar.qual.comando = \"consultar\";
+			comhttp.requisicao.requisitar.qual.tipo_objeto = \"lista\";
+			comhttp.requisicao.requisitar.qual.objeto = \"opcoes_sistema\";
+			comhttp.opcoes_retorno.seletor_local_retorno=\"div.div_manutencao_opcoes_sistema_arvore_opcoes\"; 
+			comhttp.eventos.aposretornar=[{arquivo:vars.nomes_caminhos_arquivos.funcoes_requisicao, funcao:\"window.fnreq.inserir_retorno\"}]; 
+			fnreq.requisitar_servidor({comhttp:comhttp});';
+		",
+		"codsituacaoregistro":1
+	},
+	"incluir_pedidos_cliente":{
+		"codops":2202,
+		"codigoexecutavel":"
+		$retorno=' 
+			$(\"table.tabela_est.tabela_inclusao_pedido_cliente_itens\").find(\".botoes_comando_tabitenspedcli\").css(\"margin-left\",\"1em\");
+			';
+		"
+	},
+	"consultar_painel":{
+		"codops":30002,
+		"codigoexecutavel":"
+		$retorno='
+				import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+				fnsisjd.carregar_painel();
+			';
+		",
+		"codsituacaoregistro":1
+	},
+	"consultar_dados_grupos_equivalentes":{
+		"codops":500,
+		"codigoexecutavel":"
+		$retorno='
+				import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+				fnsisjd.carregar_dados_grupos_equivalentes();
+			';
+		",
+		"codsituacaoregistro":1
+	},
+	"170109":{
+		"codops":170109,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.carregar_dados_processo({codprocesso:6004,seletor_local_retorno:\"div.card-body\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"501":{
+		"codops":501,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.carregar_dados_processo({codprocesso:10200,seletor_local_retorno:\"div.card-body\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"99990000":{
+		"codops":99990000,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.carregar_dados_processo({codprocesso:0,seletor_local_retorno:\"div.card-body\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"99990001":{
+		"codops":99990001,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.carregar_dados_processo({codprocesso:1,seletor_local_retorno:\"div.card-body\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"99990004":{
+		"codops":99990004,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.carregar_dados_processo({codprocesso:8,seletor_local_retorno:\"div.card-body\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"99990005":{
+		"codops":99990005,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.carregar_dados_processo({codprocesso:9,seletor_local_retorno:\"div.card-body\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"99990006":{
+		"codops":99990006,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.carregar_dados_processo({codprocesso:10,seletor_local_retorno:\"div.card-body\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"9999000700":{
+		"codops":9999000700,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.carregar_dados_processo({codprocesso:11,seletor_local_retorno:\"div.card-body\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"9999000701":{
+		"codops":9999000701,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.carregar_dados_processo({codprocesso:12,seletor_local_retorno:\"div.card-body\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"9999000702":{
+		"codops":9999000702,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.carregar_dados_processo({codprocesso:13,seletor_local_retorno:\"div.card-body\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"9999000703":{
+		"codops":9999000703,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.carregar_dados_processo({codprocesso:14,seletor_local_retorno:\"div.card-body\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"9999000704":{
+		"codops":9999000704,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.carregar_dados_processo({codprocesso:15,seletor_local_retorno:\"div.card-body\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"1800":{
+		"codops":1800,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.carregar_dados_processo({codprocesso:6000,seletor_local_retorno:\"div.card-body\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"2000":{
+		"codops":2000,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.carregar_dados_processo({codprocesso:6003,seletor_local_retorno:\"div.card-body\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"2204":{
+		"codops":2204,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.carregar_dados_processo({codprocesso:6001,seletor_local_retorno:\"div.card-body\"});
+		';
+		",
+		"codsituacaoregistro":1
+	},
+	"999901":{
+		"codops":999901,
+		"codigoexecutavel":"
+		$retorno = '
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			fnsisjd.carregar_dados_processo({codprocesso:6002,seletor_local_retorno:\"div.card-body\",condicionantestab:\"sjdusuariosis[sjdusuariosis.codusuariosis=__CODUSUR__]\"});
+		';
+		",
+		"codsituacaoregistro":1
+	}	
+}

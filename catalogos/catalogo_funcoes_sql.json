@@ -1,0 +1,213 @@
+{
+	"dados_cat":{
+		"versao":1
+	},
+	"__FNV_GET_PREFIXOBJECTSDB__executar_plsql":{
+		"nomefuncaosqldb":"__CHAVE__",
+		"nomefuncaosqlsistema":"__CHAVE__",
+		"corpo":"
+create or replace FUNCTION __CHAVE__ (
+    comando_plsql CLOB
+) RETURN VARCHAR2 AS
+    proc        VARCHAR2(100) DEFAULT 'teste';
+    reterro     VARCHAR2(4000) DEFAULT '0';
+    strtemp1    VARCHAR2(4000) DEFAULT NULL;
+    numtemp1    NUMBER default NULL;
+    datetemp1   DATE default NULL;
+    v_existe number default 0;
+BEGIN
+    EXECUTE IMMEDIATE 'begin :retorno:=''0''; '
+                      || comando_plsql
+                      || ' end;'
+        USING OUT reterro;
+    RETURN reterro;
+EXCEPTION
+    WHEN OTHERS THEN        
+        v_existe := 0;
+        select count(1) into v_existe from user_tables where lower(trim(table_name)) = lower(trim('__FNV_GET_PREFIXOBJECTSDB__ERROS'));
+        if v_existe > 0 then        
+            strtemp1 := sqlerrm || ' unit: ' || $$plsql_unit || ' linha: ' || $$plsql_line || ' ' || dbms_utility.format_error_backtrace;
+            numtemp1 := sqlcode;
+            datetemp1 := SYSDATE;            
+            execute immediate 'INSERT INTO __FNV_GET_PREFIXOBJECTSDB__erros (dtocorrencia,tipoobjeto,nomeobjeto,linha,coderro,msg,valores) VALUES (' ||
+                'to_date(''' || to_char(datetemp1,'dd/mm/yyyy hh24:mi:ss') || ''',''dd/mm/yyyy hh24:mi:ss''),' ||
+                '''function'',' ||
+                '''' || $$plsql_unit || ''',' ||
+                '''' || $$plsql_line || ''',' ||
+                '''' || replace(numtemp1,'''','''''') || ''',' ||
+                '''' || substr(replace(strtemp1,'''',''''''),1,4000) || ''',' ||
+                '''' || substr(replace(comando_plsql,'''',''''''),1,4000) || ''')' ;
+            COMMIT;
+        end if;
+        RETURN 'Erro encontrado:' || chr(10) ||
+               'Processo: ' || proc || chr(10) || 
+               'Mensagem sql: ' || sqlerrm(sqlcode) || chr(10) || 
+               'Mensagem formatada: ' || dbms_utility.format_error_backtrace  || chr(10) || 
+               'SQL:' || comando_plsql || chr(10) || 
+               'Pilha de chamadas: ' || dbms_utility.format_call_stack  || chr(10) || 
+               'Pilha de erros: ' || dbms_utility.format_error_stack;   
+END __CHAVE__;
+		",
+        "codsituacaoregistro":1
+	},
+	"VALIDA_CNPJ":{
+		"nomefuncaosqldb":"__CHAVE__",
+		"nomefuncaosqlsistema":"__CHAVE__",
+		"corpo":"
+create or replace FUNCTION VALIDA_CNPJ(V_CPF_CNPJ VARCHAR2) RETURN VARCHAR2 IS
+  /*  Função para validar CPF/CNPJ
+      Banco de Dados: Oracle 10g
+      Data: 11/02/2008
+      Autor: Rogério Alcântara Valente
+
+  */ 
+
+  TYPE ARRAY_DV IS VARRAY(2) OF PLS_INTEGER;
+  V_ARRAY_DV ARRAY_DV := ARRAY_DV(0, 0);
+  CPF_DIGIT  CONSTANT PLS_INTEGER := 11;
+  CNPJ_DIGIT CONSTANT PLS_INTEGER := 14; 
+  IS_CPF       BOOLEAN;
+  IS_CNPJ      BOOLEAN;
+  V_CPF_NUMBER VARCHAR2(20);
+  TOTAL        NUMBER := 0;
+  COEFICIENTE  NUMBER := 0;
+  DV1    NUMBER := 0;
+  DV2    NUMBER := 0;
+  DIGITO NUMBER := 0;
+  J      INTEGER;
+  I      INTEGER;
+  
+  V_VALIDO BOOLEAN DEFAULT FALSE;
+
+BEGIN
+  IF V_CPF_CNPJ IS NULL THEN
+    RETURN 'N';
+  END IF; 
+
+  /*
+    Retira os caracteres não numéricos do CPF/CNPJ
+    caso seja enviado para validação um valor com
+    a máscara.
+  */
+
+  V_CPF_NUMBER := REGEXP_REPLACE(V_CPF_CNPJ, '[^0-9]'); 
+
+  /*
+    Verifica se o valor passado é um CPF através do
+    número de dígitos informados. CPF = 11
+  */
+  V_CPF_NUMBER := LPAD(V_CPF_NUMBER,CNPJ_DIGIT,'0');
+
+  IS_CPF := (LENGTH(V_CPF_NUMBER) = CPF_DIGIT); 
+
+  /*
+    Verifica se o valor passado é um CNPJ através do
+    número de dígitos informados. CNPJ = 14
+  */
+
+  IS_CNPJ := (LENGTH(V_CPF_NUMBER) = CNPJ_DIGIT);
+
+  IF (IS_CPF OR IS_CNPJ) THEN
+    TOTAL := 0;
+  ELSE
+    RETURN 'N';
+  END IF;
+
+   /*
+    Armazena os valores de dígitos informados para
+    posterior comparação com os dígitos verificadores calculados.
+  */
+
+  DV1 := TO_NUMBER(SUBSTR(V_CPF_NUMBER, LENGTH(V_CPF_NUMBER) - 1, 1));
+  DV2 := TO_NUMBER(SUBSTR(V_CPF_NUMBER, LENGTH(V_CPF_NUMBER), 1)); 
+
+  V_ARRAY_DV(1) := 0;
+  V_ARRAY_DV(2) := 0; 
+
+  /*
+    Laço para cálculo dos dígitos verificadores.
+    É utilizado módulo 11 conforme norma da Receita Federal.
+  */
+
+  FOR J IN 1 .. 2
+  LOOP
+    TOTAL := 0;
+    COEFICIENTE := 2;
+
+    FOR I IN REVERSE 1 .. ((LENGTH(V_CPF_NUMBER) - 3) + J)
+    LOOP
+      DIGITO := TO_NUMBER(SUBSTR(V_CPF_NUMBER, I, 1));
+      TOTAL := TOTAL + (DIGITO * COEFICIENTE);   
+
+      COEFICIENTE := COEFICIENTE + 1;
+      IF (COEFICIENTE > 9) AND IS_CNPJ THEN
+        COEFICIENTE := 2;
+      END IF;   
+
+    END LOOP; --for i
+
+    V_ARRAY_DV(J) := 11 - MOD(TOTAL, 11);
+    IF (V_ARRAY_DV(J) >= 10) THEN
+      V_ARRAY_DV(J) := 0;
+    END IF; 
+
+  END LOOP; --for j in 1..2
+
+  /*
+    Compara os dígitos calculados com os informados para informar resultado.
+  */
+  V_VALIDO := (DV1 = V_ARRAY_DV(1)) AND (DV2 = V_ARRAY_DV(2)); 
+  IF (V_VALIDO = TRUE) THEN
+    RETURN 'S';
+  ELSE
+    RETURN 'N';
+  END IF;
+
+END VALIDA_CNPJ;",
+        "codsituacaoregistro":1
+	},
+  "mes_texto":{
+    "nomefuncaosqldb":"__CHAVE__",
+    "nomefuncaosqlsistema":"__CHAVE__",
+    "corpo":"
+create or replace FUNCTION mes_texto (
+    mes NUMBER
+) RETURN VARCHAR2 AS
+    retorno VARCHAR2(20) DEFAULT '';
+BEGIN
+    CASE
+        WHEN ( mes = 1 ) THEN
+            retorno := 'janeiro';
+        WHEN ( mes = 2 ) THEN
+            retorno := 'fevereiro';
+        WHEN ( mes = 3 ) THEN
+            retorno := 'marco';
+        WHEN ( mes = 4 ) THEN
+            retorno := 'abril';
+        WHEN ( mes = 5 ) THEN
+            retorno := 'maio';
+        WHEN ( mes = 6 ) THEN
+            retorno := 'junho';
+        WHEN ( mes = 7 ) THEN
+            retorno := 'julho';
+        WHEN ( mes = 8 ) THEN
+            retorno := 'agosto';
+        WHEN ( mes = 9 ) THEN
+            retorno := 'setembro';
+        WHEN ( mes = 10 ) THEN
+            retorno := 'outubro';
+        WHEN ( mes = 11 ) THEN
+            retorno := 'novembro';
+        WHEN ( mes = 12 ) THEN
+            retorno := 'dezembro';
+    END CASE;
+
+    RETURN retorno;
+EXCEPTION
+    WHEN OTHERS THEN        
+        RETURN NULL;
+END mes_texto;    
+    ",
+    "codsituacaoregistro":1         
+  }
+}

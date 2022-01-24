@@ -146,6 +146,7 @@ class FuncoesSisJD{
         try {
             fnjs.logi(this.constructor.name,"verificar_login");
             if (params.comhttp.retorno.dados_retornados.conteudo_html.trim().toLowerCase() === 'logado') {
+                
                 vars.nomes_caminhos_arquivos.requisicao = vars.ultimo_destino_requisicao;
                 vars.usuariosis = params.comhttp.retorno.dados_retornados.dados.usuariosis;
                 vars.usuarios_subordinados = params.comhttp.retorno.dados_retornados.dados.usuarios_subordinados;
@@ -153,13 +154,17 @@ class FuncoesSisJD{
                     async: false,
                     comhttp:vars.ultima_requisicao
                 };
-                params_req.comhttp.retorno = {};
-                fnjs.obterJquery("main.main_login").remove();
-                window.fnreq.carregando({
-                    acao:"esconder",
-                    id:(params.comhttp.id_carregando || params.id_carregando || "todos")
-                })
-                fnreq.requisitar_servidor(params_req);				
+                if (typeof params_req.comhttp !== "undefined" && params_req.comhttp != null) {
+                    params_req.comhttp.retorno = {};
+                    fnjs.obterJquery("main.main_login").remove();
+                    window.fnreq.carregando({
+                        acao:"esconder",
+                        id:(params.comhttp.id_carregando || params.id_carregando || "todos")
+                    })
+                    fnreq.requisitar_servidor(params_req);				
+                } else {                    
+                    window.location.href = "/sjd";
+                }
             } else {
                 alert("Nao logado: "+params.comhttp.retorno.dados_retornados.conteudo_html);
                 fnreq.carregando({
@@ -5885,11 +5890,17 @@ class FuncoesSisJD{
 
 	/**
 	 * efetua pesquisa baseado nos filtros informados
-	 * @param {object} obj - o objeto clicado para pesquisar
+	 * @param {object} params - o objeto clicado para pesquisar
 	 * @created 04/05/2021
 	 */
-	pesquisar_filtro_padrao(obj){
+	pesquisar_filtro_padrao(params){
 		try {
+            params = params || {};
+            params.elemento = params.elemento || params.element || params.elem || params;
+            params.relatorio = params.relatorio || "";
+            params.entidade = params.entidade || "";
+            params.nivel = params.nivel || "basico";
+
 			let div_conteudo = document.querySelector("div.div_conteudo_pagina>div:first-child");
 			if (typeof div_conteudo === "undefined" || div_conteudo === null) {
 				div_conteudo = document.querySelector("div.div_conteudo_pagina");
@@ -5898,8 +5909,10 @@ class FuncoesSisJD{
 			let fieldset_filtros = document.querySelector("fieldset.fieldset_filtros");
 			let div_resultado = $(fieldset_filtros).closest("form")[0].nextSibling;
 			let condicionantes = [];
-			let nivel = fieldset_filtros.getAttribute("nivel") || vars.nome_recurso.split("_")[1] || "basico";
-			let entity = fieldset_filtros.getAttribute("entity") || vars.nome_recurso.split("_")[2];
+
+			let nivel = params.nivel;
+			let entity = params.entidade;
+            
 
 			/*cria a div_resultado, se ainda nao existir na pagina, assim como a barra inferior, com o botao OK*/
 			if (typeof div_resultado === "unedefined" || div_resultado === null) {
@@ -6013,7 +6026,7 @@ class FuncoesSisJD{
 			comhttp.requisicao.requisitar.oque="dados_sql";
 			comhttp.requisicao.requisitar.qual.comando = "consultar";
 			comhttp.requisicao.requisitar.qual.tipo_objeto = "pesquisa";
-			comhttp.requisicao.requisitar.qual.objeto = vars.nome_recurso;
+			comhttp.requisicao.requisitar.qual.objeto = params.relatorio;
 			comhttp.requisicao.requisitar.qual.condicionantes = [];
 			if (condicionantes.length) {
 				comhttp.requisicao.requisitar.qual.condicionantes.push("condicionantes=" + condicionantes.join(window.vars.sepn1));

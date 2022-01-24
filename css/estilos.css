@@ -1,0 +1,578 @@
+.naomostrar{
+    display: none;
+}
+/*menu*/
+div#barra_superior{
+    height: 50px;
+}
+div#barra_menus{
+    overflow-y:auto;
+    height: auto;
+    padding-top: 12px;
+}
+nav.navbar-vertical{
+    display: block;
+    max-width: 250px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;        
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+div#barra_menus li>div.collapse{
+    margin-left: 10px;    
+}
+div#barra_menus li>button.btn_menu{
+    white-space: nowrap;
+    overflow: hidden;
+}
+div#barra_menus li>button.btn_menu:not(.btn-toggle) {
+    padding-left: 28px;
+}
+.b-example-divider {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+.bi {
+    vertical-align: -.125em;
+    pointer-events: none;
+    fill: currentColor;
+}
+ul>li>button.btn_menu{
+    color:white;
+}
+ul>li>button.btn_menu:hover,
+ul>li>button.btn_menu:focus{
+    color:black;
+    background-color: #d2f4ea;
+}
+.dropdown-toggle { 
+    outline: 0; 
+}
+.nav-flush .nav-link {
+    border-radius: 0;
+}
+.btn-toggle {
+    display: inline-flex;
+    align-items: center;
+    padding: .25rem .5rem;
+    font-weight: 600;
+    color: white;
+    background-color: transparent;
+    border: 0;
+}
+.btn-toggle:hover,
+.btn-toggle:focus {
+    color: rgba(0, 0, 0, .85);
+    background-color: #d2f4ea;
+}  
+.btn-toggle::before {
+    width: 1.25em;
+    line-height: 0;
+    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+    transition: transform .35s ease;
+    transform-origin: .5em 50%;
+}  
+.btn-toggle[aria-expanded="true"] {
+    color: white;
+}
+.btn-toggle[aria-expanded="true"]::before {
+    transform: rotate(90deg);
+}  
+.btn-toggle-nav a {
+    display: inline-flex;
+    padding: .1875rem .5rem;
+    margin-top: .125rem;
+    margin-left: 1.25rem;
+    text-decoration: none;
+}
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+    background-color: #d2f4ea;
+}  
+.scrollarea {
+    overflow-y: auto;
+}  
+.fw-semibold { 
+    font-weight: 600; 
+}
+.lh-tight {
+    line-height: 1.25; 
+}
+form.form_pesquisa_menu{
+    position: absolute;
+    right: 5px;
+}
+
+
+/*atalhos inicio*/
+div.card_atalho_inicio{
+    max-height: 150px;
+    max-width: 150px;
+}
+div.card_atalho_inicio:hover{
+    -webkit-transition: transform 0.2s ease-in-out;
+    transform: scale(1.2);
+    cursor:pointer;
+}
+div.card_atalho_inicio img{
+    max-height: 70%;
+    max-width: 90%;
+}
+div.card_atalho_inicio div.card-footer{
+    font-size: 10px;
+    overflow: hidden;
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+    text-align: center;
+    text-transform:capitalize;
+}
+
+
+/*destaque ao passar o mouse (tamanho aumentado)*/
+.item_destaque_hover:hover{
+	-webkit-transition: transform 0.2s ease-in-out; 
+	transform:scale(1.2);
+}
+.item_destaque50pct_hover:hover,.item_destaque_hover50pct:hover{
+	-webkit-transition: transform 0.2s ease-in-out; 
+	transform:scale(1.5);
+}
+.item_destaque60pct_hover:hover,.item_destaque_hover60pct:hover{
+	-webkit-transition: transform 0.1s ease-in-out; 
+	transform:scale(1.6);
+    transform: scale(2);
+    background-color: white;
+    z-index: 999;	
+}
+.item_destaque100pct_hover:hover,.item_destaque_hover100pct:hover{
+	-webkit-transition: transform 0.1s ease-in-out; 
+    transform: scale(2);
+    background-color: white;
+    z-index: 999;	
+}
+
+
+/*componente visao*/
+div.div_container_combobox_visao{
+    min-width: 200px;
+    padding-bottom: 10px;
+}
+ul.dropdown-visao{
+    max-height: 300px;
+    overflow-x:auto;
+}
+button.botao_dropdown_visao{
+    width:100%;
+}
+div.div_opcao_controles_comp {
+    margin-bottom: 5px;
+}
+div.div_opcao_controles_btns_img {
+    margin-left:-15px;
+    margin-right: -15px;
+    min-width: 40px; 
+}
+img.btn_img_add_geral {
+    width: 1.2rem;
+    height: 1.2rem;
+    float: right;
+    position: relative;
+    top: -10px;
+}
+img.btn_img_add_ctrl,
+img.btn_img_excl_ctrl{
+    width:1rem;
+    display: block;
+}
+
+
+/*dropdown*/
+ul.dropdown-menu>label.label_selecionar_todos{
+    width:calc(100% - 20px);
+    margin:10px;
+    display: block;
+}
+ul.dropdown-menu>input.input_filtro_dropdown {
+    width:calc(100% - 20px);
+    margin:10px;
+    display: block;
+}
+ul.dropdown-menu>li.dropdown-item{
+    /*corrige espaço nao clicavel em dropdow-item*/
+    padding:0px !important;
+}
+ul.dropdown-menu>li>label{
+    width:100%;
+    padding-left:1rem;
+    padding-right:1rem;
+}
+ul.dropdown-menu>li>label>input,
+ul.dropdown-menu>label.label_selecionar_todos>input{
+    margin-right: 5px;
+}
+
+
+/*componente data*/
+div.div_container_combobox_periodo input.componente_data {
+    width: 140px;
+}
+div.div_container_combobox_periodo img.imagem_mes_calendario,
+div.div_periodo img.imagem_mes_calendario{
+    width:19px;
+    margin-right: 1px;
+    cursor:pointer;
+}
+div.div_container_combobox_periodo img.imagem_mes_calendario:hover{
+    width:22px;
+}
+div.div_container_combobox_periodo input.inputano,
+div.div_periodo input.inputano{
+    width: 60px;
+    height: 20px;
+    font-size: 12px;
+    position: relative;
+}
+
+button.accordion-button {
+    background-color:#d1dfff;
+}
+button.accordion-button:not(.collapsed) {
+    background-color:#a6cafd;
+}
+
+
+
+/*tabdados*/
+table.tabdados thead tr th{
+    background-color:black;
+    color:white;
+    text-align: center;
+    border:1px solid gray;
+}
+
+table.tabdados thead tr th button.btncomandos{
+    height: 50px;    
+    max-height: 50px;
+}
+table.tabdados thead tr th button.btncomandos img{
+    height: 100%;
+    max-height: 100%;
+}
+table.tabdados thead tr th.cel_tit_campodb {
+    cursor:pointer;
+}
+table.tabdados>thead {
+    border-bottom:2px solid black;
+}
+table.tabdados>tfoot {
+    border-top:2px solid black;
+    color:ghostwhite;
+}
+table.tabdados thead tr.linhafiltros,
+table.tabdados tfoot tr.linhacalculos,
+table.tabdados thead tr.linhafiltros>th,
+table.tabdados tfoot tr.linhacalculos>th,
+table.tabdados tfoot tr.linharodape,
+table.tabdados tfoot tr.linharodape>th{
+    background-color: gray;
+    border: 1px solid darkgray;
+}
+table.tabdados thead tr th.cel_tit_filtro input.inputfiltro{
+    width: 100%;
+    background-color: darkgray;
+    border:none;
+}
+table.tabdados thead tr th.cel_tit_filtro img.imglimparfiltro {
+    width: 24px;
+    float: right;
+    position: relative;
+    top: -26px;
+    right: 4px;
+    display: none;
+}
+table.tabdados tbody tr td,
+table.tabdados tfoot tr th{
+    border:1px solid rgba(0,0,0,.125);
+    padding-left:4px;
+    padding-right:4px;
+}
+table.tabdados tbody tr td.cel_sub {
+    text-align: center;
+}
+table.tabdados tbody tr td.cel_numint,
+table.tabdados tbody tr td.cel_qt,
+table.tabdados tbody tr td.cel_peso,
+table.tabdados tbody tr td.cel_valor,
+table.tabdados tbody tr td.cel_data,
+table.tabdados tbody tr td.cel_quant,
+table.tabdados tbody tr td.cel_perc,
+table.tabdados tbody tr td.cel_perc_med,
+table.tabdados tfoot tr th.cel_numint,
+table.tabdados tfoot tr th.cel_qt,
+table.tabdados tfoot tr th.cel_peso,
+table.tabdados tfoot tr th.cel_valor,
+table.tabdados tfoot tr th.cel_data,
+table.tabdados tfoot tr th.cel_quant,
+table.tabdados tfoot tr th.cel_perc,
+table.tabdados tfoot tr th.cel_perc_med{
+    text-align:right;
+}
+table.tabdados tbody tr td.cel_texto{    
+    white-space: nowrap;
+    max-width: 300px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+table.tabdados tbody tr td.cel_sub_espacadora{
+    border-right: none;
+}
+table.tabdados tbody tr td.cel_sub_registro{
+    border-left: none;
+    padding-top:15px;
+    padding-bottom: 15px;    
+}
+table.tabdados tbody tr td.celula_destaque_zerada {
+    background-color:lightcoral;
+}
+table.tabdados thead tr th img.imgord:not(.imgordenado) {
+    opacity: .6;
+}
+table.tabdados button.btncomandos.pequeno {
+    max-width: 60px;
+    overflow: hidden;
+}
+table.tabdados tbody tr td.cel_cmd>img{
+    width:16px;
+}
+
+
+div.div_container_abas{
+    overflow:auto;
+}
+div.div_resultado {
+    padding-left: 17px;
+    padding-top:10px
+}
+div.div_resultado div.div_resultado{
+    padding-left: 5px;
+}
+
+div.div_modal {
+    color:black;
+}
+
+
+/*PAINEL (SINERGIA2)*/
+div.div_consultar_sinergia2 div.div_consultar_sinergia_filtros_corpo  div.col div.card div.card-body,
+div.div_consultar_sinergia2 div.div_consultar_sinergia_filtros_corpo div.col div.card div.card-header{
+    padding:1px;
+}
+div.div_consultar_sinergia2 div.div_consultar_sinergia_filtros_filtros div.col div.card div.card-body input{
+    width: 100%;
+    max-width: 100%;
+}
+div.div_consultar_sinergia2 div.div_consultar_sinergia_filtros_periodos_corpo input.input_ano{
+    width: 100%;
+    max-width: 100%;
+}
+div.div_consultar_sinergia_campanhas_itens_continente div.card-body{
+    max-height: 100%;
+}
+div.div_consultar_sinergia_campanhas_itens {
+/*    max-height: calc(100% - 30px);
+    overflow:auto;*/
+    font-size: .9rem;
+}
+div.div_consultar_painel_tabelas_positivacoes_clientes,
+div.div_consultar_painel_tabelas_positivacoes_produtos {
+    max-height:400px;
+    overflow:auto;
+    font-size:.9rem;
+}
+
+div.div_consultar_sinergia_campanhas_estruturadas {
+    font-size:.8rem;
+}
+div.card.card_campanhas_estruturadas/*,
+div.card.card_campanhas_sinergia*/{
+    height: 175px !important;
+}
+div.card.card_filtros{
+    height: 285px;
+}
+div.div_consultar_sinergia_grafico_grafico3_grafico {
+    min-height: 180px;
+    max-height: 180px;
+}
+div.div_consultar_sinergia_filtros_periodo1>div.input-group{
+    display:flex;
+}
+div.div_consultar_sinergia_filtros_periodo1>div.input-group div.div_combobox{
+    margin:0 auto;
+    margin-right: 0px;
+}
+div.div_consultar_sinergia_filtros_periodo1>div.input-group input.input_ano{
+    max-width: 70px !important;
+    margin:0 auto;
+    margin-left:0px;
+}
+button.div_consultar_sinergia_filtros_botao_filtrar{
+    height: 40px;
+}
+img.div_consultar_sinergia_campanhas_itens_titulo_maximizar,
+img.div_consultar_sinergia_campanhas_itens_titulo_fechar  {
+    width: 24px;
+    float: right;
+    cursor: pointer;
+}
+img.div_consultar_sinergia_campanhas_itens_titulo_maximizar{
+    height: 22px;
+    margin-right: 5px;
+}
+div.div_manutencao_grupos_produtos_equivalentes div.row div[class*=col]{
+    height: 400px;
+}
+
+
+div.div_consultar_sinergia2>div.row>div>div.card:not(.card_filtros) {
+    resize: both;
+    overflow: auto;
+}
+
+
+/*clientesativosxpositivados*/
+div.div_consultar_sinergia_filtros_filtros>div{
+    width:178px;
+    display:inline-block;
+}
+
+div.div_consultar_sinergia_filtros_periodos_corpo>div{
+    display:inline-block;
+}
+div.div_consultar_sinergia_filtros button.botao_pesquisar{
+    width:43%;
+    margin:0 auto;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+
+
+/*SINERGIA*/
+div.div_consultar_sinergia div.div_atualizar {
+    text-align: center;
+}
+div.div_consultar_sinergia div.div_opcoes_corpo_opcoes>div.div_opcao{
+    margin-top:5px;
+    margin-right: 10px;
+    padding:5px;
+    border:1px solid gray;
+    border-radius: 5px;
+}
+
+
+/*TABDADOS*/
+table.tabdados>tbody>tr.marcada{
+    background-color:dodgerblue;
+}
+
+
+
+
+/*SISJD*/
+div.card_meus_valores div.card-body div.col:nth-child(3) div.card div.card-body,
+div.card_meus_valores div.card-body div.col:nth-child(4) div.card div.card-body{
+    padding-bottom: 10px !important;
+}
+.cliente_positivado{
+    background-color:aquamarine;
+}
+.cliente_negativado{
+    background-color:#dd3434b3;
+}
+div.div_box_grafico_evolucao_detalhado{
+	min-width:350px;
+	max-width:350px;
+	display:inline-block;
+}
+.resize{
+    resize:both;
+    overflow: auto;
+}
+div.div_combobox.condicionante ul.dropdown-menu,
+div.div_container_combobox_campo_avulso ul.dropdown-menu,
+div.div_consultar_sinergia div.div_opcoes_pesquisa div.div_combobox ul.dropdown-menu{
+    max-height: 400px;
+    overflow: auto;
+}
+div.input_group_mes_ano{
+    display: flex !important;
+}
+div.input_group_mes_ano input.input_ano{
+    width: 5.5rem !important;
+    max-width: 5.5rem !important;
+}
+.clicavel{
+    cursor:pointer;
+}
+.div_container_abas{
+    height: 100%;
+}
+
+div.div_dados_campanha_consultar>div.card,
+div.div_dados_campanha_consultar>div.card>div.card-body{
+    height: 100% !important;
+}
+
+/*complemento bootstrap*/
+.fs-10{
+    font-size: 10px;
+}
+
+
+/*atualizacoes sistema*/
+div.div_atualizacoes_sistema table{
+    border:1px solid gray;
+}
+div.div_atualizacoes_sistema table tr{
+    border:1px solid gray;
+}
+div.div_atualizacoes_sistema table tr:hover{
+    background-color:#ccc;
+}
+
+/*telas pequenas*/
+@media only screen and (max-width: 768px) {    
+    [class*="col-"]:not(.div_opcao_controles_btns_img){
+        width:100% !important;    
+    }
+    [class*="container"]{
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    input.componente_data{
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    /*painel*/
+    div.div_consultar_sinergia_campanhas_estruturadas_container{
+        display: none !important;
+    }    
+    div.div_consultar_sinergia2>div.row:nth-child(1) {
+        height:  max-content !important;
+        min-height:  max-content !important;
+        max-height:  max-content !important;
+    }
+
+  }  

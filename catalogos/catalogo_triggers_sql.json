@@ -1,0 +1,827 @@
+{
+	"dados_cat":{
+		"versao":1
+	},
+	"__FNV_GET_PREFIXOBJECTSDB__TRG_ALE_ENT_NF":{
+		"nometriggersqldb":"__CHAVE__",
+		"nometriggersqlsistema":"__CHAVE__",
+		"corpo":"
+create or replace TRIGGER __FNV_GET_PREFIXOBJECTSDB__trg_ale_ent_nf AFTER
+    INSERT ON jumbo.pcnfent
+    REFERENCING
+        NEW AS new
+    FOR EACH ROW
+DECLARE 
+    v_ler    __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__errostriggers%rowtype default NULL;
+    v_llog   __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__loganaliseent%rowtype default NULL;
+BEGIN
+    IF ( :new.especie = 'NF' ) AND ( :new.dtcancel IS NULL ) AND ( :new.coddevol IS NULL ) AND ( :new.codfilial <> 3 ) AND ( :new.codfornec NOT IN (502247) ) THEN
+        v_llog.numtransent := :new.numtransent;
+        v_llog.codfilial := nvl(:new.codfilial, :new.codfilialnf);
+        v_llog.codfornec := :new.codfornec;
+        v_llog.uffornec := :new.uf;
+        v_llog.tipofornec := :new.tipofornec;
+        v_llog.rotinalanc := :new.rotinalanc;
+        v_llog.equiplanc := :new.equiplanc;
+        v_llog.funclanc := :new.funclanc;
+        v_llog.importado := CASE WHEN NVL(:new.importadoxml,'X') = 'S' THEN 1 ELSE 0 END;
+        v_llog.numtransvendaorig := :new.numtransvendaorig;
+        __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__pkg_funcs_si__FNV_GET_PREFIXOBJECTSDB__.enviar_alerta_ent(v_llog);
+    END IF;
+EXCEPTION
+    WHEN OTHERS THEN
+        v_ler.dtocorrencia := sysdate;
+        v_ler.tipoobjeto := 'trigger';
+        v_ler.nomeobjeto := $$plsql_unit;
+        v_ler.linha := $$plsql_line;
+        v_ler.coderro := sqlcode;
+        v_ler.msg := substr(sqlerrm|| ' '|| dbms_utility.format_error_backtrace, 1, 4000);
+        v_ler.valores := 'numtransent: ' || :new.numtransent||','||nvl(:new.codfilial, :new.codfilialnf)||','||:new.codfornec;
+        INSERT INTO __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__errostriggers VALUES v_ler;        
+        NULL;
+END __FNV_GET_PREFIXOBJECTSDB__trg_ale_ent_nf;",
+        "codsituacaoregistro":1
+	},
+	"__FNV_GET_PREFIXOBJECTSDB__TRG_ALERT_ERRO":{
+		"nometriggersqldb":"__CHAVE__",
+		"nometriggersqlsistema":"__CHAVE__",
+		"corpo":"
+create or replace TRIGGER __FNV_GET_PREFIXOBJECTSDB__trg_alert_erro AFTER
+    INSERT ON __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__erros
+    REFERENCING
+        NEW AS new
+    FOR EACH ROW
+DECLARE
+    --PRAGMA AUTONOMOUS_TRANSACTION;
+    v_corpo                 VARCHAR2(32000) DEFAULT NULL;
+    v_corpo_temp            VARCHAR2(32000) DEFAULT NULL;
+    l_job                   NUMBER;
+    v_qtlim_envio           NUMBER DEFAULT 0;
+    v_strtemp1              VARCHAR2(32000) DEFAULT NULL;
+    v_existe                NUMBER default NULL;
+    v_css_tab_email         VARCHAR2(32000) DEFAULT NULL;
+    v_css_tab_email_td      VARCHAR2(32000) DEFAULT NULL;
+    v_demaisdestinatarios   VARCHAR2(32000) DEFAULT NULL;
+BEGIN
+    v_css_tab_email := '';
+    v_css_tab_email_td := '';
+    BEGIN
+        v_existe := 0;
+        SELECT
+            COUNT(1)
+        INTO v_existe
+        FROM
+            __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__conteudoshtml
+        WHERE
+            lower(nomeconteudo) = lower('css_tab_email')
+            AND ROWNUM <= 1;
+
+
+        IF v_existe > 0 THEN
+            SELECT
+                conteudo
+            INTO v_css_tab_email
+            FROM
+                __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__conteudoshtml
+            WHERE
+                lower(nomeconteudo) = lower('css_tab_email')
+                AND ROWNUM <= 1;
+
+
+        END IF;
+
+
+        v_existe := 0;
+        SELECT
+            COUNT(1)
+        INTO v_existe
+        FROM
+            __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__conteudoshtml
+        WHERE
+            lower(nomeconteudo) = lower('css_tab_email_td')
+            AND ROWNUM <= 1;
+
+
+        IF v_existe > 0 THEN
+            SELECT
+                conteudo
+            INTO v_css_tab_email_td
+            FROM
+                __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__conteudoshtml
+            WHERE
+                lower(nomeconteudo) = lower('css_tab_email_td')
+                AND ROWNUM <= 1;
+
+
+        END IF;
+
+
+        v_corpo := '<table class=\"tab_email\" style=\"'
+                    || v_css_tab_email
+                    || '\"><thead><tr><td colspan=\"999\">ALERTA DE ERRO GERADO PELO DBA</td></thead><tbody>'
+                    || '<tr><td style=\"'
+                    || v_css_tab_email_td
+                    || '\">dtocorrencia </td><td style=\"'
+                    || v_css_tab_email_td
+                    || '\">'
+                    || to_char(:new.dtocorrencia, 'DD/MM/YYYY HH24:MI:SS')
+                    || '</td></tr>'
+                    || '<tr><td style=\"'
+                    || v_css_tab_email_td
+                    || '\">tipoobjeto </td><td style=\"'
+                    || v_css_tab_email_td
+                    || '\">'
+                    || :new.tipoobjeto
+                    || '</td></tr>'
+                    || '<tr><td style=\"'
+                    || v_css_tab_email_td
+                    || '\">nomeobjeto </td><td style=\"'
+                    || v_css_tab_email_td
+                    || '\">'
+                    || :new.nomeobjeto
+                    || '</td></tr>'
+                    || '<tr><td style=\"'
+                    || v_css_tab_email_td
+                    || '\">linha </td><td style=\"'
+                    || v_css_tab_email_td
+                    || '\">'
+                    || :new.linha
+                    || '</td></tr>'
+                    || '<tr><td style=\"'
+                    || v_css_tab_email_td
+                    || '\">coderro </td><td style=\"'
+                    || v_css_tab_email_td
+                    || '\">'
+                    || :new.coderro
+                    || '</td></tr>';
+
+
+        v_corpo_temp := v_corpo;
+    EXCEPTION
+        WHEN OTHERS THEN
+            v_corpo := 'erro no trigger __FNV_GET_PREFIXOBJECTSDB__trg_alert_erro';
+            NULL;
+    END;
+
+
+    BEGIN
+        v_corpo := v_corpo
+                    || '<tr><td style=\"'
+                    || v_css_tab_email_td
+                    || '\">msg </td><td style=\"'
+                    || v_css_tab_email_td
+                    || '\">'
+                    || :new.msg
+                    || '</td></tr>';
+
+
+        v_corpo_temp := v_corpo;
+    EXCEPTION
+        WHEN OTHERS THEN
+            v_corpo := 'erro no trigger __FNV_GET_PREFIXOBJECTSDB__trg_alert_erro ' || v_corpo_temp;
+            NULL;
+    END;
+
+
+    BEGIN
+        v_corpo := v_corpo
+                    || '<tr><td style=\"'
+                    || v_css_tab_email_td
+                    || '\">valores </td><td style=\"'
+                    || v_css_tab_email_td
+                    || '\">'
+                    || :new.valores
+                    || '</td></tr>';
+
+
+        v_corpo_temp := v_corpo;
+    EXCEPTION
+        WHEN OTHERS THEN
+            v_corpo := 'erro no trigger __FNV_GET_PREFIXOBJECTSDB__trg_alert_erro ' || v_corpo_temp;
+            NULL;
+    END;
+
+
+    v_corpo := v_corpo || '</tbody></table>';
+    /*fim montagem corpo*/
+    v_demaisdestinatarios := :new.destinatariosemail;
+    IF length(replace(nvl(v_demaisdestinatarios, ''), ' ', '')) = 0 THEN
+        v_demaisdestinatarios := '';
+    END IF;
+    --ENVIAR EMAIL DE FORMA ASSINCRONA
+
+
+    v_qtlim_envio := 0;
+    SELECT
+        COUNT(1)
+    INTO v_qtlim_envio
+    FROM
+        __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__envioemail
+    WHERE
+        trunc(data) = trunc(sysdate)
+        AND to_number(to_char(data, 'hh24')) = to_number(to_char(sysdate, 'hh24'));
+
+
+    IF v_qtlim_envio < 200 THEN
+        dbms_output.put_line('enviando erro...');
+        dbms_job.submit(l_job, '__FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__pkg_funcs_internet.enviar_email(pr_email_para=>''jumbo.ti@jumboalimentos.com.br'',pr_email_copias_para=>'''
+                                || v_demaisdestinatarios
+                                || ''',pr_titulo_email=>''__FNV_GET_PREFIXOBJECTSDB__ ALERTA ERRO'',pr_corpo_email=>'''
+                                || v_corpo
+                                || ''');');
+
+
+    END IF;
+
+
+EXCEPTION
+    WHEN OTHERS THEN
+        dbms_output.put_line('erro no erro: ' || sqlerrm);
+        NULL;
+END __FNV_GET_PREFIXOBJECTSDB__trg_alert_erro;",
+        "codsituacaoregistro":1
+	},
+	"__FNV_GET_PREFIXOBJECTSDB__trg_nova_cidade_jumbo":{
+		"nometriggersqldb":"__CHAVE__",
+		"nometriggersqlsistema":"__CHAVE__",
+		"corpo":"
+create or replace TRIGGER __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__trg_nova_cidade_jumbo AFTER
+    INSERT ON jumbo.pccidade
+    FOR EACH ROW
+DECLARE
+    existe_aurora   NUMBER(12, 0) DEFAULT 0;
+    strtemp1        VARCHAR2(4000) DEFAULT NULL;
+    numtemp1        NUMBER default NULL;
+    datetemp1       DATE default NULL;
+BEGIN
+    existe_aurora := 0;
+    SELECT
+        COUNT(1)
+    INTO existe_aurora
+    FROM
+        __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__cidade_origem
+    WHERE
+        lower(TRIM(__FNV_GET_PREFIXOBJECTSDB__cidade_origem.nomecidade)) = lower(TRIM(:new.uf))
+        AND lower(TRIM(__FNV_GET_PREFIXOBJECTSDB__cidade_origem.uf)) = lower(TRIM(:new.uf));
+
+
+    IF existe_aurora <= 0 THEN
+        NULL;
+    ELSE
+        UPDATE __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__cidade_origem co
+        SET
+            co.existe_erp = 1,
+            co.codcidade_erp = :new.codcidade
+        WHERE
+            lower(TRIM(co.nomecidade)) = lower(TRIM(:new.uf))
+            AND lower(TRIM(co.uf)) = lower(TRIM(:new.uf));
+
+
+    END IF;
+
+
+EXCEPTION
+    WHEN OTHERS THEN
+        NULL;
+END __FNV_GET_PREFIXOBJECTSDB__trg_nova_cidade_jumbo;",
+        "codsituacaoregistro":1
+	},
+	"__FNV_GET_PREFIXOBJECTSDB__trg_nova_filial_jumbo":{
+		"nometriggersqldb":"__CHAVE__",
+		"nometriggersqlsistema":"__CHAVE__",
+		"corpo":"
+create or replace TRIGGER __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__trg_nova_filial_jumbo AFTER
+    INSERT ON jumbo.pcfilial
+    FOR EACH ROW
+DECLARE
+    existe_aurora   NUMBER(12, 0) DEFAULT 0;
+    strtemp1        VARCHAR2(4000) DEFAULT NULL;
+    numtemp1        NUMBER default NULL;
+    datetemp1       DATE default NULL;
+BEGIN
+    existe_aurora := 0;
+    SELECT
+        COUNT(1)
+    INTO existe_aurora
+    FROM
+        __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__filial_origem
+    WHERE
+        to_number(TRIM(__FNV_GET_PREFIXOBJECTSDB__filial_origem.codfilial)) = to_number(TRIM(:new.codigo));
+
+
+    IF existe_aurora <= 0 THEN
+        NULL;
+    ELSE
+        UPDATE __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__filial_origem fo
+        SET
+            fo.existe_erp = 1,
+            fo.codfilial_erp = :new.codigo
+        WHERE
+            to_number(TRIM(fo.codfilial)) = to_number(TRIM(:new.codigo));
+
+
+    END IF;
+
+
+EXCEPTION
+    WHEN OTHERS THEN
+        NULL;
+END __FNV_GET_PREFIXOBJECTSDB__trg_nova_filial_jumbo;",
+        "codsituacaoregistro":1
+	},
+	"__FNV_GET_PREFIXOBJECTSDB__trg_novo_cliente_jumbo":{
+		"nometriggersqldb":"__CHAVE__",
+		"nometriggersqlsistema":"__CHAVE__",
+		"corpo":"
+create or replace TRIGGER __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__trg_novo_cliente_jumbo AFTER
+    INSERT ON jumbo.pcclient
+    FOR EACH ROW
+DECLARE
+    PRAGMA autonomous_transaction;
+    existe_aurora   NUMBER(12, 0) DEFAULT 0;
+    strtemp1        VARCHAR2(4000) DEFAULT NULL;
+    numtemp1        NUMBER default NULL;
+    datetemp1       DATE default NULL;
+BEGIN
+    existe_aurora := 0;
+    SELECT
+        COUNT(1)
+        INTO existe_aurora
+    FROM
+        __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__cliente_origem co
+        join __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__pessoa_origem po on (po.codpessoa = co.codpessoaorigem)
+    WHERE
+        to_number(TRIM(replace(replace(replace(po.numcnpjcpf, '-', ''), '.', ''), '/', ''))) = to_number(TRIM(replace(replace(replace(:new.cgcent, '-', ''), '.', ''), '/', '')));
+
+
+    IF existe_aurora <= 0 THEN
+        NULL;
+    ELSE
+        UPDATE __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__cliente_origem co
+        SET
+            co.existe_erp = 1,
+            co.codcli_erp = :new.codcli
+        WHERE
+            co.codpessoaorigem in (select po.codpessoa from __FNV_GET_PREFIXOBJECTSDB__pessoa_origem po where to_number(TRIM(replace(replace(replace(po.numcnpjcpf, '-', ''), '.', ''), '/', ''))) = to_number(TRIM(replace(replace(replace(:new.cgcent, '-', ''), '.', ''), '/', ''))));
+
+
+        COMMIT;
+    END IF;
+
+
+EXCEPTION
+    WHEN OTHERS THEN
+        NULL;
+END __FNV_GET_PREFIXOBJECTSDB__trg_novo_cliente_jumbo;",
+        "codsituacaoregistro":1
+	},
+	"__FNV_GET_PREFIXOBJECTSDB__trg_novo_produto_jumbo":{
+		"nometriggersqldb":"__CHAVE__",
+		"nometriggersqlsistema":"__CHAVE__",
+		"corpo":"
+create or replace TRIGGER __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__trg_novo_produto_jumbo AFTER
+    INSERT ON jumbo.pcprodut
+    FOR EACH ROW
+DECLARE
+    existe_aurora   NUMBER(12, 0) DEFAULT 0;
+    strtemp1        VARCHAR2(4000) DEFAULT NULL;
+    numtemp1        NUMBER default NULL;
+    datetemp1       DATE default NULL;
+BEGIN
+    existe_aurora := 0;
+    SELECT
+        COUNT(1)
+        INTO existe_aurora
+    FROM
+        __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__produto_origem
+    WHERE
+        to_number(TRIM(__FNV_GET_PREFIXOBJECTSDB__produto_origem.codprod)) = to_number(TRIM(:new.codprod));
+
+
+    IF existe_aurora <= 0 THEN
+        NULL;
+    ELSE
+        UPDATE __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__produto_origem po
+        SET
+            po.existe_erp = 1,
+            po.codprod_erp = po.codprod
+        WHERE
+            to_number(TRIM(po.codprod)) = to_number(TRIM(:new.codprod));
+
+
+    END IF;
+
+
+EXCEPTION
+    WHEN OTHERS THEN
+        NULL;
+END __FNV_GET_PREFIXOBJECTSDB__trg_novo_produto_jumbo;",
+        "codsituacaoregistro":1
+	},
+	"__FNV_GET_PREFIXOBJECTSDB__trg_novo_ramo_jumbo":{
+		"nometriggersqldb":"__CHAVE__",
+		"nometriggersqlsistema":"__CHAVE__",
+		"corpo":"
+create or replace TRIGGER __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__trg_novo_ramo_jumbo AFTER
+    INSERT ON jumbo.pcativi
+    FOR EACH ROW
+DECLARE
+    existe_aurora   NUMBER(12, 0) DEFAULT 0;
+    strtemp1        VARCHAR2(4000) DEFAULT NULL;
+    numtemp1        NUMBER default NULL;
+    datetemp1       DATE default NULL;
+BEGIN
+    existe_aurora := 0;
+    SELECT
+        COUNT(1)
+    INTO existe_aurora
+    FROM
+        __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__ramos_ativ_origem
+    WHERE
+        to_number(TRIM(__FNV_GET_PREFIXOBJECTSDB__ramos_ativ_origem.codramoativ)) = to_number(TRIM(:new.codativ));
+
+
+    IF existe_aurora <= 0 THEN
+        NULL;
+    ELSE
+        UPDATE __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__ramos_ativ_origem ro
+        SET
+            ro.existe_erp = 1,
+            ro.codramoativ_erp = ro.codramoativ
+        WHERE
+            to_number(TRIM(ro.codramoativ)) = to_number(TRIM(:new.codativ));
+
+
+    END IF;
+
+
+EXCEPTION
+    WHEN OTHERS THEN
+        NULL;
+END __FNV_GET_PREFIXOBJECTSDB__trg_novo_ramo_jumbo;",
+        "codsituacaoregistro":1
+	},
+	"__FNV_GET_PREFIXOBJECTSDB__trg_novo_usuario_jumbo":{
+		"nometriggersqldb":"__CHAVE__",
+		"nometriggersqlsistema":"__CHAVE__",
+		"corpo":"
+create or replace TRIGGER __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__trg_novo_usuario_jumbo AFTER
+    INSERT ON jumbo.pcusuari
+    FOR EACH ROW
+DECLARE
+    existe_aurora   NUMBER(12, 0) DEFAULT 0;
+    strtemp1        VARCHAR2(4000) DEFAULT NULL;
+    numtemp1        NUMBER default NULL;
+    datetemp1       DATE default NULL;
+BEGIN
+    existe_aurora := 0;
+    SELECT
+        COUNT(1)
+    INTO existe_aurora
+    FROM
+        __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__usuarios_origem
+    WHERE
+        to_number(TRIM(__FNV_GET_PREFIXOBJECTSDB__usuarios_origem.codusur)) = to_number(TRIM(:new.codusur));
+
+
+    IF existe_aurora <= 0 THEN
+        NULL;
+    ELSE
+        UPDATE __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__usuarios_origem uo
+        SET
+            uo.existe_erp = 1,
+            uo.codusur_erp = :new.codusur,
+            uo.codsupervisor_erp = :new.codsupervisor,
+            uo.codfilial_erp = :new.codfilial
+        WHERE
+            to_number(TRIM(uo.codusur)) = to_number(TRIM(:new.codusur));
+
+
+    END IF;
+
+
+EXCEPTION
+    WHEN OTHERS THEN
+        NULL;
+END __FNV_GET_PREFIXOBJECTSDB__trg_novo_usuario_jumbo;",
+        "codsituacaoregistro":1
+	},
+	"t_alert_ent_ped":{
+		"nometriggersqldb":"__CHAVE__",
+		"nometriggersqlsistema":"__CHAVE__",
+		"corpo":"
+create or replace TRIGGER t_alert_ent_ped AFTER
+    UPDATE OF motivoliber, numpedpreent ON jumbo.pcnfentpreent
+    REFERENCING
+        NEW AS new
+    FOR EACH ROW
+DECLARE
+    PRAGMA autonomous_transaction;
+    v_llog     __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__loganaliseent%rowtype default NULL;
+    v_ler      __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__errostriggers%rowtype default NULL;
+    v_existe   INTEGER DEFAULT 0;
+BEGIN
+    IF lower(TRIM(:new.motivoliber)) LIKE '%gerado via xml%' THEN
+        v_llog.numped := nvl(:new.numpedpreent, :new.numpedprinc);
+        v_llog.numnota := :new.numnota;
+        v_llog.numtransent := :new.numtransent;
+        v_llog.codfilial := :new.codfilial;
+        v_llog.uffornec := :new.uf;
+        v_llog.codfornec := :new.codfornec;
+        v_llog.tipofornec := :new.tipofornec;
+        v_llog.rotinalanc := :new.rotinalanc;
+        v_llog.equiplanc := :new.equiplanc;
+        v_llog.funclanc := :new.funclanc;
+        v_llog.importado := CASE WHEN NVL(:new.importadoxml,'X') = 'S' THEN 1 ELSE 0 END;
+        v_existe := 0;
+        SELECT
+            COUNT(1)
+        INTO v_existe
+        FROM
+            jumbo.pcpedido
+        WHERE
+            numped = v_llog.numped;
+
+
+        IF v_existe > 0 THEN
+            __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__pkg_funcs_si__FNV_GET_PREFIXOBJECTSDB__.enviar_alerta_ent_ped(v_llog);
+            COMMIT; --TRANSACAO AUTONOMA EXIGE COMMIT;
+        END IF;
+
+
+    END IF;
+EXCEPTION
+    WHEN OTHERS THEN
+        v_ler.dtocorrencia := sysdate;
+        v_ler.tipoobjeto := 'trigger';
+        v_ler.nomeobjeto := $$plsql_unit;
+        v_ler.linha := $$plsql_line;
+        v_ler.coderro := sqlcode;
+        v_ler.msg := substr(sqlerrm
+                            || ' '
+                            || dbms_utility.format_error_backtrace, 1, 4000);
+
+
+        v_ler.valores := 'numped: ' || v_llog.numped;
+        INSERT INTO __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__errostriggers VALUES v_ler;
+
+
+        COMMIT; --TRANSACAO AUTONOMA EXIGE COMMIT EM CASO DE FALHA
+        NULL;
+END t_alert_ent_ped;",
+        "codsituacaoregistro":1
+	},
+	"t_alert_est_neg_item":{
+		"nometriggersqldb":"__CHAVE__",
+		"nometriggersqlsistema":"__CHAVE__",
+		"corpo":"
+create or replace TRIGGER t_alert_est_neg_item AFTER
+    INSERT ON jumbo.pcpedifv
+    REFERENCING
+        NEW AS new
+    FOR EACH ROW
+DECLARE
+    PRAGMA autonomous_transaction;
+    v_ler __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__errostriggers%rowtype default NULL;
+BEGIN
+    __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__pkg_funcs_si__FNV_GET_PREFIXOBJECTSDB__.enviar_alerta_est_neg_item(p_numpedrca => :new.numpedrca, p_codprod => :new.codprod, p_cgccli => :new.cgccli, p_codusur => :new.codusur, p_codfilial => nvl(:new.codfilialretira, trunc(:new.codusur / 100)), p_qt => :new.qt);
+
+
+    COMMIT;
+EXCEPTION
+    WHEN OTHERS THEN
+        v_ler.dtocorrencia := sysdate;
+        v_ler.tipoobjeto := 'trigger';
+        v_ler.nomeobjeto := $$plsql_unit;
+        v_ler.linha := $$plsql_line;
+        v_ler.coderro := sqlcode;
+        v_ler.msg := substr(sqlerrm
+                            || ' '
+                            || dbms_utility.format_error_backtrace, 1, 4000);
+
+
+        v_ler.valores := 'numpedrca: ' || :new.numpedrca;
+        INSERT INTO __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__errostriggers VALUES v_ler;
+
+
+        COMMIT;
+        NULL;
+END t_alert_est_neg_item;",
+        "codsituacaoregistro":1
+	},
+	"trg_atualiz_grp_prod":{
+		"nometriggersqldb":"__CHAVE__",
+		"nometriggersqlsistema":"__CHAVE__",
+		"corpo":"
+create or replace TRIGGER trg_atualiz_grp_prod AFTER
+    UPDATE OF DESCRICAO OR INSERT  on jumbo.pcprodut
+    REFERENCING
+            NEW AS new
+            OLD AS old
+    FOR EACH ROW
+DECLARE
+    PRAGMA autonomous_transaction;
+    v_existe NUMBER DEFAULT 0;
+    v_cmd Varchar2(4000) default null;
+    v_codintegrante number default 0;
+    v_lint __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__integgrupoprod%rowtype;
+    v_lgrupo __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__gruposprodequiv%rowtype;
+    v_strtemp varchar2(32000) default null;
+    v_ler __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__errostriggers%rowtype default null;
+    v_email_para varchar2(4000) default 'jumbo.ti@jumboalimentos.com.br;felipe@jumboalimentos.com.br';
+BEGIN
+    v_existe := 0;
+    
+    /*REGRA DO FELIPE, PRODUTO AURORA NAO FARA PARTE DOS GRUPOS*/ 
+    select 
+        count(1) into v_existe
+    from 
+        jumbo.pcfornec
+    where
+        codfornec = :new.codfornec
+        and lower(trim(fornecedor)) not like '%aurora%';
+    if v_existe > 0 then --SOMENTE SE NAO FOR FORNECEDOR AURORA
+        if updating then
+            v_existe := 0;
+            select
+                count(1) into v_existe
+            from
+                jumbo.pcest
+            where
+                codprod = :new.codprod
+                and (
+                    nvl(dtultsaida,to_date('01/01/2000','dd/mm/yyyy')) >= '01/01/2018'            
+                    or nvl(dtultent,to_date('01/01/2000','dd/mm/yyyy')) >= '01/01/2020'
+                );
+        end if;
+        if (v_existe > 0) then                
+            v_existe := 0;
+            for lg in (
+                select 
+                    * 
+                from 
+                    __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__gruposprodequiv
+                where
+                    regra is not null
+            ) loop
+                --verifica se atende a regra do grupo
+                v_cmd := 'select count(1) from dual where ' || replace(lg.regra,':NEW.DESCRICAO',''''||replace(:NEW.DESCRICAO,'''','')||'''');
+                execute immediate v_cmd into v_existe;
+                if (v_existe > 0) then --atende a regra
+                    --verifica se ja existe como integrante
+                    v_existe := 0;
+                    select 
+                        count(1) into v_existe 
+                    from
+                        __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__integgrupoprod 
+                    where 
+                        codprod = :new.codprod;
+                    if (v_existe > 1) then
+                        v_strtemp := '';
+                        for lge in (
+                            select 
+                                *
+                            from 
+                                __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__gruposprodequiv 
+                            where
+                                codgrupoprod in (select codgrupoprod from __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__integgrupoprod where codprod = :new.codprod)
+                        ) loop
+                            v_strtemp := v_strtemp || lge.codvisivelgrupo || '-' || lge.nomegrupoprod || '<br />';
+                        end loop;
+                        v_strtemp := v_strtemp ||'<br />Log: Terminal: ' || SYS_CONTEXT('USERENV','HOST') || '('||SYS_CONTEXT('USERENV','IP_ADDRESS')||'), Usuario OS: ' ||SYS_CONTEXT('USERENV','OS_USER')||', Programa: ' || SYS_CONTEXT('USERENV','MODULE')||', Data: ' || to_char(sysdate,'dd/mm/yyyy hh24:mi:ss');
+                        __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__pkg_funcs_internet.enviar_email(
+                            pr_email_para => v_email_para,
+                            pr_titulo_email => 'Jumbo - Alerta - Prod ' || :new.codprod || ' duplicado em Grupos ',
+                            pr_corpo_email => 'O produto <br /><br />' || :new.codprod || '-' || :new.descricao || '<br /><br />'
+                                || 'esta como integrante em mais de um grupo(' || v_existe || ') <br /><br />'
+                                || 'Verifique essa inconsistencia e deixe o produto em somente um grupo <br /><br />'
+                                || v_strtemp
+                        );    
+                    end if;
+                    if (v_existe = 0) then
+                        select
+                            max(codintegrante) into v_codintegrante
+                        from 
+                            __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__integgrupoprod;
+                        v_codintegrante := v_codintegrante + 1;
+                        insert into __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__integgrupoprod (codintegrante,codgrupoprod,codprod,descricao) values (
+                            v_codintegrante,
+                            lg.codgrupoprod,
+                            :new.codprod,
+                            :new.descricao
+                        );
+                        commit; --pragma exige
+                        
+                        v_strtemp := '';
+                        for lp in (
+                            select
+                                codprod,descricao
+                            from
+                                jumbo.pcprodut 
+                            where 
+                                codprod in (select codprod from __FNV_GET_PREFIXOBJECTSDB__integgrupoprod where codgrupoprod = lg.codgrupoprod)
+                        ) loop
+                            v_strtemp := v_strtemp || lp.codprod || '-'|| lp.descricao || '<br />';
+                        end loop;
+                        v_strtemp := v_strtemp ||'<br />Log: Terminal: ' || SYS_CONTEXT('USERENV','HOST') || '('||SYS_CONTEXT('USERENV','IP_ADDRESS')||'), Usuario OS: ' ||SYS_CONTEXT('USERENV','OS_USER')||', Programa: ' || SYS_CONTEXT('USERENV','MODULE')||', Data: ' || to_char(sysdate,'dd/mm/yyyy hh24:mi:ss');
+                        __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__pkg_funcs_internet.enviar_email(
+                            pr_email_para => v_email_para,
+                            pr_titulo_email => 'Jumbo - Alerta - Prod ' || :new.codprod || ' incluido no Grupo ' || lg.codvisivelgrupo,
+                            pr_corpo_email => 'O produto <br /><br />' || :new.codprod || '-' || :new.descricao || '<br /><br />'
+                                || 'foi incluido automaticamente como integrante do grupo <br /><br />' || lg.codvisivelgrupo || '-' || lg.nomegrupoprod || '<br /><br />'
+                                || 'por atender a regra: ' || lg.regra || utl_tcp.crlf || '<br /><br />'
+                                || 'Integrantes do grupo: <br />'
+                                || v_strtemp
+                        );                    
+                    else --se ja existe como integrante, confirma se o grupo eh o correto ou emite alerta
+                        select 
+                            * into v_lint
+                        from
+                            __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__integgrupoprod 
+                        where 
+                            codprod = :new.codprod;
+                            /*quando um produto estiver duplicado, gerara um erro que sera inserido na tabela __FNV_GET_PREFIXOBJECTSDB__errostriggers*/
+                            
+                        v_existe := 0;
+                        
+                        select 
+                            count(1) into v_existe
+                        from
+                            __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__gruposprodequiv
+                        where
+                            codgrupoprod = v_lint.codgrupoprod;
+                        
+                        if (v_existe > 0) then
+                            select 
+                                * into v_lgrupo
+                            from
+                                __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__gruposprodequiv
+                            where
+                                codgrupoprod = v_lint.codgrupoprod;
+                            if (v_lint.codgrupoprod <> lg.codgrupoprod) then
+                                __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__pkg_funcs_internet.enviar_email(
+                                    pr_email_para => v_email_para,
+                                    pr_titulo_email => 'Jumbo - Alerta - Prod ' || :new.codprod || ' Difere da regra do Grupo ' || lg.codvisivelgrupo,
+                                    pr_corpo_email => 'O produto <br /><br />' || :new.codprod || '-' || :new.descricao || '<br /><br />'
+                                        || 'esta atualmente no grupo <br /><br />' 
+                                        || v_lgrupo.codvisivelgrupo || '-' || v_lgrupo.nomegrupoprod || '<br /><br />'
+                                        || 'entretanto a regra do grupo seguinte tambem se enquadra: <br /><br />'
+                                        || lg.codvisivelgrupo || '-' || lg.nomegrupoprod || '<br /><br />'
+                                        || 'regra: ' || lg.regra || '<br /><br />'
+                                        || 'Log: Terminal: ' || SYS_CONTEXT('USERENV','HOST') || '('||SYS_CONTEXT('USERENV','IP_ADDRESS')||'), Usuario OS: ' ||SYS_CONTEXT('USERENV','OS_USER')||', Programa: ' || SYS_CONTEXT('USERENV','MODULE')||', Data: ' || to_char(sysdate,'dd/mm/yyyy hh24:mi:ss') 
+                                );    
+                            end if;
+                        else 
+                            update __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__integgrupoprod 
+                            set 
+                                codgrupoprod = lg.codgrupoprod,
+                                descricao = :new.descricao
+                            where 
+                                codprod = :new.codprod;
+                            commit;
+                            
+                            v_strtemp := '';
+                            for lp in (
+                                select
+                                    codprod,descricao
+                                from
+                                    jumbo.pcprodut 
+                                where 
+                                    codprod in (select codprod from __FNV_GET_PREFIXOBJECTSDB__integgrupoprod where codgrupoprod = lg.codgrupoprod)
+                            ) loop
+                                v_strtemp := v_strtemp || lp.codprod || '-'|| lp.descricao || '<br />';
+                            end loop;
+                            v_strtemp := v_strtemp ||'<br />Log: Terminal: ' || SYS_CONTEXT('USERENV','HOST') || '('||SYS_CONTEXT('USERENV','IP_ADDRESS')||'), Usuario OS: ' ||SYS_CONTEXT('USERENV','OS_USER')||', Programa: ' || SYS_CONTEXT('USERENV','MODULE')||', Data: ' || to_char(sysdate,'dd/mm/yyyy hh24:mi:ss');
+                            __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__pkg_funcs_internet.enviar_email(
+                                pr_email_para => v_email_para,
+                                pr_titulo_email => 'Jumbo - Alerta - Prod ' || :new.codprod || ' alterado para o Grupo ' || lg.codvisivelgrupo,
+                                pr_corpo_email => 'O produto <br /><br />' || :new.codprod || '-' || :new.descricao || '<br /><br />'
+                                    || 'foi alterado automaticamente para o grupo <br /><br />' || lg.codvisivelgrupo || '-' || lg.nomegrupoprod || '<br /><br />'
+                                    || 'por atender a regra: ' || lg.regra || '<br /><br />' 
+                                    || 'Seu grupo anterior nao existe mais. <br /><br />'
+                                    || 'Integrantes do grupo: <br /> ' || utl_tcp.crlf 
+                                    || v_strtemp
+                            );
+                        end if;
+                    end if; 
+                    exit; --sai do laco ao se enquadrar em uma regra, nao observa se enquadraria nas proximas regras
+                end if;
+            end loop;
+        end if;
+    end if;
+exception 
+    when others then
+        v_ler.dtocorrencia := sysdate;
+        v_ler.tipoobjeto := 'trigger';
+        v_ler.nomeobjeto := $$plsql_unit;
+        v_ler.linha := $$plsql_line;
+        v_ler.coderro := sqlcode;
+        v_ler.msg := substr(sqlerrm || ' ' || DBMS_UTILITY.format_error_backtrace ,1,4000);
+        v_ler.valores := 'codprod: ' || :new.codprod;
+        INSERT INTO __FNV_GET_NOMESCHEMA__.__FNV_GET_PREFIXOBJECTSDB__errostriggers VALUES v_ler;
+        commit; --TRANSACAO AUTONOMA EXIGE COMMIT EM CASO DE FALHA
+        null;    
+END trg_atualiz_grp_prod;",
+        "codsituacaoregistro":1
+	}
+}
