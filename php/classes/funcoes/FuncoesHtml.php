@@ -3303,8 +3303,12 @@
 				}		
 				$condtemp = [];
 				if (isset($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"])) {
-					$condtemp = explode(strtolower(trim(Constantes::sepn1)) , strtolower(trim($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"])));
-					$condtemp = FuncoesArray::chaves_associativas($condtemp);
+					if (gettype($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"]) !== "array") {
+						$condtemp = explode(strtolower(trim(Constantes::sepn1)) , strtolower(trim($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"])));
+						$condtemp = FuncoesArray::chaves_associativas($condtemp);
+					} else {
+						$condtemp = $comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"];
+					}
 				}
 				if (isset($condtemp[strtolower(trim($opcoes["subregistros"]["campo_subregistro_pai"]))])) {
 					$json_prop = json_decode('{"prop":"'.$opcoes["subregistros"]["campo_subregistro_pai"].'","value":"' . $condtemp[strtolower(trim($opcoes["subregistros"]["campo_subregistro_pai"]))] . '"}');
@@ -3458,7 +3462,7 @@
 			if (in_array(gettype($params["dados"]),["object","resource"])) {
 				$params["dados"] = stream_get_contents($params["dados"]);
 			}
-			$dados_condicionantes = FuncoesRequisicao::preparar_condicionantes_processo($params["dados"]);
+			$dados_condicionantes = FuncoesProcessoSql::prepararCondicionantesProcessoSql($params["dados"]);
 			foreach($dados_condicionantes as $chave_condic=>&$condicionante) {
 				$selecionados = [];
 				foreach($condicionante as $condic) {

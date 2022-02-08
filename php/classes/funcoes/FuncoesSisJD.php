@@ -25,6 +25,7 @@
 			FuncoesHtml,
 			FuncoesData,
 			FuncoesMontarRetorno,
+			FuncoesVariaveis,
 			requisicao\TComHttp,
 			requisicao\FuncoesRequisicao,
 			requisicao\FuncoesRequisicaoSis,
@@ -887,9 +888,10 @@
 								$campos = "INSERT INTO LOG_ACESSO (CODUSUR,DATA_ACESSO,HORARIO_ACESSO,TIPO_PROCESSO,NOME_PROCESSO,VISOES,CAMPOS_AVULSOS_VISOES,VISOES_POSITIVADORAS,CAMPOS_AVULSOS_VISOES_POSIT,CONDICIONANTES,PERIODOS,OPCOES_PESQUISA,EXPORTADO,IP,NAVEGADOR)";
 								$data_acesso = date('d/m/Y');
 								$horario_acesso = date('H:i:s');
-								$condicionantes=(isset($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"])?$comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"]:"");
-								$condicionantes = str_replace("'","",(isset($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"])?$comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"]:""));
-								$condicionantes=substr($condicionantes,0,3999);
+								$condicionantes = "";
+								//$condicionantes=(isset($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"])?$comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"]:"");
+								//$condicionantes = str_replace("'","",(isset($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"])?$comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"]:""));
+								//$condicionantes=substr($condicionantes,0,3999);
 								$tipo_processo=$comhttp->requisicao->requisitar->oque;
 								$nome_processo="";
 								$visoes=(isset($comhttp->requisicao->requisitar->qual->condicionantes["visoes"])?$comhttp->requisicao->requisitar->qual->condicionantes["visoes"]:"");
@@ -925,7 +927,8 @@
 								$valores .= "'".(gettype($campos_avulsos) === "array"?implode(",",$campos_avulsos):$campos_avulsos)."',";
 								$valores .= "'".(gettype($visoes_positivadoras) === "array"?implode(",",$visoes_positivadoras):$visoes_positivadoras)."',";
 								$valores .= "'".(gettype($campos_avulsos_positivacoes) === "array"?implode(",", $campos_avulsos_positivacoes) : $campos_avulsos_positivacoes)."',";
-								$valores .= "'".$condicionantes."',";
+								//$valores .= "'".$condicionantes."',";
+									$valores .= "'',";
 								$valores .= "'".str_replace("'","",(gettype($periodos) !== "string"?implode(",",$periodos):$periodos))."',";
 								$valores .= "'".$opcoes_pesquisa."',";
 								$valores .= "'".$exportado."',";
@@ -1305,14 +1308,36 @@
 		}
 
 		public static function valores_para_condicionante($visao){
-			$id_conteudo="";
-			$objeto=strtolower(trim($visao));
-			$comhttp_temp = new TComHttp();
-			$comhttp_temp->requisicao->requisitar->qual->objeto = $objeto;
-			$comhttp_temp->requisicao->requisitar->qual->objeto = self::visoes_como_lista_condicionantes($comhttp_temp->requisicao->requisitar->qual->objeto);
-			$cmd_select=FuncoesSql::getInstancia()->montar_sql_processo_estruturado($comhttp_temp);
-			$dados = FuncoesSql::getInstancia()->executar_sql($cmd_select,"fetchAll",\PDO::FETCH_ASSOC);
-			$opcoes_combobox = self::montar_valores_condicionante(["visao"=>$objeto,"dados"=>$dados]);
+			$opcoes_combobox = null;
+			$visao=strtolower(trim($visao));
+			switch($visao) {				
+				case "cliente":
+				case "clientes":
+					/*implementar criterios de acesso*/
+					$cmd_select = "
+						select
+							'cliente='||cl.cod as valor_opcao,
+							cl.cod || '-' || cl_ps.coddocidentificador || '-' || cl_ps.nomerazao as texto_opcao,
+							cl.cod as texto_botao
+						from
+							ep.epcliente cl
+							join ep.eppessoa cl_ps on cl_ps.cod = cl.codpessoa
+						order by 
+							cl.cod
+					";
+					$dados = FuncoesSql::getInstancia()->executar_sql($cmd_select,"fetchAll",\PDO::FETCH_ASSOC);				
+					$opcoes_combobox = self::montar_valores_condicionante(["visao"=>$visao,"dados"=>$dados]);
+					break;
+				default:
+					
+					$comhttp_temp = new TComHttp();
+					$comhttp_temp->requisicao->requisitar->qual->objeto = $visao;
+					$comhttp_temp->requisicao->requisitar->qual->objeto = self::visoes_como_lista_condicionantes($comhttp_temp->requisicao->requisitar->qual->objeto);
+					$cmd_select=FuncoesSql::getInstancia()->montar_sql_processo_estruturado($comhttp_temp);
+					$dados = FuncoesSql::getInstancia()->executar_sql($cmd_select,"fetchAll",\PDO::FETCH_ASSOC);				
+					$opcoes_combobox = self::montar_valores_condicionante(["visao"=>$visao,"dados"=>$dados]);
+					break;
+			}
 			return $opcoes_combobox;
 		}
 
@@ -2289,8 +2314,24 @@
 								$comhttp->retorno->dados_retornados["dados"][2] = $mes1;
 								$comhttp->retorno->dados_retornados["dados"][3] = $mes2;
 								break;
-							case "mais_recentes_inicio":									
+							case "menu":
+								$comhttp->retorno->dados_retornados["conteudo_html"] = FuncoesVariaveis::__FNV_MONTAR_NAVBAR__($comhttp);
+								break;
+							case "data_aurora":
+								$comando_sql = "select TO_CHAR(max(s.dtemissao),'dd/mm/yyyy') as dt from ep.epnfssaida s where s.codorigeminfo = 1";
 								
+								$comhttp->retorno->dados_retornados["conteudo_html"] = FuncoesSql::getInstancia()->executar_sql($comando_sql,"fetchAll",\PDO::FETCH_COLUMN,0);
+								$comhttp->retorno->dados_retornados["conteudo_html"] = $comhttp->retorno->dados_retornados["conteudo_html"][0];
+								
+								break;								
+							case "mes_inicio":
+								$comhttp->retorno->dados_retornados["conteudo_html"] = FuncoesHtml::montar_elemento_html(FuncoesHtml::criar_combobox_meses([
+									"style"=>"float:right;",
+									"classe_botao"=>"btn-secondary",
+									"aoselecionaropcao"=>"window.fnsisjd.selecionou_mes_inicio(this)"
+								]));
+								break;
+							case "mais_recentes_inicio":																	
 								$comando_sql2 = "
 									SELECT
 										max(to_date(to_char(l.data_acesso,'dd/mm/yyyy') || ' ' || l.horario_acesso,'dd/mm/yyyy hh24:mi:ss')) as ordenacao,
@@ -2602,6 +2643,7 @@
 							case "clientesnaopositivados":
 								$comhttp->requisicao->requisitar->qual->condicionantes["usar_arr_tit"]=true;
 								FuncoesMontarSQL::montar_sql_clientes_nao_positivados($comhttp);
+								print_r($comhttp->requisicao->sql->comando_sql);exit();
 								$opcoes_tabela_est["tabeladb"]="clientesnaopositivados";
 								$comhttp->requisicao->requisitar->qual->condicionantes["opcoes_tabela_est"] = $opcoes_tabela_est;						
 								FuncoesHtml::montar_retorno_tabdados($comhttp);
@@ -5740,5 +5782,144 @@
 			} 				
 		}
 
+
+		public static function obterCodVendedor(&$comhttp){
+			if (!isset($_SESSION["codvendedor"])) {
+				$comando_sql = "
+					SELECT
+						v.cod
+					FROM
+						ep.epusuarios u
+						join ep.epvendedores v on v.cod = u.codvendedor
+					WHERE
+						u.cod = " . $_SESSION["codusur"];				
+				$dados = FuncoesSql::getInstancia()->executar_sql($comando_sql,"fetch",\PDO::FETCH_COLUMN);
+				if (FuncoesString::strTemValor($dados)){
+					$_SESSION["codvendedor"] = $dados;
+				}
+			}
+			return ($_SESSION["codvendedor"] ?? null);
+		}
+
+		public static function obterCodsVendedoresUsuario(&$comhttp){
+			if (!isset($_SESSION["codsvendedores"])) {
+				$comando_sql = "
+					SELECT
+						v.cod
+					FROM
+						ep.epusuarios u
+						join ep.epvendedores v on v.cod = u.codvendedor
+						join ep.eptrabalhadores t on t.cod = v.codtrabalhador
+					WHERE
+						u.cod = " . $_SESSION["codusur"] . " 
+						or t.codsup = ". $_SESSION["codusur"] ;
+				$dados = FuncoesSql::getInstancia()->executar_sql($comando_sql,"fetchAll",\PDO::FETCH_COLUMN);
+				if (count($dados)){
+					$dados = array_unique($dados);
+					$_SESSION["codsvendedores"] = $dados;
+				}
+			}
+			return implode(",",$_SESSION["codsvendedores"] ?? []);
+		}
+
+
+		public static function obterCodsFiliaisUsuario(&$comhttp){
+			if (!isset($_SESSION["codsfiliaisusuario"])) {
+				$comando_sql = "
+					SELECT
+						distinct
+						case 
+							when r.codobjetosql1 = 406 then r.valorcampoobjetosql1 
+							else r.valorcampoobjetosql2
+						end as valorobjetosql2
+					FROM
+						ep.eprelacionamentosdados r
+					where
+						(
+							r.codobjetosql1 = 436
+							and r.nomecampoobjetosql1 = 'cod'
+							and r.valorcampoobjetosql1 = ".$_SESSION["codusur"]."
+							and r.codobjetosql2 = 406
+							and r.nomecampoobjetosql2 = 'cod'
+						) or (
+							r.codobjetosql2 = 436
+							and r.nomecampoobjetosql2 = 'cod'
+							and r.valorcampoobjetosql2 = ".$_SESSION["codusur"]."
+							and r.codobjetosql1 = 406
+							and r.nomecampoobjetosql1 = 'cod'
+						)		
+				";
+				$dados = FuncoesSql::getInstancia()->executar_sql($comando_sql,"fetchAll",\PDO::FETCH_COLUMN);
+				if (count($dados)){
+					$dados = array_unique($dados);
+					$_SESSION["codsfiliaisusuario"] = $dados;
+				}
+			}
+			return implode(",",$_SESSION["codsfiliaisusuario"] ?? []);
+		}
+
+
+		public static function obterCodsAdministradoresUsuario(&$comhttp){
+			if (!isset($_SESSION["codsadministradores"])) {
+				$comando_sql = "
+					SELECT
+						t.codsup
+					FROM
+						ep.epusuarios u
+						left outer join ep.epvendedores v on v.cod = u.codvendedor
+						left outer join ep.eptrabalhadores t on t.cod in (u.codtrabalhador,v.codtrabalhador)
+					WHERE
+						u.cod = " . $_SESSION["codusur"] . " 
+						or t.codsup = ". $_SESSION["codusur"];
+				$dados = FuncoesSql::getInstancia()->executar_sql($comando_sql,"fetchAll",\PDO::FETCH_COLUMN);
+				if (count($dados)){
+					$dados = array_unique($dados);
+					$_SESSION["codsadministradores"] = $dados;
+				}
+			}
+			return implode(",",$_SESSION["codsadministradores"] ?? []);
+		}
+
+
+		public static function obterCodsTrabalhadoresUsuario(&$comhttp){
+			if (!isset($_SESSION["codstrabalhadores"])) {
+				$comando_sql = "
+					SELECT
+						t.cod
+					FROM
+						ep.epusuarios u
+						left outer join ep.epvendedores v on v.cod = u.codvendedor
+						left outer join ep.eptrabalhadores t on t.cod in (u.codtrabalhador,v.codtrabalhador)
+					WHERE
+						u.cod = " . $_SESSION["codusur"] . "
+						or t.codsup = " . $_SESSION["codusur"] ;
+				$dados = FuncoesSql::getInstancia()->executar_sql($comando_sql,"fetchAll",\PDO::FETCH_COLUMN);
+				if (count($dados)){
+					$dados = array_unique($dados);
+					$_SESSION["codstrabalhadores"] = $dados;
+				}
+			}
+			return implode(",",$_SESSION["codstrabalhadores"] ?? []);
+		}
+
+		public static function obterCodsVendedoresFiliaisUsuario(&$comhttp){
+			$filiais = self::obterCodsFiliaisUsuario($comhttp);
+			if (!isset($_SESSION["codsvendedoresfilial"])) {
+				$comando_sql = "
+					SELECT
+						v.cod
+					FROM
+						ep.epvendedores v
+						left outer join ep.eptrabalhadores t on t.cod = v.codtrabalhador
+					WHERE
+						t.codfilial in ($filiais)";					
+				$dados = FuncoesSql::getInstancia()->executar_sql($comando_sql,"fetchAll",\PDO::FETCH_COLUMN);
+				if (count($dados)){
+					$dados = array_unique($dados);
+					$_SESSION["codsvendedoresfilial"] = $dados;
+				}
+			}
+			return implode(",",$_SESSION["codsvendedoresfilial"] ?? []);
+		}
 	}
 ?>

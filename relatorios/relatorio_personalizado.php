@@ -58,43 +58,7 @@
                                                                <div class="accordion-body" aberto="1">
                                                                   <img class="btn_img_add_geral mousehover clicavel rounded" src="\sjd/images/maisverde32.png" onclick="window.fnsisjd.inserir_visao_pesquisa({elemento:this})" title="Acrescentar um item">
                                                                   <div class="row">
-                                                                     <div class="col-auto mt-2 div_visao col">
-                                                                        <div permite_incluir="1" permite_excluir="1" funcao_inclusao="window.fnsisjd.inserir_visao_pesquisa({elemento:this})" funcao_exclusao="window.fnsisjd.deletar_controles({elemento:this})" class="card">
-                                                                           <div class="card-header">Visao 01</div>
-                                                                           <div class="card-body">
-                                                                              <div class="row">
-                                                                                 <div class="col">
-                                                                                    <div label="Visao 01" classe_botao="btn-dark" tem_inputs="1" tipo_inputs="radio" multiplo="0" selecionar_todos="0" filtro="1" classe_dropdown="dropdown-visao " class="div_combobox" placeholder="(Selecione)" name_inpus="_300207227" num_max_texto_botao="5" funcao_filtro="window.fnhtml.fndrop.filtrar_dropdown(this)">
-                                                                                       <button type="button" class="btn dropdown-toggle btn-dark" data-bs-toggle="dropdown" aria-expanded="false" num_max_texto_botao="5" data-bs-auto-close="outside">Produto</button>
-                                                                                       <ul class="dropdown-menu dropdown-visao" onclick="window.fnhtml.fndrop.clicou_dropdown(event,this)">
-                                                                                          <input type="text" class="input_filtro_dropdown rounded" placeholder="(filtro)" onkeyup="window.fnhtml.fndrop.filtrar_dropdown(this)">
-                                                                                          <li opcoes_texto_opcao="Origem de Dados" opcoes_texto_botao="Origem de Dados" opcoes_valor_opcao="Origem de Dados" class="dropdown-item li" data-valor_opcao="Origem de Dados" data-texto_botao="Origem de Dados"><label textodepois="1"><input type="radio" name="_300207227">Origem de Dados</label></li>
-                                                                                          <li opcoes_texto_opcao="Empresa" opcoes_texto_botao="Empresa" opcoes_valor_opcao="Empresa" class="dropdown-item li" data-valor_opcao="Empresa" data-texto_botao="Empresa"><label textodepois="1"><input type="radio" name="_300207227">Empresa</label></li>
-                                                                                          <li opcoes_texto_opcao="Filial" opcoes_texto_botao="Filial" opcoes_valor_opcao="Filial" class="dropdown-item li" data-valor_opcao="Filial" data-texto_botao="Filial"><label textodepois="1"><input type="radio" name="_300207227">Filial</label></li>
-                                                                                          <li opcoes_texto_opcao="Fornecedor" opcoes_texto_botao="Fornecedor" opcoes_valor_opcao="Fornecedor" class="dropdown-item li" data-valor_opcao="Fornecedor" data-texto_botao="Fornecedor"><label textodepois="1"><input type="radio" name="_300207227">Fornecedor</label></li>
-                                                                                          <li opcoes_texto_opcao="Cidade" opcoes_texto_botao="Cidade" opcoes_valor_opcao="Cidade" class="dropdown-item li" data-valor_opcao="Cidade" data-texto_botao="Cidade"><label textodepois="1"><input type="radio" name="_300207227">Cidade</label></li>
-                                                                                          <li opcoes_texto_opcao="Supervisor" opcoes_texto_botao="Supervisor" opcoes_valor_opcao="Supervisor" class="dropdown-item li" data-valor_opcao="Supervisor" data-texto_botao="Supervisor"><label textodepois="1"><input type="radio" name="_300207227">Supervisor</label></li>
-                                                                                          <li opcoes_texto_opcao="Rca" opcoes_texto_botao="Rca" opcoes_valor_opcao="Rca" class="dropdown-item li" data-valor_opcao="Rca" data-texto_botao="Rca"><label textodepois="1"><input type="radio" name="_300207227">Rca</label></li>
-                                                                                          <li opcoes_texto_opcao="Ramo de Atividade" opcoes_texto_botao="Ramo de Atividade" opcoes_valor_opcao="Ramo de Atividade" class="dropdown-item li" data-valor_opcao="Ramo de Atividade" data-texto_botao="Ramo de Atividade"><label textodepois="1"><input type="radio" name="_300207227">Ramo de Atividade</label></li>
-                                                                                          <li opcoes_texto_opcao="Departamento" opcoes_texto_botao="Departamento" opcoes_valor_opcao="Departamento" class="dropdown-item li" data-valor_opcao="Departamento" data-texto_botao="Departamento"><label textodepois="1"><input type="radio" name="_300207227">Departamento</label></li>
-                                                                                          <li opcoes_texto_opcao="Produto" opcoes_texto_botao="Produto" opcoes_valor_opcao="Produto" class="dropdown-item li" data-valor_opcao="Produto" data-texto_botao="Produto"><label textodepois="1"><input type="radio" name="_300207227" checked="1">Produto</label></li>
-                                                                                          <li opcoes_texto_opcao="Evolucao" opcoes_texto_botao="Evolucao" opcoes_valor_opcao="Evolucao" class="dropdown-item li" data-valor_opcao="Evolucao" data-texto_botao="Evolucao"><label textodepois="1"><input type="radio" name="_300207227">Evolucao</label></li>
-                                                                                          <li opcoes_texto_opcao="Cliente" opcoes_texto_botao="Cliente" opcoes_valor_opcao="Cliente" class="dropdown-item li" data-valor_opcao="Cliente" data-texto_botao="Cliente"><label textodepois="1"><input type="radio" name="_300207227">Cliente</label></li>
-                                                                                          <li opcoes_texto_opcao="Nota Fiscal" opcoes_texto_botao="Nota Fiscal" opcoes_valor_opcao="Nota Fiscal" class="dropdown-item li" data-valor_opcao="Nota Fiscal" data-texto_botao="Nota Fiscal"><label textodepois="1"><input type="radio" name="_300207227">Nota Fiscal</label></li>
-                                                                                          <li opcoes_texto_opcao="Item de Nota Fiscal" opcoes_texto_botao="Item de Nota Fiscal" opcoes_valor_opcao="Item de Nota Fiscal" class="dropdown-item li" data-valor_opcao="Item de Nota Fiscal" data-texto_botao="Item de Nota Fiscal"><label textodepois="1"><input type="radio" name="_300207227">Item de Nota Fiscal</label></li>
-                                                                                          <li opcoes_texto_opcao="Rota" opcoes_texto_botao="Rota" opcoes_valor_opcao="Rota" class="dropdown-item li" data-valor_opcao="Rota" data-texto_botao="Rota"><label textodepois="1"><input type="radio" name="_300207227">Rota</label></li>
-                                                                                          <li opcoes_texto_opcao="Praca" opcoes_texto_botao="Praca" opcoes_valor_opcao="Praca" class="dropdown-item li" data-valor_opcao="Praca" data-texto_botao="Praca"><label textodepois="1"><input type="radio" name="_300207227">Praca</label></li>
-                                                                                          <li opcoes_texto_opcao="Negocio Aurora" opcoes_texto_botao="Negocio Aurora" opcoes_valor_opcao="Negocio Aurora" class="dropdown-item li" data-valor_opcao="Negocio Aurora" data-texto_botao="Negocio Aurora"><label textodepois="1"><input type="radio" name="_300207227">Negocio Aurora</label></li>
-                                                                                          <li opcoes_texto_opcao="Categoria Aurora" opcoes_texto_botao="Categoria Aurora" opcoes_valor_opcao="Categoria Aurora" class="dropdown-item li" data-valor_opcao="Categoria Aurora" data-texto_botao="Categoria Aurora"><label textodepois="1"><input type="radio" name="_300207227">Categoria Aurora</label></li>
-                                                                                          <li opcoes_texto_opcao="Rede de clientes" opcoes_texto_botao="Rede de clientes" opcoes_valor_opcao="Rede de clientes" class="dropdown-item li" data-valor_opcao="Rede de clientes" data-texto_botao="Rede de clientes"><label textodepois="1"><input type="radio" name="_300207227">Rede de clientes</label></li>
-                                                                                       </ul>
-                                                                                    </div>
-                                                                                 </div>
-                                                                                 <div class="div_opcao_controles_btns_img col-md-auto w-auto"><img class="btn_img_add_ctrl mousehover clicavel rounded" src="/sjd/images/maisverde32.png" onclick="window.fnsisjd.inserir_visao_pesquisa({elemento:this})" title="Acrescentar ao lado deste"><img class="btn_img_excl_ctrl mousehover clicavel rounded" src="/sjd/images/img_del.png" onclick="window.fnsisjd.deletar_controles({elemento:this})" title="Excluir este controle"></div>
-                                                                              </div>
-                                                                           </div>
-                                                                        </div>
-                                                                     </div>
+                                                                     
                                                                   </div>
                                                                </div>
                                                             </div>
@@ -107,27 +71,7 @@
                                                                <div class="accordion-body" aberto="1">
                                                                   <img class="btn_img_add_geral mousehover clicavel rounded" src="\sjd/images/maisverde32.png" onclick="window.fnsisjd.inserir_periodo_pesquisa({elemento:this})" title="Acrescentar um item">
                                                                   <div class="row">
-                                                                     <div class="col-auto mt-2 div_periodo col">
-                                                                        <div dtini="2022-01-01" dtfim="2022-01-24" permite_incluir="1" permite_excluir="1" funcao_inclusao="window.fnsisjd.inserir_periodo_pesquisa({elemento:this})" funcao_exclusao="window.fnsisjd.deletar_controles({elemento:this})" class="card">
-                                                                           <div class="card-header">Periodo 01</div>
-                                                                           <div class="card-body">
-                                                                              <div class="row">
-                                                                                 <div class="col">
-                                                                                    <div class="row">
-                                                                                       <div class="col-auto col"><input type="date" class="componente_data" value="2022-01-01"></div>
-                                                                                       <div class="col-auto col"><input type="date" class="componente_data" value="2022-01-24"></div>
-                                                                                    </div>
-                                                                                    <div class="align-items-center row">
-                                                                                       <div class="col">
-                                                                                          <div class="w-100 text-center"><img class="imagem_mes_calendario item_destaque100pct_hover" title="Preenche as datas com este mes inteiro" src="/sjd/images/calendario/JAN.png" onclick="window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"><img class="imagem_mes_calendario item_destaque100pct_hover" title="Preenche as datas com este mes inteiro" src="/sjd/images/calendario/FEV.png" onclick="window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"><img class="imagem_mes_calendario item_destaque100pct_hover" title="Preenche as datas com este mes inteiro" src="/sjd/images/calendario/MAR.png" onclick="window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"><img class="imagem_mes_calendario item_destaque100pct_hover" title="Preenche as datas com este mes inteiro" src="/sjd/images/calendario/ABR.png" onclick="window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"><img class="imagem_mes_calendario item_destaque100pct_hover" title="Preenche as datas com este mes inteiro" src="/sjd/images/calendario/MAI.png" onclick="window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"><img class="imagem_mes_calendario item_destaque100pct_hover" title="Preenche as datas com este mes inteiro" src="/sjd/images/calendario/JUN.png" onclick="window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"><img class="imagem_mes_calendario item_destaque100pct_hover" title="Preenche as datas com este mes inteiro" src="/sjd/images/calendario/JUL.png" onclick="window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"><img class="imagem_mes_calendario item_destaque100pct_hover" title="Preenche as datas com este mes inteiro" src="/sjd/images/calendario/AGO.png" onclick="window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"><img class="imagem_mes_calendario item_destaque100pct_hover" title="Preenche as datas com este mes inteiro" src="/sjd/images/calendario/SET.png" onclick="window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"><img class="imagem_mes_calendario item_destaque100pct_hover" title="Preenche as datas com este mes inteiro" src="/sjd/images/calendario/OUT.png" onclick="window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"><img class="imagem_mes_calendario item_destaque100pct_hover" title="Preenche as datas com este mes inteiro" src="/sjd/images/calendario/NOV.png" onclick="window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"><img class="imagem_mes_calendario item_destaque100pct_hover" title="Preenche as datas com este mes inteiro" src="/sjd/images/calendario/DEZ.png" onclick="window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"><input type="number" class="inputano" value="2021" title="Ano para preenchimento do mes inteiro" step="1" min="0"></div>
-                                                                                       </div>
-                                                                                    </div>
-                                                                                 </div>
-                                                                                 <div class="div_opcao_controles_btns_img col-md-auto w-auto"><img class="btn_img_add_ctrl mousehover clicavel rounded" src="/sjd/images/maisverde32.png" onclick="window.fnsisjd.inserir_periodo_pesquisa({elemento:this})" title="Acrescentar ao lado deste"><img class="btn_img_excl_ctrl mousehover clicavel rounded" src="/sjd/images/img_del.png" onclick="window.fnsisjd.deletar_controles({elemento:this})" title="Excluir este controle"></div>
-                                                                              </div>
-                                                                           </div>
-                                                                        </div>
-                                                                     </div>
+                                                                     
                                                                   </div>
                                                                </div>
                                                             </div>
@@ -228,11 +172,22 @@
                   </div>
                </div>
                <div name="div_data_aurora" id="div_data_aurora" class="div_data_aurora" style="color: white;flot: right;position: fixed;top: 2px;right: 19px;font-size: 11px;font-wheight: bolder;z-index: 1000;background-color: gray;border-radius: 5px;">
-                  <text name="data_aurora" id="data_aurora" class="texto_data_aurora data_aurora">[Data Aurora: 21/01/22]</text>
+                  <text name="data_aurora" id="data_aurora" class="texto_data_aurora data_aurora">
+                     <div class="d-flex justify-content-center">
+                        <div class="spinner-border" role="status">
+                           <span class="visually-hidden">Loading...</span>
+                        </div>
+                     </div>
+                  </text>
                </div>
             </div>
          </div>
       </div>
    </main>
 </body>
+<script type="module">
+   window.fnsisjd.requisitar_data_aurora();
+   window.fnsisjd.inserir_visao_pesquisa({elemento:$("div#visoes img.btn_img_add_geral")});
+   window.fnsisjd.inserir_periodo_pesquisa({elemento:$("div#periodos img.btn_img_add_geral")});
+</script>
 </html>

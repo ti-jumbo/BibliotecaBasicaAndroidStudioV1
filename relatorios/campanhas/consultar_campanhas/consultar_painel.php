@@ -103,25 +103,25 @@
                                                         <div class="card-body">
                                                             <div name="div_consultar_sinergia_filtros_periodos_corpo" class="row div_consultar_sinergia_filtros_periodos_corpo">
                                                                 <div name="div_consultar_sinergia_filtros_periodo1" class="col div_consultar_sinergia_filtros_periodo1 p-1">
-                                                                    <div name="div_consultar_sinergia_filtros_periodo1_corpo_mes_corpo" class="input-group">
-                                                                    <div classe_botao="btn-secondary botao_dropdown_visao" style="font-size:12px;" class="div_combobox" tem_inputs="1" tipo_inputs="radio" placeholder="(Selecione)" filtro="0" selecionar_todos="0" name_inpus="_943278053" num_max_texto_botao="5">
-                                                                        <button type="button" class="btn dropdown-toggle btn-secondary botao_dropdown_visao" data-bs-toggle="dropdown" aria-expanded="false" num_max_texto_botao="5" data-bs-auto-close="outside">JANEIRO</button>
-                                                                        <ul class="dropdown-menu" onclick="window.fnhtml.fndrop.clicou_dropdown(event,this)">
-                                                                            <li opcoes_texto_opcao="JANEIRO" opcoes_texto_botao="JANEIRO" opcoes_valor_opcao="JANEIRO" class="dropdown-item li" data-valor_opcao="JANEIRO" data-texto_botao="JANEIRO"><label textodepois="1"><input type="radio" name="_943278053" checked="1">JANEIRO</label></li>
-                                                                            <li opcoes_texto_opcao="FEVEREIRO" opcoes_texto_botao="FEVEREIRO" opcoes_valor_opcao="FEVEREIRO" class="dropdown-item li" data-valor_opcao="FEVEREIRO" data-texto_botao="FEVEREIRO"><label textodepois="1"><input type="radio" name="_943278053">FEVEREIRO</label></li>
-                                                                            <li opcoes_texto_opcao="MARCO" opcoes_texto_botao="MARCO" opcoes_valor_opcao="MARCO" class="dropdown-item li" data-valor_opcao="MARCO" data-texto_botao="MARCO"><label textodepois="1"><input type="radio" name="_943278053">MARCO</label></li>
-                                                                            <li opcoes_texto_opcao="ABRIL" opcoes_texto_botao="ABRIL" opcoes_valor_opcao="ABRIL" class="dropdown-item li" data-valor_opcao="ABRIL" data-texto_botao="ABRIL"><label textodepois="1"><input type="radio" name="_943278053">ABRIL</label></li>
-                                                                            <li opcoes_texto_opcao="MAIO" opcoes_texto_botao="MAIO" opcoes_valor_opcao="MAIO" class="dropdown-item li" data-valor_opcao="MAIO" data-texto_botao="MAIO"><label textodepois="1"><input type="radio" name="_943278053">MAIO</label></li>
-                                                                            <li opcoes_texto_opcao="JUNHO" opcoes_texto_botao="JUNHO" opcoes_valor_opcao="JUNHO" class="dropdown-item li" data-valor_opcao="JUNHO" data-texto_botao="JUNHO"><label textodepois="1"><input type="radio" name="_943278053">JUNHO</label></li>
-                                                                            <li opcoes_texto_opcao="JULHO" opcoes_texto_botao="JULHO" opcoes_valor_opcao="JULHO" class="dropdown-item li" data-valor_opcao="JULHO" data-texto_botao="JULHO"><label textodepois="1"><input type="radio" name="_943278053">JULHO</label></li>
-                                                                            <li opcoes_texto_opcao="AGOSTO" opcoes_texto_botao="AGOSTO" opcoes_valor_opcao="AGOSTO" class="dropdown-item li" data-valor_opcao="AGOSTO" data-texto_botao="AGOSTO"><label textodepois="1"><input type="radio" name="_943278053">AGOSTO</label></li>
-                                                                            <li opcoes_texto_opcao="SETEMBRO" opcoes_texto_botao="SETEMBRO" opcoes_valor_opcao="SETEMBRO" class="dropdown-item li" data-valor_opcao="SETEMBRO" data-texto_botao="SETEMBRO"><label textodepois="1"><input type="radio" name="_943278053">SETEMBRO</label></li>
-                                                                            <li opcoes_texto_opcao="OUTUBRO" opcoes_texto_botao="OUTUBRO" opcoes_valor_opcao="OUTUBRO" class="dropdown-item li" data-valor_opcao="OUTUBRO" data-texto_botao="OUTUBRO"><label textodepois="1"><input type="radio" name="_943278053">OUTUBRO</label></li>
-                                                                            <li opcoes_texto_opcao="NOVEMBRO" opcoes_texto_botao="NOVEMBRO" opcoes_valor_opcao="NOVEMBRO" class="dropdown-item li" data-valor_opcao="NOVEMBRO" data-texto_botao="NOVEMBRO"><label textodepois="1"><input type="radio" name="_943278053">NOVEMBRO</label></li>
-                                                                            <li opcoes_texto_opcao="DEZEMBRO" opcoes_texto_botao="DEZEMBRO" opcoes_valor_opcao="DEZEMBRO" class="dropdown-item li" data-valor_opcao="DEZEMBRO" data-texto_botao="DEZEMBRO"><label textodepois="1"><input type="radio" name="_943278053">DEZEMBRO</label></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <input class="form-control input_ano" value="2022">
+                                                                    <div name="div_consultar_sinergia_filtros_periodo1_corpo_mes_corpo" id="div_mes" class="input-group">
+                                                                        <div classe_botao="btn-secondary botao_dropdown_visao"  style="font-size:12px;" class="div_combobox" tem_inputs="1" tipo_inputs="radio" placeholder="(Selecione)" filtro="0" selecionar_todos="0" name_inpus="_943278053" num_max_texto_botao="5">
+                                                                            <button type="button" class="btn dropdown-toggle btn-secondary botao_dropdown_visao" data-bs-toggle="dropdown" aria-expanded="false" num_max_texto_botao="5" data-bs-auto-close="outside">(mes)</button>
+                                                                            <ul class="dropdown-menu" onclick="window.fnhtml.fndrop.clicou_dropdown(event,this)">
+                                                                                <li opcoes_texto_opcao="JANEIRO" opcoes_texto_botao="JANEIRO" opcoes_valor_opcao="JANEIRO" class="dropdown-item li" data-valor_opcao="JANEIRO" data-texto_botao="JANEIRO"><label textodepois="1"><input type="radio" name="_943278053">JANEIRO</label></li>
+                                                                                <li opcoes_texto_opcao="FEVEREIRO" opcoes_texto_botao="FEVEREIRO" opcoes_valor_opcao="FEVEREIRO" class="dropdown-item li" data-valor_opcao="FEVEREIRO" data-texto_botao="FEVEREIRO"><label textodepois="1"><input type="radio" name="_943278053">FEVEREIRO</label></li>
+                                                                                <li opcoes_texto_opcao="MARCO" opcoes_texto_botao="MARCO" opcoes_valor_opcao="MARCO" class="dropdown-item li" data-valor_opcao="MARCO" data-texto_botao="MARCO"><label textodepois="1"><input type="radio" name="_943278053">MARCO</label></li>
+                                                                                <li opcoes_texto_opcao="ABRIL" opcoes_texto_botao="ABRIL" opcoes_valor_opcao="ABRIL" class="dropdown-item li" data-valor_opcao="ABRIL" data-texto_botao="ABRIL"><label textodepois="1"><input type="radio" name="_943278053">ABRIL</label></li>
+                                                                                <li opcoes_texto_opcao="MAIO" opcoes_texto_botao="MAIO" opcoes_valor_opcao="MAIO" class="dropdown-item li" data-valor_opcao="MAIO" data-texto_botao="MAIO"><label textodepois="1"><input type="radio" name="_943278053">MAIO</label></li>
+                                                                                <li opcoes_texto_opcao="JUNHO" opcoes_texto_botao="JUNHO" opcoes_valor_opcao="JUNHO" class="dropdown-item li" data-valor_opcao="JUNHO" data-texto_botao="JUNHO"><label textodepois="1"><input type="radio" name="_943278053">JUNHO</label></li>
+                                                                                <li opcoes_texto_opcao="JULHO" opcoes_texto_botao="JULHO" opcoes_valor_opcao="JULHO" class="dropdown-item li" data-valor_opcao="JULHO" data-texto_botao="JULHO"><label textodepois="1"><input type="radio" name="_943278053">JULHO</label></li>
+                                                                                <li opcoes_texto_opcao="AGOSTO" opcoes_texto_botao="AGOSTO" opcoes_valor_opcao="AGOSTO" class="dropdown-item li" data-valor_opcao="AGOSTO" data-texto_botao="AGOSTO"><label textodepois="1"><input type="radio" name="_943278053">AGOSTO</label></li>
+                                                                                <li opcoes_texto_opcao="SETEMBRO" opcoes_texto_botao="SETEMBRO" opcoes_valor_opcao="SETEMBRO" class="dropdown-item li" data-valor_opcao="SETEMBRO" data-texto_botao="SETEMBRO"><label textodepois="1"><input type="radio" name="_943278053">SETEMBRO</label></li>
+                                                                                <li opcoes_texto_opcao="OUTUBRO" opcoes_texto_botao="OUTUBRO" opcoes_valor_opcao="OUTUBRO" class="dropdown-item li" data-valor_opcao="OUTUBRO" data-texto_botao="OUTUBRO"><label textodepois="1"><input type="radio" name="_943278053">OUTUBRO</label></li>
+                                                                                <li opcoes_texto_opcao="NOVEMBRO" opcoes_texto_botao="NOVEMBRO" opcoes_valor_opcao="NOVEMBRO" class="dropdown-item li" data-valor_opcao="NOVEMBRO" data-texto_botao="NOVEMBRO"><label textodepois="1"><input type="radio" name="_943278053">NOVEMBRO</label></li>
+                                                                                <li opcoes_texto_opcao="DEZEMBRO" opcoes_texto_botao="DEZEMBRO" opcoes_valor_opcao="DEZEMBRO" class="dropdown-item li" data-valor_opcao="DEZEMBRO" data-texto_botao="DEZEMBRO"><label textodepois="1"><input type="radio" name="_943278053">DEZEMBRO</label></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                        <input class="form-control input_ano" value="(ano)">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -185,7 +185,13 @@
                     </div>
                 </div>
                 <div name="div_data_aurora" id="div_data_aurora" class="div_data_aurora" style="color: white;flot: right;position: fixed;top: 2px;right: 19px;font-size: 11px;font-wheight: bolder;z-index: 1000;background-color: gray;border-radius: 5px;">
-                    <text name="data_aurora" id="data_aurora" class="texto_data_aurora data_aurora">[Data Aurora: 21/01/22]</text>
+                    <text name="data_aurora" id="data_aurora" class="texto_data_aurora data_aurora">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>    
+                    </text>
                 </div>
             </div>
          </div>
@@ -194,6 +200,18 @@
 </body>
 <script type="module">
     import { fnsisjd } from "/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js";
+    import { fndt } from "/sjd/javascript/modulos/classes/data/FuncoesData.js";
+    window.fnsisjd.requisitar_data_aurora();
+    let hoje = fndt.hoje();
+    let div_mes = $("div.div_consultar_sinergia_filtros_periodos");
+    let mes = fndt.dataBR_getMes(hoje)-1;
+    div_mes.find("ul.dropdown-menu").find("input").prop("checked",false);
+    div_mes.find("ul.dropdown-menu").find("input").removeAttr("checked");
+    let li = div_mes.find("ul.dropdown-menu").children("li").eq(mes);
+    li.find("input").prop("checked",true);
+    let texto = li.attr("opcoes_texto_opcao");
+    div_mes.find("button").text(texto);
+    div_mes.find("input").val(fndt.dataBR_getAno(hoje));
     fnsisjd.carregar_painel();
 </script>
 </html>

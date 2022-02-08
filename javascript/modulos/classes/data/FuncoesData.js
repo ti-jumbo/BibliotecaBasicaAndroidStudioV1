@@ -56,6 +56,7 @@ class FuncoesData{
             this.mensagens = {
                 formato_invalido : "tipo do objeto data invalido: "
             };
+            this.meses = ["JANEIRO","FEVEREIRO","MARCO","ABRIL","MAIO","JUNHO","JULHO","AGOSTO","SETEMBRO","OUTUBRO","NOVEMBRO","DEZEMBRO"];
             fnjs.logf(this.constructor.name);
         } catch(erro) {
             console.log(erro);

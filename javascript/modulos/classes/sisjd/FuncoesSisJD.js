@@ -985,6 +985,7 @@ class FuncoesSisJD{
             /*monta o dropdown operacoes*/
             let dropdown_operacao = null;
             let params_dropdown_operacao = {};
+            params_dropdown_operacao.class = "operacao";
             params_dropdown_operacao.itens = ["Igual a","Diferente de"];
             params_dropdown_operacao.selecionado = "Igual a";
             params_dropdown_operacao.classe_botao = vars.classe_padrao_botao;
@@ -1623,7 +1624,7 @@ class FuncoesSisJD{
                     erros_preenchimento.join( "\n \n " ) ) ;
                 return false;
             }			
-            operacoes=this.pegar_valores_elementos(divs_operacoes);			
+            operacoes=this.pegar_valores_elementos(divs_operacoes);	
             campos_avulsos=this.pegar_valores_elementos(divs_campos_avulsos);
             fnjs.obterJquery(condicionantes).each(function(index){
                 if(operacoes[index]==="Diferente de"){
@@ -2101,6 +2102,31 @@ class FuncoesSisJD{
     }
 
 
+    inserir_menu(params){
+        try {
+            fnjs.logi(this.constructor.name,"inserir_menu");           
+            let barra_menus = fnjs.obterJquery("div#barra_menus");
+            barra_menus.html(params.comhttp.retorno.dados_retornados.conteudo_html);                                 
+            fnjs.logf(this.constructor.name,"inserir_menu");
+        }catch(e){
+            console.log(e);
+            alert(e.message || e);
+        }
+    }
+
+    inserir_mes_inicio(params){
+        try {
+            fnjs.logi(this.constructor.name,"inserir_mes_inicio");           
+            let card_meus_valores = fnjs.obterJquery("div#card_meus_valores");
+            card_meus_valores.children("div.spinner_mes_inicio").remove();
+            card_meus_valores.append(params.comhttp.retorno.dados_retornados.conteudo_html);                                 
+            fnjs.logf(this.constructor.name,"inserir_mes_inicio");
+        }catch(e){
+            console.log(e);
+            alert(e.message || e);
+        }
+    }
+
     inserir_mais_recentes_inicio(params){
         try {
             fnjs.logi(this.constructor.name,"inserir_mais_recentes_inicio");
@@ -2263,6 +2289,44 @@ class FuncoesSisJD{
             fnjs.logi(this.constructor.name,"carregar_valores_inicio");
 
 
+            /*requisita menu*/
+            let comhttp_req_menu = JSON.parse(vars.str_tcomhttp);
+            comhttp_req_menu.requisicao.requisitar.oque = 'dados_sql';
+            comhttp_req_menu.requisicao.requisitar.qual.condicionantes = [];
+            comhttp_req_menu.requisicao.requisitar.qual.comando = "consultar";
+            comhttp_req_menu.requisicao.requisitar.qual.tipo_objeto = 'visao';
+            comhttp_req_menu.requisicao.requisitar.qual.objeto = "menu";			
+            comhttp_req_menu.opcoes_retorno.seletor_local_retorno = "body";
+            comhttp_req_menu.opcoes_requisicao.mostrar_carregando = false;
+            comhttp_req_menu.eventos.aposretornar = [
+                {
+                    arquivo:null,
+                    funcao :'window.fnsisjd.inserir_menu'
+                }
+            ];			
+            let params_req_menu = {comhttp:comhttp_req_menu};
+            fnreq.requisitar_servidor(params_req_menu);
+
+
+            /*requisita mes inicio*/
+            let comhttp_req_mes_inicio = JSON.parse(vars.str_tcomhttp);
+            comhttp_req_mes_inicio.requisicao.requisitar.oque = 'dados_sql';
+            comhttp_req_mes_inicio.requisicao.requisitar.qual.condicionantes = [];
+            comhttp_req_mes_inicio.requisicao.requisitar.qual.comando = "consultar";
+            comhttp_req_mes_inicio.requisicao.requisitar.qual.tipo_objeto = 'visao';
+            comhttp_req_mes_inicio.requisicao.requisitar.qual.objeto = "mes_inicio";			
+            comhttp_req_mes_inicio.opcoes_retorno.seletor_local_retorno = "body";
+            comhttp_req_mes_inicio.opcoes_requisicao.mostrar_carregando = false;
+            comhttp_req_mes_inicio.eventos.aposretornar = [
+                {
+                    arquivo:null,
+                    funcao :'window.fnsisjd.inserir_mes_inicio'
+                }
+            ];			
+            let params_req_mes_inicio = {comhttp:comhttp_req_mes_inicio};
+            fnreq.requisitar_servidor(params_req_mes_inicio);
+
+
             /*requisita mais recentes*/
             let comhttp_req_maisrecentes = JSON.parse(vars.str_tcomhttp);
             comhttp_req_maisrecentes.requisicao.requisitar.oque = 'dados_sql';
@@ -2301,6 +2365,47 @@ class FuncoesSisJD{
             fnreq.requisitar_servidor(params_req_maisacessados);
 
             fnsisjd.requisitar_valores_inicio();
+            fnjs.logf(this.constructor.name,"carregar_valores_inicio");
+        }catch(e){
+            console.log(e);
+            alert(e.message || e);
+        }
+    }
+
+    inserir_data_aurora(params){
+        try {
+            fnjs.logi(this.constructor.name,"inserir_data_aurora");           
+            let data_aurora = fnjs.obterJquery("text#data_aurora");
+            data_aurora.html("Data Aurora: " + params.comhttp.retorno.dados_retornados.conteudo_html);                                 
+            fnjs.logf(this.constructor.name,"inserir_data_aurora");
+        }catch(e){
+            console.log(e);
+            alert(e.message || e);
+        }
+    }
+
+    requisitar_data_aurora(){
+        try {
+            fnjs.logi(this.constructor.name,"carregar_valores_inicio");
+
+
+            /*requisita menu*/
+            let comhttp_req_menu = JSON.parse(vars.str_tcomhttp);
+            comhttp_req_menu.requisicao.requisitar.oque = 'dados_sql';
+            comhttp_req_menu.requisicao.requisitar.qual.condicionantes = [];
+            comhttp_req_menu.requisicao.requisitar.qual.comando = "consultar";
+            comhttp_req_menu.requisicao.requisitar.qual.tipo_objeto = 'visao';
+            comhttp_req_menu.requisicao.requisitar.qual.objeto = "data_aurora";			
+            comhttp_req_menu.opcoes_retorno.seletor_local_retorno = "body";
+            comhttp_req_menu.opcoes_requisicao.mostrar_carregando = false;
+            comhttp_req_menu.eventos.aposretornar = [
+                {
+                    arquivo:null,
+                    funcao :'window.fnsisjd.inserir_data_aurora'
+                }
+            ];			
+            let params_req_menu = {comhttp:comhttp_req_menu};
+            fnreq.requisitar_servidor(params_req_menu);
             fnjs.logf(this.constructor.name,"carregar_valores_inicio");
         }catch(e){
             console.log(e);

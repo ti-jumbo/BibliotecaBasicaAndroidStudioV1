@@ -259,71 +259,9 @@
 			return $comhttpsimples;
 		}
 		
-		public static function extrair_montar_condicionantes_linear__rec(&$condicionantes, &$condicionantes_retorno) 
-		{
-			if (gettype($condicionantes) === "array") {
-				foreach ($condicionantes as &$condicionante) {
-					self::extrair_montar_condicionantes_linear__rec($condicionante, $condicionantes_retorno);
-				}
-			} else {
-				if (in_array(gettype($condicionantes),["object","resource"])) {
-					$condicionantes = stream_get_contents($condicionantes);
-				}
-				if (strlen(trim($condicionantes)) > 0) {
-					$condicionante_valida = false;
-					$nova_condic = [];
-					if (strpos($condicionantes, "!=") !== false) {
-						$nova_condic["op"] = "!=";
-						$condicionante_valida = true;
-					} else if (strpos($condicionantes, "=") !== false) {
-						$nova_condic["op"] = "=";
-						$condicionante_valida = true;
-					} else {
-						//FuncoesBasicasRetorno::mostrar_msg_sair("condicionante invalida: " . $condicionantes, __FILE__, __FUNCTION__, __LINE__);
-						$condicionante_valida = false;
-					}
-					if ($condicionante_valida) {
-						$condicionantes = explode($nova_condic["op"], $condicionantes);
-						$nova_condic["processo"] = $condicionantes[0];
-						$nova_condic["valor"] = $condicionantes[1];				
-						if (!isset($condicionantes_retorno[$nova_condic["processo"]])) {
-							$condicionantes_retorno[$nova_condic["processo"]] = [];
-						}
-						$condicionantes_retorno[$nova_condic["processo"]][] = $nova_condic;
-					} else {
-						unset($condicionantes);
-					}
-				} else {
-					unset($condicionantes);
-				}
-			}
-		}
+		
 
-		public static function preparar_condicionantes_processo(&$condicionantes) 
-		{
-			$cnj_condicionantes = null;
-			$cnj_condicionantes_processo = [];
-			if (gettype($condicionantes) !== "array") {
-				if (in_array(gettype($condicionantes),["object","resource"])) {
-					$condicionantes = stream_get_contents($condicionantes);
-				}
-				$cnj_condicionantes = strtolower(trim($condicionantes));
-				$cnj_condicionantes = explode(strtolower(trim(Constantes::sepn1)), $cnj_condicionantes);
-			} else {
-				$cnj_condicionantes = $condicionantes;
-			}
-			foreach ($cnj_condicionantes as $chave_condic => $condic) {
-				if (gettype($condic) !== "array") {
-					if (in_array(gettype($condic),["object","resource"])) {
-						$condic = stream_get_contents($condic);
-					}
-					$cnj_condicionantes[$chave_condic] = explode(strtolower(trim(Constantes::sepn2)), $condic);
-				}		
-			}
-			FuncoesArray::array_eliminar_elementos_vazios($cnj_condicionantes);	
-			self::extrair_montar_condicionantes_linear__rec($cnj_condicionantes, $cnj_condicionantes_processo);
-			return $cnj_condicionantes_processo;
-		}
+		
 		
 	}
 ?>

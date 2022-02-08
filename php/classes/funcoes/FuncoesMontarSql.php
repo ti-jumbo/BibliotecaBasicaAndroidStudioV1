@@ -16,6 +16,7 @@
 			FuncoesConversao,
 			FuncoesHtml,			
 			FuncoesString,
+			FuncoesProcessoSql,
 			requisicao\FuncoesBasicasRetorno,
 			requisicao\FuncoesRequisicao,
 		};
@@ -1798,7 +1799,7 @@
 				$condictemp = strtolower(trim($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"]));
 			}
 			if (gettype($condictemp) !== "array") {
-				$condictemp = FuncoesRequisicao::preparar_condicionantes_processo($condictemp);
+				$condictemp = FuncoesProcessoSql::prepararCondicionantesProcessoSql($condictemp);
 			}
 			$condic_datas = " 
 					o.ano = TO_CHAR(SYSDATE, 'yyyy')
@@ -2332,7 +2333,7 @@
 				$condictemp = strtolower(trim($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"]));
 			}
 			if (gettype($condictemp) !== "array") {
-				$condictemp = FuncoesRequisicao::preparar_condicionantes_processo($condictemp);
+				$condictemp = FuncoesProcessoSql::prepararCondicionantesProcessoSql($condictemp);
 			}
 			$condic_datas = " 
 					o.ano = TO_CHAR(SYSDATE, 'yyyy')
@@ -3416,7 +3417,7 @@
 			}
 			//print_r($condictemp); exit();
 			if (gettype($condictemp) !== "array") {
-				$condictemp = FuncoesRequisicao::preparar_condicionantes_processo($condictemp);
+				$condictemp = FuncoesProcessoSql::prepararCondicionantesProcessoSql($condictemp);
 			}			
 			$condic_datas = " 
 					o.ano = TO_CHAR(SYSDATE, 'yyyy')
@@ -3614,7 +3615,7 @@
 				$condictemp = strtolower(trim($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"]));
 			}
 			if (gettype($condictemp) !== "array") {
-				$condictemp = FuncoesRequisicao::preparar_condicionantes_processo($condictemp);
+				$condictemp = FuncoesProcessoSql::prepararCondicionantesProcessoSql($condictemp);
 			}
 			$condic_datas = " 
 					o.ano = TO_CHAR(SYSDATE, 'yyyy')
@@ -3847,7 +3848,7 @@
 			$rca_in = [];
 			$rca_not_in = [];
 			if (FuncoesArray::verif_valor_chave($comhttp->requisicao->requisitar->qual->condicionantes,["condicionantes"],0,"quantidade","maior") === true) {
-				$condicionantes = FuncoesRequisicao::preparar_condicionantes_processo($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"]);
+				$condicionantes = FuncoesProcessoSql::prepararCondicionantesProcessoSql($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"]);
 				if (count($condicionantes) > 0) {
 					foreach($condicionantes as $condicionante) {
 						foreach($condicionante as $condic) {
@@ -3971,7 +3972,7 @@
 				in_array(11,$comhttp->requisicao->requisitar->qual->condicionantes["mostrar_vals_de"])) {
 				$mostrar_ratings_individuais = true;
 			}
-			$condicionantes_processo = FuncoesRequisicao::preparar_condicionantes_processo($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"]);
+			$condicionantes_processo = FuncoesProcessoSql::prepararCondicionantesProcessoSql($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"]);
 			$comando_sql = "select * from sjdratingsvenda";
 			$dados_rating = FuncoesSql::getInstancia()->executar_sql($comando_sql,"fetchAll",\PDO::FETCH_ASSOC);
 			if (count($dados_rating) > 0) {
@@ -4078,7 +4079,7 @@
 							$comhttp_rating->requisicao->requisitar->qual->condicionantes["condicionantes"] = $condicionantes_rating;
 						}
 						$condicionantes_processo = $comhttp_rating->requisicao->requisitar->qual->condicionantes["condicionantes"];
-						$condicionantes_processo = FuncoesRequisicao::preparar_condicionantes_processo($condicionantes_processo);
+						$condicionantes_processo = FuncoesProcessoSql::prepararCondicionantesProcessoSql($condicionantes_processo);
 						$comando_sql = FuncoesSql::getInstancia()->montar_sql_processo_estruturado($comhttp_rating);
 						$comando_sql = trim(str_replace("  "," ",$comando_sql));
 						self::acrescentar_arr_tit($arr_tit,$comhttp_rating->requisicao->requisitar->qual->condicionantes["arr_tit"], trim(str_ireplace("FORNECEDOR","",str_ireplace("FORNECEDORES","",$item_rating["nome"]))), $mostrar_valores, $mostrar_ratings_individuais);
@@ -5058,7 +5059,7 @@
 			$comhttp->requisicao->sql->comando_sql = FuncoesSql::getInstancia()->montar_sql_processo_estruturado($comhttp);
 			return $comhttp->requisicao->sql->comando_sql;
 		}
-		public static function montar_sql_relatorio_personalizado(&$comhttp){
+		public static function montar_sql_relatorio_personalizado_old(&$comhttp){
 			/*Objetivo: montar o sql dos relatorios personalizados*/
 			$comando_sql = "";
 			$comhttp->requisicao->requisitar->qual->condicionantes["arr_tit"] = [];	
@@ -5070,6 +5071,35 @@
 			$comhttp->requisicao->sql->comando_sql = $retorno;
 			return $retorno;
 		}
+
+
+		
+		
+		
+		public static function montar_sql_relatorio_personalizado(&$comhttp){
+			
+			/*						
+			criar processos de importacao automatico das vendas para as novas tabelas de vendas ep
+				este processo deve incluir automaticamente entidades relacionadas (usuarios, clientes, prods, etc)
+				ao nao encontralos nas novas tabelas
+			rastrear comandos e criar indices
+			subir para producao
+			refazer condicionantes em funcao de fornecedor no novo modelo
+			refazer visoes negocio e categoria aurora
+			reimplementar campos avulsos
+			*/
+			
+			$retorno = FuncoesProcessoSql::montarSqlProcessoEstruturado($comhttp);
+			$comhttp->requisicao->sql = new TSql();
+			$comhttp->requisicao->sql->comando_sql = $retorno;	
+			//echo $retorno;exit();	
+			return $retorno;
+		}
+
+
+
+		
+
 		public static function montar_sql_sinergia(&$comhttp){
 			/*Objetivo: montar o sql do sinergia*/
 			$retorno = "";
@@ -5368,6 +5398,46 @@
 			}
 			
 			return $retorno;
+		}
+
+		public static function extrair_montar_condicionantes_linear__rec(&$condicionantes, &$condicionantes_retorno) 
+		{
+			if (gettype($condicionantes) === "array") {
+				foreach ($condicionantes as &$condicionante) {
+					self::extrair_montar_condicionantes_linear__rec($condicionante, $condicionantes_retorno);
+				}
+			} else {
+				if (in_array(gettype($condicionantes),["object","resource"])) {
+					$condicionantes = stream_get_contents($condicionantes);
+				}
+				if (strlen(trim($condicionantes)) > 0) {
+					$condicionante_valida = false;
+					$nova_condic = [];
+					if (strpos($condicionantes, "!=") !== false) {
+						$nova_condic["op"] = "!=";
+						$condicionante_valida = true;
+					} else if (strpos($condicionantes, "=") !== false) {
+						$nova_condic["op"] = "=";
+						$condicionante_valida = true;
+					} else {
+						//FuncoesBasicasRetorno::mostrar_msg_sair("condicionante invalida: " . $condicionantes, __FILE__, __FUNCTION__, __LINE__);
+						$condicionante_valida = false;
+					}
+					if ($condicionante_valida) {
+						$condicionantes = explode($nova_condic["op"], $condicionantes);
+						$nova_condic["processo"] = $condicionantes[0];
+						$nova_condic["valor"] = $condicionantes[1];				
+						if (!isset($condicionantes_retorno[$nova_condic["processo"]])) {
+							$condicionantes_retorno[$nova_condic["processo"]] = [];
+						}
+						$condicionantes_retorno[$nova_condic["processo"]][] = $nova_condic;
+					} else {
+						unset($condicionantes);
+					}
+				} else {
+					unset($condicionantes);
+				}
+			}
 		}
 	}
 ?>

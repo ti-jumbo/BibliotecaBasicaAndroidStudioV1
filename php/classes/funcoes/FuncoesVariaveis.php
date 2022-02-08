@@ -171,7 +171,7 @@
 				//echo "ok1"; exit();
 				$texto_opcoes = "";
 				$_SERVER["arquivo_chamador"] = __FILE__;
-				if ($comhttp !== null && count($comhttp) > 0) {
+				if ($comhttp !== null) {
 				} else {
 					$vars = get_defined_vars();
 					if (isset($vars["comhttp"])) {
@@ -182,68 +182,67 @@
 						}
 					}
 				}			
-				if ($comhttp->requisicao->requisitar->qual->objeto === "pagina") {	
 					
-					$opcoes_sistema = FuncoesSisJD::obter_opcao_sistema($comhttp);	
-					
-					$tipo_el_lista = FuncoesHtml::obter_tipo_elemento_html("ul");
-					$fechamento_html_ul = "";
-					$texto_opcoes = '';
-					$form = FuncoesHtml::criar_elemento([
-						"tag"=>"form",
-						"id"=>"form_pesquisa_opcoes",
-						"class"=>"d-flex",
-						"onsubmit"=>"return false;",
-						"sub"=>[
-							[
-								"tag"=>"input",
-								"class"=>"form-control me-2",
-								"type"=>"search",
-								"placeholder"=>"Pesquisa...",
-								"aria-label"=>"Search",
-								"list"=>"lista_opcoes_sistema",
-								"aria-label"=>"Pesquisa no site...",
-								"onclick"=>"window.fnsisjd.carregar_lista_opcoes_sistema(this);",
-								"oninput"=>"window.fnsisjd.acessar_opcao_pesquisada(this);",
-								"oque"=>"dados_literais",
-								"comando"=>"consultar",
-								"tipo_objeto"=>"lista_opcoes_sistema_pesquisa",
-								"objeto"=>"lista_opcoes_sistema_pesquisa"
-							],[
-								"tag"=>"datalist",
-								"id"=>"lista_opcoes_sistema",
-								"sub"=>[
-									[
-										"tag"=>"option"
-									]
+				$opcoes_sistema = FuncoesSisJD::obter_opcao_sistema($comhttp);	
+				
+				$tipo_el_lista = FuncoesHtml::obter_tipo_elemento_html("ul");
+				$fechamento_html_ul = "";
+				$texto_opcoes = '';
+				$form = FuncoesHtml::criar_elemento([
+					"tag"=>"form",
+					"id"=>"form_pesquisa_opcoes",
+					"class"=>"d-flex",
+					"onsubmit"=>"return false;",
+					"sub"=>[
+						[
+							"tag"=>"input",
+							"class"=>"form-control me-2",
+							"type"=>"search",
+							"placeholder"=>"Pesquisa...",
+							"aria-label"=>"Search",
+							"list"=>"lista_opcoes_sistema",
+							"aria-label"=>"Pesquisa no site...",
+							"onclick"=>"window.fnsisjd.carregar_lista_opcoes_sistema(this);",
+							"oninput"=>"window.fnsisjd.acessar_opcao_pesquisada(this);",
+							"oque"=>"dados_literais",
+							"comando"=>"consultar",
+							"tipo_objeto"=>"lista_opcoes_sistema_pesquisa",
+							"objeto"=>"lista_opcoes_sistema_pesquisa"
+						],[
+							"tag"=>"datalist",
+							"id"=>"lista_opcoes_sistema",
+							"sub"=>[
+								[
+									"tag"=>"option"
 								]
 							]
 						]
-					]);
-					$texto_opcoes .= FuncoesHtml::montar_elemento_html($form);
-					if (isset($tipo_el_lista) && $tipo_el_lista !== null) {
-						switch(strtolower(trim(gettype($tipo_el_lista)))) {
-							case "object":
-								$lista = FuncoesHtml::criar_elemento([],$tipo_el_lista->taghtml,"navbar-nav mr-auto ul_navbar_superior");
-								break;
-							case "array":
-								$lista = FuncoesHtml::criar_elemento([],$tipo_el_lista["taghtml"],"navbar-nav mr-auto ul_navbar_superior");
-								break;
-							default:
-								$lista = FuncoesHtml::criar_elemento([],"ul","navbar-nav me-auto mb-2 mb-lg-0 ul_navbar_superior");
-								break;
-						}
+					]
+				]);
+				$texto_opcoes .= FuncoesHtml::montar_elemento_html($form);
+				if (isset($tipo_el_lista) && $tipo_el_lista !== null) {
+					switch(strtolower(trim(gettype($tipo_el_lista)))) {
+						case "object":
+							$lista = FuncoesHtml::criar_elemento([],$tipo_el_lista->taghtml,"navbar-nav mr-auto ul_navbar_superior");
+							break;
+						case "array":
+							$lista = FuncoesHtml::criar_elemento([],$tipo_el_lista["taghtml"],"navbar-nav mr-auto ul_navbar_superior");
+							break;
+						default:
+							$lista = FuncoesHtml::criar_elemento([],"ul","navbar-nav me-auto mb-2 mb-lg-0 ul_navbar_superior");
+							break;
 					}
-								
-					
-					$atalhos_inicio = [];
-					if (FuncoesSql::getInstancia()->tabela_existe(VariaveisSql::getInstancia()->getPrefixObjects() . "atalhosinicio")) {										
-						$cmdsql = "select * from " . VariaveisSql::getInstancia()->getPrefixObjects() . "atalhosinicio where codusuariosistema = " . $_SESSION["codusur"];
-						$atalhos_inicio = FuncoesSql::getInstancia()->executar_sql($cmdsql,"fetchAll",\PDO::FETCH_ASSOC);
-					}								
-					$lista["text"] = FuncoesSisJD::montar_lista_opcoes_recursiva($opcoes_sistema,null,$atalhos_inicio);				
-					$texto_opcoes .= FuncoesHtml::montar_elemento_html($lista);
 				}
+							
+				
+				$atalhos_inicio = [];
+				if (FuncoesSql::getInstancia()->tabela_existe(VariaveisSql::getInstancia()->getPrefixObjects() . "atalhosinicio")) {										
+					$cmdsql = "select * from " . VariaveisSql::getInstancia()->getPrefixObjects() . "atalhosinicio where codusuariosistema = " . $_SESSION["codusur"];
+					$atalhos_inicio = FuncoesSql::getInstancia()->executar_sql($cmdsql,"fetchAll",\PDO::FETCH_ASSOC);
+				}								
+				$lista["text"] = FuncoesSisJD::montar_lista_opcoes_recursiva($opcoes_sistema,null,$atalhos_inicio);				
+				$texto_opcoes .= FuncoesHtml::montar_elemento_html($lista);
+				
 				return $texto_opcoes;
 			} catch(\Error | \Throwable | \Exception $e) {
 				FuncoesBasicasRetorno::mostrar_msg_sair($e);

@@ -38,7 +38,7 @@
 		function __construct(?object $pinstancia_sis = null) {
 			try {
 				parent::__construct($pinstancia_sis);
-				//apcu_delete("sjd_dados_conexoes");
+				apcu_delete("sjd_dados_conexoes");
 				/*armazena dados comuns em cache para economizar leituras em disco*/
 				if (!apcu_exists("sjd_dados_conexoes")) {
 					apcu_store("sjd_dados_conexoes",FuncoesArquivo::ler_arquivo_catalogo_json(NomesCaminhosArquivos::catalogo_informacoes_banco_dados,["filtro"=>"connections","traduzir_apos_filtro"=>true,"preparar_string_antes"=>true]));

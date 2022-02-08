@@ -1621,7 +1621,7 @@
 						(isset($ligtabelasis["condicionantes"]) && count($ligtabelasis["condicionantes"]) > 0)) {				
 						$condicionantes_processo = $ligtabelasis["condicionantes"];			
 						if (gettype($condicionantes_processo) !== "array") {								
-							$condicionantes_processo = FuncoesRequisicao::preparar_condicionantes_processo($condicionantes_processo);
+							$condicionantes_processo = FuncoesProcessoSql::prepararCondicionantesProcessoSql($condicionantes_processo);
 						}
 						/*INCLUSAO DAS CONDICIONANTES SAO INCLUIDAS NOS COMANDOS SQL*/
 						if (count($condicionantes_processo) > 0) {	
@@ -1771,7 +1771,7 @@
 			}
 			/*FIM INICIALIZACAO DE VARIAVEIS*/
 			/*INSERE VISOES, SE NECESSARIO, PARA VINCULAR AS CONDICIONANTES OU VINCULA-AS NAS VISOES JÁ EXISTENTES SE COMPATIVEIS*/	
-			$cnj_condicionantes_processo = FuncoesRequisicao::preparar_condicionantes_processo($params["comhttp"]->requisicao->requisitar->qual->condicionantes["condicionantes"]);	
+			$cnj_condicionantes_processo = FuncoesProcessoSql::prepararCondicionantesProcessoSql($params["comhttp"]->requisicao->requisitar->qual->condicionantes["condicionantes"]);	
 			$prefixo_nome_proc_condic = "";
 			$tradutor_processo_condic = null;
 			if (isset($params["comhttp"]->requisicao->requisitar->qual->condicionantes["prefixo_nome_proc_condic"])) {
