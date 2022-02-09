@@ -592,6 +592,7 @@
 					"criteriouso"=>"normal"
 				];
 			}
+			//print_r($visoes_relatorio);exit();
 			if (FuncoesRelatorio::verificarTemCondicionanteVisao($comhttp,null)) {
 				$visoes_condicionantes = $comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"];
 				foreach($visoes_condicionantes as $viscond=>$cond) {
@@ -613,8 +614,9 @@
 				"fetch"=>"fetchAll",
 				"fetch_mode"=>\PDO::FETCH_COLUMN
 			];
+			//print_r($params_query);exit();
 			$cods_processos = FuncoesSql::getInstancia()->executar_sql($params_query);		
-			
+			//print_r($cods_processos);exit();
 			/*obtem os dados dos processos*/ 
 			$params_query = [
 				"query"=>"
@@ -635,7 +637,7 @@
 				"fetch_mode"=>\PDO::FETCH_ASSOC				
 			];
 			$processos = FuncoesSql::getInstancia()->executar_sql($params_query);
-
+			//print_r($processos);exit();
 			/*vincula criterio de uso*/
 			foreach($processos as &$dados_processo) {
 				$dados_processo["criteriouso"] = $visoes_relatorio[$dados_processo["visao"]]["criteriouso"] ?? "normal";
@@ -656,17 +658,20 @@
 			$processos = $processos_ordenados;
 			ksort($processos,SORT_NUMERIC);
 			$comhttp->requisicao->requisitar->qual->condicionantes["arr_tit"] = [];
-
+			//print_r($processos);exit();
 
 
             if (isset($processos) && $processos != null && gettype($processos) == "array" && count($processos) > 0) {
                 self::obterDadosProcessos($processos);
+
+				//print_r($processos);exit();
 
                 /*unifica processos */
                 $processo_unificado = [];
                 foreach($processos as $chaveproc=>$processo){
                     self::unificarProcessosSql($comhttp,$processo_unificado,$processo);				
                 }
+				//print_r($processo_unificado);exit();
 
                 /*elimina  elementos que nao atendem criterios existencia*/			
                 foreach($processo_unificado["elementos"] as $chave=>&$elemento){

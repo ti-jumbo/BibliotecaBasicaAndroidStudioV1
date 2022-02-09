@@ -1310,7 +1310,38 @@
 		public static function valores_para_condicionante($visao){
 			$opcoes_combobox = null;
 			$visao=strtolower(trim($visao));
-			switch($visao) {				
+			//echo $visao; exit();
+			switch($visao) {	
+				case "negocio aurora":
+				case "negocio origem":					
+					$cmd_select = "
+						select
+							'negocio origem='||n.cod as valor_opcao,
+							n.cod || '-' || n.descricao as texto_opcao,
+							n.cod as texto_botao
+						from
+							ep.epnegociosorigem n
+						order by 
+							n.cod
+					";
+					$dados = FuncoesSql::getInstancia()->executar_sql($cmd_select,"fetchAll",\PDO::FETCH_ASSOC);				
+					$opcoes_combobox = self::montar_valores_condicionante(["visao"=>$visao,"dados"=>$dados]);
+					break;				
+				case "categoria aurora":
+				case "categoria origem":					
+					$cmd_select = "
+						select
+							'categoria origem='||c.cod as valor_opcao,
+							c.cod || '-' || c.descricao as texto_opcao,
+							c.cod as texto_botao
+						from
+							ep.epcategoriasorigem c
+						order by 
+							c.cod
+					";
+					$dados = FuncoesSql::getInstancia()->executar_sql($cmd_select,"fetchAll",\PDO::FETCH_ASSOC);				
+					$opcoes_combobox = self::montar_valores_condicionante(["visao"=>$visao,"dados"=>$dados]);
+					break;
 				case "cliente":
 				case "clientes":
 					/*implementar criterios de acesso*/
@@ -1328,8 +1359,7 @@
 					$dados = FuncoesSql::getInstancia()->executar_sql($cmd_select,"fetchAll",\PDO::FETCH_ASSOC);				
 					$opcoes_combobox = self::montar_valores_condicionante(["visao"=>$visao,"dados"=>$dados]);
 					break;
-				default:
-					
+				default:					
 					$comhttp_temp = new TComHttp();
 					$comhttp_temp->requisicao->requisitar->qual->objeto = $visao;
 					$comhttp_temp->requisicao->requisitar->qual->objeto = self::visoes_como_lista_condicionantes($comhttp_temp->requisicao->requisitar->qual->objeto);

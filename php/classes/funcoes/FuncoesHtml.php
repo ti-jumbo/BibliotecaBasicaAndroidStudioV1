@@ -3053,9 +3053,10 @@
 		 */
 		public static function montar_rodape_tabela_est_html(&$comhttp,$usar_dados_opcoes) : string {
 			$opcoes = &$comhttp->requisicao->requisitar->qual->condicionantes["opcoes_tabela_est"];
-			$texto_html_rod = '';
+			$texto_html_rod = '';			
 			if(FuncoesArray::verif_valor_chave($opcoes,["rodape","ativo"]) === true){
 				$tfoot = self::criar_elemento([],"tfoot");
+				$opcoes["campo_totais"] = $opcoes["campo_totais"]  ?? "";
 				foreach($opcoes["celulas_linha_calculos"] as $chave=>&$cel_calc) {
 					if (strcasecmp(trim($chave),"sub") != 0) {
 						if ($opcoes["campo_contador"] === $chave && $opcoes["campo_totais"] !== $chave ) {
