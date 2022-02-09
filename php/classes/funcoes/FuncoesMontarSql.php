@@ -5079,8 +5079,7 @@
 		public static function montar_sql_relatorio_personalizado(&$comhttp){
 			
 			/*	
-			testar condicionantes
-			reimplementar abrir sub
+			configurar inicio de datas/meses nos demais relatorios que iniciam com datas
 			migrar para outros relatorios que usam a mesma base					
 			criar processos de importacao automatico das vendas para as novas tabelas de vendas ep
 				este processo deve incluir automaticamente entidades relacionadas (usuarios, clientes, prods, etc)

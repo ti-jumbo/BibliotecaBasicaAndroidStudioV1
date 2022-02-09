@@ -48,10 +48,10 @@
                                                     <div name="div_consultar_sinergia_filtros_periodos_titulo" class="div_consultar_sinergia_filtros_periodos_titulo rounded">Periodos</div>
                                                     <div name="div_consultar_sinergia_filtros_periodos_corpo" class="div_consultar_sinergia_filtros_periodos_corpo">
                                                         <div class="m-auto inputgroup input_group_mes_ano" style="max-width:max-content;" mes="0" ano="2022">
-                                                        <div multiplo="0" class="div_combobox" tem_inputs="1" tipo_inputs="radio" classe_botao="btn-dark" placeholder="(Selecione)" filtro="0" selecionar_todos="0" name_inpus="_173992606" num_max_texto_botao="5">
-                                                            <button type="button" class="btn dropdown-toggle btn-dark" data-bs-toggle="dropdown" aria-expanded="false" num_max_texto_botao="5" data-bs-auto-close="outside">JANEIRO</button>
+                                                        <div multiplo="0" class="div_combobox" id="div_mes" tem_inputs="1" tipo_inputs="radio" classe_botao="btn-dark" placeholder="(Selecione)" filtro="0" selecionar_todos="0" name_inpus="_173992606" num_max_texto_botao="5">
+                                                            <button type="button" class="btn dropdown-toggle btn-dark" data-bs-toggle="dropdown" aria-expanded="false" num_max_texto_botao="5" data-bs-auto-close="outside">(mes)</button>
                                                             <ul class="dropdown-menu" onclick="window.fnhtml.fndrop.clicou_dropdown(event,this)">
-                                                                <li opcoes_texto_opcao="JANEIRO" opcoes_texto_botao="JANEIRO" opcoes_valor_opcao="JANEIRO" class="dropdown-item li" data-valor_opcao="JANEIRO" data-texto_botao="JANEIRO"><label textodepois="1"><input type="radio" name="_173992606" checked="1">JANEIRO</label></li>
+                                                                <li opcoes_texto_opcao="JANEIRO" opcoes_texto_botao="JANEIRO" opcoes_valor_opcao="JANEIRO" class="dropdown-item li" data-valor_opcao="JANEIRO" data-texto_botao="JANEIRO"><label textodepois="1"><input type="radio" name="_173992606" >JANEIRO</label></li>
                                                                 <li opcoes_texto_opcao="FEVEREIRO" opcoes_texto_botao="FEVEREIRO" opcoes_valor_opcao="FEVEREIRO" class="dropdown-item li" data-valor_opcao="FEVEREIRO" data-texto_botao="FEVEREIRO"><label textodepois="1"><input type="radio" name="_173992606">FEVEREIRO</label></li>
                                                                 <li opcoes_texto_opcao="MARCO" opcoes_texto_botao="MARCO" opcoes_valor_opcao="MARCO" class="dropdown-item li" data-valor_opcao="MARCO" data-texto_botao="MARCO"><label textodepois="1"><input type="radio" name="_173992606">MARCO</label></li>
                                                                 <li opcoes_texto_opcao="ABRIL" opcoes_texto_botao="ABRIL" opcoes_valor_opcao="ABRIL" class="dropdown-item li" data-valor_opcao="ABRIL" data-texto_botao="ABRIL"><label textodepois="1"><input type="radio" name="_173992606">ABRIL</label></li>
@@ -84,11 +84,31 @@
                     </div>
                 </div>
                 <div name="div_data_aurora" id="div_data_aurora" class="div_data_aurora" style="color: white;flot: right;position: fixed;top: 2px;right: 19px;font-size: 11px;font-wheight: bolder;z-index: 1000;background-color: gray;border-radius: 5px;">
-                    <text name="data_aurora" id="data_aurora" class="texto_data_aurora data_aurora">[Data Aurora: 21/01/22]</text>
+                    <text name="data_aurora" id="data_aurora" class="texto_data_aurora data_aurora">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </text>
                 </div>
             </div>
          </div>
       </div>
    </main>
 </body>
+<script type="module">
+    import { fndt } from "/sjd/javascript/modulos/classes/data/FuncoesData.js";
+    window.fnsisjd.requisitar_data_aurora();
+    let hoje = fndt.hoje();
+    let div_mes = $("div#div_mes");
+    let mes = fndt.dataBR_getMes(hoje)-1;
+    div_mes.find("ul.dropdown-menu").find("input").prop("checked",false);
+    div_mes.find("ul.dropdown-menu").find("input").removeAttr("checked");
+    let li = div_mes.find("ul.dropdown-menu").children("li").eq(mes);
+    li.find("input").prop("checked",true);
+    let texto = li.attr("opcoes_texto_opcao");
+    div_mes.find("button").text(texto);
+    //div_mes.find("input").val(fndt.dataBR_getAno(hoje));
+</script>
 </html>

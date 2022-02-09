@@ -130,7 +130,7 @@ class FuncoesData{
                 ano=data.slice(6,10);
             } else {
                 ano=data.getFullYear();
-                mes=data.getMonth();
+                mes=data.getMonth()+1;//MES BASE 0
                 dia=data.getDate();
             };
             mes = mes.toString().padStart(2,'0');
@@ -170,6 +170,12 @@ class FuncoesData{
                 ano=data.getFullYear();
                 mes=data.getMonth()+1;
                 dia=data.getDate();
+            } else if (typeof data === 'number') {
+                data = new Date(data);
+                ano=data.getFullYear();
+                mes=data.getMonth()+1;
+                dia=data.getDate();
+                console.log(data,ano,mes,dia);alert("veja2");
             } else {
                 return false;
             }
@@ -203,6 +209,8 @@ class FuncoesData{
                 if(typeof data === 'string') {
                     data = this.data_como_cnj_date(data);
                     data = new Date(data[0],data[1],data[2],data[3],data[4],data[5]);
+                }else if (typeof data === "number") {
+                    data = new Date(data);
                 }
             }
             let ano = data.getFullYear();
@@ -210,6 +218,7 @@ class FuncoesData{
             mes = mes.toString().padStart(2,'0');
             let dia='01';
             let retorno=dia+vars.sepdata+mes+vars.sepdata+ano;
+            //alert(retorno);
             fnjs.logf(this.constructor.name,"data_primeirodiames");
             return retorno;	
         }catch(e){
@@ -301,6 +310,7 @@ class FuncoesData{
     setar_ultimo_dia_mes(data,incrmeses){
         try {
             fnjs.logi(this.constructor.name,"setar_ultimo_dia_mes");
+            
             if (typeof data !== 'object') {
                 data = this.data_como_cnj_date(data);
                 data = new Date(data[0],data[1],data[2],data[3],data[4],data[5]);
@@ -369,7 +379,8 @@ class FuncoesData{
             }
             data = data.setMonth(data.getMonth() - 1);
             fnjs.logf(this.constructor.name,"data_primeirodiames_anterior");
-            return this.dataBR(this.data_primeirodiames(data));			
+            //console.log(data);alert("veja3");
+            return this.data_primeirodiames(data);			
         } catch(e) {
             console.log(e);
             alert(e.message || e);

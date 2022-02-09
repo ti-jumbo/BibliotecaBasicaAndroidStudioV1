@@ -167,4 +167,11 @@
       </div>
    </main>
 </body>
+<script type="module">
+    import { fndt } from "/sjd/javascript/modulos/classes/data/FuncoesData.js";
+    $("input.componente_data").eq(0).val(fndt.dataUSA(fndt.data_primeirodiames()));
+    $("input.componente_data").eq(1).val(fndt.dataUSA(fndt.hoje()));
+    $("input.inputano").val(fndt.dataBR_getAno(fndt.data_primeirodiames()));
+</script>
+
 </html>

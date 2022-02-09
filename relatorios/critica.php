@@ -84,10 +84,10 @@
                                                                                 <div class="card-body">
                                                                                 <div class="row">
                                                                                     <div class="col">
-                                                                                        <div label="Mes" class="div_combobox" tem_inputs="1" multiplo="0" tipo_inputs="radio" classe_botao="btn-dark" placeholder="(Selecione)" filtro="0" selecionar_todos="0" name_inpus="_1817386746" num_max_texto_botao="5">
-                                                                                            <button type="button" class="btn dropdown-toggle btn-dark" data-bs-toggle="dropdown" aria-expanded="false" num_max_texto_botao="5" data-bs-auto-close="outside">JANEIRO</button>
+                                                                                        <div id="div_mes" label="Mes" class="div_combobox" tem_inputs="1" multiplo="0" tipo_inputs="radio" classe_botao="btn-dark" placeholder="(Selecione)" filtro="0" selecionar_todos="0" name_inpus="_1817386746" num_max_texto_botao="5">
+                                                                                            <button type="button" class="btn dropdown-toggle btn-dark" data-bs-toggle="dropdown" aria-expanded="false" num_max_texto_botao="5" data-bs-auto-close="outside">(mes)</button>
                                                                                             <ul class="dropdown-menu" onclick="window.fnhtml.fndrop.clicou_dropdown(event,this)">
-                                                                                            <li opcoes_texto_opcao="JANEIRO" opcoes_texto_botao="JANEIRO" opcoes_valor_opcao="JANEIRO" class="dropdown-item li" data-valor_opcao="JANEIRO" data-texto_botao="JANEIRO"><label textodepois="1"><input type="radio" name="_1817386746" checked="1">JANEIRO</label></li>
+                                                                                            <li opcoes_texto_opcao="JANEIRO" opcoes_texto_botao="JANEIRO" opcoes_valor_opcao="JANEIRO" class="dropdown-item li" data-valor_opcao="JANEIRO" data-texto_botao="JANEIRO"><label textodepois="1"><input type="radio" name="_1817386746">JANEIRO</label></li>
                                                                                             <li opcoes_texto_opcao="FEVEREIRO" opcoes_texto_botao="FEVEREIRO" opcoes_valor_opcao="FEVEREIRO" class="dropdown-item li" data-valor_opcao="FEVEREIRO" data-texto_botao="FEVEREIRO"><label textodepois="1"><input type="radio" name="_1817386746">FEVEREIRO</label></li>
                                                                                             <li opcoes_texto_opcao="MARCO" opcoes_texto_botao="MARCO" opcoes_valor_opcao="MARCO" class="dropdown-item li" data-valor_opcao="MARCO" data-texto_botao="MARCO"><label textodepois="1"><input type="radio" name="_1817386746">MARCO</label></li>
                                                                                             <li opcoes_texto_opcao="ABRIL" opcoes_texto_botao="ABRIL" opcoes_valor_opcao="ABRIL" class="dropdown-item li" data-valor_opcao="ABRIL" data-texto_botao="ABRIL"><label textodepois="1"><input type="radio" name="_1817386746">ABRIL</label></li>
@@ -114,14 +114,15 @@
                                                                                 <div class="row">
                                                                                     <div class="col">
                                                                                         <div label="Ano" tem_inputs="1" tipo_inputs="radio" multiplo="0" selecionar_todos="0" filtro="1" classe_botao="btn-dark" classe_dropdown="dropdown-visao " class="div_combobox" placeholder="(Selecione)" name_inpus="_420333433" num_max_texto_botao="5" funcao_filtro="window.fnhtml.fndrop.filtrar_dropdown(this)">
-                                                                                            <button type="button" class="btn dropdown-toggle btn-dark" data-bs-toggle="dropdown" aria-expanded="false" num_max_texto_botao="5" data-bs-auto-close="outside">2021</button>
+                                                                                            <button type="button" class="btn dropdown-toggle btn-dark" data-bs-toggle="dropdown" aria-expanded="false" num_max_texto_botao="5" data-bs-auto-close="outside">2022</button>
                                                                                             <ul class="dropdown-menu dropdown-visao" onclick="window.fnhtml.fndrop.clicou_dropdown(event,this)">
                                                                                             <input type="text" class="input_filtro_dropdown rounded" placeholder="(filtro)" onkeyup="window.fnhtml.fndrop.filtrar_dropdown(this)">
                                                                                             <li opcoes_texto_opcao="2017" opcoes_texto_botao="2017" opcoes_valor_opcao="2017" class="dropdown-item li" data-valor_opcao="2017" data-texto_botao="2017"><label textodepois="1"><input type="radio" name="_420333433">2017</label></li>
                                                                                             <li opcoes_texto_opcao="2018" opcoes_texto_botao="2018" opcoes_valor_opcao="2018" class="dropdown-item li" data-valor_opcao="2018" data-texto_botao="2018"><label textodepois="1"><input type="radio" name="_420333433">2018</label></li>
                                                                                             <li opcoes_texto_opcao="2019" opcoes_texto_botao="2019" opcoes_valor_opcao="2019" class="dropdown-item li" data-valor_opcao="2019" data-texto_botao="2019"><label textodepois="1"><input type="radio" name="_420333433">2019</label></li>
                                                                                             <li opcoes_texto_opcao="2020" opcoes_texto_botao="2020" opcoes_valor_opcao="2020" class="dropdown-item li" data-valor_opcao="2020" data-texto_botao="2020"><label textodepois="1"><input type="radio" name="_420333433">2020</label></li>
-                                                                                            <li opcoes_texto_opcao="2021" opcoes_texto_botao="2021" opcoes_valor_opcao="2021" class="dropdown-item li" data-valor_opcao="2021" data-texto_botao="2021"><label textodepois="1"><input type="radio" name="_420333433" checked="1">2021</label></li>
+                                                                                            <li opcoes_texto_opcao="2021" opcoes_texto_botao="2021" opcoes_valor_opcao="2021" class="dropdown-item li" data-valor_opcao="2021" data-texto_botao="2021"><label textodepois="1"><input type="radio" name="_420333433">2021</label></li>
+                                                                                            <li opcoes_texto_opcao="2022" opcoes_texto_botao="2022" opcoes_valor_opcao="2022" class="dropdown-item li" data-valor_opcao="2022" data-texto_botao="2022"><label textodepois="1"><input type="radio" name="_420333433" checked="1">2022</label></li>
                                                                                             </ul>
                                                                                         </div>
                                                                                     </div>
@@ -234,13 +235,26 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div name="div_data_aurora" id="div_data_aurora" class="div_data_aurora" style="color: white;flot: right;position: fixed;top: 2px;right: 19px;font-size: 11px;font-wheight: bolder;z-index: 1000;background-color: gray;border-radius: 5px;">
-                    <text name="data_aurora" id="data_aurora" class="texto_data_aurora data_aurora">[Data Aurora: 21/01/22]</text>
-                </div>
+                </div>                
             </div>
          </div>
       </div>
    </main>
 </body>
+<script type="module">
+    import { fndt } from "/sjd/javascript/modulos/classes/data/FuncoesData.js";
+    window.fnsisjd.requisitar_data_aurora();
+    $("input.componente_data").eq(0).val(fndt.dataUSA(fndt.data_primeirodiames()));
+    $("input.componente_data").eq(1).val(fndt.dataUSA(fndt.hoje()));
+    $("input.inputano").val(fndt.dataBR_getAno(fndt.data_primeirodiames()));
+    let hoje = fndt.hoje();
+    let div_mes = $("div#div_mes");
+    let mes = fndt.dataBR_getMes(hoje)-1;
+    div_mes.find("ul.dropdown-menu").find("input").prop("checked",false);
+    div_mes.find("ul.dropdown-menu").find("input").removeAttr("checked");
+    let li = div_mes.find("ul.dropdown-menu").children("li").eq(mes);
+    li.find("input").prop("checked",true);
+    let texto = li.attr("opcoes_texto_opcao");
+    div_mes.find("button").text(texto);
+</script>
 </html>

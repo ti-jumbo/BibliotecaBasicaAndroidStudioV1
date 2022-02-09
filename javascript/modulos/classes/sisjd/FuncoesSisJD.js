@@ -2718,7 +2718,7 @@ class FuncoesSisJD{
     corrigir_visoes_relatorio_personalizado(visoes_corrigir) {
         try {
             fnjs.logi(this.constructor.name,"corrigir_visoes_relatorio_personalizado");
-            let qt = visoes_corrigir.length;
+            /*let qt = visoes_corrigir.length;
             for (let i = 0; i < qt; i ++) {
                 visoes_corrigir[i] = visoes_corrigir[i].toLowerCase().trim().replace(/\s/ig,"_");
                 visoes_corrigir[i] = visoes_corrigir[i].replace(/origemdedados/ig,"origem_de_dados");
@@ -2735,7 +2735,7 @@ class FuncoesSisJD{
                 visoes_corrigir[i] = visoes_corrigir[i].replace(/rede_de_cliente/ig,"rede_de_clientes");
                 visoes_corrigir[i] = visoes_corrigir[i].replace(/rededecliente/ig,"rede_de_clientes");
                 visoes_corrigir[i] = visoes_corrigir[i].replace(/categoriaaurora/ig,"categoria_aurora");
-            }
+            }*/
             fnjs.logf(this.constructor.name,"corrigir_visoes_relatorio_personalizado");
             return visoes_corrigir;
         }catch(e){

@@ -1351,8 +1351,8 @@
 							cl.cod || '-' || cl_ps.coddocidentificador || '-' || cl_ps.nomerazao as texto_opcao,
 							cl.cod as texto_botao
 						from
-							ep.epcliente cl
-							join ep.eppessoa cl_ps on cl_ps.cod = cl.codpessoa
+							ep.epclientes cl
+							join ep.eppessoas cl_ps on cl_ps.cod = cl.codpessoa
 						order by 
 							cl.cod
 					";
@@ -2673,7 +2673,7 @@
 							case "clientesnaopositivados":
 								$comhttp->requisicao->requisitar->qual->condicionantes["usar_arr_tit"]=true;
 								FuncoesMontarSQL::montar_sql_clientes_nao_positivados($comhttp);
-								print_r($comhttp->requisicao->sql->comando_sql);exit();
+								//print_r($comhttp->requisicao->sql->comando_sql);exit();
 								$opcoes_tabela_est["tabeladb"]="clientesnaopositivados";
 								$comhttp->requisicao->requisitar->qual->condicionantes["opcoes_tabela_est"] = $opcoes_tabela_est;						
 								FuncoesHtml::montar_retorno_tabdados($comhttp);

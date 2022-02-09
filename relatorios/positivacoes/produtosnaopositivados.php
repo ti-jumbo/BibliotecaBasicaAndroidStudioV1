@@ -128,14 +128,14 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-auto mt-2 div_periodo col">
-                                                                            <div dtini="2022-01-01" dtfim="2022-01-24" funcao_inclusao="window.fnsisjd.inserir_periodo_pesquisa({elemento:this})" funcao_exclusao="window.fnsisjd.deletar_controles({elemento:this})" class="card">
+                                                                            <div funcao_inclusao="window.fnsisjd.inserir_periodo_pesquisa({elemento:this})" funcao_exclusao="window.fnsisjd.deletar_controles({elemento:this})" class="card">
                                                                                 <div class="card-header">Periodo Nao Positivado</div>
                                                                                 <div class="card-body">
                                                                                 <div class="row">
                                                                                     <div class="col">
                                                                                         <div class="row">
-                                                                                            <div class="col-auto col"><input type="date" class="componente_data" value="2022-01-01"></div>
-                                                                                            <div class="col-auto col"><input type="date" class="componente_data" value="2022-01-24"></div>
+                                                                                            <div class="col-auto col"><input type="date" class="componente_data"></div>
+                                                                                            <div class="col-auto col"><input type="date" class="componente_data"></div>
                                                                                         </div>
                                                                                         <div class="align-items-center row">
                                                                                             <div class="col">
@@ -248,11 +248,26 @@
                     </div>
                 </div>            
                <div name="div_data_aurora" id="div_data_aurora" class="div_data_aurora" style="color: white;flot: right;position: fixed;top: 2px;right: 19px;font-size: 11px;font-wheight: bolder;z-index: 1000;background-color: gray;border-radius: 5px;">
-                  <text name="data_aurora" id="data_aurora" class="texto_data_aurora data_aurora">[Data Aurora: 21/01/22]</text>
+                  <text name="data_aurora" id="data_aurora" class="texto_data_aurora data_aurora">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </text>
                </div>
             </div>
          </div>
       </div>
    </main>
 </body>
+<script type="module">
+    import { fndt } from "/sjd/javascript/modulos/classes/data/FuncoesData.js";
+    window.fnsisjd.requisitar_data_aurora();
+    $("input.componente_data").eq(0).val(fndt.dataUSA(fndt.data_primeirodiames_anterior()));
+    $("input.componente_data").eq(1).val(fndt.dataUSA(fndt.setar_ultimo_dia_mes(fndt.data_primeirodiames_anterior())));
+    $("input.componente_data").eq(2).val(fndt.dataUSA(fndt.data_primeirodiames()));
+    $("input.componente_data").eq(3).val(fndt.dataUSA(fndt.hoje()));
+    $("input.inputano").val(fndt.dataBR_getAno(fndt.data_primeirodiames()));
+</script>
 </html>
