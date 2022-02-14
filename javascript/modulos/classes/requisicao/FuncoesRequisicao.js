@@ -2,7 +2,7 @@ import { vars } from '/sjd/javascript/modulos/classes/variaveis/Variaveis.js';
 import { fnjs } from '/sjd/javascript/modulos/classes/javascript/FuncoesJavascript.js';
 import { fnstr } from '/sjd/javascript/modulos/classes/string/FuncoesString.js';
 import { fnarq } from '/sjd/javascript/modulos/classes/arquivo/FuncoesArquivo.js';
-import { fnhtml } from '/sjd/javascript/modulos/classes/html/FuncoesHtml.js';
+import { fnhtml } from '/sjd/javascript/modulos/classes/html/1.0/FuncoesHtml.js';
 
 
 /**Classe FuncoesRequisicao - utilizadas de requisicao */

@@ -126,7 +126,10 @@
 		}
 
 		public static function verificarVerQt(&$comhttp){			
-			$mostrar_vals_de = $comhttp->requisicao->requisitar->qual->condicionantes["mostrar_vals_de"];				
+			$mostrar_vals_de = $comhttp->requisicao->requisitar->qual->condicionantes["mostrar_vals_de"];	
+			if (gettype($mostrar_vals_de) != "array"){
+				$mostrar_vals_de = explode(",",$mostrar_vals_de);
+			}			
 			if (in_array(0,$mostrar_vals_de)) {
 				return true;
 			}
@@ -135,6 +138,9 @@
 
 		public static function verificarVerPeso(&$comhttp){
 			$mostrar_vals_de = $comhttp->requisicao->requisitar->qual->condicionantes["mostrar_vals_de"];				
+			if (gettype($mostrar_vals_de) != "array"){
+				$mostrar_vals_de = explode(",",$mostrar_vals_de);
+			}			
 			if (in_array(3,$mostrar_vals_de)) {
 				return true;
 			}
@@ -143,6 +149,9 @@
 
 		public static function verificarVerValor(&$comhttp){
 			$mostrar_vals_de = $comhttp->requisicao->requisitar->qual->condicionantes["mostrar_vals_de"];				
+			if (gettype($mostrar_vals_de) != "array"){
+				$mostrar_vals_de = explode(",",$mostrar_vals_de);
+			}			
 			if (in_array(5,$mostrar_vals_de)) {
 				return true;
 			}
@@ -150,7 +159,7 @@
 		}
 
 		public static function verificarTemCondicionanteVisao(&$comhttp,$visao){
-			$condicionantes = $comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"];				
+			$condicionantes = $comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"] ?? null;				
 			if (isset($condicionantes) && $condicionantes !== null) {
 				if (gettype($condicionantes) !== "array") {
 					$condicionantes = FuncoesProcessoSql::prepararCondicionantesProcessoSql($condicionantes);

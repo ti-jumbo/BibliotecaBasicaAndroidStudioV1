@@ -222,6 +222,9 @@ ul.dropdown-menu>label.label_selecionar_todos>input{
 
 
 /*componente data*/
+input.componente_data{
+    max-width: 135px;
+}
 div.div_container_combobox_periodo input.componente_data {
     width: 140px;
 }

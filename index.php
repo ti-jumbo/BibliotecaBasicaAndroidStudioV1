@@ -12,11 +12,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SisJD - Sistema Jumbo Distribuidor</title>
     <link href="/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/sjd/css/estilos.css" rel="stylesheet">
+    <link href="/sjd/css/1.0/estilos.css" rel="stylesheet">
     <script type="text/javascript" src="/sjd/javascript/polyfill.js"></script>
     <script type="text/javascript" src="/jquery/3.6.0/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="/sjd/javascript/modulos/ModuloPrincipal.js?2.00"></script>
+    <script type="module" src="/sjd/javascript/modulos/ModuloPrincipal.js?3.00"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
     <div class="div-main container-fluid p-0 m-0 h-100 w-100">
@@ -148,6 +149,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="row w-100">
+                    <div class="col m-1 w-100">
+                        <div id="grafico_volume" class="w-100" style="min-height:300px;">
+                            <div class="d-flex justify-content-center">
+                                <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 text-end">
+                            <a href="/sjd/relatorios/dashboard.php" target="_blank">Ver no dashboard</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="m-1 col">
                         <div class="card_mais_recentes card">
@@ -190,5 +205,6 @@
 </body>
 <script type="module">
     fnsisjd.carregar_valores_inicio();
+    fnsisjd.carregarGraficoVolumeInicio();
 </script>
 </html>

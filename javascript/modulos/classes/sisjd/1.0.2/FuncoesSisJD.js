@@ -2,7 +2,7 @@ import { vars } from '/sjd/javascript/modulos/classes/variaveis/Variaveis.js';
 import { fnjs } from '/sjd/javascript/modulos/classes/javascript/FuncoesJavascript.js';
 import { fnreq } from '/sjd/javascript/modulos/classes/requisicao/Funcoesrequisicao.js';
 import { fnobj } from '/sjd/javascript/modulos/classes/objeto/FuncoesObjeto.js';
-import { fnhtml } from '/sjd/javascript/modulos/classes/html/FuncoesHtml.js';
+import { fnhtml } from '/sjd/javascript/modulos/classes/html/1.0/FuncoesHtml.js';
 import { fndt } from '/sjd/javascript/modulos/classes/data/FuncoesData.js';
 import { fnarr } from '/sjd/javascript/modulos/classes/array/FuncoesArray.js';
 import { fnmat } from '/sjd/javascript/modulos/classes/matematica/FuncoesMatematica.js';
@@ -133,7 +133,7 @@ class FuncoesSisJD{
             });
             vars.nome_usuario_logado = form_login.find('input').eq(0).val();
             vars.cod_usuario_logado = form_login.find('input').eq(0).val();
-            
+            localStorage.setItem("codusur",vars.cod_usuario_logado);
             fnreq.requisitar_servidor(params_req);
             fnjs.logf(this.constructor.name,"requisitar_login");
         } catch(e) {
@@ -577,42 +577,264 @@ class FuncoesSisJD{
         }		
     }
 
+    criarPeriodo(params){
+        try {
+            let titulo = params.titulo || "Período " + (params.ind || 1);
+            let botoes_comandos = [];
+            if (fnjs.first_valid([params.permite_incluir,true]) == true) {
+                botoes_comandos.push({
+                    tag:"img",
+                    class:"btn_img_add_ctrl mousehover clicavel rounded",
+                    src:"/sjd/images/maisverde32.png",
+                    onclick:"window.fnsisjd.inserir_periodo_pesquisa({elemento:this})",
+                    title:"Acrescentar após deste"
+                });
+            }
+            if (fnjs.first_valid([params.permite_incluir,true]) == true) {
+                botoes_comandos.push({
+                    tag:"img",
+                    class:"btn_img_excl_ctrl mousehover clicavel rounded",
+                    src:"/sjd/images/img_del.png",
+                    onclick:"window.fnsisjd.deletar_controles({elemento:this})",
+                    title:"Excluir este controle"
+                });
+            }
+            let params_periodo = {
+                retornar_como:"string",
+                tag:"div",
+                class:"col-auto mt-2 div_periodo "+(params.class || ""),
+                sub:[
+                    {
+                        tag:"div",
+                        class:"card",
+                        sub:[
+                            {
+                                tag:"div",
+                                class:"card-header",
+                                content:titulo
+                            },
+                            {
+                                tag:"div",
+                                class:"card-body",
+                                sub:[
+                                    {
+                                        tag:"div",
+                                        class:"row",
+                                        sub:[
+                                            {
+                                                tag:"div",
+                                                class:"col",
+                                                sub:[
+                                                    {
+                                                        tag:"div",
+                                                        class:"row",
+                                                        sub:[
+                                                            {
+                                                                tag:"div",
+                                                                class:"col-6",
+                                                                sub:[
+                                                                    {
+                                                                        tag:"input",
+                                                                        class:"componente_data controle_input_texto input_calendario",
+                                                                        type:"date",
+                                                                        value:params.dtini || fndt.dataUSA(fndt.data_primeirodiames())
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                tag:"div",
+                                                                class:"col-6",
+                                                                sub:[
+                                                                    {
+                                                                        tag:"input",
+                                                                        class:"componente_data controle_input_texto input_calendario",
+                                                                        type:"date",
+                                                                        value:params.dtfim || fndt.dataUSA(fndt.hoje())
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        tag:"div",
+                                                        class:"row align-items-center",
+                                                        sub:[
+                                                            {
+                                                                tag:"col",
+                                                                sub:[
+                                                                    {
+                                                                        tag:"div",
+                                                                        class:"w-100 text-center",
+                                                                        sub:[
+                                                                            {
+                                                                                tag:"img",
+                                                                                class:"imagem_mes_calendario item_destaque100pct_hover",
+                                                                                src:"/sjd/images/calendario/jan.png",
+                                                                                title:"Preenche as datas com este mes inteiro",
+                                                                                onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
+                                                                            },
+                                                                            {
+                                                                                tag:"img",
+                                                                                class:"imagem_mes_calendario item_destaque100pct_hover",
+                                                                                src:"/sjd/images/calendario/fev.png",
+                                                                                title:"Preenche as datas com este mes inteiro",
+                                                                                onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
+                                                                            },
+                                                                            {
+                                                                                tag:"img",
+                                                                                class:"imagem_mes_calendario item_destaque100pct_hover",
+                                                                                src:"/sjd/images/calendario/mar.png",
+                                                                                title:"Preenche as datas com este mes inteiro",
+                                                                                onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
+                                                                            },
+                                                                            {
+                                                                                tag:"img",
+                                                                                class:"imagem_mes_calendario item_destaque100pct_hover",
+                                                                                src:"/sjd/images/calendario/abr.png",
+                                                                                title:"Preenche as datas com este mes inteiro",
+                                                                                onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
+                                                                            },
+                                                                            {
+                                                                                tag:"img",
+                                                                                class:"imagem_mes_calendario item_destaque100pct_hover",
+                                                                                src:"/sjd/images/calendario/mai.png",
+                                                                                title:"Preenche as datas com este mes inteiro",
+                                                                                onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
+                                                                            },
+                                                                            {
+                                                                                tag:"img",
+                                                                                class:"imagem_mes_calendario item_destaque100pct_hover",
+                                                                                src:"/sjd/images/calendario/jun.png",
+                                                                                title:"Preenche as datas com este mes inteiro",
+                                                                                onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
+                                                                            },
+                                                                            {
+                                                                                tag:"img",
+                                                                                class:"imagem_mes_calendario item_destaque100pct_hover",
+                                                                                src:"/sjd/images/calendario/jul.png",
+                                                                                title:"Preenche as datas com este mes inteiro",
+                                                                                onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
+                                                                            },
+                                                                            {
+                                                                                tag:"img",
+                                                                                class:"imagem_mes_calendario item_destaque100pct_hover",
+                                                                                src:"/sjd/images/calendario/ago.png",
+                                                                                title:"Preenche as datas com este mes inteiro",
+                                                                                onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
+                                                                            },
+                                                                            {
+                                                                                tag:"img",
+                                                                                class:"imagem_mes_calendario item_destaque100pct_hover",
+                                                                                src:"/sjd/images/calendario/set.png",
+                                                                                title:"Preenche as datas com este mes inteiro",
+                                                                                onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
+                                                                            },
+                                                                            {
+                                                                                tag:"img",
+                                                                                class:"imagem_mes_calendario item_destaque100pct_hover",
+                                                                                src:"/sjd/images/calendario/out.png",
+                                                                                title:"Preenche as datas com este mes inteiro",
+                                                                                onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
+                                                                            },
+                                                                            {
+                                                                                tag:"img",
+                                                                                class:"imagem_mes_calendario item_destaque100pct_hover",
+                                                                                src:"/sjd/images/calendario/nov.png",
+                                                                                title:"Preenche as datas com este mes inteiro",
+                                                                                onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
+                                                                            },
+                                                                            {
+                                                                                tag:"img",
+                                                                                class:"imagem_mes_calendario item_destaque100pct_hover",
+                                                                                src:"/sjd/images/calendario/dez.png",
+                                                                                title:"Preenche as datas com este mes inteiro",
+                                                                                onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
+                                                                            },
+                                                                            {
+                                                                                tag:"input",
+                                                                                class:"inputano",
+                                                                                type:"number",
+                                                                                value:fndt.getAno(),
+                                                                                title:"Ano para preenchimento do mes inteiro",
+                                                                                props:[
+                                                                                    {
+                                                                                        prop:"step",
+                                                                                        value:1
+                                                                                    },
+                                                                                    {
+                                                                                        prop:"min",
+                                                                                        value:0
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                tag:"div",
+                                                class:"div_opcao_controles_btns_img col-md-auto w-auto",
+                                                sub:botoes_comandos
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+            return params_periodo;
+        }catch(e){
+            console.log(e);
+            alert(e.message || e);
+        }
+    }
+
     inserir_periodo_pesquisa(params){		
         try{			
             fnjs.logi(this.constructor.name,"inserir_periodo_pesquisa");
-        if (typeof params !== "undefined" && params !== null) {
-            params.elemento = params.elemento || params.obj || params.elem || params;
-            let elem = fnjs.obterJquery(params.elemento);
-            if (typeof elem !== "undefined" && elem !== null && elem.length) {                   
-                let div	= elem.closest('div.card').closest("div.row");
-                if (typeof div === "undefined" || div === null || !div.length) {
-                    div = elem.closest("div.accordion-body").children("div:first");
-                }
-                let periodo_anterior     = null;
-                let input_celula_ant_dtini = {};
-                let input_celula_ant_dtfim = {};
-                let dtini_ant=null;
-                let dtfim_ant=null;
-                let novas_datas=[];
-                let nova_div_opcao	= '' ;
-                let ind = div.attr('data-ind') || div.find("div.div_periodo").length || 0;
+            if (typeof params !== "undefined" && params !== null) {
+                params.elemento = params.elemento || params.obj || params.elem || params;
+                let elem = fnjs.obterJquery(params.elemento);
+                if (typeof elem !== "undefined" && elem !== null && elem.length) {                   
+                    let div	= elem.closest('div.card').closest("div.row");
+                    if (typeof div === "undefined" || div === null || !div.length) {
+                        div = elem.closest("div.accordion-body").children("div:first");
+                    }
+                    if (typeof div === "undefined" || div === null || !div.length) {
+                        div = elem;
+                    }
+                    
+                    let periodo_anterior     = null;
+                    let input_celula_ant_dtini = {};
+                    let input_celula_ant_dtfim = {};
+                    let dtini_ant=null;
+                    let dtfim_ant=null;
+                    let novas_datas=[];
+                    let nova_div_opcao	= '' ;
+                    let ind = div.attr('data-ind') || div.find("div.div_periodo").length || 0;
 
-                if (elem.hasClass("btn_img_add_ctrl")) {
+                    if (elem.hasClass("btn_img_add_ctrl")) {
                         periodo_anterior = elem.closest("div.div_periodo");      
-                } else {
+                    } else {
                         periodo_anterior = div.find("div.div_periodo:last");      
-                }
-                
-                if (periodo_anterior.length) {
-                    input_celula_ant_dtini = periodo_anterior.find("input.componente_data").eq(0);
-                    input_celula_ant_dtfim = periodo_anterior.find("input.componente_data").eq(1);
-                    dtini_ant = input_celula_ant_dtini.val();
-                    dtfim_ant = input_celula_ant_dtfim.val();	
-                    if (input_celula_ant_dtini.attr("type") === "date") {
-                        dtini_ant = fndt.dataBR(dtini_ant);
-                        dtfim_ant = fndt.dataBR(dtfim_ant);
-                    } 
-                    novas_datas=fndt.incrementar_datas(dtini_ant,dtfim_ant);
+                    }
+                    
+                    if (periodo_anterior.length) {
+                        input_celula_ant_dtini = periodo_anterior.find("input.componente_data").eq(0);
+                        input_celula_ant_dtfim = periodo_anterior.find("input.componente_data").eq(1);
+                        dtini_ant = input_celula_ant_dtini.val();
+                        dtfim_ant = input_celula_ant_dtfim.val();	
+                        if (input_celula_ant_dtini.attr("type") === "date") {
+                            dtini_ant = fndt.dataBR(dtini_ant);
+                            dtfim_ant = fndt.dataBR(dtfim_ant);
+                        } 
+                        novas_datas=fndt.incrementar_datas(dtini_ant,dtfim_ant);
                     } else {
                         novas_datas.push(fndt.data_primeirodiames());
                         novas_datas.push(fndt.hoje());
@@ -622,222 +844,22 @@ class FuncoesSisJD{
                     if(ind < 9){
                         ind = '0'+ind.toString();
                     }
+                    params.ind = ind;
                     let nova_dtini=fndt.dataUSA(novas_datas[0]);
                     let nova_dtfim=fndt.dataUSA(novas_datas[1]);
-                    let params = {
-                        retornar_como:"string",
-                        tag:"div",
-                        class:"col-auto mt-2 div_periodo",
-                        sub:[
-                            {
-                                tag:"div",
-                                class:"card",
-                                sub:[
-                                    {
-                                        tag:"div",
-                                        class:"card-header",
-                                        content:"Período " + ind
-                                    },
-                                    {
-                                        tag:"div",
-                                        class:"card-body",
-                                        sub:[
-                                            {
-                                                tag:"div",
-                                                class:"row",
-                                                sub:[
-                                                    {
-                                                        tag:"div",
-                                                        class:"col",
-                                                        sub:[
-                                                            {
-                                                                tag:"div",
-                                                                class:"row",
-                                                                sub:[
-                                                                    {
-                                                                        tag:"div",
-                                                                        class:"col-auto",
-                                                                        sub:[
-                                                                            {
-                                                                                tag:"input",
-                                                                                class:"componente_data controle_input_texto input_calendario",
-                                                                                type:"date",
-                                                                                value:nova_dtini
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        tag:"div",
-                                                                        class:"col-auto",
-                                                                        sub:[
-                                                                            {
-                                                                                tag:"input",
-                                                                                class:"componente_data controle_input_texto input_calendario",
-                                                                                type:"date",
-                                                                                value:nova_dtfim
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                ]
-                                                            },
-                                                            {
-                                                                tag:"div",
-                                                                class:"row align-items-center",
-                                                                sub:[
-                                                                    {
-                                                                        tag:"col",
-                                                                        sub:[
-                                                                            {
-                                                                                tag:"div",
-                                                                                class:"w-100 text-center",
-                                                                                sub:[
-                                                                                    {
-                                                                                        tag:"img",
-                                                                                        class:"imagem_mes_calendario item_destaque100pct_hover",
-                                                                                        src:"/sjd/images/calendario/jan.png",
-                                                                                        title:"Preenche as datas com este mes inteiro",
-                                                                                        onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
-                                                                                    },
-                                                                                    {
-                                                                                        tag:"img",
-                                                                                        class:"imagem_mes_calendario item_destaque100pct_hover",
-                                                                                        src:"/sjd/images/calendario/fev.png",
-                                                                                        title:"Preenche as datas com este mes inteiro",
-                                                                                        onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
-                                                                                    },
-                                                                                    {
-                                                                                        tag:"img",
-                                                                                        class:"imagem_mes_calendario item_destaque100pct_hover",
-                                                                                        src:"/sjd/images/calendario/mar.png",
-                                                                                        title:"Preenche as datas com este mes inteiro",
-                                                                                        onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
-                                                                                    },
-                                                                                    {
-                                                                                        tag:"img",
-                                                                                        class:"imagem_mes_calendario item_destaque100pct_hover",
-                                                                                        src:"/sjd/images/calendario/abr.png",
-                                                                                        title:"Preenche as datas com este mes inteiro",
-                                                                                        onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
-                                                                                    },
-                                                                                    {
-                                                                                        tag:"img",
-                                                                                        class:"imagem_mes_calendario item_destaque100pct_hover",
-                                                                                        src:"/sjd/images/calendario/mai.png",
-                                                                                        title:"Preenche as datas com este mes inteiro",
-                                                                                        onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
-                                                                                    },
-                                                                                    {
-                                                                                        tag:"img",
-                                                                                        class:"imagem_mes_calendario item_destaque100pct_hover",
-                                                                                        src:"/sjd/images/calendario/jun.png",
-                                                                                        title:"Preenche as datas com este mes inteiro",
-                                                                                        onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
-                                                                                    },
-                                                                                    {
-                                                                                        tag:"img",
-                                                                                        class:"imagem_mes_calendario item_destaque100pct_hover",
-                                                                                        src:"/sjd/images/calendario/jul.png",
-                                                                                        title:"Preenche as datas com este mes inteiro",
-                                                                                        onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
-                                                                                    },
-                                                                                    {
-                                                                                        tag:"img",
-                                                                                        class:"imagem_mes_calendario item_destaque100pct_hover",
-                                                                                        src:"/sjd/images/calendario/ago.png",
-                                                                                        title:"Preenche as datas com este mes inteiro",
-                                                                                        onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
-                                                                                    },
-                                                                                    {
-                                                                                        tag:"img",
-                                                                                        class:"imagem_mes_calendario item_destaque100pct_hover",
-                                                                                        src:"/sjd/images/calendario/set.png",
-                                                                                        title:"Preenche as datas com este mes inteiro",
-                                                                                        onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
-                                                                                    },
-                                                                                    {
-                                                                                        tag:"img",
-                                                                                        class:"imagem_mes_calendario item_destaque100pct_hover",
-                                                                                        src:"/sjd/images/calendario/out.png",
-                                                                                        title:"Preenche as datas com este mes inteiro",
-                                                                                        onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
-                                                                                    },
-                                                                                    {
-                                                                                        tag:"img",
-                                                                                        class:"imagem_mes_calendario item_destaque100pct_hover",
-                                                                                        src:"/sjd/images/calendario/nov.png",
-                                                                                        title:"Preenche as datas com este mes inteiro",
-                                                                                        onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
-                                                                                    },
-                                                                                    {
-                                                                                        tag:"img",
-                                                                                        class:"imagem_mes_calendario item_destaque100pct_hover",
-                                                                                        src:"/sjd/images/calendario/dez.png",
-                                                                                        title:"Preenche as datas com este mes inteiro",
-                                                                                        onclick:"window.fnhtml.fncal.clicou_mes_calendario({elemento:this})"
-                                                                                    },
-                                                                                    {
-                                                                                        tag:"input",
-                                                                                        class:"inputano",
-                                                                                        type:"number",
-                                                                                        value:fndt.getAno(),
-                                                                                        title:"Ano para preenchimento do mes inteiro",
-                                                                                        props:[
-                                                                                            {
-                                                                                                prop:"step",
-                                                                                                value:1
-                                                                                            },
-                                                                                            {
-                                                                                                prop:"min",
-                                                                                                value:0
-                                                                                            }
-                                                                                        ]
-                                                                                    }
-                                                                                ]
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                ]
-                                                            }
-                                                        ]
-                                                    },
-                                                    {
-                                                        tag:"div",
-                                                        class:"div_opcao_controles_btns_img col-md-auto w-auto",
-                                                        sub:[
-                                                            {
-                                                                tag:"img",
-                                                                class:"btn_img_add_ctrl mousehover clicavel rounded",
-                                                                src:"/sjd/images/maisverde32.png",
-                                                                onclick:"window.fnsisjd.inserir_periodo_pesquisa({elemento:this})",
-                                                                title:"Acrescentar após deste"
-                                                            },
-                                                            {
-                                                                tag:"img",
-                                                                class:"btn_img_excl_ctrl mousehover clicavel rounded",
-                                                                src:"/sjd/images/img_del.png",
-                                                                onclick:"window.fnsisjd.deletar_controles({elemento:this})",
-                                                                title:"Excluir este controle"
-                                                            }
-                                                        ]
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    }
+                    params.dtini = nova_dtini;
+                    params.dtfim = nova_dtfim;
+                    let paramsPeriodo = this.criarPeriodo(params);
 
                     if (elem.hasClass("btn_img_add_ctrl")) {
-                        nova_div_opcao = $(fnhtml.criar_elemento(params)).insertAfter(elem.closest("div.div_periodo"));
+                        nova_div_opcao = $(fnhtml.criar_elemento(paramsPeriodo)).insertAfter(elem.closest("div.div_periodo"));
                     } else {
-                        div.append(fnhtml.criar_elemento(params)) ;	
+                        div.append(fnhtml.criar_elemento(paramsPeriodo)) ;	
                         nova_div_opcao = div.find("div.div_periodo:last");
                     }
                     fnhtml.elemento_inserido_dinamicamente(nova_div_opcao);
                 }
-        }
+            }
             fnjs.logf(this.constructor.name,"inserir_periodo_pesquisa");
         }catch(e){
             console.log(e);
@@ -910,6 +932,7 @@ class FuncoesSisJD{
                 this.requisitar_visoes_condicionantes({elemento : params.elemento, funcao_retorno:"window.fnsisjd.inserir_condicionante_pesquisa", parametros:params});
                 return;
             } 
+            
             params.visoes_condic = params.visoes_condic || vars.visoes_condicionantes;
             if (typeof params.elemento !== 'undefined') {
                 params.elemento = fnjs.obterJquery(params.elemento);
@@ -921,6 +944,9 @@ class FuncoesSisJD{
             let div	= params.elemento.closest("div.div_opcoes").find("div.div_opcoes_corpo");	
             if (typeof div === "undefined" || div === null || !div.length) {
                 div = params.elemento.closest("div.accordion-body").children("div.row:first");
+            }
+            if (typeof div === "undefined" || div === null || !div.length) {
+                div = params.elemento;
             }
             let nova_condicionante  = '' ;
             let ind			= Number(div.attr('data-ind')||0);
@@ -970,6 +996,7 @@ class FuncoesSisJD{
             /*monta o dropdown visao*/
             let dropdown_visao = null;
             let params_dropdown_visao = {};
+            params_dropdown_visao.class = params.class_visao || "";
             params_dropdown_visao.visoes = params.visoes_condic;
             params_dropdown_visao.selecionado = params.selecionado;
             params_dropdown_visao.classe_botao = vars.classe_padrao_botao;
@@ -985,7 +1012,7 @@ class FuncoesSisJD{
             /*monta o dropdown operacoes*/
             let dropdown_operacao = null;
             let params_dropdown_operacao = {};
-            params_dropdown_operacao.class = "operacao";
+            params_dropdown_operacao.class = "operacao " + (params.class_operacao || "");
             params_dropdown_operacao.itens = ["Igual a","Diferente de"];
             params_dropdown_operacao.selecionado = "Igual a";
             params_dropdown_operacao.classe_botao = vars.classe_padrao_botao;
@@ -998,8 +1025,32 @@ class FuncoesSisJD{
             params_dropdown_valores.classe_botao = vars.classe_padrao_botao;
             dropdown_valores = fnhtml.fndrop.criar_dropdown(params_dropdown_valores);
 
-
-
+            let params_botoes = [];
+            if (fnjs.first_valid([params.permite_incluir,true]) == true) {
+                params_botoes.push(
+                    {
+                        tag:"img",
+                        class:"btn_img_add_ctrl mousehover clicavel rounded",
+                        src:"/sjd/images/maisverde32.png",
+                        onclick:"window.fnsisjd.inserir_condicionante_pesquisa({elemento:this})",
+                        title:"Acrescentar após deste"
+                    }
+                );
+            }
+            
+            
+            if (fnjs.first_valid([params.permite_excluir,true]) == true) {
+                params_botoes.push(
+                    {
+                        tag:"img",
+                        class:"btn_img_excl_ctrl mousehover clicavel rounded",
+                        src:"/sjd/images/img_del.png",
+                        onclick:"window.fnsisjd.deletar_controles({elemento:this})",
+                        title:"Excluir este controle"
+                    }
+                );
+            }
+            let titulo = params.titulo || "Condicionante " + ind;
             let params_condic = {
                 retornar_como:"string",
                 tag:"div",
@@ -1012,7 +1063,7 @@ class FuncoesSisJD{
                             {
                                 tag:"div",
                                 class:"card-header",
-                                content:"Condicionante " + ind
+                                content:titulo
                             },
                             {
                                 tag:"div",
@@ -1040,12 +1091,12 @@ class FuncoesSisJD{
                                                                         sub:[
                                                                             {
                                                                                 tag:"div",
-                                                                                class:"col-auto",
+                                                                                class:"col-auto " + ((params.class_visao||"").indexOf("d-none") > -1?"d-none":""),
                                                                                 content:dropdown_visao
                                                                             },
                                                                             {
                                                                                 tag:"div",
-                                                                                class:"col-auto",
+                                                                                class:"col-auto " + ((params.class_operacao||"").indexOf("d-none") > -1?"d-none":""),
                                                                                 content:dropdown_operacao
                                                                             },
                                                                             {
@@ -1065,22 +1116,7 @@ class FuncoesSisJD{
                                             {
                                                 tag:"div",
                                                 class:"div_opcao_controles_btns_img col-md-auto w-auto",
-                                                sub:[
-                                                    {
-                                                        tag:"img",
-                                                        class:"btn_img_add_ctrl mousehover clicavel rounded",
-                                                        src:"/sjd/images/maisverde32.png",
-                                                        onclick:"window.fnsisjd.inserir_condicionante_pesquisa({elemento:this})",
-                                                        title:"Acrescentar após deste"
-                                                    },
-                                                    {
-                                                        tag:"img",
-                                                        class:"btn_img_excl_ctrl mousehover clicavel rounded",
-                                                        src:"/sjd/images/img_del.png",
-                                                        onclick:"window.fnsisjd.deletar_controles({elemento:this})",
-                                                        title:"Excluir este controle"
-                                                    }
-                                                ]
+                                                sub:params_botoes
                                             }
                                         ]
                                     }
@@ -4754,6 +4790,91 @@ class FuncoesSisJD{
         }
     }
 
+
+    pesquisar_sub_registro_carregamentos(params){
+        try{
+            fnjs.logi(this.constructor.name,"pesquisar_sub_registro_carregamentos");
+            let comhttp,
+                cel_sub_registro={},
+                idrand=fnjs.id_random(),
+                numcar="",
+                linha = {};
+            params = params || {};
+            params.elemento = params.elemento || params.elem || params.obj || params;
+            params.elemento = fnjs.obterJquery(params.elemento);
+            linha = params.elemento.closest("tr");
+            cel_sub_registro = linha.next().children("td.cel_sub_registro");            
+            cel_sub_registro.addClass(idrand);
+            numcar = linha.children("td").eq(1).text();
+            comhttp = JSON.parse(vars.str_tcomhttp);
+            comhttp.requisicao.requisitar.oque='dados_sql';
+            comhttp.requisicao.requisitar.qual.comando = "consultar";
+            comhttp.requisicao.requisitar.qual.tipo_objeto = "tabela";
+            comhttp.requisicao.requisitar.qual.objeto = "notas_carregamento";
+            comhttp.requisicao.requisitar.qual.condicionantes=[];
+            comhttp.requisicao.requisitar.qual.condicionantes.push("tipo_dados=tabelaest");
+            comhttp.requisicao.requisitar.qual.condicionantes.push("relatorio=notas_carregamento");
+            comhttp.requisicao.requisitar.qual.condicionantes.push("numcar="+numcar);
+            comhttp.opcoes_retorno.seletor_local_retorno="td."+idrand;
+            comhttp.opcoes_retorno.metodo_insersao = "html";			
+            comhttp.eventos.aposretornar=[{
+                arquivo:null,
+                funcao:'window.fnreq.inserir_retorno'
+            }];
+            comhttp.opcoes_retorno.padding_right = 10;
+            comhttp.opcoes_retorno.padding_left = 10;
+            fnreq.requisitar_servidor({comhttp:comhttp});
+            fnjs.logf(this.constructor.name,"pesquisar_sub_registro_carregamentos");
+        }catch(e){
+            console.log(e);
+            alert(e.message || e);
+        }
+    }
+
+
+    pesquisar_sub_registro_nota_carregamentos(params){
+        try{
+            fnjs.logi(this.constructor.name,"pesquisar_sub_registro_nota_carregamentos");
+            let comhttp,
+                cel_sub_registro={},
+                idrand=fnjs.id_random(),
+                numnota="",
+                linha = {};
+            params = params || {};
+            params.elemento = params.elemento || params.elem || params.obj || params;
+            params.elemento = fnjs.obterJquery(params.elemento);
+            linha = params.elemento.closest("tr");
+            cel_sub_registro = linha.next().children("td.cel_sub_registro");            
+            cel_sub_registro.addClass(idrand);
+            numnota = linha.children("td").eq(1).text();
+            comhttp = JSON.parse(vars.str_tcomhttp);
+            comhttp.requisicao.requisitar.oque='dados_sql';
+            comhttp.requisicao.requisitar.qual.comando = "consultar";
+            comhttp.requisicao.requisitar.qual.tipo_objeto = "tabela";
+            comhttp.requisicao.requisitar.qual.objeto = "itens_notas_carregamento";
+            comhttp.requisicao.requisitar.qual.condicionantes=[];
+            comhttp.requisicao.requisitar.qual.condicionantes.push("tipo_dados=tabelaest");
+            comhttp.requisicao.requisitar.qual.condicionantes.push("relatorio=itens_notas_carregamento");
+            comhttp.requisicao.requisitar.qual.condicionantes.push("numnota="+numnota);
+            comhttp.opcoes_retorno.seletor_local_retorno="td."+idrand;
+            comhttp.opcoes_retorno.metodo_insersao = "html";			
+            comhttp.eventos.aposretornar=[{
+                arquivo:null,
+                funcao:'window.fnreq.inserir_retorno'
+            }];
+            comhttp.opcoes_retorno.padding_right = 10;
+            comhttp.opcoes_retorno.padding_left = 10;
+            fnreq.requisitar_servidor({comhttp:comhttp});
+            fnjs.logf(this.constructor.name,"pesquisar_sub_registro_nota_carregamentos");
+        }catch(e){
+            console.log(e);
+            alert(e.message || e);
+        }
+    }
+     
+
+
+
     atualizar_cores_clientes_positivados(params) {
         try {
             fnjs.logi(this.constructor.name,"atualizar_cores_clientes_positivados");
@@ -5756,7 +5877,7 @@ class FuncoesSisJD{
                 +totalatingido+'</td><td>Total a Pagar:</td><td class="cel_valor">'
                 +totalatingido+'</td></tr></tdoby></table>';			
 			if (window.vars.navegador === "iexplorer") {
-				popupImprimir.document.write('<html><head><meta charset="utf-8"><title>SisJD-Jumbo Distribuidor-Imprimir</title><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/estilos.css?12.21"/><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/estilos_basicos.css?12.23"/><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/login.css?12.1"/><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/barra_sup.css?12" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/menu_esquerdo.css?12" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/combobox.css?12.1" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/calendario.css?12.1" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/tabela_est.css?12.4" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/input_combobox.css?12" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/abas.css?12" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSIS__+'/css/sisjd.css?12.7" /><script type="text/javascript" src="/'+__NOMEDIRSISBU__+'/javascript/arquivos_de_terceiros/jquery-3.3.1.min.js?12.33" charset="UTF-8"></script></head><body>');
+				popupImprimir.document.write('<html><head><meta charset="utf-8"><title>SisJD-Jumbo Distribuidor-Imprimir</title><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/1.0/estilos.css?12.21"/><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/estilos_basicos.css?12.23"/><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/login.css?12.1"/><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/barra_sup.css?12" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/menu_esquerdo.css?12" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/combobox.css?12.1" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/calendario.css?12.1" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/tabela_est.css?12.4" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/input_combobox.css?12" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/abas.css?12" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSIS__+'/css/sisjd.css?12.7" /><script type="text/javascript" src="/'+__NOMEDIRSISBU__+'/javascript/arquivos_de_terceiros/jquery-3.3.1.min.js?12.33" charset="UTF-8"></script></head><body>');
 				popupImprimir.document.write(imprimir);
 				popupImprimir.document.write('</body></html>');
 				$(popupImprimir.document.body).find("button").remove();
@@ -5780,7 +5901,7 @@ class FuncoesSisJD{
 					$(popupImprimir.document.body).find("h3").nextAll("br").eq(0).remove();
 					$(popupImprimir.document.body).find("br").next("br").remove();
 					$(popupImprimir.document.body).append('<br /><text style="font-size:1.2em;font-weight: bold;">_________________________________________,______ de ___________________ de __________ .</text><br /></br /><br /></br /><br /><text style="font-size:15px;font-weight: bold;">________________________________________________</text><br /><text style="font-size:1.2em;font-weight: bold;">'+rca[0].children("td").eq(1).text()+'</text>');								
-                    $(popupImprimir.document.body).append('<link rel="stylesheet" type="text/css" href="/sjd/css/estilos.css?12.7" />');
+                    $(popupImprimir.document.body).append('<link rel="stylesheet" type="text/css" href="/sjd/css/1.0/estilos.css?12.7" />');
                     $(popupImprimir.document.body).append('<script type="text/javascript" src="/js/jquery/3.6.0/jquery-3.6.0.min.js?12.33" charset="UTF-8"></script>');
                     $(popupImprimir.document.body).append('<style>table.tabdados>tfoot{color:black !important;}</style>');
                     popupImprimir.print();
@@ -6188,6 +6309,392 @@ class FuncoesSisJD{
 	 	}
 	}
 
+
+    inserirGraficoVolumeInicio(params){
+        try {
+            fnjs.logi(this.constructor.name,"inserirGraficoVolumeInicio");
+            let opcoes_grafico1 = {}, opcoes_grafico2={}, opcoes_grafico3={};
+            /*migrar para google charts*/
+            google.charts.load('current', {'packages':['bar']});    
+            google.charts.setOnLoadCallback(desenharGraficosVolumeInicio);
+            
+            function desenharGraficosVolumeInicio() {
+                let 
+                    data,
+                    rows = [],
+                    valor1,
+                    valor2;
+                let qt = 12;
+
+                if (!localStorage.getItem("dados_grafico_volume_inicio_" + fndt.getAno() + "_" + (localStorage.getItem("codusur")||""))) {
+                    for(let i = 0; i < qt; i++) {
+                        //params.comhttp.retorno.dados_retornados.conteudo_html.dados[i] = parseFloat(params.comhttp.retorno.dados_retornados.conteudo_html.dados[i]);
+                        localStorage.setItem("dados_grafico_volume_inicio_"+fndt.getAno()+"_"+(localStorage.getItem("codusur")||""),params.comhttp.retorno.dados_retornados.conteudo_html.dados.join(";"));
+                        valor1 = parseFloat(params.comhttp.retorno.dados_retornados.conteudo_html.dados[i] || 0);
+                        valor2 = parseFloat(params.comhttp.retorno.dados_retornados.conteudo_html.dados[i+12] || 0);
+                        if (valor1==0) {
+                            valor1 = null;
+                        }
+                        if (valor2==0) {
+                            valor2 = null;
+                        }
+                        rows.push([
+                            window.vars.constantes.meses_abrev[i],
+                            valor1,
+                            valor2
+                        ]);
+                    }
+                } else {
+                    let valores = localStorage.getItem("dados_grafico_volume_inicio_" + fndt.getAno() + "_" + (localStorage.getItem("codusur")||""));
+                    valores = valores.split(";");
+                    console.log(valores);        
+                    let valorMesAtual = parseFloat(params.comhttp.retorno.dados_retornados.conteudo_html.dados[0] || 0);            
+                    for(let i = 0; i < qt; i++) {
+                        //params.comhttp.retorno.dados_retornados.conteudo_html.dados[i] = parseFloat(params.comhttp.retorno.dados_retornados.conteudo_html.dados[i]);
+                        valor1 = parseFloat(valores[i] || 0);
+                        valor2 = parseFloat(valores[i+12] || 0);
+                        if (valor1==0) {
+                            valor1 = null;
+                        }
+                        if (valor2==0) {
+                            valor2 = null;
+                        }
+                        if (i == (fndt.getMes()-1)) {
+                            valor2 = valorMesAtual;
+                        }
+                        rows.push([
+                            window.vars.constantes.meses_abrev[i],
+                            valor1,
+                            valor2
+                        ]);
+                    }
+                    console.log(rows);
+                    //alert("ok1");
+                }
+                
+                data = new google.visualization.DataTable();
+                data.addColumn('string', 'Mes');
+                data.addColumn('number', fndt.getAno()-1);
+                data.addColumn('number', fndt.getAno());
+                data.addRows(rows);        
+
+                let options = {
+                    title:"Volume ano anterior x atual",
+                    hAxis: {
+                        title: 'Meses'
+                    },
+                    vAxis: {
+                        title: 'Realizado',
+                        minValue:0
+                    },
+                    legend: { position: 'top' }
+                };
+                let elemento_html = fnjs.obterJquery('div#grafico_volume');
+                elemento_html.html("");
+                let chart = new google.charts.Bar(elemento_html[0]);
+
+                chart.draw(data, google.charts.Bar.convertOptions(options));
+            }
+            fnjs.logf(this.constructor.name,"inserirGraficoVolumeInicio");
+        } catch(erro) {
+            console.log(erro);
+            alert(erro.message || erro);
+        }
+    }
+
+
+    carregarGraficoVolumeInicio(){
+        try {
+            let comhttp = JSON.parse(window.vars.str_tcomhttp);
+			comhttp.opcoes_retorno.ignorar_tabela_est = true;
+			comhttp.requisicao.requisitar.oque="dados_sql";
+			comhttp.requisicao.requisitar.qual.comando = "consultar";
+			comhttp.requisicao.requisitar.qual.tipo_objeto = "pesquisa";
+            comhttp.opcoes_retorno.metodo_insersao = "html";			
+            comhttp.opcoes_requisicao.mostrar_carregando = false;
+			comhttp.eventos.aposretornar=[{
+				arquivo:null,
+				funcao:'window.fnsisjd.inserirGraficoVolumeInicio'
+			}];
+            if (!localStorage.getItem("dados_grafico_volume_inicio_" + fndt.getAno() + "_" + (localStorage.getItem("codusur")||""))) {			
+			    comhttp.requisicao.requisitar.qual.objeto = "dados_grafico_volume_inicio";                
+            } else {
+                comhttp.requisicao.requisitar.qual.objeto = "dados_grafico_volume_inicio_mes_atual";
+            }	
+            window.fnreq.requisitar_servidor({comhttp:comhttp});		
+			
+        } catch(e) {
+			console.log(e);
+			alert(e.message||e);
+	 	}
+    }
+
+
+    obterFiltrosDashboard() {
+        try {
+            fnjs.logi(this.constructor.name,"obterFiltrosDashboard");
+            let filtros_dashboard = {},
+                div_filtros = fnjs.obterJquery("div.card_filtros_dashboard"),
+                div_filtros_entidades,
+                div_filtros_periodos,
+                inputs_entidades,
+                input_filial,
+                input_superv,
+                input_rca,
+                filial = null,
+                superv = null,
+                rca = null,
+                combo_boxes = {},
+                inputs_anos = {},
+                combobox_periodo1 = {},
+                combobox_periodo2 = {},
+                input_ano_periodo1 = {},
+                input_ano_periodo2 = {},
+                mes_periodo1 = null,
+                mes_periodo2 = null,
+                ano_periodo1 = null,
+                ano_periodo2 = null,
+                card_origem = {},
+                combobox_origem = {},
+                origem = null;
+            div_filtros_entidades = div_filtros.find("div.div_consultar_dashboard_filtros_filtros");
+            div_filtros_periodos = div_filtros.find("div.div_consultar_dashboard_filtros_periodos");				
+            card_origem = div_filtros.find("div.card_origem");		
+            combobox_origem = card_origem.find("div.div_combobox");		
+            inputs_entidades = div_filtros_entidades.find("input.input_entidade") ;
+            input_filial = inputs_entidades.eq(0);
+            input_superv = inputs_entidades.eq(1);
+            input_rca = inputs_entidades.eq(2);		
+            filial = input_filial.val().trim();
+            superv = input_superv.val().trim();
+            rca = input_rca.val().trim();		
+            combo_boxes = div_filtros_periodos.find("div.div_combobox") ;
+            inputs_anos = div_filtros_periodos.find("input.input_ano") ;	
+            combobox_periodo1 = combo_boxes.eq(0);
+            combobox_periodo2 = combo_boxes.eq(0);
+            input_ano_periodo1 = inputs_anos.eq(0);
+            input_ano_periodo2 = inputs_anos.eq(0);
+            mes_periodo1 = fnhtml.fncomboboxs.obter_valores_selecionados_combobox(combobox_periodo1);
+            mes_periodo2 = fnhtml.fncomboboxs.obter_valores_selecionados_combobox(combobox_periodo2);
+            origem = fnhtml.fncomboboxs.obter_valores_selecionados_combobox(combobox_origem);
+            ano_periodo1 = input_ano_periodo1.val();
+            ano_periodo2 = input_ano_periodo2.val();		
+            filtros_dashboard.filial = filial;
+            filtros_dashboard.superv = superv;
+            filtros_dashboard.rca = rca;
+            filtros_dashboard.mes_periodo1 = mes_periodo1;
+            filtros_dashboard.mes_periodo2 = mes_periodo2;
+            filtros_dashboard.ano_periodo1 = ano_periodo1;
+            filtros_dashboard.ano_periodo2 = ano_periodo2;
+            filtros_dashboard.origem = origem;
+            let div_condicionantes = $("div.div_consultar_dashboard_filtros_condicionantes").find("div.div_combobox.condicionante");
+            filtros_dashboard.condicionantes = [];
+            for(let i = 0; i < div_condicionantes.length; i++) {
+                let valores_selecionados = fnhtml.fncomboboxs.obter_valores_selecionados_combobox(div_condicionantes.eq(i));
+                if (valores_selecionados.length > 0) {
+                    filtros_dashboard.condicionantes.push(valores_selecionados.join(vars.sepn2));
+                }
+            }
+            filtros_dashboard.condicionantes = filtros_dashboard.condicionantes.join(vars.sepn1);
+
+            fnjs.logf(this.constructor.name,"obterFiltrosDashboard");
+            return filtros_dashboard;            
+        }catch(e){
+            console.log(e);
+            alert(e.message || e);
+        }	
+    }
+
+
+
+    inserirGraficoVolume(params){
+        try {
+            fnjs.logi(this.constructor.name,"inserirGraficoVolume");
+            google.charts.load('current', {'packages':['bar']});    
+            google.charts.setOnLoadCallback(function(){
+                let data,
+                    rows = [],
+                    valor1,
+                    valor2,
+                    qt = 12,
+                    combobox_ano = window.fnjs.obterJquery("div.card_anos_grafico_volume").find("div.div_combobox"),
+                    anos_considerar = fnhtml.fncomboboxs.obter_valores_selecionados_combobox(combobox_ano),
+                    linha = [];
+                //alert(typeof anos_considerar);
+                //anos_considerar = anos_considerar.split(",");
+                for(let i = 0; i < qt; i++) {
+                    linha = [];
+                    linha.push(window.vars.constantes.meses_abrev[i]);
+                    for(let j = 0; j < anos_considerar.length; j++) {
+                        valor1 = parseFloat(params.comhttp.retorno.dados_retornados.conteudo_html.dados[i+(j*12)] || 0);
+                        if (valor1==0) {
+                            valor1 = null;
+                        }
+                        linha.push(valor1);
+                    }
+                    rows.push(linha);
+                }                
+                
+                data = new google.visualization.DataTable();
+                data.addColumn('string', 'Mes');
+                for(let j = 0; j < anos_considerar.length; j++) {
+                    data.addColumn('number', anos_considerar[j]);
+                }
+
+
+                data.addRows(rows);        
+
+                let options = {
+                    hAxis: {
+                        title: 'Meses'
+                    },
+                    vAxis: {
+                        title: 'Realizado',
+                        minValue:0
+                    },
+                    legend: { position: 'top' }
+                };
+                let elemento_html = fnjs.obterJquery(params.comhttp.opcoes_retorno.seletor_local_retorno);
+                elemento_html.html("");
+                let chart = new google.charts.Bar(elemento_html[0]);
+
+                chart.draw(data, google.charts.Bar.convertOptions(options));
+            });
+            fnjs.logf(this.constructor.name,"inserirGraficoVolume");
+        } catch(erro) {
+            console.log(erro);
+            alert(erro.message || erro);
+        }
+    }
+
+    carregarGraficoVolume(params){
+        try {
+            params = params || {};
+            params.seletor_local_retorno = params.seletor_local_retorno || "div#div_grafico_volume";
+            let objeto_retorno = window.fnjs.obterJquery(params.seletor_local_retorno);
+            objeto_retorno.html("");
+            objeto_retorno.append(window.fnhtml.criarSpinner());
+            let comhttp = JSON.parse(window.vars.str_tcomhttp);
+			comhttp.opcoes_retorno.ignorar_tabela_est = true;
+			comhttp.requisicao.requisitar.oque="dados_sql";
+			comhttp.requisicao.requisitar.qual.comando = "consultar";
+			comhttp.requisicao.requisitar.qual.tipo_objeto = "pesquisa";
+            comhttp.opcoes_retorno.metodo_insersao = "html";
+            comhttp.requisicao.requisitar.qual.condicionantes = [];   
+            params.condicionantes = params.condicionantes || this.obterFiltrosDashboard();         
+            comhttp.requisicao.requisitar.qual.condicionantes.push("filtros="+JSON.stringify(params.condicionantes));
+            comhttp.opcoes_retorno.seletor_local_retorno = params.seletor_local_retorno;			
+            comhttp.opcoes_requisicao.mostrar_carregando = false;
+			comhttp.eventos.aposretornar=[{
+				arquivo:null,
+				funcao:'window.fnsisjd.inserirGraficoVolume'
+			}];
+            let combobox_ano = window.fnjs.obterJquery("div.card_anos_grafico_volume").find("div.div_combobox");
+            let anos_considerar = fnhtml.fncomboboxs.obter_valores_selecionados_combobox(combobox_ano);
+            comhttp.requisicao.requisitar.qual.condicionantes.push("anos_considerar=" + anos_considerar);
+            let mostrar_vals_de = window.fnjs.obterJquery("div.card_unidade_grafico_volume").find("input:checked").val();
+            comhttp.requisicao.requisitar.qual.condicionantes.push("mostrar_vals_de"+'='+mostrar_vals_de);
+			comhttp.requisicao.requisitar.qual.objeto = "dados_grafico_volume";                                        
+            window.fnreq.requisitar_servidor({comhttp:comhttp});					
+        } catch(e) {
+			console.log(e);
+			alert(e.message||e);
+	 	}
+    }
+
+
+    inserirGraficoPositivacaoClientes(params){
+        try {
+            fnjs.logi(this.constructor.name,"inserirGraficoinserirGraficoPositivacaoClientesVolume");
+            google.charts.load('current', {'packages':['corechart']});    
+            google.charts.setOnLoadCallback(function(){
+                let data;
+                data = google.visualization.arrayToDataTable([
+                    ['Clientes','Positivacao'],
+                    ["Positivados",params.comhttp.retorno.dados_retornados.conteudo_html.dados[0]-0],
+                    ["Nao Positivados",params.comhttp.retorno.dados_retornados.conteudo_html.dados[1]-0]
+                ]);
+                
+                let options = {
+                    title:"Total Carteira " + (params.comhttp.retorno.dados_retornados.conteudo_html.dados[0]-0+(params.comhttp.retorno.dados_retornados.conteudo_html.dados[1]-0)),
+                    pieHole: 0.3,
+                    legend: { position: 'top' }
+                };
+                let elemento_html = fnjs.obterJquery(params.comhttp.opcoes_retorno.seletor_local_retorno);
+                elemento_html.html("");
+                let chart = new google.visualization.PieChart(elemento_html[0]);
+
+                chart.draw(data, options);
+            });
+            fnjs.logf(this.constructor.name,"inserirGraficoPositivacaoClientes");
+        } catch(erro) {
+            console.log(erro);
+            alert(erro.message || erro);
+        }
+    }
+
+    carregarGraficoPositivacaoClientes(params){
+        try {
+            params = params || {};
+            params.seletor_local_retorno = params.seletor_local_retorno || "div#div_grafico_positivacao";
+            let objeto_retorno = window.fnjs.obterJquery(params.seletor_local_retorno);
+            objeto_retorno.html("");
+            objeto_retorno.append(window.fnhtml.criarSpinner());
+            let comhttp = JSON.parse(window.vars.str_tcomhttp);
+			comhttp.opcoes_retorno.ignorar_tabela_est = true;
+			comhttp.requisicao.requisitar.oque="dados_sql";
+			comhttp.requisicao.requisitar.qual.comando = "consultar";
+			comhttp.requisicao.requisitar.qual.tipo_objeto = "pesquisa";
+            comhttp.opcoes_retorno.metodo_insersao = "html";
+            comhttp.requisicao.requisitar.qual.condicionantes = [];   
+            params.condicionantes = params.condicionantes || this.obterFiltrosDashboard();         
+            comhttp.requisicao.requisitar.qual.condicionantes.push("filtros="+JSON.stringify(params.condicionantes));
+            comhttp.opcoes_retorno.seletor_local_retorno = params.seletor_local_retorno;			
+            comhttp.opcoes_requisicao.mostrar_carregando = false;
+			comhttp.eventos.aposretornar=[{
+				arquivo:null,
+				funcao:'window.fnsisjd.inserirGraficoPositivacaoClientes'
+			}];            
+            let inputs_datas = $("div.row_opcoes_grafico_positivacao_periodo").find("input.componente_data");
+            let datas = [inputs_datas.eq(0).val(),inputs_datas.eq(1).val()];
+            if (inputs_datas.eq(0).attr("type") == "date") {
+                datas[0] = fndt.dataBR(datas[0]);
+            }
+            if (inputs_datas.eq(0).attr("type") == "date") {
+                datas[1] = fndt.dataBR(datas[1]);
+            }
+            comhttp.requisicao.requisitar.qual.condicionantes.push("datas="+datas.join(","));
+			comhttp.requisicao.requisitar.qual.objeto = "dados_grafico_positivacao";                                        
+            window.fnreq.requisitar_servidor({comhttp:comhttp});					
+        } catch(e) {
+			console.log(e);
+			alert(e.message||e);
+	 	}
+    }
+
+    
+
+    carregarDashboard(){
+        try {
+            fnjs.logi(this.constructor.name,"carregarDashboard");
+            let filtros_dashboard = {};
+            filtros_dashboard = this.obterFiltrosDashboard();	
+            	
+            this.carregarGraficoVolume({
+                condicionantes:filtros_dashboard,
+                seletor_local_retorno:"div#div_grafico_volume"}
+            );
+
+            this.carregarGraficoPositivacaoClientes({
+                condicionantes:filtros_dashboard,
+                seletor_local_retorno:"div#div_grafico_positivacao"}
+            );
+            fnjs.logf(this.constructor.name,"carregarDashboard");
+        }catch(e){
+            console.log(e);
+            alert(e.message || e);
+        }		
+    }
 
 };
 

@@ -5003,6 +5003,43 @@ class FuncoesHtml{
         }
     }
 
+    criarSpinner(paramsSpinner) {
+        try {
+            fnjs.logi(this.constructor.name,"criarSpinner");
+            let retorno = null;
+            paramsSpinner = paramsSpinner || {};
+            paramsSpinner.tag = "div";
+            paramsSpinner.class = "text-center";
+            paramsSpinner.props = paramsSpinner.props || [];
+            paramsSpinner.sub = paramsSpinner.sub || [];
+            paramsSpinner.sub.push({
+                tag:"div",
+                class:"spinner-border",
+                props:[
+                    {
+                        prop:"role",
+                        value:"status"
+                    }
+                ],
+                sub:[
+                    {
+                        tag:"span",
+                        class:"visually-hidden",
+                        text:"Carregando..."
+                    }
+                ]
+            });
+
+            retorno = this.criar_elemento(paramsSpinner);
+            fnjs.logf(this.constructor.name,"criarSpinner");
+            return retorno;
+        } catch (e){
+            console.log(e);
+            alert(e.message || e);
+            return null;
+        }
+    }
+
 
     criar_accordion_item_header(params) {
         try {

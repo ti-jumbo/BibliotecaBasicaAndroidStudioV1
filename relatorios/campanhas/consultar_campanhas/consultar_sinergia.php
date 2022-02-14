@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SisJD - Consultar Sinergia - Objetivos</title>
     <link href="/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/sjd/css/estilos.css" rel="stylesheet">
+    <link href="/sjd/css/1.0/estilos.css" rel="stylesheet">
     <script type="text/javascript" src="/sjd/javascript/polyfill.js"></script>
     <script type="text/javascript" src="/jquery/3.6.0/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
@@ -163,21 +163,25 @@
                                                     <div name="div_opcao_tit" class="div_opcao_tit">Ano</div>
                                                     <div name="div_opcao_controles" class="div_opcao_controles">
                                                         <div tem_inputs="1" selecionar_todos="1" filtro="1" classe_botao="btn-dark" class="div_combobox" placeholder="(Selecione)" tipo_inputs="checkbox" multiplo="1" num_max_texto_botao="5" funcao_filtro="window.fnhtml.fndrop.filtrar_dropdown(this)">
-                                                        <button type="button" class="btn dropdown-toggle btn-dark" data-bs-toggle="dropdown" aria-expanded="false" num_max_texto_botao="5" data-bs-auto-close="outside">2022</button>
-                                                        <ul class="dropdown-menu" onclick="window.fnhtml.fndrop.clicou_dropdown(event,this)">
-                                                            <label class="label_selecionar_todos" textodepois="1"><input type="checkbox" class="input_selecionar_todos" onchange="window.fnhtml.fndrop.selecionou_todos_dropdown(event,this)">Selecionar Todos</label><input type="text" class="input_filtro_dropdown rounded" placeholder="(filtro)" onkeyup="window.fnhtml.fndrop.filtrar_dropdown(this)">
-                                                            <li opcoes_texto_opcao="2017" opcoes_texto_botao="2017" opcoes_valor_opcao="2017" class="dropdown-item li" data-valor_opcao="2017" data-texto_botao="2017"><label textodepois="1"><input type="checkbox">2017</label></li>
-                                                            <li opcoes_texto_opcao="2018" opcoes_texto_botao="2018" opcoes_valor_opcao="2018" class="dropdown-item li" data-valor_opcao="2018" data-texto_botao="2018"><label textodepois="1"><input type="checkbox">2018</label></li>
-                                                            <li opcoes_texto_opcao="2019" opcoes_texto_botao="2019" opcoes_valor_opcao="2019" class="dropdown-item li" data-valor_opcao="2019" data-texto_botao="2019"><label textodepois="1"><input type="checkbox">2019</label></li>
-                                                            <li opcoes_texto_opcao="2020" opcoes_texto_botao="2020" opcoes_valor_opcao="2020" class="dropdown-item li" data-valor_opcao="2020" data-texto_botao="2020"><label textodepois="1"><input type="checkbox">2020</label></li>
-                                                            <li opcoes_texto_opcao="2021" opcoes_texto_botao="2021" opcoes_valor_opcao="2021" class="dropdown-item li" data-valor_opcao="2021" data-texto_botao="2021"><label textodepois="1"><input type="checkbox">2021</label></li>
-                                                            <li opcoes_texto_opcao="2022" opcoes_texto_botao="2022" opcoes_valor_opcao="2022" class="dropdown-item li" data-valor_opcao="2022" data-texto_botao="2022"><label textodepois="1"><input type="checkbox" checked="1">2022</label></li>
-                                                        </ul>
+                                                            <button type="button" class="btn dropdown-toggle btn-dark" data-bs-toggle="dropdown" aria-expanded="false" num_max_texto_botao="5" data-bs-auto-close="outside">2022</button>
+                                                            <ul class="dropdown-menu" onclick="window.fnhtml.fndrop.clicou_dropdown(event,this)">
+                                                                <label class="label_selecionar_todos" textodepois="1"><input type="checkbox" class="input_selecionar_todos" onchange="window.fnhtml.fndrop.selecionou_todos_dropdown(event,this)">Selecionar Todos</label><input type="text" class="input_filtro_dropdown rounded" placeholder="(filtro)" onkeyup="window.fnhtml.fndrop.filtrar_dropdown(this)">
+                                                                <li opcoes_texto_opcao="2017" opcoes_texto_botao="2017" opcoes_valor_opcao="2017" class="dropdown-item li" data-valor_opcao="2017" data-texto_botao="2017"><label textodepois="1"><input type="checkbox">2017</label></li>
+                                                                <li opcoes_texto_opcao="2018" opcoes_texto_botao="2018" opcoes_valor_opcao="2018" class="dropdown-item li" data-valor_opcao="2018" data-texto_botao="2018"><label textodepois="1"><input type="checkbox">2018</label></li>
+                                                                <li opcoes_texto_opcao="2019" opcoes_texto_botao="2019" opcoes_valor_opcao="2019" class="dropdown-item li" data-valor_opcao="2019" data-texto_botao="2019"><label textodepois="1"><input type="checkbox">2019</label></li>
+                                                                <li opcoes_texto_opcao="2020" opcoes_texto_botao="2020" opcoes_valor_opcao="2020" class="dropdown-item li" data-valor_opcao="2020" data-texto_botao="2020"><label textodepois="1"><input type="checkbox">2020</label></li>
+                                                                <li opcoes_texto_opcao="2021" opcoes_texto_botao="2021" opcoes_valor_opcao="2021" class="dropdown-item li" data-valor_opcao="2021" data-texto_botao="2021"><label textodepois="1"><input type="checkbox">2021</label></li>
+                                                                <li opcoes_texto_opcao="2022" opcoes_texto_botao="2022" opcoes_valor_opcao="2022" class="dropdown-item li" data-valor_opcao="2022" data-texto_botao="2022"><label textodepois="1"><input type="checkbox" checked="1">2022</label></li>
+                                                            </ul>
                                                         </div>
                                                     </div>
                                                     <div name="div_opcao_controles_deletar" class="div_opcao_controles_deletar"></div>
                                                 </div>
-                                                <div name="div_atualizar" class="div_atualizar col-12 m-2"><button name="botao_pesquisar" class="botao_pesquisar botao_padrao btn btn-primary w-50" value="Pesquisar" onclick="window.fnsisjd.pesquisar_sinergia(this)" type="button" data-visao="sinergia">Pesquisar</button></div>
+                                                <div name="div_atualizar" class="div_atualizar col-12 m-2">
+                                                    <button name="botao_pesquisar" class="botao_pesquisar botao_padrao btn btn-primary w-50" value="Pesquisar" onclick="window.fnsisjd.pesquisar_sinergia(this)" type="button" data-visao="sinergia">
+                                                        Pesquisar
+                                                    </button>
+                                                </div>
                                             </div>
                                             </div>
                                         </div>

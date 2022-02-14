@@ -66,6 +66,7 @@ class Variaveis{
             },
             this.constantes = {
                 meses:["JANEIRO","FEVEREIRO","MARCO","ABRIL","MAIO","JUNHO","JULHO","AGOSTO","SETEMBRO","OUTUBRO","NOVEMBRO","DEZEMBRO"],
+                meses_abrev:["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"],
                 anos:[2017,2018,2019],			
                 dias_da_semana : ["DOMINGO","SEGUNDA","TERCA","QUARTA","QUINTA","SEXTA","SABADO"],
                 dias_da_semana_abrev : ["DOM","SEG","TER","QUA","QUI","SEX","SAB"],

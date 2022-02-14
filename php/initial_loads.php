@@ -11,7 +11,7 @@
     use SJD\php\classes\Acess;
 
     if (!Acess::logged()) {
-        $url = 'http://' . $_SERVER['HTTP_HOST'].rtrim(dirname($_SERVER['PHP_SELF']), '/\\').'/login.php';
+        $url = 'http://' . $_SERVER['HTTP_HOST'].'/sjd/login.php';
         header('Location: ' . $url, true, 301);   
     }
 

@@ -58,7 +58,7 @@
          * @param string $valor - o valor a avaliar e evoluir
          * @return string - o valor recebido como paramtro e executado o codigo
          */
-        private static function processarEval(array|object &$comhttp,string $valor) : string{
+        public static function processarEval(array|object &$comhttp,string $valor) : string{
 			$pos_return = stripos($valor,"return ");
 			if ($pos_return !== false) {
 				$pos_final = stripos($valor,";",$pos_return);
@@ -689,7 +689,8 @@
                 $processo_unificado["elementos"] = FuncoesArray::ordenar_por_chave($processo_unificado["elementos"],"ordem");
                 foreach($processo_unificado["elementos"] as &$elemento){
                     self::ordenarSubElementosProcessoSql($elemento);
-                }				
+                }		
+				//print_r($processo_unificado);exit();		
 
                 $retorno = self::montarComandoSqlProcessoSql($comhttp,$processo_unificado);
                 

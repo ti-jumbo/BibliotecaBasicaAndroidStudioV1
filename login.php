@@ -16,7 +16,7 @@
     <script type="text/javascript" src="/sjd/javascript/polyfill.js"></script>
     <script type="text/javascript" src="/jquery/3.6.0/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="/sjd/javascript/modulos/ModuloPrincipal.js?2.00"></script>
+    <script type="module" src="/sjd/javascript/modulos/ModuloPrincipal.js?3.00"></script>
 </head>
 <body>
     <main name="main_login" class="main_login form-signin">

@@ -17,7 +17,7 @@
 		"codigoexecutavel":"
 		$retorno='
 				import { vars } from \"/sjd/javascript/modulos/classes/variaveis/Variaveis.js\";
-				import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+				import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 				vars.nome_usuario_logado=\"'.$_SESSION[\"nome_usuario\"].'\";
 				fnsisjd.carregar_valores_inicio();
 			';				
@@ -28,7 +28,7 @@
 		"codops":19,
 		"codigoexecutavel":"
 		$retorno='
-			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\";
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/1.0/FuncoesHtml.js\";
 			fnhtml.focar_elemento({seletor:\"form.form_login input[name=inputCodUsuario]\"});';
 		",
 		"codsituacaoregistro":1
@@ -37,7 +37,7 @@
 		"codops":400,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\"; 
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/1.0/FuncoesHtml.js\"; 
 			fnhtml.transf_movivel($(\"div.div_relatorio_personalizado div.div_visoes div.div_opcao\"));
 			fnhtml.transf_movivel($(\"div.div_relatorio_personalizado div.div_periodos div.div_opcao\"));
 			fnhtml.transf_movivel($(\"div.div_relatorio_personalizado div.div_condicionantes div.div_opcao\"));';
@@ -48,7 +48,7 @@
 		"codops":406,
 		"codigoexecutavel":"
 		$retorno = ' 
-			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\"; 
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/1.0/FuncoesHtml.js\"; 
 			fnhtml.transf_movivel($(\"div.div_consultar_ratingsfocais div.div_condicionantes div.div_opcao\"));';
 		",
 		"codsituacaoregistro":1
@@ -57,7 +57,7 @@
 		"codops":200,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"cliente\"});
 		';
 		",
@@ -67,7 +67,7 @@
 		"codops":202,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"avancado\",entity:\"cliente\"});
 		';
 		",
@@ -77,7 +77,7 @@
 		"codops":600,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"filial\"});
 		';
 		",
@@ -87,7 +87,7 @@
 		"codops":601,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";			
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";			
 			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"avancado\",entity:\"filial\"});
 		';
 		",
@@ -97,7 +97,7 @@
 		"codops":700,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"cidade\"});
 		';
 		",
@@ -107,7 +107,7 @@
 		"codops":701,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";			
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";			
 			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"avancado\",entity:\"cidade\"});
 		';
 		",
@@ -117,7 +117,7 @@
 		"codops":800,
 		"codigoexecutavel":"
 		$retorno = '	
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";		
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";		
 			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"estado\"});
 		';
 		",
@@ -127,7 +127,7 @@
 		"codops":900,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"rca\"});
 		';
 		",
@@ -137,7 +137,7 @@
 		"codops":901,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";			
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";			
 			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"avancado\",entity:\"rca\"});
 		';
 		",
@@ -147,7 +147,7 @@
 		"codops":1000,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"gerente\"});
 		';
 		",
@@ -157,7 +157,7 @@
 		"codops":1100,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"supervisor\"});
 		';
 		",
@@ -167,7 +167,7 @@
 		"codops":1200,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"regiao\"});
 		';
 		",
@@ -177,7 +177,7 @@
 		"codops":1300,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"praca\"});
 		';
 		",
@@ -187,7 +187,7 @@
 		"codops":1400,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.criar_filtro_pesquisa_padrao({nivel:\"basico\",entity:\"rota\"});
 		';
 		",
@@ -197,7 +197,7 @@
 		"codops":40103,
 		"codigoexecutavel":"
 		$retorno='
-			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\";  
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/1.0/FuncoesHtml.js\";  
 			fnhtml.transf_movivel($(\"div.div_clientesnaopositivados div.div_visoes div.div_opcao:not(:first)\"));';
 		",
 		"codsituacaoregistro":1
@@ -206,7 +206,7 @@
 		"codops":40105,
 		"codigoexecutavel":"
 		$retorno=' 
-			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\"; 
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/1.0/FuncoesHtml.js\"; 
 			fnhtml.transf_movivel($(\"div.div_positivacaopersonalizada div.div_visoes div.div_opcao:not(:first)\"));';
 		",
 		"codsituacaoregistro":1
@@ -215,7 +215,7 @@
 		"codops":40600,
 		"codigoexecutavel":"
 		$retorno='
-			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\";  
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/1.0/FuncoesHtml.js\";  
 			fnhtml.transf_movivel($(\"div.div_consultar_ratingsfocais div.div_visoes div.div_opcao:not(:first)\"));';
 		",
 		"codsituacaoregistro":1
@@ -224,7 +224,7 @@
 		"codops":40104,
 		"codigoexecutavel":"
 		$retorno=' 
-			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\"; 
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/1.0/FuncoesHtml.js\"; 
 			fnhtml.transf_movivel($(\"div.div_produtosnaopositivados div.div_opcao\"));';
 		",
 		"codsituacaoregistro":1
@@ -233,7 +233,7 @@
 		"codops":403,
 		"codigoexecutavel":"
 		$retorno='
-			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\"; 
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/1.0/FuncoesHtml.js\"; 
 			fnhtml.transf_movivel($(\"div.div_promotoras div.div_visoes div.div_opcao\"));
 			fnhtml.transf_movivel($(\"div.div_promotoras div.div_periodos div.div_opcao\"));';
 		",
@@ -243,7 +243,7 @@
 		"codops":404,
 		"codigoexecutavel":"
 		$retorno=' 
-			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\"; 
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/1.0/FuncoesHtml.js\"; 
 			fnhtml.transf_movivel($(\"div.div_freezers div.div_visoes div.div_opcao\"));
 			fnhtml.transf_movivel($(\"div.div_freezers div.div_periodos div.div_opcao\"));';		
 		",
@@ -253,7 +253,7 @@
 		"codops":405,
 		"codigoexecutavel":"
 		$retorno='
-			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/FuncoesHtml.js\";   
+			import { fnhtml } from \"/sjd/javascript/modulos/classes/html/1.0/FuncoesHtml.js\";   
 			fnhtml.transf_movivel($(\"div.div_critica div.div_periodos div.div_opcao\"));';		
 		",
 		"codsituacaoregistro":1
@@ -287,7 +287,7 @@
 		"codops":30002,
 		"codigoexecutavel":"
 		$retorno='
-				import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+				import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 				fnsisjd.carregar_painel();
 			';
 		",
@@ -297,7 +297,7 @@
 		"codops":500,
 		"codigoexecutavel":"
 		$retorno='
-				import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+				import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 				fnsisjd.carregar_dados_grupos_equivalentes();
 			';
 		",
@@ -307,7 +307,7 @@
 		"codops":170109,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.carregar_dados_processo({codprocesso:6004,seletor_local_retorno:\"div.card-body\"});
 		';
 		",
@@ -317,7 +317,7 @@
 		"codops":501,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.carregar_dados_processo({codprocesso:10200,seletor_local_retorno:\"div.card-body\"});
 		';
 		",
@@ -327,7 +327,7 @@
 		"codops":99990000,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.carregar_dados_processo({codprocesso:0,seletor_local_retorno:\"div.card-body\"});
 		';
 		",
@@ -337,7 +337,7 @@
 		"codops":99990001,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.carregar_dados_processo({codprocesso:1,seletor_local_retorno:\"div.card-body\"});
 		';
 		",
@@ -347,7 +347,7 @@
 		"codops":99990004,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.carregar_dados_processo({codprocesso:8,seletor_local_retorno:\"div.card-body\"});
 		';
 		",
@@ -357,7 +357,7 @@
 		"codops":99990005,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.carregar_dados_processo({codprocesso:9,seletor_local_retorno:\"div.card-body\"});
 		';
 		",
@@ -367,7 +367,7 @@
 		"codops":99990006,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.carregar_dados_processo({codprocesso:10,seletor_local_retorno:\"div.card-body\"});
 		';
 		",
@@ -377,7 +377,7 @@
 		"codops":9999000700,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.carregar_dados_processo({codprocesso:11,seletor_local_retorno:\"div.card-body\"});
 		';
 		",
@@ -387,7 +387,7 @@
 		"codops":9999000701,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.carregar_dados_processo({codprocesso:12,seletor_local_retorno:\"div.card-body\"});
 		';
 		",
@@ -397,7 +397,7 @@
 		"codops":9999000702,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.carregar_dados_processo({codprocesso:13,seletor_local_retorno:\"div.card-body\"});
 		';
 		",
@@ -407,7 +407,7 @@
 		"codops":9999000703,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.carregar_dados_processo({codprocesso:14,seletor_local_retorno:\"div.card-body\"});
 		';
 		",
@@ -417,7 +417,7 @@
 		"codops":9999000704,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.carregar_dados_processo({codprocesso:15,seletor_local_retorno:\"div.card-body\"});
 		';
 		",
@@ -427,7 +427,7 @@
 		"codops":1800,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.carregar_dados_processo({codprocesso:6000,seletor_local_retorno:\"div.card-body\"});
 		';
 		",
@@ -437,7 +437,7 @@
 		"codops":2000,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.carregar_dados_processo({codprocesso:6003,seletor_local_retorno:\"div.card-body\"});
 		';
 		",
@@ -447,7 +447,7 @@
 		"codops":2204,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.carregar_dados_processo({codprocesso:6001,seletor_local_retorno:\"div.card-body\"});
 		';
 		",
@@ -457,7 +457,7 @@
 		"codops":999901,
 		"codigoexecutavel":"
 		$retorno = '
-			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js\";
+			import { fnsisjd } from \"/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js\";
 			fnsisjd.carregar_dados_processo({codprocesso:6002,seletor_local_retorno:\"div.card-body\",condicionantestab:\"sjdusuariosis[sjdusuariosis.codusuariosis=__CODUSUR__]\"});
 		';
 		",

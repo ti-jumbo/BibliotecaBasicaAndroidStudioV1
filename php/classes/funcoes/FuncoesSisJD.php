@@ -1813,6 +1813,55 @@
 		}
 
 		
+		/**
+		 * prepara as condicionantes que vem no filtro, geralmente utilizado pelos filtros de dashboard
+		 * @created 14/02/2022
+		 * @param object &$comhttp- o objeto de comhttp padrao
+		 * @return void
+		 */
+		public static function prepararCondicionantesFiltro(object &$comhttp) : void {
+			$condicionantes = $comhttp->requisicao->requisitar->qual->condicionantes;
+			$filtros = $condicionantes["filtros"];
+			$filtros = json_decode($filtros);
+
+			//print_r($filtros);exit();
+			$cond_comhttp = [];	
+			if (isset($filtros) && $filtros !== null) {							
+				if (property_exists($filtros,"filial")){
+					if (FuncoesString::strTemValor($filtros->filial)) {
+						$cond_comhttp[] = "filial=".implode(Constantes::sepn2."filial=",explode(",",$filtros->filial));
+					}
+				}
+				if (property_exists($filtros,"superv")){
+					if (FuncoesString::strTemValor($filtros->superv)) {
+						$cond_comhttp[] = "supervisor=".implode(Constantes::sepn2."supervisor=",explode(",",$filtros->superv));
+					}
+				}
+				if (property_exists($filtros,"rca")){
+					if (FuncoesString::strTemValor($filtros->rca)) {
+						$cond_comhttp[] = "rca=".implode(Constantes::sepn2."rca=",explode(",",$filtros->rca));
+					}
+
+				}
+				if (property_exists($filtros,"origem")){
+					if (count($filtros->origem) != 2) { //se for dois, eh todos, nao precisa condicionante
+						$filtros->origem = explode(",",("'" . implode("','",$filtros->origem) . "'"));
+						$cond_comhttp[] = "origem de dados=".implode(Constantes::sepn2."origem de dados=",$filtros->origem);
+					}
+				}
+				if (property_exists($filtros,"condicionantes")){
+					if (FuncoesString::strTemValor($filtros->condicionantes)) {
+						$filtros->condicionantes = explode(Constantes::sepn1,$filtros->condicionantes);
+						$cond_comhttp = array_merge($cond_comhttp,$filtros->condicionantes);
+					}
+				}
+			}
+			//print_r($cond_comhttp);exit();
+			$cond_comhttp = implode(Constantes::sepn1,$cond_comhttp);
+			if (strlen(trim($cond_comhttp)) > 0) {
+				$comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"] = $cond_comhttp;
+			}
+		}
 		
 
 		public static function dados_sql(&$comhttp){
@@ -3175,9 +3224,15 @@
 										c.dtinicioentregas as \"Inicio\",
 										c.dtfimentregas as \"Fim\",
 										c.dttransmissao as \"Transmissao\",
-										c.statuscarregamento as \"Status\",
+										case 
+											when nvl(c.statuscarregamento,0) = 0 then 'A Entregar' 
+											when c.statuscarregamento = 1 then 'Entregando' 
+											when c.statuscarregamento = 2 then 'Concluido Total' 
+											when c.statuscarregamento = 3 then 'Devolucao Parcial' 
+											when c.statuscarregamento = 4 then 'Devolucao Total' 
+										end as \"Status\",
 										c.observacao,
-										count(distinct case when n.statusentrega = 0 then n.chavenfe else null end) as \"NFs A Entregar\",
+										count(distinct case when nvl(n.statusentrega,0) = 0 then n.chavenfe else null end) as \"NFs A Entregar\",
 										count(distinct case when n.statusentrega = 2 then n.chavenfe else null end) as \"NFs Entregue\",
 										count(distinct case when n.statusentrega = 3 then n.chavenfe else null end) as \"NFs Dev. Parcial\",
 										count(distinct case when n.statusentrega = 4 then n.chavenfe else null end) as \"NFs Dev. Total\",
@@ -3234,7 +3289,13 @@
 										c.dtinicioentregas,
 										c.dtfimentregas,
 										c.dttransmissao,
-										c.statuscarregamento,
+										case 
+											when nvl(c.statuscarregamento,0) = 0 then 'A Entregar' 
+											when c.statuscarregamento = 1 then 'Entregando' 
+											when c.statuscarregamento = 2 then 'Concluido Total' 
+											when c.statuscarregamento = 3 then 'Devolucao Parcial' 
+											when c.statuscarregamento = 4 then 'Devolucao Total' 
+										end,
 										c.observacao,
 										pgd.valor,
 										pgm.valor
@@ -3312,7 +3373,7 @@
 								$opcoes_tabela_est["cabecalho"]["comandos"]["classe_botoes"] = "pequeno";
 								$opcoes_tabela_est["cabecalho"]["comandos"]["classe_imgs"] = "pequeno";
 								$opcoes_tabela_est["subregistros"]["ativo"] = true;
-								$opcoes_tabela_est["subregistros"]["aoabrir"] = "window.fnsisjd.pesquisar_sub_registro_linha_relatorio({elemento:this})";
+								$opcoes_tabela_est["subregistros"]["aoabrir"] = "window.fnsisjd.pesquisar_sub_registro_carregamentos({elemento:this})";
 								$opcoes_tabela_est["subregistros"]["campo_subregistro"] = "__CAMPOSUBREGISTRO__";
 								$opcoes_tabela_est["subregistros"]["campo_subregistro_pai"] = "__CAMPOSUBREGISTROPAI__";
 								$comhttp->requisicao->requisitar->qual->condicionantes["usar_arr_tit"] = true;
@@ -3345,6 +3406,149 @@
 								];
 								$comhttp->requisicao->requisitar->qual->condicionantes["opcoes_tabela_est"] = $opcoes_tabela_est;
 								FuncoesHtml::montar_retorno_tabdados($comhttp);								
+								break;
+							case "notas_carregamento":
+								$numcar = $comhttp->requisicao->requisitar->qual->condicionantes["numcar"];
+								$comando_sql = "
+									select
+										s.numnota,
+										s.codcli,
+										c.cliente,
+										c.fantasia,
+										case 
+											when nvl(an.statusentrega,0) = 0 then 'A Entregar' 
+											when an.statusentrega = 1 then 'Entregando' 
+											when an.statusentrega = 2 then 'Concluido Total' 
+											when an.statusentrega = 3 then 'Devolucao Parcial' 
+											when an.statusentrega = 4 then 'Devolucao Total' 
+										end as \"Status\",
+										count(distinct case when nvl(i.statusentrega,0) = 0 then i.codprod else null end) as \"Qt Itens A Entregar\",
+										count(distinct case when i.statusentrega = 2 then i.codprod else null end) as \"Qt Itens Entregue\",
+										count(distinct case when i.statusentrega = 3 then i.codprod else null end) as \"Qt Itens Dev. Parcial\",
+										count(distinct case when i.statusentrega = 4 then i.codprod else null end) as \"Qt Itens Dev. Total\",
+										pgd.valor as \"Vlr Rec. Dinheiro\",
+										pgp.valor as \"Vlr Rec. Pix\",
+										pgc.valor as \"Vlr Rec. Cheque\",
+										an.dtinicioentrega,
+										an.dtfimentrega,
+										an.observacao
+									from
+										jumbo.pcnfsaid s 
+										join jumbo.pcclient c on c.codcli = s.codcli
+										left outer join consulta.sjdacompentreganotas an on an.chavenfe = s.chavenfe
+										left outer join consulta.sjdacompentregaprod i on i.chavenfe = an.chavenfe
+										left outer join (
+											select
+												pg.chavenfe,
+												pg.formapagamento,
+											   sum(nvl(pg.valor,0)) as valor
+											from
+												sjdacompentregapag pg
+											where
+												lower(pg.formapagamento) = 'dinheiro'
+											group by
+												pg.chavenfe,
+												pg.formapagamento
+										) pgd on pgd.chavenfe = an.chavenfe
+										left outer join (
+											select
+												pg.chavenfe,
+												pg.formapagamento,
+											   sum(nvl(pg.valor,0)) as valor
+											from
+												sjdacompentregapag pg
+											where
+												lower(pg.formapagamento) = 'pix'
+											group by
+												pg.chavenfe,
+												pg.formapagamento
+										) pgp on pgp.chavenfe = an.chavenfe
+										left outer join (
+											select
+												pg.chavenfe,
+												pg.formapagamento,
+											   sum(nvl(pg.valor,0)) as valor
+											from
+												sjdacompentregapag pg
+											where
+												lower(pg.formapagamento) = 'cheque'
+											group by
+												pg.chavenfe,
+												pg.formapagamento
+										) pgc on pgc.chavenfe = an.chavenfe
+									where
+										s.numcar = $numcar
+									group by
+									s.numnota,
+									s.codcli,
+									c.cliente,
+									c.fantasia,
+									case 
+										when nvl(an.statusentrega,0) = 0 then 'A Entregar' 
+										when an.statusentrega = 1 then 'Entregando' 
+										when an.statusentrega = 2 then 'Concluido Total' 
+										when an.statusentrega = 3 then 'Devolucao Parcial' 
+										when an.statusentrega = 4 then 'Devolucao Total' 
+									end,
+									pgd.valor,
+									pgp.valor,
+									pgc.valor,
+									an.dtinicioentrega,
+										an.dtfimentrega,
+										an.observacao
+									order by
+										s.numnota
+								";
+								$comhttp->requisicao->sql = new TSql();
+								$comhttp->requisicao->sql->comando_sql = $comando_sql;
+								$opcoes_tabela_est["tabeladb"]="entregas";								
+								$opcoes_tabela_est["cabecalho"]["comandos"]["classe_botoes"] = "pequeno";
+								$opcoes_tabela_est["cabecalho"]["comandos"]["classe_imgs"] = "pequeno";
+								$opcoes_tabela_est["subregistros"]["ativo"] = true;
+								$opcoes_tabela_est["subregistros"]["aoabrir"] = "window.fnsisjd.pesquisar_sub_registro_nota_carregamentos({elemento:this})";
+								$opcoes_tabela_est["subregistros"]["campo_subregistro"] = "__CAMPOSUBREGISTRO__";
+								$opcoes_tabela_est["subregistros"]["campo_subregistro_pai"] = "__CAMPOSUBREGISTROPAI__";
+								$comhttp->requisicao->requisitar->qual->condicionantes["usar_arr_tit"] = true;
+								$comhttp->requisicao->requisitar->qual->condicionantes["opcoes_tabela_est"] = $opcoes_tabela_est;
+								FuncoesHtml::montar_retorno_tabdados($comhttp);	
+								break;
+							case "itens_notas_carregamento":
+								$numnota = $comhttp->requisicao->requisitar->qual->condicionantes["numnota"];
+								$comando_sql = "
+									select
+										m.codprod,
+										p.descricao,
+										m.qt as qt,
+										i.qtentregue,
+										case 
+											when nvl(i.statusentrega,0) = 0 then 'A Entregar' 
+											when i.statusentrega = 1 then 'Entregando' 
+											when i.statusentrega = 2 then 'Concluido Total' 
+											when i.statusentrega = 3 then 'Devolucao Parcial' 
+											when i.statusentrega = 4 then 'Devolucao Total' 
+										end as \"Status\",
+										i.dtinicioentrega,
+										i.dtfimentrega,
+										i.observacao
+									from
+										jumbo.pcnfsaid s 
+										join jumbo.pcmov m on m.numtransvenda = s.numtransvenda
+										join jumbo.pcprodut p on p.codprod = m.codprod
+										join jumbo.pcclient c on c.codcli = s.codcli
+										left outer join consulta.sjdacompentregaprod i on i.chavenfe = s.chavenfe and i.codprod = m.codprod
+									where
+										s.numnota = $numnota
+									order by
+										m.codprod
+								";
+								$comhttp->requisicao->sql = new TSql();
+								$comhttp->requisicao->sql->comando_sql = $comando_sql;
+								$opcoes_tabela_est["tabeladb"]="itens_notas_entregas";								
+								$opcoes_tabela_est["cabecalho"]["comandos"]["classe_botoes"] = "pequeno";
+								$opcoes_tabela_est["cabecalho"]["comandos"]["classe_imgs"] = "pequeno";
+								$comhttp->requisicao->requisitar->qual->condicionantes["usar_arr_tit"] = true;
+								$comhttp->requisicao->requisitar->qual->condicionantes["opcoes_tabela_est"] = $opcoes_tabela_est;
+								FuncoesHtml::montar_retorno_tabdados($comhttp);	
 								break;
 							case "pesquisa_filial":
 							case "pesquisa_basica_filial":
@@ -3401,11 +3605,299 @@
 							case "gruposprodutosequivalentes":
 								FuncoesVariaveis::__FNV_MONTAR_TABELA_GRUPOS_PRODUTOS_EQUIVALENTES__($comhttp);
 								break;
+							case "dados_grafico_volume_inicio":
+								$comhttp->requisicao->requisitar->qual->objeto = "empresa";
+								$ano = FuncoesData::ano_atual() - 1;
+								$datas = [];
+								for($i = 1; $i <= 12; $i++){
+									$mes = $i;
+									if (strlen($mes) < 2) {
+										$mes = "0" . $mes;
+									}
+									$datas[] = "01/$mes/$ano";
+									$dia = "30";
+									if (in_array($mes-0,[1,3,5,7,8,10,12])) {
+										$dia = "31";
+									} else if ($mes-0 == 2) {
+										$dia = "28";
+									}
+									$datas[] = "$dia/$mes/$ano";
+								}
+								$ano++;
+								for($i = 1; $i <= 12; $i++){
+									$mes = $i;
+									if (strlen($mes) < 2) {
+										$mes = "0" . $mes;
+									}
+									$datas[] = "01/$mes/$ano";
+									$dia = "30";
+									if (in_array($mes-0,[1,3,5,7,8,10,12])) {
+										$dia = "31";
+									} else if ($mes-0 == 2) {
+										$dia = "28";
+									}
+									$datas[] = "$dia/$mes/$ano";
+								}
+								$comhttp->requisicao->requisitar->qual->condicionantes["datas"] = implode(",",$datas);
+								FuncoesMontarSQL::montar_sql_relatorio_personalizado($comhttp);
+								//echo $comhttp->requisicao->sql->comando_sql;exit();
+								$comhttp->retorno->dados_retornados["dados"] = FuncoesSql::getInstancia()->executar_sql($comhttp->requisicao->sql->comando_sql,"fetch",\PDO::FETCH_NUM);
+								array_shift($comhttp->retorno->dados_retornados["dados"]);
+								array_shift($comhttp->retorno->dados_retornados["dados"]);
+								//$comhttp->retorno->dados_retornados["dados"][0] = $ano;
+								//print_r($comhttp->retorno->dados_retornados["dados"]);exit();
+								break;
+							case "dados_grafico_volume_inicio_mes_atual":
+								$comhttp->requisicao->requisitar->qual->objeto = "empresa";
+								$dtini = FuncoesData::data_primeiro_dia_mes_atual(FuncoesData::dataBr());
+								$dtfim = FuncoesData::UltDiaMes(FuncoesData::dataBr());
+								$datas = [$dtini,$dtfim];
+								
+								$comhttp->requisicao->requisitar->qual->condicionantes["datas"] = implode(",",$datas);
+								FuncoesMontarSQL::montar_sql_relatorio_personalizado($comhttp);
+								$comhttp->retorno->dados_retornados["dados"] = FuncoesSql::getInstancia()->executar_sql($comhttp->requisicao->sql->comando_sql,"fetch",\PDO::FETCH_NUM);
+								array_shift($comhttp->retorno->dados_retornados["dados"]);
+								array_shift($comhttp->retorno->dados_retornados["dados"]);
+								//$comhttp->retorno->dados_retornados["dados"][0] = 1000000;//teste
+								//$comhttp->retorno->dados_retornados["dados"][0] = $ano;
+								//print_r($comhttp->retorno->dados_retornados["dados"]);exit();
+								break;
+							case "dados_grafico_volume":
+								self::prepararCondicionantesFiltro($comhttp);								
+								
+								$comhttp->requisicao->requisitar->qual->objeto = "empresa";
+
+								$anos_considerar = $comhttp->requisicao->requisitar->qual->condicionantes["anos_considerar"];
+								$anos_considerar = explode(",",$anos_considerar);
+								$anos_considerar = array_unique($anos_considerar);								
+								$ano_atual = FuncoesData::ano_atual();								
+								$qtanos = count($anos_considerar);
+								$datas = [];
+								for($a = 0; $a < $qtanos; $a++) {	
+									$ano =$anos_considerar[$a];							
+									for($i = 1; $i <= 12; $i++){
+										$mes = $i;
+										if (strlen($mes) < 2) {
+											$mes = "0" . $mes;
+										}
+										$datas[] = "01/$mes/$ano";
+										$dia = "30";
+										if (in_array($mes-0,[1,3,5,7,8,10,12])) {
+											$dia = "31";
+										} else if ($mes-0 == 2) {
+											$dia = "28";
+										}
+										$datas[] = "$dia/$mes/$ano";
+									}
+								}
+								//print_r($datas);exit();
+								$comhttp->requisicao->requisitar->qual->condicionantes["datas"] = implode(",",$datas);
+								FuncoesMontarSQL::montar_sql_relatorio_personalizado($comhttp);
+								//echo $comhttp->requisicao->sql->comando_sql;exit();
+								$comhttp->retorno->dados_retornados["dados"] = FuncoesSql::getInstancia()->executar_sql($comhttp->requisicao->sql->comando_sql,"fetch",\PDO::FETCH_NUM);
+								array_shift($comhttp->retorno->dados_retornados["dados"]);
+								array_shift($comhttp->retorno->dados_retornados["dados"]);
+								//$comhttp->retorno->dados_retornados["dados"][0] = $ano;
+								//print_r($comhttp->retorno->dados_retornados["dados"]);exit();
+								break;								
+							case "dados_grafico_positivacao":								
+								self::prepararCondicionantesFiltro($comhttp);								
+								$comhttp->requisicao->requisitar->qual->objeto = "cliente";
+								$comhttp->requisicao->requisitar->qual->condicionantes["mostrar_vals_de"] = 0;
+								//$datas = $comhttp->requisicao->requisitar->qual->condicionantes["datas"];
+								/*$dtini = FuncoesData::data_primeiro_dia_mes_atual(FuncoesData::dataBr());
+								$dtfim = FuncoesData::UltDiaMes(FuncoesData::dataBr());*/
+								
+								//$datas = [$dtini,$dtfim];
+								//$comhttp->requisicao->requisitar->qual->condicionantes["datas"] = implode(",",$datas);
+								FuncoesMontarSQL::montar_sql_relatorio_personalizado($comhttp);
+								//echo $comhttp->requisicao->sql->comando_sql;exit();
+								$dados = FuncoesSql::getInstancia()->executar_sql($comhttp->requisicao->sql->comando_sql,"fetchAll",\PDO::FETCH_NUM);
+								$qtclientesposit = count($dados);
+								$comhttp->retorno->dados_retornados["dados"] = [
+									$qtclientesposit
+								];
+
+								/*obter criterios de acesso a tabela epclientes (418)*/
+								$comando_sql = "select 
+                                        ac.codtipoobjetosql,
+                                        ac.codobjetosql,
+                                        ac.codprocessosql,
+                                        ac.codobjetoprocessosql,
+                                        min(nvl(ac.permiteler,0)) as permiteler,
+                                        listagg(ac.criteriosacessosler, ' and ') within group (order by ac.cod) as criteriosacessosler
+                                    from
+                                        ep.epacessossql ac,
+                                        ep.epusuarios u
+                                    where
+                                        nvl(ac.codperfilusuario,u.codperfilusuario) = u.codperfilusuario
+                                        and nvl(ac.codusuario,u.cod) = u.cod
+                                        and u.cod = ".$_SESSION["codusur"]."
+										and nvl(ac.codtipoobjetosql,300) = 300
+                                        and nvl(ac.codobjetosql,418) = 418
+                                    group by
+                                        ac.codtipoobjetosql,
+                                        ac.codobjetosql,
+                                        ac.codprocessosql,
+                                        ac.codobjetoprocessosql";
+								$dados_acesso = FuncoesSql::getInstancia()->executar_sql($comando_sql,"fetch",\PDO::FETCH_ASSOC);
+								//print_r($dados_acesso);exit();
+								$permitido = FuncoesConversao::como_boleano($dados_acesso["permiteler"] ?? false);
+								$criterios = $dados_acesso["criteriosacessosler"] ?? "";
+								$temCriterios = FuncoesString::strTemValor($criterios);
+								if ($temCriterios) {
+									$criterios = " and ".str_ireplace("__ALIAS_TABELA__","c",$criterios);
+
+									$contador_loops = 0;
+									while (stripos($criterios."","return ") !== false) {
+										//echo $valor.chr(10);
+										$criterios = FuncoesProcessoSql::processarEval($comhttp,$criterios);					
+										$contador_loops++;
+										if ($contador_loops > 1000) {
+											print_r($criterios);
+											FuncoesBasicasRetorno::mostra_msg_sair("Excesso de loops",__FILE__,__FUNCTION__,__LINE__);
+										}
+									}
+								} 
+								if (!$permitido){									
+									$criterios  = " and 1=2";
+								}
+								$comando_sql = "
+									SELECT
+										COUNT(1)
+									FROM
+										ep.epclientes c
+										__JOIN__
+									WHERE
+										c.dtexclusao IS NULL
+										and c.codvendedor1 not in (150)
+										$criterios
+								";
+
+								$condicionantes_extra = [];
+								$joins = [];
+								if (FuncoesRelatorio::verificarTemCondicionanteVisao($comhttp,null)) {
+									foreach($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"] as $visao=>$condicionante) {
+										switch(strtolower(trim($visao))) {
+											case "origem de dados": 
+											case "origem":
+												$joins[] = "join ep.eporigensinfo o on (o.cod = c.codorigeminfo)";
+												foreach($condicionante as $op=>$valores){
+													if ($op == "=") {
+														$condicionantes_extra[] = "lower(o.nome) in (".strtolower(implode(",",$valores)).")";
+													} else {
+														$condicionantes_extra[] = "lower(o.nome) not in (".strtolower(implode(",",$valores)).")";
+													}
+												}
+												break;
+											case "filial":
+												foreach($condicionante as $op=>$valores){
+													if ($op == "=") {
+														$condicionantes_extra[] = "c.codfilial in (".implode(",",$valores).")";
+													} else {
+														$condicionantes_extra[] = "c.codfilial not in (".implode(",",$valores).")";
+													}
+												}
+												break;
+											case "supervisor":
+												foreach($condicionante as $op=>$valores){
+													if ($op == "=") {
+														$condicionantes_extra[] = "(c.codadministrador1 in (".implode(",",$valores).") or c.codadministrador2 in (".implode(",",$valores)."))";
+													} else {
+														$condicionantes_extra[] = "(c.codadministrador1 not in (".implode(",",$valores).") and c.codadministrador2 not in (".implode(",",$valores)."))";
+													}
+												}
+												break;
+											case "rca":
+												foreach($condicionante as $op=>$valores){
+													if ($op == "=") {
+														$condicionantes_extra[] = "(c.codvendedor1 in (".implode(",",$valores).") or c.codvendedor2 in (".implode(",",$valores)."))";
+													} else {
+														$condicionantes_extra[] = "(c.codvendedor1 not in (".implode(",",$valores).") and c.codvendedor2 not in (".implode(",",$valores)."))";
+													}
+												}
+												break;
+											case "ramo de atividade":
+											case "ramo":
+												foreach($condicionante as $op=>$valores){
+													if ($op == "=") {
+														$condicionantes_extra[] = "c.codativ in (".implode(",",$valores).")";
+													} else {
+														$condicionantes_extra[] = "c.codativ not in (".implode(",",$valores).")";
+													}
+												}
+												break;
+											case "cidade":
+												$joins[] = "join ep.eppessoas ps on (ps.cod = c.codpessoa)";
+												$joins[] = "join ep.epcidades ci on (ci.cod = ps.codcidade)";
+												foreach($condicionante as $op=>$valores){
+													if ($op == "=") {
+														$condicionantes_extra[] = "lower(ci.nome) in (".strtolower(implode(",",$valores)).")";
+													} else {
+														$condicionantes_extra[] = "lower(ci.nome) not in (".strtolower(implode(",",$valores)).")";
+													}
+												}
+												break;
+											case "rota":
+												$joins[] = "join ep.eppracasclientes pr on (pr.cod = c.codpraca)";
+												foreach($condicionante as $op=>$valores){
+													if ($op == "=") {
+														$condicionantes_extra[] = "pr.codrota in (".implode(",",$valores).")";
+													} else {
+														$condicionantes_extra[] = "pr.codrota not in (".implode(",",$valores).")";
+													}
+												}
+												break;
+											case "praca":
+												foreach($condicionante as $op=>$valores){
+													if ($op == "=") {
+														$condicionantes_extra[] = "c.codpraca in (".implode(",",$valores).")";
+													} else {
+														$condicionantes_extra[] = "c.codpraca not in (".implode(",",$valores).")";
+													}
+												}
+												break;
+											case "rede de clientes":
+											case "rede":
+												foreach($condicionante as $op=>$valores){
+													if ($op == "=") {
+														$condicionantes_extra[] = "c.codrede in (".implode(",",$valores).")";
+													} else {
+														$condicionantes_extra[] = "c.codrede not in (".implode(",",$valores).")";
+													}
+												}
+												break;
+											case "cliente":
+												foreach($condicionante as $op=>$valores){
+													if ($op == "=") {
+														$condicionantes_extra[] = "c.cod in (".implode(",",$valores).")";
+													} else {
+														$condicionantes_extra[] = "c.cod not in (".implode(",",$valores).")";
+													}
+												}
+												break;
+										}
+									}
+									$joins = array_unique($joins);
+								}
+
+								$comando_sql = str_ireplace("__JOIN__",implode(" ",$joins),$comando_sql);
+								if (count($condicionantes_extra) > 0) {									
+									$comando_sql .= " and " . implode(" and ",$condicionantes_extra);
+								}
+
+								$qtclientesativos = FuncoesSql::getInstancia()->executar_sql($comando_sql,"fetch",\PDO::FETCH_NUM);
+								$comhttp->retorno->dados_retornados["dados"] = [
+									$qtclientesposit,
+									$qtclientesativos[0]-$qtclientesposit									
+								];
+								//print_r($comhttp->retorno->dados_retornados["dados"]);exit();								
+								break;
 							default:
 								FuncoesBasicasRetorno::mostrar_msg_sair("Erro na requisicao de dados sql: relatorio não definido: ".$comhttp->requisicao->requisitar->qual->condicionantes["relatorio"],__FILE__,__FUNCTION__,__LINE__);
 								break;												
 						}
-						break;
+						break;					
 					default:
 						FuncoesBasicasRetorno::mostrar_msg_sair("Erro na requisicao de dados sql: relatorio não definido: ".$comhttp->requisicao->requisitar->qual->condicionantes["tipo_dados"],__FILE__,__FUNCTION__,__LINE__);
 						break;
@@ -5754,7 +6246,7 @@
 						if (property_exists($item,$campo)) {
 							$camposInsertItem[$campo] = $item->{$campo};
 						}
-						$camposInsertItem["statusentrega"] = 4;
+						//$camposInsertItem["statusentrega"] = 4;
 					}
 
 					self::prepararValoresInclusao($camposInsertItem);
@@ -5857,6 +6349,14 @@
 			if (!isset($_SESSION["codsfiliaisusuario"])) {
 				$comando_sql = "
 					SELECT
+						to_char(nvl(t_u.codfilial,0)) as codfilial
+					from
+						ep.epusuarios u
+						join ep.eptrabalhadores t_u on t_u.cod = u.codtrabalhador
+					where
+						u.cod = ".$_SESSION["codusur"]." 
+					UNION
+					SELECT
 						distinct
 						case 
 							when r.codobjetosql1 = 406 then r.valorcampoobjetosql1 
@@ -5950,6 +6450,48 @@
 				}
 			}
 			return implode(",",$_SESSION["codsvendedoresfilial"] ?? []);
+		}
+
+		public static function obterCodsFornecedoresUsuario(&$comhttp){
+			if (!isset($_SESSION["codsfornecedoresusuarios"])) {
+				$comando_sql = "
+					SELECT
+						to_char(nvl(u.codfornecedor,0)) as codfornecedor
+					from
+						ep.epusuarios u
+					where
+						u.cod = ".$_SESSION["codusur"]." 
+					UNION
+					SELECT
+						distinct
+						case 
+							when r.codobjetosql1 = 421 then r.valorcampoobjetosql1 
+							else r.valorcampoobjetosql2
+						end as valorobjetosql2
+					FROM
+						ep.eprelacionamentosdados r
+					where
+						(
+							r.codobjetosql1 = 436
+							and r.nomecampoobjetosql1 = 'cod'
+							and r.valorcampoobjetosql1 = ".$_SESSION["codusur"]."
+							and r.codobjetosql2 = 421
+							and r.nomecampoobjetosql2 = 'cod'
+						) or (
+							r.codobjetosql2 = 436
+							and r.nomecampoobjetosql2 = 'cod'
+							and r.valorcampoobjetosql2 = ".$_SESSION["codusur"]."
+							and r.codobjetosql1 = 421
+							and r.nomecampoobjetosql1 = 'cod'
+						)		
+				";
+				$dados = FuncoesSql::getInstancia()->executar_sql($comando_sql,"fetchAll",\PDO::FETCH_COLUMN);
+				if (count($dados)){
+					$dados = array_unique($dados);
+					$_SESSION["codsfornecedoresusuarios"] = $dados;
+				}
+			}
+			return implode(",",$_SESSION["codsfornecedoresusuarios"] ?? []);
 		}
 	}
 ?>
