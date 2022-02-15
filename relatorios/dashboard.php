@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SisJD - Dashboard</title>
     <link href="/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/sjd/css/1.0/estilos.css" rel="stylesheet">
+    <link href="/sjd/css//1.1/estilos.css" rel="stylesheet">
     <link href="/sjd/css/dashboard.css" rel="stylesheet">
     <script type="text/javascript" src="/sjd/javascript/polyfill.js"></script>
     <script type="text/javascript" src="/jquery/3.6.0/jquery-3.6.0.min.js"></script>
@@ -39,7 +39,7 @@
                         <div class="div_conteudo_pagina container-fluid">
                             <div class="row mt-1 mb-1">
                                 <div class="col text-end">
-                                    <button class="btn btn-outline-primary btn-filtro collapsed" data-bs-toggle="collapse" data-bs-target="#row_filtro" aria-expanded="false" aria-controls="row_filtro">
+                                    <button class="btn btn-outline-primary btn-sm btn-filtro collapsed" data-bs-toggle="collapse" data-bs-target="#row_filtro" aria-expanded="false" aria-controls="row_filtro">
                                         <svg class="bi bi-funnel" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                             <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z">
                                             </path>
@@ -50,14 +50,14 @@
                             <div id="row_filtro" class="row collapse collapsed">
                                 <div class="col">
                                      <div class="card card_filtros_dashboard">
-                                        <div class="card-header">Filtros</div>
+                                        <div class="card-header pt-1 pt-1 cor_titulo_card_principal">Filtros</div>
                                         <div class="card-body">
                                             <div class="div_consultar_dashboard_filtros_corpo text-center">
                                                 <div class="row div_consultar_dashboard_filtros_filtros ">
                                                     <div class="col div_consultar_dashboard_filtros_origem">
                                                         <div class="card card_origem h-100">
-                                                            <div class="card-header">Origem</div>
-                                                            <div class="card-body">
+                                                            <div class="card-header ps-2 pt-0 pb-1 cor_titulo_condicionante">Origem</div>
+                                                            <div class="card-body pt-0 pb-1">
                                                                 <div class="row div_consultar_dashboard_filtros_origem_corpo">
                                                                     <div class="col div_consultar_dashboard_filtros_periodo1 p-1">
                                                                         <div classe_botao="btn-secondary botao_dropdown_visao"  style="font-size:12px;" class="div_combobox" tem_inputs="1" tipo_inputs="checkbox" placeholder="(Selecione)" filtro="0" selecionar_todos="0" name_inpus="_943278053" num_max_texto_botao="5">
@@ -74,25 +74,25 @@
                                                     </div>
                                                     <div class="col div_consultar_dashboard_filtros_filial">
                                                         <div class="card card_filtro_filial h-100">
-                                                            <div class="card-header">Filial</div>
-                                                            <div class="card-body">
-                                                                <input class="div_consultar_dashboard_filtros_filial_corpo_edit input_entidade w-90" onkeyup="window.fnjs.verificar_tecla(this,event,{Enter:'window.fnsisjd.carregarDashboard(this)'})" placeholder="(Filtro)">
+                                                            <div class="card-header ps-2 pt-0 pb-1 cor_titulo_condicionante">Filial</div>
+                                                            <div class="card-body pt-1 pb-1">
+                                                                <input class="form-control input_entidade" onkeyup="window.fnjs.verificar_tecla(this,event,{Enter:'window.fnsisjd.carregarDashboard(this)'})" placeholder="(Filtro)">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col div_consultar_dashboard_filtros_superv">
                                                         <div class="card card_filtro_superv h-100">
-                                                            <div class="card-header">Superv</div>
-                                                            <div class="card-body">
-                                                                <input class="div_consultar_dashboard_filtros_superv_corpo_edit input_entidade w-90" onkeyup="window.fnjs.verificar_tecla(this,event,{Enter:'window.fnsisjd.carregarDashboard(this)'})" placeholder="(Filtro)">
+                                                            <div class="card-header ps-2 pt-0 pb-1 cor_titulo_condicionante">Superv</div>
+                                                            <div class="card-body pt-1 pb-1">
+                                                                <input class="form-control input_entidade" onkeyup="window.fnjs.verificar_tecla(this,event,{Enter:'window.fnsisjd.carregarDashboard(this)'})" placeholder="(Filtro)">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col div_consultar_dashboard_filtros_rca">
                                                         <div class="card card_filtro_rca h-100">
-                                                            <div class="card-header">Rca</div>
-                                                            <div class="card-body">
-                                                                <input class="div_consultar_dashboard_filtros_rca_corpo_edit input_entidade w-90" onkeyup="window.fnjs.verificar_tecla(this,event,{Enter:'window.fnsisjd.carregarDashboard(this)'})" placeholder="(Filtro)">
+                                                            <div class="card-header ps-2 pt-0 pb-1 cor_titulo_condicionante">Rca</div>
+                                                            <div class="card-body pt-1 pb-1">
+                                                                <input class="form-control input_entidade" onkeyup="window.fnjs.verificar_tecla(this,event,{Enter:'window.fnsisjd.carregarDashboard(this)'})" placeholder="(Filtro)">
                                                             </div>
                                                         </div>
                                                     </div> 
@@ -101,40 +101,9 @@
                                                     
                                                         
                                                 </div>                                               
-                                                <div class="row div_consultar_dashboard_filtros_periodos ">
-                                                    <div class="col d-none">
-                                                        <div class="card card_periodos h-100">
-                                                            <div class="card-header">Periodo (Mes)</div>
-                                                            <div class="card-body">
-                                                                <div class="row div_consultar_dashboard_filtros_periodos_corpo">
-                                                                    <div class="col div_consultar_dashboard_filtros_periodo1 p-1">
-                                                                        <div id="div_mes" class="input-group">
-                                                                            <div classe_botao="btn-secondary botao_dropdown_visao"  style="font-size:12px;" class="div_combobox" tem_inputs="1" tipo_inputs="radio" placeholder="(Selecione)" filtro="0" selecionar_todos="0" name_inpus="_943278053" num_max_texto_botao="5">
-                                                                                <button type="button" class="btn dropdown-toggle btn-secondary botao_dropdown_visao" data-bs-toggle="dropdown" aria-expanded="false" num_max_texto_botao="5" data-bs-auto-close="outside">(mes)</button>
-                                                                                <ul class="dropdown-menu" onclick="window.fnhtml.fndrop.clicou_dropdown(event,this)">
-                                                                                    <li opcoes_texto_opcao="JANEIRO" opcoes_texto_botao="JANEIRO" opcoes_valor_opcao="JANEIRO" class="dropdown-item li" data-valor_opcao="JANEIRO" data-texto_botao="JANEIRO"><label textodepois="1"><input type="radio" name="_943278053">JANEIRO</label></li>
-                                                                                    <li opcoes_texto_opcao="FEVEREIRO" opcoes_texto_botao="FEVEREIRO" opcoes_valor_opcao="FEVEREIRO" class="dropdown-item li" data-valor_opcao="FEVEREIRO" data-texto_botao="FEVEREIRO"><label textodepois="1"><input type="radio" name="_943278053">FEVEREIRO</label></li>
-                                                                                    <li opcoes_texto_opcao="MARCO" opcoes_texto_botao="MARCO" opcoes_valor_opcao="MARCO" class="dropdown-item li" data-valor_opcao="MARCO" data-texto_botao="MARCO"><label textodepois="1"><input type="radio" name="_943278053">MARCO</label></li>
-                                                                                    <li opcoes_texto_opcao="ABRIL" opcoes_texto_botao="ABRIL" opcoes_valor_opcao="ABRIL" class="dropdown-item li" data-valor_opcao="ABRIL" data-texto_botao="ABRIL"><label textodepois="1"><input type="radio" name="_943278053">ABRIL</label></li>
-                                                                                    <li opcoes_texto_opcao="MAIO" opcoes_texto_botao="MAIO" opcoes_valor_opcao="MAIO" class="dropdown-item li" data-valor_opcao="MAIO" data-texto_botao="MAIO"><label textodepois="1"><input type="radio" name="_943278053">MAIO</label></li>
-                                                                                    <li opcoes_texto_opcao="JUNHO" opcoes_texto_botao="JUNHO" opcoes_valor_opcao="JUNHO" class="dropdown-item li" data-valor_opcao="JUNHO" data-texto_botao="JUNHO"><label textodepois="1"><input type="radio" name="_943278053">JUNHO</label></li>
-                                                                                    <li opcoes_texto_opcao="JULHO" opcoes_texto_botao="JULHO" opcoes_valor_opcao="JULHO" class="dropdown-item li" data-valor_opcao="JULHO" data-texto_botao="JULHO"><label textodepois="1"><input type="radio" name="_943278053">JULHO</label></li>
-                                                                                    <li opcoes_texto_opcao="AGOSTO" opcoes_texto_botao="AGOSTO" opcoes_valor_opcao="AGOSTO" class="dropdown-item li" data-valor_opcao="AGOSTO" data-texto_botao="AGOSTO"><label textodepois="1"><input type="radio" name="_943278053">AGOSTO</label></li>
-                                                                                    <li opcoes_texto_opcao="SETEMBRO" opcoes_texto_botao="SETEMBRO" opcoes_valor_opcao="SETEMBRO" class="dropdown-item li" data-valor_opcao="SETEMBRO" data-texto_botao="SETEMBRO"><label textodepois="1"><input type="radio" name="_943278053">SETEMBRO</label></li>
-                                                                                    <li opcoes_texto_opcao="OUTUBRO" opcoes_texto_botao="OUTUBRO" opcoes_valor_opcao="OUTUBRO" class="dropdown-item li" data-valor_opcao="OUTUBRO" data-texto_botao="OUTUBRO"><label textodepois="1"><input type="radio" name="_943278053">OUTUBRO</label></li>
-                                                                                    <li opcoes_texto_opcao="NOVEMBRO" opcoes_texto_botao="NOVEMBRO" opcoes_valor_opcao="NOVEMBRO" class="dropdown-item li" data-valor_opcao="NOVEMBRO" data-texto_botao="NOVEMBRO"><label textodepois="1"><input type="radio" name="_943278053">NOVEMBRO</label></li>
-                                                                                    <li opcoes_texto_opcao="DEZEMBRO" opcoes_texto_botao="DEZEMBRO" opcoes_valor_opcao="DEZEMBRO" class="dropdown-item li" data-valor_opcao="DEZEMBRO" data-texto_botao="DEZEMBRO"><label textodepois="1"><input type="radio" name="_943278053">DEZEMBRO</label></li>
-                                                                                </ul>
-                                                                            </div>
-                                                                            <input class="form-control input_ano" value="(ano)" placeholder="(ano)" onkeyup="window.fnjs.verificar_tecla(this,event,{Enter:'window.fnsisjd.carregarDashboard(this)'})">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                <div class="row div_consultar_dashboard_filtros_filtrar mt-2">                                                    
                                                     <div class="col">
-                                                    <button class="div_consultar_dashboard_filtros_botao_filtrar rounded bg-primary w-75 mt-2" onclick="window.fnsisjd.carregarDashboard(this)">Filtrar</button>
+                                                        <button class="btn btn-primary rounded w-50" onclick="window.fnsisjd.carregarDashboard(this)">Filtrar</button>
                                                     </div>
                                                 </div>                                                
                                             </div>
@@ -145,20 +114,20 @@
                             <div class="row mt-2">
                                 <div class="col-9">
                                     <div class="card card_grafico_volume">
-                                        <div class="card-header">
+                                        <div class="card-header pt-1 pt-1 cor_titulo_card_principal">
                                             Volume por ano/mes
-                                            <button class="btn btn-outline-primary btn-filtro collapsed float-end" data-bs-toggle="collapse" data-bs-target="#row_opcoes_grafico_volume" aria-expanded="false" aria-controls="row_opcoes_grafico_volume">
+                                            <button class="btn btn-outline-primary btn-sm btn-filtro collapsed float-end" data-bs-toggle="collapse" data-bs-target="#row_opcoes_grafico_volume" aria-expanded="false" aria-controls="row_opcoes_grafico_volume">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
                                                         <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                                                 </svg>
                                             </button>
                                         </div>
                                         <div class="card-body">
-                                            <div id="row_opcoes_grafico_volume" class="row row_opcoes_grafico_volume collapse collapsed mb-2">
-                                                <div class="col-3">                                            
+                                            <div id="row_opcoes_grafico_volume" class="row row_opcoes_grafico_volume collapse collapsed mb-2 text-center">
+                                                <div class="col-4">                                            
                                                     <div class="card card_anos_grafico_volume">
-                                                        <div class="card-header">Anos considerar</div>
-                                                        <div class="card-body">
+                                                        <div class="card-header ps-2 pt-0 pb-1 cor_titulo_condicionante">Anos considerar</div>
+                                                        <div class="card-body pt-1 pb-1 ps-2">
                                                             <div tem_inputs="1" selecionar_todos="1" filtro="1" classe_botao="btn-dark" class="div_combobox" placeholder="(Selecione)" tipo_inputs="checkbox" multiplo="1" num_max_texto_botao="5" funcao_filtro="window.fnhtml.fndrop.filtrar_dropdown(this)">
                                                                 <button type="button" class="btn dropdown-toggle btn-dark" data-bs-toggle="dropdown" aria-expanded="false" num_max_texto_botao="5" data-bs-auto-close="outside">2021,2022</button>
                                                                 <ul class="dropdown-menu" onclick="window.fnhtml.fndrop.clicou_dropdown(event,this)">
@@ -190,8 +159,8 @@
                                                 </div>
                                                 <div class="col-3">                                            
                                                     <div class="card card_unidade_grafico_volume">
-                                                        <div class="card-header">Unidade</div>
-                                                        <div class="card-body">
+                                                        <div class="card-header ps-2 pt-0 pb-1 cor_titulo_condicionante">Unidade</div>
+                                                        <div class="card-body pt-1 pb-1 ps-2">
                                                             <div class="form-check">
                                                                 <input class="form-check-input" type="radio" name="unidade" id="unidade_quantidade" value="0">
                                                                 <label class="form-check-label" for="unidade_quantidade">
@@ -213,8 +182,8 @@
                                                         </div>
                                                     </div>                                                    
                                                 </div>
-                                                <div class="col-2">
-                                                    <button class="div_consultar_dashboard_filtros_botao_filtrar rounded bg-primary w-75 mt-2" onclick="window.fnsisjd.carregarGraficoVolume()">Executar</button>
+                                                <div class="col">
+                                                    <button class="btn btn-primary rounded" onclick="window.fnsisjd.carregarGraficoVolume()">Executar</button>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -228,9 +197,9 @@
                                 </div> 
                                 <div class="col-3">
                                     <div class="card card_grafico_positivacao_cliente">
-                                        <div class="card-header">
+                                        <div class="card-header pt-1 pt-1 cor_titulo_card_principal">
                                             Positivação Cliente
-                                            <button class="btn btn-outline-primary btn-filtro collapsed float-end" data-bs-toggle="collapse" data-bs-target="#row_opcoes_grafico_positivacao" aria-expanded="false" aria-controls="row_opcoes_grafico_positivacao">
+                                            <button class="btn btn-outline-primary btn-sm btn-filtro collapsed float-end" data-bs-toggle="collapse" data-bs-target="#row_opcoes_grafico_positivacao" aria-expanded="false" aria-controls="row_opcoes_grafico_positivacao">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
                                                         <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                                                 </svg>
@@ -241,9 +210,9 @@
                                                 <div class="col">
                                                     <div class="row row_opcoes_grafico_positivacao_periodo">
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-auto">
-                                                            <button class="div_consultar_dashboard_filtros_botao_filtrar rounded bg-primary mt-2" onclick="window.fnsisjd.carregarGraficoPositivacaoClientes()">Executar</button>
+                                                    <div class="row text-center mt-2">
+                                                        <div class="col">
+                                                            <button class="btn btn-primary btn-sm rounded" onclick="window.fnsisjd.carregarGraficoPositivacaoClientes()">Executar</button>
                                                         </div>
                                                     </div>
                                                 </div>                                                
@@ -251,6 +220,35 @@
                                             <div class="row">
                                                 <div class="col-11">
                                                     <div id="div_grafico_positivacao">
+                                                    </div>
+                                                </div>                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card_grafico_mix_produto mt-2">
+                                        <div class="card-header pt-1 pt-1 cor_titulo_card_principal">
+                                            Mix Produto
+                                            <button class="btn btn-outline-primary btn-sm btn-filtro collapsed float-end" data-bs-toggle="collapse" data-bs-target="#row_opcoes_grafico_mix" aria-expanded="false" aria-controls="row_opcoes_grafico_mix">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="card-body">
+                                            <div id="row_opcoes_grafico_mix" class="row row_opcoes_grafico_mix collapse collapsed mb-2">
+                                                <div class="col">
+                                                    <div class="row row_opcoes_grafico_mix_periodo">
+                                                    </div>
+                                                    <div class="row text-center mt-2">
+                                                        <div class="col">
+                                                            <button class="btn btn-primary btn-sm rounded" onclick="window.fnsisjd.carregarGraficoMixProdutos()">Executar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>                                                
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-11">
+                                                    <div id="div_grafico_mix">
                                                     </div>
                                                 </div>                                                
                                             </div>
@@ -277,7 +275,7 @@
    </main>
 </body>
 <script type="module">
-    import { fnsisjd } from "/sjd/javascript/modulos/classes/sisjd/1.0.2/FuncoesSisJD.js";
+    import { fnsisjd } from "/sjd/javascript/modulos/classes/sisjd/1.1/FuncoesSisJD.js";
     import { fndt } from "/sjd/javascript/modulos/classes/data/FuncoesData.js";
     fnsisjd.requisitar_data_aurora();
     let hoje = fndt.hoje();
@@ -375,6 +373,17 @@
     });    
     let div_periodo_positivacao = $("div.row_opcoes_grafico_positivacao_periodo");
     div_periodo_positivacao.html(
+        fnhtml.criar_elemento(
+            fnsisjd.criarPeriodo({
+                class:"p-0",
+                titulo:"Periodo positivacao considerar",
+                permite_incluir:false,
+                permite_excluir:false
+            })
+        )
+    );
+    let div_periodo_mix = $("div.row_opcoes_grafico_mix_periodo");
+    div_periodo_mix.html(
         fnhtml.criar_elemento(
             fnsisjd.criarPeriodo({
                 class:"p-0",

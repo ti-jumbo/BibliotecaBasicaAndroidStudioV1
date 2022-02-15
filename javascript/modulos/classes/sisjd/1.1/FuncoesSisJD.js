@@ -610,12 +610,12 @@ class FuncoesSisJD{
                         sub:[
                             {
                                 tag:"div",
-                                class:"card-header",
+                                class:"card-header ps-2 pt-0 pb-1 cor_titulo_periodo",
                                 content:titulo
                             },
                             {
                                 tag:"div",
-                                class:"card-body",
+                                class:"card-body pt-1 pb-1 ps-2 pe-3",
                                 sub:[
                                     {
                                         tag:"div",
@@ -635,7 +635,7 @@ class FuncoesSisJD{
                                                                 sub:[
                                                                     {
                                                                         tag:"input",
-                                                                        class:"componente_data controle_input_texto input_calendario",
+                                                                        class:"form-control form-control-sm p-0 componente_data input_calendario",
                                                                         type:"date",
                                                                         value:params.dtini || fndt.dataUSA(fndt.data_primeirodiames())
                                                                     }
@@ -647,7 +647,7 @@ class FuncoesSisJD{
                                                                 sub:[
                                                                     {
                                                                         tag:"input",
-                                                                        class:"componente_data controle_input_texto input_calendario",
+                                                                        class:"form-control form-control-sm p-0 componente_data input_calendario",
                                                                         type:"date",
                                                                         value:params.dtfim || fndt.dataUSA(fndt.hoje())
                                                                     }
@@ -657,7 +657,7 @@ class FuncoesSisJD{
                                                     },
                                                     {
                                                         tag:"div",
-                                                        class:"row align-items-center",
+                                                        class:"row align-items-center mt-1",
                                                         sub:[
                                                             {
                                                                 tag:"col",
@@ -752,7 +752,7 @@ class FuncoesSisJD{
                                                                             },
                                                                             {
                                                                                 tag:"input",
-                                                                                class:"inputano",
+                                                                                class:"form-control-sm p-0 inputano",
                                                                                 type:"number",
                                                                                 value:fndt.getAno(),
                                                                                 title:"Ano para preenchimento do mes inteiro",
@@ -1050,6 +1050,14 @@ class FuncoesSisJD{
                     }
                 );
             }
+            let div_botoes_controle = {};
+            if (fnjs.first_valid([params.permite_incluir,true]) == true || fnjs.first_valid([params.permite_excluir,true]) == true) {
+                div_botoes_controle = {
+                    tag:"div",
+                    class:"div_opcao_controles_btns_img col-md-auto w-auto",
+                    sub:params_botoes
+                }
+            }
             let titulo = params.titulo || "Condicionante " + ind;
             let params_condic = {
                 retornar_como:"string",
@@ -1062,12 +1070,12 @@ class FuncoesSisJD{
                         sub:[
                             {
                                 tag:"div",
-                                class:"card-header",
+                                class:"card-header ps-2 pt-0 pb-1 cor_titulo_condicionante",
                                 content:titulo
                             },
                             {
                                 tag:"div",
-                                class:"card-body",
+                                class:"card-body pt-1 pb-1 ps-2",
                                 sub:[
                                     {
                                         tag:"div",
@@ -1113,11 +1121,7 @@ class FuncoesSisJD{
                                                     }                                                            
                                                 ]
                                             },
-                                            {
-                                                tag:"div",
-                                                class:"div_opcao_controles_btns_img col-md-auto w-auto",
-                                                sub:params_botoes
-                                            }
+                                            div_botoes_controle                                            
                                         ]
                                     }
                                 ]
@@ -1282,12 +1286,12 @@ class FuncoesSisJD{
                     sub:[
                         {
                             tag:"div",
-                            class:"card-header",
+                            class:"card-header pt-0 pb-1 ps-2 cor_titulo_visao",
                             content:params.tit || "Visao 01"
                         },
                         {
                             tag:"div",
-                            class:"card-body",
+                            class:"card-body pt-1 pb-1 ps-2",
                             sub:[
                                 {
                                     tag:"div",
@@ -5877,7 +5881,7 @@ class FuncoesSisJD{
                 +totalatingido+'</td><td>Total a Pagar:</td><td class="cel_valor">'
                 +totalatingido+'</td></tr></tdoby></table>';			
 			if (window.vars.navegador === "iexplorer") {
-				popupImprimir.document.write('<html><head><meta charset="utf-8"><title>SisJD-Jumbo Distribuidor-Imprimir</title><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/1.0/estilos.css?12.21"/><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/estilos_basicos.css?12.23"/><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/login.css?12.1"/><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/barra_sup.css?12" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/menu_esquerdo.css?12" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/combobox.css?12.1" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/calendario.css?12.1" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/tabela_est.css?12.4" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/input_combobox.css?12" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/abas.css?12" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSIS__+'/css/sisjd.css?12.7" /><script type="text/javascript" src="/'+__NOMEDIRSISBU__+'/javascript/arquivos_de_terceiros/jquery-3.3.1.min.js?12.33" charset="UTF-8"></script></head><body>');
+				popupImprimir.document.write('<html><head><meta charset="utf-8"><title>SisJD-Jumbo Distribuidor-Imprimir</title><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css//1.1/estilos.css?12.21"/><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/estilos_basicos.css?12.23"/><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/login.css?12.1"/><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/barra_sup.css?12" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/menu_esquerdo.css?12" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/combobox.css?12.1" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/calendario.css?12.1" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/tabela_est.css?12.4" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/input_combobox.css?12" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSISBU__+'/css/abas.css?12" /><link rel="stylesheet" type="text/css" href="/'+__NOMEDIRSIS__+'/css/sisjd.css?12.7" /><script type="text/javascript" src="/'+__NOMEDIRSISBU__+'/javascript/arquivos_de_terceiros/jquery-3.3.1.min.js?12.33" charset="UTF-8"></script></head><body>');
 				popupImprimir.document.write(imprimir);
 				popupImprimir.document.write('</body></html>');
 				$(popupImprimir.document.body).find("button").remove();
@@ -5901,7 +5905,7 @@ class FuncoesSisJD{
 					$(popupImprimir.document.body).find("h3").nextAll("br").eq(0).remove();
 					$(popupImprimir.document.body).find("br").next("br").remove();
 					$(popupImprimir.document.body).append('<br /><text style="font-size:1.2em;font-weight: bold;">_________________________________________,______ de ___________________ de __________ .</text><br /></br /><br /></br /><br /><text style="font-size:15px;font-weight: bold;">________________________________________________</text><br /><text style="font-size:1.2em;font-weight: bold;">'+rca[0].children("td").eq(1).text()+'</text>');								
-                    $(popupImprimir.document.body).append('<link rel="stylesheet" type="text/css" href="/sjd/css/1.0/estilos.css?12.7" />');
+                    $(popupImprimir.document.body).append('<link rel="stylesheet" type="text/css" href="/sjd/css//1.1/estilos.css?12.7" />');
                     $(popupImprimir.document.body).append('<script type="text/javascript" src="/js/jquery/3.6.0/jquery-3.6.0.min.js?12.33" charset="UTF-8"></script>');
                     $(popupImprimir.document.body).append('<style>table.tabdados>tfoot{color:black !important;}</style>');
                     popupImprimir.print();
@@ -6672,6 +6676,76 @@ class FuncoesSisJD{
 	 	}
     }
 
+
+    inserirGraficoMixProdutos(params){
+        try {
+            fnjs.logi(this.constructor.name,"inserirGraficoMixProdutos");
+            google.charts.load('current', {'packages':['corechart']});    
+            google.charts.setOnLoadCallback(function(){
+                let data;
+                data = google.visualization.arrayToDataTable([
+                    ['Produtos','Mix'],
+                    ["Vendidos",params.comhttp.retorno.dados_retornados.conteudo_html.dados[0]-0],
+                    ["Nao Vendidos",params.comhttp.retorno.dados_retornados.conteudo_html.dados[1]-0]
+                ]);
+                
+                let options = {
+                    title:"Total Leque " + (params.comhttp.retorno.dados_retornados.conteudo_html.dados[0]-0+(params.comhttp.retorno.dados_retornados.conteudo_html.dados[1]-0)),
+                    pieHole: 0.3,
+                    legend: { position: 'top' }
+                };
+                let elemento_html = fnjs.obterJquery(params.comhttp.opcoes_retorno.seletor_local_retorno);
+                elemento_html.html("");
+                let chart = new google.visualization.PieChart(elemento_html[0]);
+
+                chart.draw(data, options);
+            });
+            fnjs.logf(this.constructor.name,"inserirGraficoMixProdutos");
+        } catch(erro) {
+            console.log(erro);
+            alert(erro.message || erro);
+        }
+    }
+
+    carregarGraficoMixProdutos(params){
+        try {
+            params = params || {};
+            params.seletor_local_retorno = params.seletor_local_retorno || "div#div_grafico_mix";
+            let objeto_retorno = window.fnjs.obterJquery(params.seletor_local_retorno);
+            objeto_retorno.html("");
+            objeto_retorno.append(window.fnhtml.criarSpinner());
+            let comhttp = JSON.parse(window.vars.str_tcomhttp);
+			comhttp.opcoes_retorno.ignorar_tabela_est = true;
+			comhttp.requisicao.requisitar.oque="dados_sql";
+			comhttp.requisicao.requisitar.qual.comando = "consultar";
+			comhttp.requisicao.requisitar.qual.tipo_objeto = "pesquisa";
+            comhttp.opcoes_retorno.metodo_insersao = "html";
+            comhttp.requisicao.requisitar.qual.condicionantes = [];   
+            params.condicionantes = params.condicionantes || this.obterFiltrosDashboard();         
+            comhttp.requisicao.requisitar.qual.condicionantes.push("filtros="+JSON.stringify(params.condicionantes));
+            comhttp.opcoes_retorno.seletor_local_retorno = params.seletor_local_retorno;			
+            comhttp.opcoes_requisicao.mostrar_carregando = false;
+			comhttp.eventos.aposretornar=[{
+				arquivo:null,
+				funcao:'window.fnsisjd.inserirGraficoMixProdutos'
+			}];            
+            let inputs_datas = $("div.row_opcoes_grafico_mix_periodo").find("input.componente_data");
+            let datas = [inputs_datas.eq(0).val(),inputs_datas.eq(1).val()];
+            if (inputs_datas.eq(0).attr("type") == "date") {
+                datas[0] = fndt.dataBR(datas[0]);
+            }
+            if (inputs_datas.eq(0).attr("type") == "date") {
+                datas[1] = fndt.dataBR(datas[1]);
+            }
+            comhttp.requisicao.requisitar.qual.condicionantes.push("datas="+datas.join(","));
+			comhttp.requisicao.requisitar.qual.objeto = "dados_grafico_mix";                                        
+            window.fnreq.requisitar_servidor({comhttp:comhttp});					
+        } catch(e) {
+			console.log(e);
+			alert(e.message||e);
+	 	}
+    }
+
     
 
     carregarDashboard(){
@@ -6688,6 +6762,11 @@ class FuncoesSisJD{
             this.carregarGraficoPositivacaoClientes({
                 condicionantes:filtros_dashboard,
                 seletor_local_retorno:"div#div_grafico_positivacao"}
+            );
+
+            this.carregarGraficoMixProdutos({
+                condicionantes:filtros_dashboard,
+                seletor_local_retorno:"div#div_grafico_mix"}
             );
             fnjs.logf(this.constructor.name,"carregarDashboard");
         }catch(e){

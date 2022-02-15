@@ -70,6 +70,75 @@
 			return $valor;
 		}
 
+		/**
+		 * obtem criterios de acesso em funcao dos parametros passados, geralmente utilizada de forma avulsa por outros
+		 * processos. Em processos, eh mais eficiente embutir esse sql no sql que obtem os dados do processo para ja retornar se ha o 
+		 * acesso ou nao e seus criterios no proprio sql de obtencao dos dados.
+		 * @created 14/02/2022
+		 * @param object &$comhttp - o objeto de comunicacao padrao (necessario para processar eval)
+		 * @param array|string|int $params = [] - os parametros
+		 * @return array - o retorno informando permissao e criterios
+		 */
+		public static function obterCriteriosAcesso(object &$comhttp, array|string|int $params = []) : array {
+			$params = $params ?? [];
+			if (in_array(gettype($params),["string","number","numeric","integer"])) {
+				$params = [
+					"codobjetosql"=>$params
+				];
+			}
+			$params["codusur"] = $params["codusur"] ?? $_SESSION["codusur"];
+			$params["codtipoobjetosql"] = $params["codtipoobjetosql"] ?? 300;
+			$params["codobjetosql"] = $params["codobjetosql"] ?? "null";
+			$params["permissao"] = $params["permissao"] ?? "permiteler";
+			$comando_sql = "select 
+				ac.codtipoobjetosql,
+				ac.codobjetosql,
+				ac.codprocessosql,
+				ac.codobjetoprocessosql,
+				min(nvl(ac.".$params["permissao"].",0)) as ".$params["permissao"].",
+				listagg(ac.criteriosacessosler, ' and ') within group (order by ac.cod) as criteriosacessosler
+			from
+				ep.epacessossql ac,
+				ep.epusuarios u,
+				ep.epobjetossql o
+			where
+				nvl(ac.codperfilusuario,u.codperfilusuario) = u.codperfilusuario
+				and nvl(ac.codusuario,u.cod) = u.cod
+				and nvl(ac.codobjetosql,o.cod) = o.cod
+				and u.cod = ".$params["codusur"]."
+				and nvl(ac.codtipoobjetosql,".$params["codtipoobjetosql"].") = ".$params["codtipoobjetosql"]."
+				and (nvl(to_char(ac.codobjetosql),'".$params["codobjetosql"]."') = '".$params["codobjetosql"]."'
+					or lower(trim(o.nomeobjetosqldb)) = lower(trim('".$params["codobjetosql"]."'))
+				)
+			group by
+				ac.codtipoobjetosql,
+				ac.codobjetosql,
+				ac.codprocessosql,
+				ac.codobjetoprocessosql";
+			$dados_acesso = FuncoesSql::getInstancia()->executar_sql($comando_sql,"fetch",\PDO::FETCH_ASSOC);
+			$retorno = [];
+			$retorno["permitido"] = FuncoesConversao::como_boleano($dados_acesso[$params["permissao"]] ?? false);
+			$retorno["criterios"] = $dados_acesso["criteriosacessosler"] ?? "";
+			$retorno["temcriterios"] = FuncoesString::strTemValor($retorno["criterios"]);
+			if ($retorno["temcriterios"]) {
+				if (FuncoesString::strTemValor($params["aliastabela"]??null)) {
+					$retorno["criterios"] = " and ".str_ireplace("__ALIAS_TABELA__",$params["aliastabela"],$retorno["criterios"]);
+				}
+
+				$contador_loops = 0;
+				while (stripos($retorno["criterios"]."","return ") !== false) {
+					//echo $valor.chr(10);
+					$retorno["criterios"] = self::processarEval($comhttp,$retorno["criterios"]);					
+					$contador_loops++;
+					if ($contador_loops > 1000) {
+						print_r($retorno["criterios"]);
+						FuncoesBasicasRetorno::mostra_msg_sair("Excesso de loops",__FILE__,__FUNCTION__,__LINE__);
+					}
+				}
+			}
+			return $retorno;
+		}
+
         /**
          * obtem dados dos componentes dos processos sql
          * @created 05/02/2021

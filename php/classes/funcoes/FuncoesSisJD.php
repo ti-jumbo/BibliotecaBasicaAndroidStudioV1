@@ -3704,63 +3704,20 @@
 								self::prepararCondicionantesFiltro($comhttp);								
 								$comhttp->requisicao->requisitar->qual->objeto = "cliente";
 								$comhttp->requisicao->requisitar->qual->condicionantes["mostrar_vals_de"] = 0;
-								//$datas = $comhttp->requisicao->requisitar->qual->condicionantes["datas"];
-								/*$dtini = FuncoesData::data_primeiro_dia_mes_atual(FuncoesData::dataBr());
-								$dtfim = FuncoesData::UltDiaMes(FuncoesData::dataBr());*/
-								
-								//$datas = [$dtini,$dtfim];
-								//$comhttp->requisicao->requisitar->qual->condicionantes["datas"] = implode(",",$datas);
 								FuncoesMontarSQL::montar_sql_relatorio_personalizado($comhttp);
-								//echo $comhttp->requisicao->sql->comando_sql;exit();
 								$dados = FuncoesSql::getInstancia()->executar_sql($comhttp->requisicao->sql->comando_sql,"fetchAll",\PDO::FETCH_NUM);
 								$qtclientesposit = count($dados);
 								$comhttp->retorno->dados_retornados["dados"] = [
 									$qtclientesposit
 								];
-
-								/*obter criterios de acesso a tabela epclientes (418)*/
-								$comando_sql = "select 
-                                        ac.codtipoobjetosql,
-                                        ac.codobjetosql,
-                                        ac.codprocessosql,
-                                        ac.codobjetoprocessosql,
-                                        min(nvl(ac.permiteler,0)) as permiteler,
-                                        listagg(ac.criteriosacessosler, ' and ') within group (order by ac.cod) as criteriosacessosler
-                                    from
-                                        ep.epacessossql ac,
-                                        ep.epusuarios u
-                                    where
-                                        nvl(ac.codperfilusuario,u.codperfilusuario) = u.codperfilusuario
-                                        and nvl(ac.codusuario,u.cod) = u.cod
-                                        and u.cod = ".$_SESSION["codusur"]."
-										and nvl(ac.codtipoobjetosql,300) = 300
-                                        and nvl(ac.codobjetosql,418) = 418
-                                    group by
-                                        ac.codtipoobjetosql,
-                                        ac.codobjetosql,
-                                        ac.codprocessosql,
-                                        ac.codobjetoprocessosql";
-								$dados_acesso = FuncoesSql::getInstancia()->executar_sql($comando_sql,"fetch",\PDO::FETCH_ASSOC);
-								//print_r($dados_acesso);exit();
-								$permitido = FuncoesConversao::como_boleano($dados_acesso["permiteler"] ?? false);
-								$criterios = $dados_acesso["criteriosacessosler"] ?? "";
-								$temCriterios = FuncoesString::strTemValor($criterios);
-								if ($temCriterios) {
-									$criterios = " and ".str_ireplace("__ALIAS_TABELA__","c",$criterios);
-
-									$contador_loops = 0;
-									while (stripos($criterios."","return ") !== false) {
-										//echo $valor.chr(10);
-										$criterios = FuncoesProcessoSql::processarEval($comhttp,$criterios);					
-										$contador_loops++;
-										if ($contador_loops > 1000) {
-											print_r($criterios);
-											FuncoesBasicasRetorno::mostra_msg_sair("Excesso de loops",__FILE__,__FUNCTION__,__LINE__);
-										}
-									}
-								} 
-								if (!$permitido){									
+								
+								$criterios = "";
+								$permissao = FuncoesProcessoSql::obterCriteriosAcesso($comhttp,"epclientes");
+								//print_r($permissao);exit();
+								if (!$permissao["permitido"]){									
 									$criterios  = " and 1=2";
+								} else if ($permissao["temcriterios"]) {
+									$criterios = " and ".str_ireplace("__ALIAS_TABELA__","c",$permissao["criterios"]); 
 								}
 								$comando_sql = "
 									SELECT
@@ -3773,6 +3730,7 @@
 										and c.codvendedor1 not in (150)
 										$criterios
 								";
+								//echo $comando_sql; exit();
 
 								$condicionantes_extra = [];
 								$joins = [];
@@ -3890,6 +3848,99 @@
 								$comhttp->retorno->dados_retornados["dados"] = [
 									$qtclientesposit,
 									$qtclientesativos[0]-$qtclientesposit									
+								];
+								//print_r($comhttp->retorno->dados_retornados["dados"]);exit();								
+								break;
+							case "dados_grafico_mix":								
+								self::prepararCondicionantesFiltro($comhttp);								
+								$comhttp->requisicao->requisitar->qual->objeto = "produto";
+								$comhttp->requisicao->requisitar->qual->condicionantes["mostrar_vals_de"] = 0;
+								FuncoesMontarSQL::montar_sql_relatorio_personalizado($comhttp);
+								$dados = FuncoesSql::getInstancia()->executar_sql($comhttp->requisicao->sql->comando_sql,"fetchAll",\PDO::FETCH_NUM);
+								$qtprodutosposit = count($dados);
+								$comhttp->retorno->dados_retornados["dados"] = [
+									$qtprodutosposit
+								];
+								
+								$criterios = "";
+								$permissao = FuncoesProcessoSql::obterCriteriosAcesso($comhttp,"epprodutos");
+								//print_r($permissao);exit();
+								if (!$permissao["permitido"]){									
+									$criterios  = " and 1=2";
+								} else if ($permissao["temcriterios"]) {
+									$criterios = " and ".str_ireplace("__ALIAS_TABELA__","p",$permissao["criterios"]); 
+								}
+								$comando_sql = "
+									SELECT
+										COUNT(1)
+									FROM
+										ep.epprodutos p
+										__JOIN__
+									WHERE
+										p.dtexclusao IS NULL
+										and p.ativo = 1
+										$criterios
+								";
+								//echo $comando_sql; exit();
+
+								$condicionantes_extra = [];
+								$joins = [];
+								if (FuncoesRelatorio::verificarTemCondicionanteVisao($comhttp,null)) {
+									foreach($comhttp->requisicao->requisitar->qual->condicionantes["condicionantes"] as $visao=>$condicionante) {
+										switch(strtolower(trim($visao))) {
+											case "origem de dados": 
+											case "origem":
+												$joins[] = "join ep.eporigensinfo o on (o.cod = p.codorigeminfo)";
+												foreach($condicionante as $op=>$valores){
+													if ($op == "=") {
+														$condicionantes_extra[] = "lower(o.nome) in (".strtolower(implode(",",$valores)).")";
+													} else {
+														$condicionantes_extra[] = "lower(o.nome) not in (".strtolower(implode(",",$valores)).")";
+													}
+												}
+												break;
+											case "departamento": 
+												foreach($condicionante as $op=>$valores){
+													if ($op == "=") {
+														$condicionantes_extra[] = "p.codepto in (".implode(",",$valores).")";
+													} else {
+														$condicionantes_extra[] = "p.codepto not in (".implode(",",$valores).")";
+													}
+												}
+												break;
+											case "fornecedor": 
+												foreach($condicionante as $op=>$valores){
+													if ($op == "=") {
+														$condicionantes_extra[] = "p.codfornec in (".implode(",",$valores).")";
+													} else {
+														$condicionantes_extra[] = "p.codfornec not in (".implode(",",$valores).")";
+													}
+												}
+												break;
+											case "produto": 
+												foreach($condicionante as $op=>$valores){
+													if ($op == "=") {
+														$condicionantes_extra[] = "p.cod in (".implode(",",$valores).")";
+													} else {
+														$condicionantes_extra[] = "p.cod not in (".implode(",",$valores).")";
+													}
+												}
+												break;
+											
+										}
+									}
+									$joins = array_unique($joins);
+								}
+
+								$comando_sql = str_ireplace("__JOIN__",implode(" ",$joins),$comando_sql);
+								if (count($condicionantes_extra) > 0) {									
+									$comando_sql .= " and " . implode(" and ",$condicionantes_extra);
+								}
+
+								$qtprodutosativos = FuncoesSql::getInstancia()->executar_sql($comando_sql,"fetch",\PDO::FETCH_NUM);
+								$comhttp->retorno->dados_retornados["dados"] = [
+									$qtprodutosposit,
+									$qtprodutosativos[0]-$qtprodutosposit									
 								];
 								//print_r($comhttp->retorno->dados_retornados["dados"]);exit();								
 								break;

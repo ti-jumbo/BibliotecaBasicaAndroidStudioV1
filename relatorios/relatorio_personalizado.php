@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SisJD - Relatorio Personalizado</title>
     <link href="/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/sjd/css/1.0/estilos.css" rel="stylesheet">
+    <link href="/sjd/css//1.1/estilos.css" rel="stylesheet">
     <script type="text/javascript" src="/sjd/javascript/polyfill.js"></script>
     <script type="text/javascript" src="/jquery/3.6.0/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
@@ -43,7 +43,7 @@
                                     <div class="accordion">
                                        <div titulo="Opcoes de Pesquisa" target="#painel_div_opcoes_pesquisa_corpo" class="accordion-item" aberto="1">
                                           <div class="accordion-header" titulo="Opcoes de Pesquisa" target="#painel_div_opcoes_pesquisa_corpo" aberto="1">
-                                             <div data-bs-toggle="collapse" data-bs-target="#painel_div_opcoes_pesquisa_corpo" aberto="1" class="accordion-button" type="button" aria-expanded="true" aria-controls="painel_div_opcoes_pesquisa_corpo">Opcoes de Pesquisa</div>
+                                             <div data-bs-toggle="collapse" data-bs-target="#painel_div_opcoes_pesquisa_corpo" aberto="1" class="accordion-button pt-2 pb-2" type="button" aria-expanded="true" aria-controls="painel_div_opcoes_pesquisa_corpo">Opcoes de Pesquisa</div>
                                           </div>
                                           <div id="painel_div_opcoes_pesquisa_corpo" class="collapse show">
                                              <div class="accordion-body" aberto="1">
@@ -52,7 +52,7 @@
                                                       <div class="accordion">
                                                          <div class="div_visoes accordion-item" titulo="Visualizar" target="#visoes" aberto="1">
                                                             <div class="accordion-header" titulo="Visualizar" target="#visoes" aberto="1">
-                                                               <div data-bs-toggle="collapse" data-bs-target="#visoes" aberto="1" class="accordion-button" type="button" aria-expanded="true" aria-controls="visoes">Visualizar</div>
+                                                               <div data-bs-toggle="collapse" data-bs-target="#visoes" aberto="1" class="accordion-button pt-1 pb-1" type="button" aria-expanded="true" aria-controls="visoes">Visualizar</div>
                                                             </div>
                                                             <div id="visoes" class="collapse show">
                                                                <div class="accordion-body" aberto="1">
@@ -65,7 +65,7 @@
                                                          </div>
                                                          <div class="div_periodos accordion-item" titulo="Periodos" target="#periodos" aberto="1">
                                                             <div class="accordion-header" titulo="Periodos" target="#periodos" aberto="1">
-                                                               <div data-bs-toggle="collapse" data-bs-target="#periodos" aberto="1" class="accordion-button" type="button" aria-expanded="true" aria-controls="periodos">Periodos</div>
+                                                               <div data-bs-toggle="collapse" data-bs-target="#periodos" aberto="1" class="accordion-button pt-1 pb-1" type="button" aria-expanded="true" aria-controls="periodos">Periodos</div>
                                                             </div>
                                                             <div id="periodos" class="collapse show">
                                                                <div class="accordion-body" aberto="1">
@@ -78,7 +78,7 @@
                                                          </div>
                                                          <div class="avancado div_avancado accordion-item" titulo="Avancado" target="#avancada">
                                                             <div class="accordion-header" titulo="Avancado" target="#avancada">
-                                                               <div data-bs-toggle="collapse" data-bs-target="#avancada" class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="avancada">Avancado</div>
+                                                               <div data-bs-toggle="collapse" data-bs-target="#avancada" class="accordion-button collapsed pt-1 pb-1" type="button" aria-expanded="false" aria-controls="avancada">Avancado</div>
                                                             </div>
                                                             <div id="avancada" class="collapse">
                                                                <div class="accordion-body">
@@ -87,7 +87,7 @@
                                                                         <div class="accordion">
                                                                            <div class="painel_ver_vals_de accordion-item" titulo="Ver Valores de" target="#painel_ver_vals_de">
                                                                               <div class="accordion-header" titulo="Ver Valores de" target="#painel_ver_vals_de">
-                                                                                 <div data-bs-toggle="collapse" data-bs-target="#painel_ver_vals_de" class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="painel_ver_vals_de">Ver Valores de</div>
+                                                                                 <div data-bs-toggle="collapse" data-bs-target="#painel_ver_vals_de" class="accordion-button collapsed pt-1 pb-1" type="button" aria-expanded="false" aria-controls="painel_ver_vals_de">Ver Valores de</div>
                                                                               </div>
                                                                               <div id="painel_ver_vals_de" class="collapse">
                                                                                  <div class="accordion-body">
@@ -112,7 +112,7 @@
                                                                            </div>
                                                                            <div class="painel_considerar_vals_de accordion-item" titulo="Considerar Valores de" target="#painel_considerar_vals_de">
                                                                               <div class="accordion-header" titulo="Considerar Valores de" target="#painel_considerar_vals_de">
-                                                                                 <div data-bs-toggle="collapse" data-bs-target="#painel_considerar_vals_de" class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="painel_considerar_vals_de">Considerar Valores de</div>
+                                                                                 <div data-bs-toggle="collapse" data-bs-target="#painel_considerar_vals_de" class="accordion-button collapsed pt-1 pb-1" type="button" aria-expanded="false" aria-controls="painel_considerar_vals_de">Considerar Valores de</div>
                                                                               </div>
                                                                               <div id="painel_considerar_vals_de" class="collapse">
                                                                                  <div class="accordion-body">
@@ -124,7 +124,7 @@
                                                                            </div>
                                                                            <div class="div_condicionantes accordion-item" titulo="Condicionantes" target="#painel_condicionantes">
                                                                               <div class="accordion-header" titulo="Condicionantes" target="#painel_condicionantes">
-                                                                                 <div data-bs-toggle="collapse" data-bs-target="#painel_condicionantes" class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="painel_condicionantes">Condicionantes</div>
+                                                                                 <div data-bs-toggle="collapse" data-bs-target="#painel_condicionantes" class="accordion-button collapsed pt-1 pb-1" type="button" aria-expanded="false" aria-controls="painel_condicionantes">Condicionantes</div>
                                                                               </div>
                                                                               <div id="painel_condicionantes" class="collapse">
                                                                                  <div class="accordion-body">
@@ -135,15 +135,15 @@
                                                                            </div>
                                                                            <div class="div_campos_avulsos accordion-item" titulo="Campos Avulsos" target="#painel_campos_avulsos">
                                                                               <div class="accordion-header" titulo="Campos Avulsos" target="#painel_campos_avulsos">
-                                                                                 <div data-bs-toggle="collapse" data-bs-target="#painel_campos_avulsos" class="accordion-button collapsed" type="button" aria-expanded="false" aria-controls="painel_campos_avulsos">Campos Avulsos</div>
+                                                                                 <div data-bs-toggle="collapse" data-bs-target="#painel_campos_avulsos" class="accordion-button collapsed pt-1 pb-1" type="button" aria-expanded="false" aria-controls="painel_campos_avulsos">Campos Avulsos</div>
                                                                               </div>
                                                                               <div id="painel_campos_avulsos" class="collapse">
                                                                                  <div class="accordion-body">
                                                                                     <div class="row">
                                                                                        <div class="col-auto mt-2 div_visao">
                                                                                           <div class="card">
-                                                                                             <div class="card-header">Campos Avulsos</div>
-                                                                                             <div class="card-body">
+                                                                                             <div class="card-header ps-2 pt-0 pb-1 cor_titulo_campos_avulsos">Campos Avulsos</div>
+                                                                                             <div class="card-body ps-2 pt-1 pb-1">
                                                                                                 <div class="row">
                                                                                                    <div class="col">
                                                                                                       <div label="Campos Avulsos" classe_botao="btn-dark" aoabrir="window.fnsisjd.incluir_options_campo_avulso(this)" tem_inputs="1" tipo_inputs="checkbox" multiplo="1" selecionar_todos="1" filtro="1" class="div_combobox" data-visao="" data-visao_atual="campos_avulsos" placeholder="(Selecione)" num_max_texto_botao="5" funcao_filtro="window.fnhtml.fndrop.filtrar_dropdown(this)">
