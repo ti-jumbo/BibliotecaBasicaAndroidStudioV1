@@ -251,6 +251,7 @@ button.accordion-button {
 }
 button.accordion-button:not(.collapsed) {
     background-color:#a6cafd;
+    /*color:#C5A5CF;*/
 }
 .cor_titulo_visao,
 .cor_titulo_periodo,

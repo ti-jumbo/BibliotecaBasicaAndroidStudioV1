@@ -3980,7 +3980,7 @@ class FuncoesSisJD{
             let div_container = {};
             obj = fnjs.obterJquery(obj);
             div_container = obj.parent().parent();
-            let nova_janela = window.open("/" + __CAMINHOBASESISREL__ + "/php/maximizada.php");
+            let nova_janela = window.open("/sjd/php/maximizada.php");
             this.preencher_dados_janela_maximizada(nova_janela,div_container);
             fnjs.logf(this.constructor.name,"maximizar_div");
         } catch(erro) {
@@ -4905,7 +4905,7 @@ class FuncoesSisJD{
             fnjs.logi(this.constructor.name,"clicou_detalhar_evolucao");
             params.elemento = params.elemento || params.obj || params.elem || params;
             params.filtros_painel = this.obter_filtros_painel();
-            let nova_janela = window.open("/"+__CAMINHOBASESISREL__ + "/php/maximizada.php");		
+            let nova_janela = window.open("/sjd/php/maximizada.php");		
             this.preencher_dados_janela_maximizada_defalhe_evolucao(nova_janela,params);
             fnjs.logf(this.constructor.name,"clicou_detalhar_evolucao");
         }catch(e){
@@ -6319,7 +6319,7 @@ class FuncoesSisJD{
             fnjs.logi(this.constructor.name,"inserirGraficoVolumeInicio");
             let opcoes_grafico1 = {}, opcoes_grafico2={}, opcoes_grafico3={};
             /*migrar para google charts*/
-            google.charts.load('current', {'packages':['bar']});    
+            google.charts.load('current', {'packages':['corechart']});    
             google.charts.setOnLoadCallback(desenharGraficosVolumeInicio);
             
             function desenharGraficosVolumeInicio() {
@@ -6329,10 +6329,9 @@ class FuncoesSisJD{
                     valor1,
                     valor2;
                 let qt = 12;
-
+                rows.push([{label:'Mes',type:'string'},{label:fndt.getAno()-1,type:'number'},{ role: 'style' },{label:fndt.getAno(),type:'number'},{ role: 'style' }]);
                 if (!localStorage.getItem("dados_grafico_volume_inicio_" + fndt.getAno() + "_" + (localStorage.getItem("codusur")||""))) {
                     for(let i = 0; i < qt; i++) {
-                        //params.comhttp.retorno.dados_retornados.conteudo_html.dados[i] = parseFloat(params.comhttp.retorno.dados_retornados.conteudo_html.dados[i]);
                         localStorage.setItem("dados_grafico_volume_inicio_"+fndt.getAno()+"_"+(localStorage.getItem("codusur")||""),params.comhttp.retorno.dados_retornados.conteudo_html.dados.join(";"));
                         valor1 = parseFloat(params.comhttp.retorno.dados_retornados.conteudo_html.dados[i] || 0);
                         valor2 = parseFloat(params.comhttp.retorno.dados_retornados.conteudo_html.dados[i+12] || 0);
@@ -6345,18 +6344,18 @@ class FuncoesSisJD{
                         rows.push([
                             window.vars.constantes.meses_abrev[i],
                             valor1,
-                            valor2
+                                'color: lightslategray',
+                            valor2,
+                                'color: cornflowerblue'
                         ]);
                     }
                 } else {
-                    let valores = localStorage.getItem("dados_grafico_volume_inicio_" + fndt.getAno() + "_" + (localStorage.getItem("codusur")||""));
-                    valores = valores.split(";");
-                    console.log(valores);        
+                    let valores_armazenados = localStorage.getItem("dados_grafico_volume_inicio_" + fndt.getAno() + "_" + (localStorage.getItem("codusur")||""));
+                    valores_armazenados = valores_armazenados.split(";");
                     let valorMesAtual = parseFloat(params.comhttp.retorno.dados_retornados.conteudo_html.dados[0] || 0);            
                     for(let i = 0; i < qt; i++) {
-                        //params.comhttp.retorno.dados_retornados.conteudo_html.dados[i] = parseFloat(params.comhttp.retorno.dados_retornados.conteudo_html.dados[i]);
-                        valor1 = parseFloat(valores[i] || 0);
-                        valor2 = parseFloat(valores[i+12] || 0);
+                        valor1 = parseFloat(valores_armazenados[i] || 0);
+                        valor2 = parseFloat(valores_armazenados[i+12] || 0);
                         if (valor1==0) {
                             valor1 = null;
                         }
@@ -6365,23 +6364,23 @@ class FuncoesSisJD{
                         }
                         if (i == (fndt.getMes()-1)) {
                             valor2 = valorMesAtual;
+                            valores_armazenados[i+12] = valor2;
                         }
                         rows.push([
                             window.vars.constantes.meses_abrev[i],
                             valor1,
-                            valor2
+                                'color: lightslategray',
+                            valor2,
+                                'color: cornflowerblue'
                         ]);
-                    }
-                    console.log(rows);
-                    //alert("ok1");
+                    }                    
+                    /*atualiza o localStorage com o mes atual*/
+                    localStorage.setItem("dados_grafico_volume_inicio_"+fndt.getAno()+"_"+(localStorage.getItem("codusur")||""),valores_armazenados.join(";"));
                 }
                 
-                data = new google.visualization.DataTable();
-                data.addColumn('string', 'Mes');
-                data.addColumn('number', fndt.getAno()-1);
-                data.addColumn('number', fndt.getAno());
-                data.addRows(rows);        
-
+                data = google.visualization.arrayToDataTable(
+                    rows
+                );
                 let options = {
                     title:"Volume ano anterior x atual",
                     hAxis: {
@@ -6391,13 +6390,21 @@ class FuncoesSisJD{
                         title: 'Realizado',
                         minValue:0
                     },
-                    legend: { position: 'top' }
+                    legend: { 
+                        position: 'top'                         
+                    },
+                    series:{
+                        0:{color:'lightslategray'},
+                        1:{color:'cornflowerblue'}
+                    },
+                    bars: 'vertical',
+                    theme:'material'
                 };
                 let elemento_html = fnjs.obterJquery('div#grafico_volume');
                 elemento_html.html("");
-                let chart = new google.charts.Bar(elemento_html[0]);
+                let chart = new google.visualization.ColumnChart(elemento_html[0]);
 
-                chart.draw(data, google.charts.Bar.convertOptions(options));
+                chart.draw(data, options);
             }
             fnjs.logf(this.constructor.name,"inserirGraficoVolumeInicio");
         } catch(erro) {
@@ -6514,6 +6521,10 @@ class FuncoesSisJD{
     inserirGraficoVolume(params){
         try {
             fnjs.logi(this.constructor.name,"inserirGraficoVolume");
+            params.inicio = params.inicio || false;
+            if (!localStorage.getItem("dados_grafico_volume_inicio_" + fndt.getAno() + "_" + (localStorage.getItem("codusur")||""))) {
+                params.inicio = false;
+            }
             google.charts.load('current', {'packages':['bar']});    
             google.charts.setOnLoadCallback(function(){
                 let data,
@@ -6523,22 +6534,39 @@ class FuncoesSisJD{
                     qt = 12,
                     combobox_ano = window.fnjs.obterJquery("div.card_anos_grafico_volume").find("div.div_combobox"),
                     anos_considerar = fnhtml.fncomboboxs.obter_valores_selecionados_combobox(combobox_ano),
-                    linha = [];
-                //alert(typeof anos_considerar);
-                //anos_considerar = anos_considerar.split(",");
-                for(let i = 0; i < qt; i++) {
-                    linha = [];
-                    linha.push(window.vars.constantes.meses_abrev[i]);
-                    for(let j = 0; j < anos_considerar.length; j++) {
-                        valor1 = parseFloat(params.comhttp.retorno.dados_retornados.conteudo_html.dados[i+(j*12)] || 0);
-                        if (valor1==0) {
-                            valor1 = null;
+                    linha = [],
+                    elemento_html = null;
+                if (params.inicio == true) {
+                    elemento_html = window.fnjs.obterJquery(params.seletor_local_retorno || "div#div_grafico_volume");
+                    let valores_armazenados = localStorage.getItem("dados_grafico_volume_inicio_" + fndt.getAno() + "_" + (localStorage.getItem("codusur")||""));
+                    valores_armazenados = valores_armazenados.split(";");
+                    for(let i = 0; i < qt; i++) {
+                        linha = [];
+                        linha.push(window.vars.constantes.meses_abrev[i]);
+                        for(let j = 0; j < anos_considerar.length; j++) {
+                            valor1 = parseFloat(valores_armazenados[i+(j*12)] || 0);
+                            if (valor1==0) {
+                                valor1 = null;
+                            }
+                            linha.push(valor1);
                         }
-                        linha.push(valor1);
-                    }
-                    rows.push(linha);
-                }                
-                
+                        rows.push(linha);
+                    }   
+                } else {
+                    elemento_html = fnjs.obterJquery(params.comhttp.opcoes_retorno.seletor_local_retorno);
+                    for(let i = 0; i < qt; i++) {
+                        linha = [];
+                        linha.push(window.vars.constantes.meses_abrev[i]);
+                        for(let j = 0; j < anos_considerar.length; j++) {
+                            valor1 = parseFloat(params.comhttp.retorno.dados_retornados.conteudo_html.dados[i+(j*12)] || 0);
+                            if (valor1==0) {
+                                valor1 = null;
+                            }
+                            linha.push(valor1);
+                        }
+                        rows.push(linha);
+                    }                
+                }
                 data = new google.visualization.DataTable();
                 data.addColumn('string', 'Mes');
                 for(let j = 0; j < anos_considerar.length; j++) {
@@ -6558,7 +6586,7 @@ class FuncoesSisJD{
                     },
                     legend: { position: 'top' }
                 };
-                let elemento_html = fnjs.obterJquery(params.comhttp.opcoes_retorno.seletor_local_retorno);
+                
                 elemento_html.html("");
                 let chart = new google.charts.Bar(elemento_html[0]);
 
@@ -6578,28 +6606,35 @@ class FuncoesSisJD{
             let objeto_retorno = window.fnjs.obterJquery(params.seletor_local_retorno);
             objeto_retorno.html("");
             objeto_retorno.append(window.fnhtml.criarSpinner());
-            let comhttp = JSON.parse(window.vars.str_tcomhttp);
-			comhttp.opcoes_retorno.ignorar_tabela_est = true;
-			comhttp.requisicao.requisitar.oque="dados_sql";
-			comhttp.requisicao.requisitar.qual.comando = "consultar";
-			comhttp.requisicao.requisitar.qual.tipo_objeto = "pesquisa";
-            comhttp.opcoes_retorno.metodo_insersao = "html";
-            comhttp.requisicao.requisitar.qual.condicionantes = [];   
-            params.condicionantes = params.condicionantes || this.obterFiltrosDashboard();         
-            comhttp.requisicao.requisitar.qual.condicionantes.push("filtros="+JSON.stringify(params.condicionantes));
-            comhttp.opcoes_retorno.seletor_local_retorno = params.seletor_local_retorno;			
-            comhttp.opcoes_requisicao.mostrar_carregando = false;
-			comhttp.eventos.aposretornar=[{
-				arquivo:null,
-				funcao:'window.fnsisjd.inserirGraficoVolume'
-			}];
-            let combobox_ano = window.fnjs.obterJquery("div.card_anos_grafico_volume").find("div.div_combobox");
-            let anos_considerar = fnhtml.fncomboboxs.obter_valores_selecionados_combobox(combobox_ano);
-            comhttp.requisicao.requisitar.qual.condicionantes.push("anos_considerar=" + anos_considerar);
-            let mostrar_vals_de = window.fnjs.obterJquery("div.card_unidade_grafico_volume").find("input:checked").val();
-            comhttp.requisicao.requisitar.qual.condicionantes.push("mostrar_vals_de"+'='+mostrar_vals_de);
-			comhttp.requisicao.requisitar.qual.objeto = "dados_grafico_volume";                                        
-            window.fnreq.requisitar_servidor({comhttp:comhttp});					
+
+            params.inicio = params.inicio || false;
+
+            if (params.inicio == true) {
+                this.inserirGraficoVolume(params);
+            } else {
+                let comhttp = JSON.parse(window.vars.str_tcomhttp);
+                comhttp.opcoes_retorno.ignorar_tabela_est = true;
+                comhttp.requisicao.requisitar.oque="dados_sql";
+                comhttp.requisicao.requisitar.qual.comando = "consultar";
+                comhttp.requisicao.requisitar.qual.tipo_objeto = "pesquisa";
+                comhttp.opcoes_retorno.metodo_insersao = "html";
+                comhttp.requisicao.requisitar.qual.condicionantes = [];   
+                params.condicionantes = params.condicionantes || this.obterFiltrosDashboard();         
+                comhttp.requisicao.requisitar.qual.condicionantes.push("filtros="+JSON.stringify(params.condicionantes));
+                comhttp.opcoes_retorno.seletor_local_retorno = params.seletor_local_retorno;			
+                comhttp.opcoes_requisicao.mostrar_carregando = false;
+                comhttp.eventos.aposretornar=[{
+                    arquivo:null,
+                    funcao:'window.fnsisjd.inserirGraficoVolume'
+                }];
+                let combobox_ano = window.fnjs.obterJquery("div.card_anos_grafico_volume").find("div.div_combobox");
+                let anos_considerar = fnhtml.fncomboboxs.obter_valores_selecionados_combobox(combobox_ano);
+                comhttp.requisicao.requisitar.qual.condicionantes.push("anos_considerar=" + anos_considerar);
+                let mostrar_vals_de = window.fnjs.obterJquery("div.card_unidade_grafico_volume").find("input:checked").val();
+                comhttp.requisicao.requisitar.qual.condicionantes.push("mostrar_vals_de"+'='+mostrar_vals_de);
+                comhttp.requisicao.requisitar.qual.objeto = "dados_grafico_volume";                                        
+                window.fnreq.requisitar_servidor({comhttp:comhttp});					
+            }
         } catch(e) {
 			console.log(e);
 			alert(e.message||e);
@@ -6748,17 +6783,14 @@ class FuncoesSisJD{
 
     
 
-    carregarDashboard(){
+    carregarDashboard(params){
         try {
             fnjs.logi(this.constructor.name,"carregarDashboard");
+            params = params ||{};
+            params.inicio = params.inicio || false;
             let filtros_dashboard = {};
             filtros_dashboard = this.obterFiltrosDashboard();	
-            	
-            this.carregarGraficoVolume({
-                condicionantes:filtros_dashboard,
-                seletor_local_retorno:"div#div_grafico_volume"}
-            );
-
+            
             this.carregarGraficoPositivacaoClientes({
                 condicionantes:filtros_dashboard,
                 seletor_local_retorno:"div#div_grafico_positivacao"}
@@ -6767,6 +6799,12 @@ class FuncoesSisJD{
             this.carregarGraficoMixProdutos({
                 condicionantes:filtros_dashboard,
                 seletor_local_retorno:"div#div_grafico_mix"}
+            );
+
+            this.carregarGraficoVolume({
+                inicio : params.inicio,
+                condicionantes:filtros_dashboard,
+                seletor_local_retorno:"div#div_grafico_volume"}
             );
             fnjs.logf(this.constructor.name,"carregarDashboard");
         }catch(e){
