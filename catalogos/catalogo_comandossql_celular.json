@@ -365,7 +365,7 @@
 		"tipoobjeto":"TABLE",
 		"tabelas":"notascarga",
 		"aliasescamposunique":"chavenfe",
-		"aliasescamposresultantes":"chavenfe,codorigemdado,numcar,numnota,razaosocial,fantasia,dtsaida,dtentrega,horaentrega,minutoentrega,codcli,cnpjcliente,codvendedor,qtitens,pesototal,valortotal,codcob,desccobranca,codplpag,descplpag,endereco,numendereco,bairro,municipio,cep,telefone,latitude,longitude,statusentrega,dtinicioentrega,dtfimentrega,observacao,statussinc",
+		"aliasescamposresultantes":"chavenfe,codorigemdado,numcar,numnota,razaosocial,fantasia,dtsaida,dtentrega,horaentrega,minutoentrega,codcli,cnpjcliente,codvendedor,qtitens,pesototal,valortotal,codcob,desccobranca,codplpag,descplpag,endereco,numendereco,bairro,municipio,cep,telefone,latitude,longitude,xml,statusentrega,dtinicioentrega,dtfimentrega,observacao,statussinc",
 		"nomeapp":"sisjdent",
 		"statussinc":1,
 	    "codsituacaoregistro":1

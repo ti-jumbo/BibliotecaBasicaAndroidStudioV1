@@ -6,8 +6,8 @@
 
     $erro = $_POST || $_GET;
     switch($erro) {
-        case "1":case 1:
-            $erro = "Local inacessivel!";
+        case '1':case 1:
+            $erro = 'Local inacessivel!';
             break;
         default:
             

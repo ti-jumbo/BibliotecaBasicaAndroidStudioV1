@@ -1,5 +1,16 @@
 /**Classe Variaveis */
 class Variaveis{
+
+    static #instance = null;
+
+    static getInstance(){
+        if (Variaveis.#instance == null) {
+            Variaveis.#instance = new Variaveis();
+        }
+        return Variaveis.#instance;
+    }
+
+    nameLocalStorageDataGraphicInit = "data_graphic_volumn_init_v001_"    
     constructor() {
         try {
             console.log("Inicio " + this.constructor.name);
@@ -1546,12 +1557,8 @@ class Variaveis{
             console.log(erro);
             alert(erro.message || erro);
         }
-    };
+    };    
 };
 
-var vars = new Variaveis();
-
-window.vars = vars;
-
-export { vars }; 
+export default Variaveis.getInstance();
 

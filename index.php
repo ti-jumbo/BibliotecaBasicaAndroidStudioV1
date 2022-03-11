@@ -1,29 +1,9 @@
 <?php
-    namespace SJD;
-    
-    include_once($_SERVER['DOCUMENT_ROOT']."/SJD/php/initial_loads.php");
-
+    namespace SJD;      
+    include_once $_SERVER['DOCUMENT_ROOT'].'/SJD/php/initial_loads_secure_page.php';
+    $GLOBALS['title'] = 'Inicio';
+    include $_SERVER['DOCUMENT_ROOT'].'/SJD/php/html/partials/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0" />
-    <meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="expires" content="0" />
-    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <title>SisJD - Sistema Jumbo Distribuidor</title>
-    <link href="/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/sjd/css//1.1/estilos.css" rel="stylesheet">
-    <script type="text/javascript" src="/sjd/javascript/polyfill.js"></script>
-    <script type="text/javascript" src="/jquery/3.6.0/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="/sjd/javascript/modulos/ModuloPrincipal.js?3.00"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-</head>
 <body>
     <div class="div-main container-fluid p-0 m-0 h-100 w-100">
         <div class="row row-main p-0 m-0 h-100 w-100">
@@ -208,8 +188,11 @@
         </div>
     </div>
 </body>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js?<?php echo VERSION_LOADS; ?>"></script>
 <script type="module">
-    fnsisjd.carregar_valores_inicio();
-    fnsisjd.carregarGraficoVolumeInicio();
+    const {default:fnsisjd} = await import("/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js?"+window.version_loads).catch((error)=>{console.log(error);alert("Erro de carregamento de modulos.\nPor favor, tente atualizar a pagina novamente com Ctrl+F5.\nSe o erro persistir mesmo assim, tente limpar o historico do navegador.\nAinda Persistindo, contacte o administrador da pagina.");});
+    const {default:fnevt} = await import("/sjd/javascript/modulos/classes/eventos/FuncoesEventos.js?"+window.version_loads).catch((error)=>{console.log(error);alert("Erro de carregamento de modulos.\nPor favor, tente atualizar a pagina novamente com Ctrl+F5.\nSe o erro persistir mesmo assim, tente limpar o historico do navegador.\nAinda Persistindo, contacte o administrador da pagina.");});        
+    window.fnsisjd.carregar_valores_inicio();
+    window.fnsisjd.carregarGraficoVolumeInicio();
 </script>
 </html>

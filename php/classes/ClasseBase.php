@@ -1,19 +1,6 @@
 <?php
 	namespace SJD\php\classes;
-	
-	
-	/*bloco de definicao de usos*/
-	use SJD\php\classes\funcoes\FuncoesIniciais;
-	
-	
-	/*bloco de inicializacao e protecao*/	
-	if (count(spl_autoload_functions()) === 0) {
-		set_include_path(str_replace("/",DIRECTORY_SEPARATOR,$_SERVER["DOCUMENT_ROOT"]));
-		spl_autoload_extensions(".php");
-		spl_autoload_register();
-	}
-	FuncoesIniciais::processamentos_iniciais();
-	
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/sjd/php/initial_loads_unsecure_file.php';
 	
 	/*codigo*/
 	/*
@@ -44,7 +31,7 @@
 		
 		public function __wakeup()
 		{
-			throw new \Exception("Cannot unserialize a singleton.");
+			throw new \Exception('Cannot unserialize a singleton.');
 		}
 		
 		public function setInstanciaSis($pinstancia_sis) {
@@ -69,10 +56,10 @@
 							$retorno = $this->instancia_sis->{$nome_prop};
 						} 
 					} else {
-						//echo "propriedade $nome_prop nao existe em "  .$this->instancia_sis::class; exit();
+						//echo 'propriedade $nome_prop nao existe em '  .$this->instancia_sis::class; exit();
 					}
 				} else {
-					trigger_error("instancia_sis de " . self::class . " nula");
+					trigger_error('instancia_sis de ' . self::class . ' nula');
 				}
 				return $retorno;
 			} catch(\Error | \Throwable | \Exception $e) {

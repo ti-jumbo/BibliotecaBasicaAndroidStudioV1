@@ -1,9 +1,18 @@
-import { vars } from '/sjd/javascript/modulos/classes/variaveis/Variaveis.js';
-
+const {default:vars} = await import('/sjd/javascript/modulos/classes/variaveis/Variaveis.js?'+window.version_loads).catch((error)=>{console.log(error);alert("Erro de carregamento de modulos.\nPor favor, tente atualizar a pagina novamente com Ctrl+F5.\nSe o erro persistir mesmo assim, tente limpar o historico do navegador.\nAinda Persistindo, contacte o administrador da pagina.");});
 class FuncoesJavascript{    
+    static #instance = null;
+
+    static getInstance(){
+        if (FuncoesJavascript.#instance == null) {
+            FuncoesJavascript.#instance = new FuncoesJavascript();
+            window.fnjs = FuncoesJavascript.#instance;
+        }
+        return FuncoesJavascript.#instance;
+    }
+
     constructor(){        
         try {
-            this.logi(this.constructor.name);
+            console.log("Inicio " + this.constructor.name);
             this.mostrar_log_ini = true;
             this.mostrar_log_fim = true;
             this.nomes_variaveis = {
@@ -13,7 +22,7 @@ class FuncoesJavascript{
             this.mensagens = {
                 erro_conteudo_branco : "Erro ao carregar o conteudo js, conteudo em branco"
             };
-            this.logf(this.constructor.name);
+            console.log("Fim " + this.constructor.name);
         } catch(erro) {
             console.log(erro);
             alert(erro.message || erro);
@@ -523,12 +532,7 @@ class FuncoesJavascript{
             alert(e.message || e);
         }
     }
-
     
 };
 
-var fnjs = new FuncoesJavascript();
-
-window.fnjs = fnjs;
-
-export { fnjs };
+export default FuncoesJavascript.getInstance();

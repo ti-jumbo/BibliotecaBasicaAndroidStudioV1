@@ -1,7 +1,18 @@
-import { fnjs } from '/sjd/javascript/modulos/classes/javascript/FuncoesJavascript.js';
-
+/*load of modules*/
+const {default:fnjs} = await import('/sjd/javascript/modulos/classes/javascript/FuncoesJavascript.js?'+window.version_loads).catch((error)=>{console.log(error);alert("Erro de carregamento de modulos.\nPor favor, tente atualizar a pagina novamente com Ctrl+F5.\nSe o erro persistir mesmo assim, tente limpar o historico do navegador.\nAinda Persistindo, contacte o administrador da pagina.");});
 /*Classe FuncoesEventos*/
 class FuncoesEventos{
+
+    static #instance = null;
+
+    static getInstance(){
+        if (FuncoesEventos.#instance == null) {
+            FuncoesEventos.#instance = new FuncoesEventos();
+            window.fnevt = FuncoesEventos.#instance;
+        }
+        return FuncoesEventos.#instance;
+    }
+
     constructor(){
             try {
             /*Evento que previne fechamento indevido de menu dropdow ao abrir subitem */
@@ -9,7 +20,6 @@ class FuncoesEventos{
             fnjs.logi(this.constructor.name);
             fnjs.obterJquery(document).on('click','*',function(e){
                 try {			
-                    //fnjs.logi(this.constructor.name,"click");
                     let elemento = fnjs.obterJquery(e.target);
                     let estaemtabdados = elemento.closest("table.tabdados").length || false;
                     let ehimgbtnesquerdo = elemento.hasClass('img_btn_menu_esquerdo');
@@ -29,13 +39,11 @@ class FuncoesEventos{
                             return;
                         }
                     }
-                    //fnjs.logf(this.constructor.name,"click");
                 } catch(er) {
                     console.log(er);
                     alert(er.message || er);
                 }			
             });
-
             fnjs.logf(this.constructor.name);
         } catch(erro) {
             console.log(erro);
@@ -67,8 +75,4 @@ class FuncoesEventos{
         }
     }
 }
-var fnevt = new FuncoesEventos();
-
-window.fnevt = fnevt;
-
-export { fnevt };
+export default FuncoesEventos.getInstance(); 

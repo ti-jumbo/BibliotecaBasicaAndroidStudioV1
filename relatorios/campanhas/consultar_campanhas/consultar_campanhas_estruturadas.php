@@ -1,41 +1,16 @@
 <?php
     namespace SJD\relatorios\campanhas\consultar_campanhas;
-
-    include_once($_SERVER['DOCUMENT_ROOT']."/SJD/php/initial_loads.php");
-
+    include_once $_SERVER['DOCUMENT_ROOT'].'/SJD/php/initial_loads_secure_page.php';
+    use SJD\php\classes\html\components\sjd\{
+        AccordionHeaderOpcoesPesquisa,
+        AccordionHeaderPeriodos
+    };
+    include $_SERVER['DOCUMENT_ROOT'].'/SJD/php/html/partials/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0" />
-    <meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="expires" content="0" />
-    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <title>SisJD - Consultar Campanhas Estruturadas</title>
-    <link href="/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/sjd/css//1.1/estilos.css" rel="stylesheet">
-    <script type="text/javascript" src="/sjd/javascript/polyfill.js"></script>
-    <script type="text/javascript" src="/jquery/3.6.0/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="/sjd/javascript/modulos/ModuloPrincipal.js?2.00"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-</head>
 <body>
    <main style="display: block;">
       <div class="container-fluid p-0 m-0">
-         <div class="row p-0 m-0">
-             <div class="col p-0 m-0">
-                <div id="barra_superior" class="barra_superior bg-dark text-white text-center text-uppercase fw-bolder position-relative">                              
-                    <text class="position-absolute top-50 start-50 translate-middle">
-                        Consultar Campanhas Estruturadas
-                    </text>
-                </div>
-            </div>
-        </div>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/SJD/php/html/partials/topbar.php'; ?>
         <div class="row">
             <div class="col">
                 <div name="div_pagina" class="div_pagina container-fluid" style="width: 100%; min-width: 100%; inset: 50px 0px 0px;">
@@ -47,19 +22,15 @@
                                 <div class="div_opcoes_pesquisa_l1 row" titulo="Opcoes de Pesquisa" height="25px">
                                     <div class="div_opcoes_pesquisa m-1 col">
                                         <div class="accordion">
-                                            <div titulo="Opcoes de Pesquisa" target="#painel_div_opcoes_pesquisa_corpo" class="accordion-item" aberto="1">
-                                            <div class="accordion-header" titulo="Opcoes de Pesquisa" target="#painel_div_opcoes_pesquisa_corpo" aberto="1">
-                                                <div data-bs-toggle="collapse" data-bs-target="#painel_div_opcoes_pesquisa_corpo" aberto="1" class="accordion-button" type="button" aria-expanded="true" aria-controls="painel_div_opcoes_pesquisa_corpo">Opcoes de Pesquisa</div>
-                                            </div>
+                                            <div titulo="Opcoes de Pesquisa" target="#painel_div_opcoes_pesquisa_corpo" class="accordion-item" aberto="1">                                            
+                                            <?php echo AccordionHeaderOpcoesPesquisa::create() ?>
                                             <div id="painel_div_opcoes_pesquisa_corpo" class="collapse show">
                                                 <div class="accordion-body" aberto="1">
                                                     <div class="div_opcoes_pesquisa_simples row">
                                                         <div class="div_opcoes_pesquisa_simples_col col">
                                                         <div class="accordion">
                                                             <div class="div_periodos accordion-item" titulo="Periodos" target="#periodos" aberto="1">
-                                                                <div class="accordion-header" titulo="Periodos" target="#periodos" aberto="1">
-                                                                    <div data-bs-toggle="collapse" data-bs-target="#periodos" aberto="1" class="accordion-button" type="button" aria-expanded="true" aria-controls="periodos">Periodos</div>
-                                                                </div>
+                                                                <?php echo AccordionHeaderPeriodos::create() ?>
                                                                 <div id="periodos" class="collapse show">
                                                                     <div class="accordion-body" aberto="1">
                                                                     <div class="row">
@@ -122,7 +93,9 @@
                                                         <div class="div_dados_campanhas_consultar_container_corpo0_divgraficocamp"></div>
                                                         <div class="div_dados_campanhas_consultar_container_corpo0_divgraficossubcamp"></div>
                                                     </div>
-                                                    <div class="tab-pane fade   div_dados_campanhas_consultar_container_corpo1" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">Objetivos Gerais Campanha (Clique numa campanha a esquerda para carregar os dados aqui!)</div>
+                                                    <div class="tab-pane fade div_dados_campanhas_consultar_container_corpo1" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
+                                                        Objetivos Gerais Campanha (Clique numa campanha a esquerda para carregar os dados aqui!)
+                                                    </div>
                                                     <div class="tab-pane fade   div_dados_campanhas_consultar_container_corpo2" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">Objetivos Especificos Campanha (Clique numa campanha a esquerda para carregar os dados aqui!)</div>
                                                     <div class="tab-pane fade   div_dados_campanhas_consultar_container_corpo3" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab">Condicionantes Campanha (Clique numa campanha a esquerda para carregar os dados aqui!)</div>
                                                 </div>
@@ -150,9 +123,11 @@
       </div>
    </main>
 </body>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js?<?php echo VERSION_LOADS; ?>"></script>
 <script type="module">
-    import { fndt } from "/sjd/javascript/modulos/classes/data/FuncoesData.js";
-    window.fnsisjd.requisitar_data_aurora();
+    const {default:fnsisjd} = await import('/sjd/javascript/modulos/classes/sisjd/FuncoesSisJD.js?'+window.version_loads).catch((error)=>{console.log(error);alert("Erro de carregamento de modulos.\nPor favor, tente atualizar a pagina novamente com Ctrl+F5.\nSe o erro persistir mesmo assim, tente limpar o historico do navegador.\nAinda Persistindo, contacte o administrador da pagina.");});
+    const {default:fndt} = await import('/sjd/javascript/modulos/classes/data/FuncoesData.js?'+window.version_loads).catch((error)=>{console.log(error);alert("Erro de carregamento de modulos.\nPor favor, tente atualizar a pagina novamente com Ctrl+F5.\nSe o erro persistir mesmo assim, tente limpar o historico do navegador.\nAinda Persistindo, contacte o administrador da pagina.");});
+    fnsisjd.requisitar_data_aurora();
     $("input.componente_data").eq(0).val(fndt.dataUSA(fndt.data_primeirodiames()));
     $("input.componente_data").eq(1).val(fndt.dataUSA(fndt.hoje()));
     $("input.inputano").val(fndt.dataBR_getAno(fndt.data_primeirodiames()));

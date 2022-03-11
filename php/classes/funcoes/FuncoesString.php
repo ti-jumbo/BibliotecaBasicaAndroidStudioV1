@@ -1,34 +1,23 @@
 <?php
 	namespace SJD\php\classes\funcoes;
-	
+	include_once $_SERVER['DOCUMENT_ROOT'].'/SJD/php/initial_loads_unsecure_file.php';
 	
 	/*bloco de definicao de usos*/
 	use SJD\php\classes\{
-			ClasseBase,
-			funcoes\FuncoesIniciais
-		};
-		
-		
-	/*bloco de inicializacao e protecao*/	
-	if (count(spl_autoload_functions()) === 0) {
-		set_include_path(str_replace("/",DIRECTORY_SEPARATOR,$_SERVER["DOCUMENT_ROOT"]));
-		spl_autoload_extensions(".php");
-		spl_autoload_register();
-	}
-	FuncoesIniciais::processamentos_iniciais();
-	
-	
+		ClasseBase
+	};
+			
 	/*codigo*/
 	class FuncoesString extends ClasseBase{
 		public static function transfhtmlentities($texto){
-			$texto=htmlentities($texto,ENT_NOQUOTES,"ISO-8859-1");	
+			$texto=htmlentities($texto,ENT_NOQUOTES,'ISO-8859-1');	
 			return $texto;
 		}
 		public static function aumentar_nivel_aspas_simples($texto){
 			$texto=str_replace("'","''",$texto);
 			return $texto;	
 		}
-		public static function separar_comandos_por_delimitador($texto,$delimitador="/"){
+		public static function separar_comandos_por_delimitador($texto,$delimitador='/'){
 			$arrcmd=[];
 			$contcmd=0;
 			foreach($texto as $chave=>$cmd){
@@ -51,8 +40,8 @@
 			return $retorno;
 		}
 		public static function concatenar($strs) {
-			$retorno = "";
-			if (gettype($strs) === "array") {
+			$retorno = '';
+			if (gettype($strs) === 'array') {
 				foreach($strs as $str) {
 					if (isset($str)) {
 						if ( $str !== null ) {
@@ -66,12 +55,12 @@
 			return $retorno;
 		}
 		public static function aspas_duplas($str) {
-			$retorno = "";
+			$retorno = '';
 			$retorno = '"' . $str . '"';
 			return $retorno;
 		}
 		public static function aspas_simples($str) {
-			$retorno = "";
+			$retorno = '';
 			$retorno = "'" . $str . "'";
 			return $retorno;
 		}
@@ -96,11 +85,11 @@
 			* @return string $str a string incrementada
 			* @todo ver possibilidade de migrar essa funcao para um arquivo mais generico, o de funcoes de string por exemplo, pois ela pode ser util em outras partes.
 		*/	
-		public static function incrementar_indice_string($str, $indicador_posicao_indice = "_", $incrementar_em = 1) 
+		public static function incrementar_indice_string($str, $indicador_posicao_indice = '_', $incrementar_em = 1) 
 		{
 			$p_ini_ind = strrpos($str, $indicador_posicao_indice);
 			$indice = 0;
-			$indice_str = "";
+			$indice_str = '';
 			if ($p_ini_ind === false) {
 				$str .= $indicador_posicao_indice . $indice;
 			} else {
@@ -122,7 +111,7 @@
 		}
 
 		public static function primeiro_nao_vazio($arrstr) {
-			$retorno = "";
+			$retorno = '';
 			foreach($arrstr as $str) {
 				if ($str !== null && strlen(trim($str)) > 0) {
 					$retorno = $str;
@@ -133,17 +122,17 @@
 		}
 		
 		public static function substituir_acentos(&$string) {
-			$string = str_ireplace(["á","à","ã","â","ä"],"a",$string);
-			$string = str_ireplace(["Á","À","Ã","Â","Ä"],"A",$string);
-			$string = str_ireplace(["é","è","ê","ë"],"e",$string);
-			$string = str_ireplace(["É","È","Ê","Ë"],"E",$string);
-			$string = str_ireplace(["í","ì","î","ï"],"i",$string);
-			$string = str_ireplace(["Í","Ì","Î","Ï"],"I",$string);
-			$string = str_ireplace(["ó","ò","õ","ô","ö"],"o",$string);
-			$string = str_ireplace(["Ó","Ò","Õ","Ô","Ö"],"O",$string);
-			$string = str_ireplace(["ú","ù","û","ü"],"u",$string);
-			$string = str_ireplace(["Ú","Ù","Û","Ü"],"U",$string);
-			$string = str_ireplace(["ç","Ç","&"],["c","C","E"],$string);			
+			$string = str_ireplace(['á','à','ã','â','ä'],'a',$string);
+			$string = str_ireplace(['Á','À','Ã','Â','Ä'],'A',$string);
+			$string = str_ireplace(['é','è','ê','ë'],'e',$string);
+			$string = str_ireplace(['É','È','Ê','Ë'],'E',$string);
+			$string = str_ireplace(['í','ì','î','ï'],'i',$string);
+			$string = str_ireplace(['Í','Ì','Î','Ï'],'I',$string);
+			$string = str_ireplace(['ó','ò','õ','ô','ö'],'o',$string);
+			$string = str_ireplace(['Ó','Ò','Õ','Ô','Ö'],'O',$string);
+			$string = str_ireplace(['ú','ù','û','ü'],'u',$string);
+			$string = str_ireplace(['Ú','Ù','Û','Ü'],'U',$string);
+			$string = str_ireplace(['ç','Ç','&'],['c','C','E'],$string);			
 			return $string;
 		}
 
@@ -156,7 +145,7 @@
 
 		public static function eliminarCaracteresEspeciais($string) {
 			$escapers =     array("\\"  ,"\\b" ,"\\f" ,"\\n" ,"\\r" ,"\\t" ,"\\u" ,"/"  ,"\\'" ,"\x08","\x0c");
-			$retorno = str_replace($escapers,"",$string);
+			$retorno = str_replace($escapers,'',$string);
 
 			return $retorno;
 		}

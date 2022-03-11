@@ -19410,7 +19410,7 @@ create or replace PACKAGE BODY __FNV_GET_PREFIXOBJECTSDB__pkg_funcs_aurora AS
 
 
         v_email_para          VARCHAR2(4000) DEFAULT 'marcelo-matsuoca@auroraalimentos.com.br';
-        v_email_copias_para   VARCHAR2(4000) DEFAULT 'jumbo.ti@jumboalimentos.com.br;dba@jumboalimentos.com.br;milena-luz@auroraalimentos.com.br;marlon-alan@auroraalimentos.com.br';
+        v_email_copias_para   VARCHAR2(4000) DEFAULT 'jumbo.ti@jumboalimentos.com.br;milena-luz@auroraalimentos.com.br;marlon-alan@auroraalimentos.com.br';
         v_titulo_email        VARCHAR2(4000) DEFAULT 'JUMBO CASCAVEL - ESTOQUE';
         v_corpo_email         VARCHAR2(4000) DEFAULT 'Segue em anexo';
         v_nome_anexo          VARCHAR2(4000) DEFAULT 'estoque.csv';
@@ -20388,9 +20388,9 @@ create or replace PACKAGE BODY __FNV_GET_PREFIXOBJECTSDB__pkg_funcs_gelosia AS
     tempcam1             NUMBER DEFAULT -21;
     tempcam2             NUMBER DEFAULT 5;
     tempamb              NUMBER DEFAULT 25;
-    dest_padrao          VARCHAR2(4000) DEFAULT 'larissa.almeida@superfrio.com.br;bruna.backes@superfrio.com.br;andreia.mattos@superfrio.com.br;caio.espindola@superfrio.com.br;daniela.lopes@superfrio.com.br;jumbo.ti@jumboalimentos.com.br';
+    dest_padrao          VARCHAR2(4000) DEFAULT 'larissa.almeida@superfrio.com.br;bruna.backes@superfrio.com.br;caio.espindola@superfrio.com.br;daniela.lopes@superfrio.com.br;jumbo.ti@jumboalimentos.com.br';
     --dest_padrao          VARCHAR2(4000) DEFAULT 'jumbo.ti@jumboalimentos.com.br';
-    dest_copias_padrao   VARCHAR2(4000) DEFAULT 'antonio.oliveira@superfrio.com.br;felipe@jumboalimentos.com.br;jumbo.ti@jumboalimentos.com.br;dba2@jumboalimentos.com.br';
+    dest_copias_padrao   VARCHAR2(4000) DEFAULT 'felipe@jumboalimentos.com.br;jumbo.ti@jumboalimentos.com.br;dba2@jumboalimentos.com.br';
     --dest_copias_padrao   VARCHAR2(4000) DEFAULT 'jumbo.ti@jumboalimentos.com.br';
 
 

@@ -1,12 +1,22 @@
-import { vars } from '/sjd/javascript/modulos/classes/variaveis/Variaveis.js';
-import { fnjs } from '/sjd/javascript/modulos/classes/javascript/FuncoesJavascript.js';
-import { fnstr } from '/sjd/javascript/modulos/classes/string/FuncoesString.js';
-import { fnarq } from '/sjd/javascript/modulos/classes/arquivo/FuncoesArquivo.js';
-import { fnhtml } from '/sjd/javascript/modulos/classes/html/1.0/FuncoesHtml.js';
-
+/*load of modules*/
+const {default:fnjs} = await import('/sjd/javascript/modulos/classes/javascript/FuncoesJavascript.js?'+window.version_loads).catch((error)=>{console.log(error);alert("Erro de carregamento de modulos.\nPor favor, tente atualizar a pagina novamente com Ctrl+F5.\nSe o erro persistir mesmo assim, tente limpar o historico do navegador.\nAinda Persistindo, contacte o administrador da pagina.");});
+const {default:vars} = await import('/sjd/javascript/modulos/classes/variaveis/Variaveis.js?'+window.version_loads).catch((error)=>{console.log(error);alert("Erro de carregamento de modulos.\nPor favor, tente atualizar a pagina novamente com Ctrl+F5.\nSe o erro persistir mesmo assim, tente limpar o historico do navegador.\nAinda Persistindo, contacte o administrador da pagina.");});
+const {default:fnhtml} = await import('/sjd/javascript/modulos/classes/html/FuncoesHtml.js?'+window.version_loads).catch((error)=>{console.log(error);alert("Erro de carregamento de modulos.\nPor favor, tente atualizar a pagina novamente com Ctrl+F5.\nSe o erro persistir mesmo assim, tente limpar o historico do navegador.\nAinda Persistindo, contacte o administrador da pagina.");});
+const {default:fnstr} = await import('/sjd/javascript/modulos/classes/string/FuncoesString.js?'+window.version_loads).catch((error)=>{console.log(error);alert("Erro de carregamento de modulos.\nPor favor, tente atualizar a pagina novamente com Ctrl+F5.\nSe o erro persistir mesmo assim, tente limpar o historico do navegador.\nAinda Persistindo, contacte o administrador da pagina.");});
 
 /**Classe FuncoesRequisicao - utilizadas de requisicao */
 class FuncoesRequisicao{
+
+    static #instance = null;
+
+    static getInstance(){
+        if (FuncoesRequisicao.#instance == null) {
+            FuncoesRequisicao.#instance = new FuncoesRequisicao();
+            window.fnreq = FuncoesRequisicao.#instance;
+        }
+        return FuncoesRequisicao.#instance;
+    }
+
     constructor(){
         try {
             fnjs.logi(this.constructor.name);
@@ -113,7 +123,7 @@ class FuncoesRequisicao{
 
     procurar_sjdreq(params) {
         try{
-            fnjs.logi(window.fnreq.constructor.name,"procurar_sjdreq");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"procurar_sjdreq");
             let retorno = [];			
             if (typeof params.id !== "undefined") {
                 for (let i = 0; i < vars.reqs.requisicoes.length; i++) {
@@ -129,12 +139,12 @@ class FuncoesRequisicao{
                     }
                 }
             }
-            fnjs.logf(window.fnreq.constructor.name,"procurar_sjdreq");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"procurar_sjdreq");
             return retorno;
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -143,8 +153,8 @@ class FuncoesRequisicao{
 
     abortar_requisicoes_em_andamento(params) {
         try{
-            fnjs.logi(window.fnreq.constructor.name,"abortar_requisicoes_em_andamento");
-            let requisicoes_ativas = window.fnreq.procurar_sjdreq({status:'requisitando'});
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"abortar_requisicoes_em_andamento");
+            let requisicoes_ativas = FuncoesRequisicao.getInstance().procurar_sjdreq({status:'requisitando'});
             let abortar = null;
             for (let i = 0; i < requisicoes_ativas.length; i++) {
                 requisicoes_ativas[i].status = 'cancelado';
@@ -155,11 +165,11 @@ class FuncoesRequisicao{
                 }
                 $.post(vars.nomes_caminhos_arquivos.requisicao_php_sjd,{abortar:abortar},function(retorno){});
             }
-            fnjs.logf(window.fnreq.constructor.name,"abortar_requisicoes_em_andamento");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"abortar_requisicoes_em_andamento");
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -168,7 +178,7 @@ class FuncoesRequisicao{
 
     incluir_sjdreq(params) {
         try{
-            fnjs.logi(window.fnreq.constructor.name,"incluir_sjdreq");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"incluir_sjdreq");
             if (typeof vars.reqs === 'undefined') {
                 vars.reqs = {
                     requisicoes:[]
@@ -179,12 +189,12 @@ class FuncoesRequisicao{
                 status : 'requisitando',
                 aoretornar : 'normal'
             });
-            fnjs.logf(window.fnreq.constructor.name,"incluir_sjdreq");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"incluir_sjdreq");
             return vars.reqs.requisicoes[vars.reqs.requisicoes.length-1];
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -193,7 +203,7 @@ class FuncoesRequisicao{
 
     mostrar_erros_servidor(params) {
         try{
-            //fnjs.logi(window.fnreq.constructor.name,"mostrar_erros_servidor");
+            //fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"mostrar_erros_servidor");
             params.mostrar_como = params.mostrar_como || 'log';
             if (typeof params.comhttp === 'object') {
                 if (typeof params.comhttp.retorno.erros === 'string' && params.comhttp.retorno.erros.length) {					
@@ -215,13 +225,13 @@ class FuncoesRequisicao{
                     }
                 }
             } else {
-                alert(window.fnreq.mensagens.erro_tipo_req + typeof params.comhttp);
+                alert(FuncoesRequisicao.getInstance().mensagens.erro_tipo_req + typeof params.comhttp);
             }
-            //fnjs.logf(window.fnreq.constructor.name,"mostrar_erros_servidor");
+            //fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"mostrar_erros_servidor");
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -230,12 +240,12 @@ class FuncoesRequisicao{
 
     mostrar_log_servidor(params) { 
         try{
-            //fnjs.logi(window.fnreq.constructor.name,"mostrar_log_servidor");
-            //fnjs.logf(window.fnreq.constructor.name,"mostrar_log_servidor");
+            //fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"mostrar_log_servidor");
+            //fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"mostrar_log_servidor");
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -244,20 +254,20 @@ class FuncoesRequisicao{
 
     excluir_dados_inexistentes(){	
         try {
-            //fnjs.logi(window.fnreq.constructor.name,"excluir_dados_inexistentes");
+            //fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"excluir_dados_inexistentes");
             let tabela_inexistente = null;
             $.each(vars.dados,function(index,element){
-                tabela_inexistente = fnjs.obterJquery('table[' + window.fnreq.propriedades_html.id_dados + '=' + index+']')
+                tabela_inexistente = fnjs.obterJquery('table[' + FuncoesRequisicao.getInstance().propriedades_html.id_dados + '=' + index+']')
                 if (tabela_inexistente.length) {					
                 } else {
                     delete vars.dados[index];
                 }
             });
-            //fnjs.logf(window.fnreq.constructor.name,"excluir_dados_inexistentes");
+            //fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"excluir_dados_inexistentes");
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:"todos"
             });
@@ -266,7 +276,7 @@ class FuncoesRequisicao{
 
     executar_eval_retorno(params,eval_retorno){
         try {
-            fnjs.logi(window.fnreq.constructor.name,"executar_eval_retorno");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"executar_eval_retorno");
             eval_retorno.parametros = eval_retorno.parametros || {};
             eval_retorno.parametros.comhttp = params.comhttp;                    
 
@@ -294,7 +304,7 @@ class FuncoesRequisicao{
             } else {
                 eval(eval_retorno.funcao+'(eval_retorno.parametros)');
             }
-            fnjs.logf(window.fnreq.constructor.name,"executar_eval_retorno");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"executar_eval_retorno");
         }catch(e){
             console.log(e);
             alert(e.message || e);
@@ -303,19 +313,19 @@ class FuncoesRequisicao{
 
     processar_recebimento_dados(params) {
         try {
-            fnjs.logi(window.fnreq.constructor.name,"processar_recebimento_dados");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"processar_recebimento_dados");
             if (params.comhttp.eventos.aposretornar.length>0) {
                 for(let i = 0; i<params.comhttp.eventos.aposretornar.length;i++) {
                     if (params.comhttp.eventos.aposretornar[i].funcao.trim().length > 0) {
                         if (typeof params.comhttp.eventos.aposretornar[i].tempo_iniciar_execucao !== "undefined") {
-                            window.fnreq.executar_eval_retorno(params,params.comhttp.eventos.aposretornar[i]);
+                            FuncoesRequisicao.getInstance().executar_eval_retorno(params,params.comhttp.eventos.aposretornar[i]);
                         } else {
                             if (params.comhttp.requisicao.requisitar.oque === 'conteudo_html') {
                                 if (params.comhttp.requisicao.requisitar.qual.objeto !== 'pagina' && params.comhttp.requisicao.requisitar.qual.objeto !== 'inicio') {
                                     if (fnjs.como_booleano(params.comhttp.requisicao.requisitar.qual.condicionantes.inicial) === true) {
-                                        window.fnreq.executar_eval_retorno(params,params.comhttp.eventos.aposretornar[i]);
+                                        FuncoesRequisicao.getInstance().executar_eval_retorno(params,params.comhttp.eventos.aposretornar[i]);
                                     } else {
-                                        window.fnreq.carregando({
+                                        FuncoesRequisicao.getInstance().carregando({
                                             texto:'',
                                             acao:'esconder',
                                             id:(params.comhttp.id_carregando || params.id_carregando || 'todos')
@@ -332,20 +342,20 @@ class FuncoesRequisicao{
                                         break;
                                     }
                                 } else {
-                                    window.fnreq.executar_eval_retorno(params,params.comhttp.eventos.aposretornar[i]);
+                                    FuncoesRequisicao.getInstance().executar_eval_retorno(params,params.comhttp.eventos.aposretornar[i]);
                                 }
                             } else {
-                                window.fnreq.executar_eval_retorno(params,params.comhttp.eventos.aposretornar[i]);
+                                FuncoesRequisicao.getInstance().executar_eval_retorno(params,params.comhttp.eventos.aposretornar[i]);
                             }
                         }
                     }
                 }
             } 
-            fnjs.logf(window.fnreq.constructor.name,"processar_recebimento_dados");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"processar_recebimento_dados");
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -354,39 +364,41 @@ class FuncoesRequisicao{
 
     receber_dados(params) { 
         try{
-            fnjs.logi(window.fnreq.constructor.name,"receber_dados");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"receber_dados");
             let tipo_dados = '';
             params.teste = params.teste || false;
             tipo_dados = typeof params.comhttp_retorno;
             if (tipo_dados === 'string') {
                 params.comhttp.retorno = null;
+                console.log("antes json: ",params.comhttp_retorno);
                 params.comhttp.retorno = fnstr.string_para_json(params.comhttp_retorno);
+                console.log("apos json: ",params.comhttp.retorno);
                 if (typeof params.comhttp.retorno !== "undefined" && params.comhttp.retorno !== null) {
                     params.comhttp = params.comhttp.retorno;
-                    let sjdreq = window.fnreq.procurar_sjdreq({id:params.comhttp.id});
+                    let sjdreq = FuncoesRequisicao.getInstance().procurar_sjdreq({id:params.comhttp.id});
                     if (sjdreq.length > 0) {
                         if (sjdreq[0].status === 'cancelado') {
-                            alert(window.fnreq.mensagens.erro_abortando+sjdreq[0].id);
+                            alert(FuncoesRequisicao.getInstance().mensagens.erro_abortando+sjdreq[0].id);
                             return;
                         }
                         sjdreq[0].status = 'concluido';
                     }
-                    window.fnreq.excluir_dados_inexistentes();
+                    FuncoesRequisicao.getInstance().excluir_dados_inexistentes();
                     if (typeof params.comhttp.retorno.dados_retornados.conteudo_html === "undefined") {
                         let strtemp = params.comhttp.retorno.dados_retornados;
                         params.comhttp.retorno.dados_retornados = {};
                         params.comhttp.retorno.dados_retornados.conteudo_html = strtemp;
                     }
                     if (typeof params.comhttp.retorno.resultado !== "undefined"){
-                        window.fnreq.mostrar_log_servidor({comhttp:params.comhttp});
-                        window.fnreq.mostrar_erros_servidor({comhttp:params.comhttp});
+                        FuncoesRequisicao.getInstance().mostrar_log_servidor({comhttp:params.comhttp});
+                        FuncoesRequisicao.getInstance().mostrar_erros_servidor({comhttp:params.comhttp});
                         
                         switch(params.comhttp.retorno.resultado.toString().toLowerCase().trim()) {
                             case 'logar':
                                 params.comhttp.opcoes_retorno.metodo_insersao = 'append';
                                 if (params.teste) {
                                 } else {									
-                                    window.fnreq.inserir_retorno(params.comhttp);
+                                    FuncoesRequisicao.getInstance().inserir_retorno(params.comhttp);
                                 }
                                 return;
                                 break;
@@ -398,8 +410,8 @@ class FuncoesRequisicao{
                                             fnarq.carregar_arquivo_js(params.comhttp.eventos.aposretornar[i].arquivo,vars.nomes_caminhos_arquivos.funcoes_requisicao);
                                         }										
                                     } else {
-                                        alert(window.fnreq.mensagens.sem_arquivos_adicionais);
-                                        window.fnreq.carregando({
+                                        alert(FuncoesRequisicao.getInstance().mensagens.sem_arquivos_adicionais);
+                                        FuncoesRequisicao.getInstance().carregando({
                                             texto:'',
                                             acao:'esconder',
                                             id:'todos'
@@ -411,7 +423,7 @@ class FuncoesRequisicao{
                                 if (typeof params.comhttp.retorno.erros === 'object' && params.comhttp.retorno.erros !== null ) {									                                    
                                     if (params.comhttp.retorno.erros.length) {
                                         alert(fnarq.mensagens.erros_servidor);
-                                        window.fnreq.carregando({
+                                        FuncoesRequisicao.getInstance().carregando({
                                             texto:'',
                                             acao:'esconder',
                                             id:(params.comhttp.id_carregando || params.id_carregando || 'todos')
@@ -419,13 +431,13 @@ class FuncoesRequisicao{
                                         if ((params.comhttp.opcoes_retorno.parar_por_erros_sql === false && params.comhttp.retorno.numerroscodigo === 0)||
                                             (params.comhttp.opcoes_retorno.parar_por_erros_codigo === false && params.comhttp.retorno.numerrossql === 0)) {
                                             alert(fnarq.mensagens.processamento_continua);
-                                            window.fnreq.processar_recebimento_dados(params);								
+                                            FuncoesRequisicao.getInstance().processar_recebimento_dados(params);								
                                         } 	
                                     } else {
-                                        window.fnreq.processar_recebimento_dados(params);	
+                                        FuncoesRequisicao.getInstance().processar_recebimento_dados(params);	
                                     }
                                 } else {												
-                                    window.fnreq.processar_recebimento_dados(params);									
+                                    FuncoesRequisicao.getInstance().processar_recebimento_dados(params);									
                                 }								
                                 break;
                             case 'falha':
@@ -433,7 +445,7 @@ class FuncoesRequisicao{
                                 alert('falha_requisicao'+params.comhttp.retorno.dados_retornaods.conteudo_html);								
                                 break;
                             default:
-                                alert(window.fnreq.mensagens.resultado_nao_definido+params.comhttp.retorno.resultado);
+                                alert(FuncoesRequisicao.getInstance().mensagens.resultado_nao_definido+params.comhttp.retorno.resultado);
                                 break;
                         }
                     } else {
@@ -447,11 +459,11 @@ class FuncoesRequisicao{
             } else {
                 throw 'tipo nao esperado: ' + tipo_dados;
             }
-            fnjs.logf(window.fnreq.constructor.name,"receber_dados");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"receber_dados");
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -462,7 +474,7 @@ class FuncoesRequisicao{
 
     incluir_elementos_html(params) {
         try {
-            fnjs.logi(window.fnreq.constructor.name,"incluir_elementos_html");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"incluir_elementos_html");
             let elementos = null;
             elementos = params.comhttp.retorno.dados_retornados.conteudo_html || "";
             let parent = document.querySelector(params.comhttp.opcoes_retorno.seletor_local_retorno);// || document.body;
@@ -474,7 +486,7 @@ class FuncoesRequisicao{
                 console.log('em : ' , elementos.parent);
                 fnhtml.criar_elemento(elementos);            
             }
-            fnjs.logf(window.fnreq.constructor.name,"incluir_elementos_html");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"incluir_elementos_html");
         } catch (e) {
             console.log(e);
             alert(e.message || e);
@@ -484,7 +496,7 @@ class FuncoesRequisicao{
 
     incluir_inicio(params) { 
         try{
-            fnjs.logi(window.fnreq.constructor.name,"incluir_inicio");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"incluir_inicio");
             fnjs.obterJquery(params.comhttp.opcoes_retorno.seletor_local_retorno).html(params.comhttp.retorno.dados_retornados.conteudo_html);
             if (typeof params.comhttp.retorno.dados_retornados.conteudo_javascript !== "undefined") {
                 if (params.comhttp.retorno.dados_retornados.conteudo_javascript !== null) {
@@ -494,9 +506,9 @@ class FuncoesRequisicao{
                 }
             }
             if (JSON.stringify(vars.ultima_requisicao.retorno.retorno.dados_retornados).indexOf('main_login') > -1) {
-                window.fnreq.incluir_elementos_html(params);
+                FuncoesRequisicao.getInstance().incluir_elementos_html(params);
             } else {               
-                window.fnreq.incluir_elementos_html(params);
+                FuncoesRequisicao.getInstance().incluir_elementos_html(params);
                 let parametros = null;
                 parametros = {
                     nomeops: params.recurso,					
@@ -505,16 +517,16 @@ class FuncoesRequisicao{
                 };
                 fnsisjd.acessar_item_menu(parametros);
             }
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 texto:'processo_concluido',
                 acao:'esconder',
                 id:params.comhttp.id_carregando
             });
-            fnjs.logf(window.fnreq.constructor.name,"incluir_inicio");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"incluir_inicio");
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -522,14 +534,14 @@ class FuncoesRequisicao{
     }
     processar_retorno_como_log(params){
         try{
-            fnjs.logi(window.fnreq.constructor.name,"processar_retorno_como_log");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"processar_retorno_como_log");
             fnjs.obterJquery(vars.seletores.textologprocesso).val(fnjs.obterJquery(vars.seletores.textologprocesso).val() + params.comhttp.retorno.dados_retornados.conteudo_html);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 texto:'processo_concluido',
                 acao:'esconder',
                 id:params.comhttp.id_carregando
             });
-            fnjs.logf(window.fnreq.constructor.name,"processar_retorno_como_log");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"processar_retorno_como_log");
         }catch(e){
             console.log(e);
             alert(e.message || e);
@@ -537,17 +549,17 @@ class FuncoesRequisicao{
     }	
     processar_retorno_como_msg(params){
         try{
-            fnjs.logi(window.fnreq.constructor.name,"processar_retorno_como_msg");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"processar_retorno_como_msg");
             alert(params.comhttp.retorno.dados_retornados.conteudo_html);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
-            fnjs.logf(window.fnreq.constructor.name,"processar_retorno_como_msg");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"processar_retorno_como_msg");
         }catch(e){
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -555,16 +567,16 @@ class FuncoesRequisicao{
     }	
     processar_retorno_em_silencio(params){
         try{
-            fnjs.logi(window.fnreq.constructor.name,"processar_retorno_em_silencio");
-            window.fnreq.carregando({
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"processar_retorno_em_silencio");
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
-            fnjs.logf(window.fnreq.constructor.name,"processar_retorno_em_silencio");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"processar_retorno_em_silencio");
         }catch(e){
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -572,7 +584,7 @@ class FuncoesRequisicao{
     }		
     processar_retorno_como_mensagem(params) {
         try{
-            fnjs.logi(window.fnreq.constructor.name,"processar_retorno_como_mensagem");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"processar_retorno_como_mensagem");
             if (typeof params.comhttp.retorno.dados_retornados.conteudo_html.mensagem !== "undefined") {
             params.comhttp.retorno.dados_retornados.conteudo_html.mensagem = fnhtml.htmlDecode(params.comhttp.retorno.dados_retornados.conteudo_html.mensagem);
                 alert(params.comhttp.retorno.dados_retornados.conteudo_html.mensagem);
@@ -581,15 +593,15 @@ class FuncoesRequisicao{
             } else {
                 alert(params.comhttp.retorno.dados_retornados.toString());
             }
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
-            fnjs.logf(window.fnreq.constructor.name,"processar_retorno_como_mensagem");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"processar_retorno_como_mensagem");
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -597,7 +609,7 @@ class FuncoesRequisicao{
     }
     processar_retorno_como_incluir_link(params) {
         try{
-            fnjs.logi(window.fnreq.constructor.name,"processar_retorno_como_incluir_link");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"processar_retorno_como_incluir_link");
             let local_retorno = fnjs.obterJquery(params.comhttp.opcoes_retorno.seletor_local_retorno);
             let link = null;
             console.log(local_retorno);
@@ -615,11 +627,11 @@ class FuncoesRequisicao{
             } else {
                 local_retorno.html(link)
             }
-            fnjs.logf(window.fnreq.constructor.name,"processar_retorno_como_incluir_link");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"processar_retorno_como_incluir_link");
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -628,14 +640,14 @@ class FuncoesRequisicao{
 
     ins_lin(corpo,tabtemp,lin,cont){
         try {
-            fnjs.logi(window.fnreq.constructor.name,"ins_lin");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"ins_lin");
             tabtemp.innerHTML = lin;
             corpo.appendChild(tabtemp.children[0]);
-            fnjs.logf(window.fnreq.constructor.name,"ins_lin");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"ins_lin");
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:"todos"
             });
@@ -644,7 +656,7 @@ class FuncoesRequisicao{
 
     ins_lin_concat(corpo,tabtemp,lin,cont,cont4){
         try {
-            fnjs.logi(window.fnreq.constructor.name,"ins_lin_concat");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"ins_lin_concat");
             let tabtemp2 = document.createElement('tbody');
             tabtemp2.innerHTML = lin[cont4].join('');
             let qt3 = 0;
@@ -656,11 +668,11 @@ class FuncoesRequisicao{
             for(cont3=0;cont3<children.length;cont3++){
                 corpo.appendChild(children[cont3]);
             }
-            fnjs.logf(window.fnreq.constructor.name,"ins_lin_concat");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"ins_lin_concat");
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:"todos"
             });
@@ -669,23 +681,23 @@ class FuncoesRequisicao{
 
     inserir_linha(comhttp,corpo,tabtemp,linha,cont,qt) {
         try{
-            fnjs.logi(window.fnreq.constructor.name,"inserir_linha");
-            setTimeout(window.fnreq.carregando,0,{
-                texto:window.fnreq.mensagens.inserindo_linha_num + cont.toString() + '(de ' + qt.toString()+')', 
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"inserir_linha");
+            setTimeout(FuncoesRequisicao.getInstance().carregando,0,{
+                texto:FuncoesRequisicao.getInstance().mensagens.inserindo_linha_num + cont.toString() + '(de ' + qt.toString()+')', 
                 acao:'alterar' , 
                 id:comhttp.id_carregando
             });
-            setTimeout(window.fnreq.ins_lin,0,corpo,tabtemp,linha,cont-1);
+            setTimeout(FuncoesRequisicao.getInstance().ins_lin,0,corpo,tabtemp,linha,cont-1);
             if (cont === (qt - 1) ) {                
                 vars.iniciou_inclusao_tabela_est = false;
                 vars.terminou_inclusao_tabela_est = true;
                 fnjs.obterJquery(corpo).closest('table.' + vars.classes.tabela_est).attr('carregamento','carregado');
             }
-            fnjs.logf(window.fnreq.constructor.name,"inserir_linha");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"inserir_linha");
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:comhttp.id_carregando || "todos"
             });
@@ -694,12 +706,12 @@ class FuncoesRequisicao{
 
     inserir_linha_concatenadas(comhttp,corpo,linhas,qttotal,contador, numlinhasporvez,iteracao) {
         try{			
-            fnjs.logi(window.fnreq.constructor.name,"inserir_linha_concatenadas");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"inserir_linha_concatenadas");
             let tabtemp = document.createElement('tbody');
             let str_linhas = '';
             let cont2 = 0;
-            window.fnreq.carregando({
-                texto:window.fnreq.mensagens.inserindo_linha_num + (contador).toString() + ' a ' + (contador+numlinhasporvez).toString() + ' (de ' + qttotal.toString()+')',
+            FuncoesRequisicao.getInstance().carregando({
+                texto:FuncoesRequisicao.getInstance().mensagens.inserindo_linha_num + (contador).toString() + ' a ' + (contador+numlinhasporvez).toString() + ' (de ' + qttotal.toString()+')',
                 acao:'alterar' , 
                 id:comhttp.id_carregando
             });			
@@ -713,17 +725,17 @@ class FuncoesRequisicao{
                 corpo.appendChild(tabtemp.children[i]);
             }
             if (contador<qttotal) {
-                setTimeout(window.fnreq.inserir_linha_concatenadas,10,comhttp,corpo,linhas,qttotal,contador,numlinhasporvez,iteracao);
+                setTimeout(FuncoesRequisicao.getInstance().inserir_linha_concatenadas,10,comhttp,corpo,linhas,qttotal,contador,numlinhasporvez,iteracao);
             } else {
                 vars.iniciou_inclusao_tabela_est = false;
                 vars.terminou_inclusao_tabela_est = true;
                 fnjs.obterJquery(corpo).closest('table.' + vars.classes.tabela_est).attr('carregamento','carregado');
             }
-            fnjs.logf(window.fnreq.constructor.name,"inserir_linha_concatenadas");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"inserir_linha_concatenadas");
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:comhttp.id_carregando || "todos"
             });
@@ -732,7 +744,7 @@ class FuncoesRequisicao{
 
     inserir_linhas(comhttp,linhas,contador_recursao) {
         try{
-            fnjs.logi(window.fnreq.constructor.name,"inserir_linhas");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"inserir_linhas");
             let corpo = fnjs.obterJquery(comhttp.opcoes_retorno.seletor_tabela_est);
             let qt = 0;
             let idrand = '';
@@ -741,14 +753,14 @@ class FuncoesRequisicao{
             contador_recursao = fnjs.first_valid([contador_recursao,0]);
             if (contador_recursao > vars.num_limite_recursoes) {
                 alert(vars.atingido_limite_recursoes +vars.num_limite_recursoes);
-                setTimeout(window.fnreq.carregando,50,vars.mensagens.sem_resultados,'excluir',comhttp.id_carregando);
+                setTimeout(FuncoesRequisicao.getInstance().carregando,50,vars.mensagens.sem_resultados,'excluir',comhttp.id_carregando);
                 vars.iniciou_inclusao_tabela_est = false;
                 vars.terminou_inclusao_tabela_est = true;
                 return;
             }
             if (!corpo.length) {
                 contador_recursao = contador_recursao + 1;
-                setTimeout(window.fnreq.inserir_linhas,500,comhttp,linhas, contador_recursao);
+                setTimeout(FuncoesRequisicao.getInstance().inserir_linhas,500,comhttp,linhas, contador_recursao);
                 return;
             } else {
                 if (corpo.hasClass(vars.classes.tb2)) {
@@ -761,7 +773,7 @@ class FuncoesRequisicao{
                 corpo = document.getElementsByClassName(idrand)[0];
                 if (typeof corpo === "undefined") {		
                     contador_recursao = contador_recursao + 1;				
-                    setTimeout(window.fnreq.inserir_linhas,500,comhttp,linhas,contador_recursao);
+                    setTimeout(FuncoesRequisicao.getInstance().inserir_linhas,500,comhttp,linhas,contador_recursao);
                     return;
                 }					
                 linhas = linhas.split('<tr');
@@ -770,33 +782,33 @@ class FuncoesRequisicao{
                 tabtemp.innerHTML = '<tbody id="corpotemp"></tbody>';
                 tabtemp = tabtemp.children[0];
                 if (qt <= 1 ) {                    
-                    setTimeout(window.fnreq.carregando,50,vars.mensagens.sem_resultados,'excluir',comhttp.id_carregando);
+                    setTimeout(FuncoesRequisicao.getInstance().carregando,50,vars.mensagens.sem_resultados,'excluir',comhttp.id_carregando);
                     vars.iniciou_inclusao_tabela_est = false;
                     vars.terminou_inclusao_tabela_est = true;
                     fnjs.obterJquery(corpo).closest('table.' + vars.classes.tabela_est).attr('carregamento','carregado');
                 } else if (qt > 1 && qt < 5001) {
                     for (let i = 1 ; i < qt ; i++) {
-                        setTimeout(window.fnreq.inserir_linha,0,comhttp,corpo,tabtemp,'<tr ' + linhas[i], i , qt);
+                        setTimeout(FuncoesRequisicao.getInstance().inserir_linha,0,comhttp,corpo,tabtemp,'<tr ' + linhas[i], i , qt);
                     }
                 } else if (qt>5000 && qt < 10001) {
                     numlinhasporvez = 100;
-                    setTimeout(window.fnreq.inserir_linha_concatenadas,0,comhttp,corpo,linhas, linhas.length, 0, numlinhasporvez,0);	
+                    setTimeout(FuncoesRequisicao.getInstance().inserir_linha_concatenadas,0,comhttp,corpo,linhas, linhas.length, 0, numlinhasporvez,0);	
                 } else if (qt>10000 && qt < 20001) {
                     numlinhasporvez = 500;
-                    setTimeout(window.fnreq.inserir_linha_concatenadas,0,comhttp,corpo,linhas, linhas.length, 0, numlinhasporvez,0);	
+                    setTimeout(FuncoesRequisicao.getInstance().inserir_linha_concatenadas,0,comhttp,corpo,linhas, linhas.length, 0, numlinhasporvez,0);	
                 } else if (qt>20000 && qt < 40001) {
                     numlinhasporvez = 1000;
-                    setTimeout(window.fnreq.inserir_linha_concatenadas,0,comhttp,corpo,linhas, linhas.length, 0, numlinhasporvez,0);			
+                    setTimeout(FuncoesRequisicao.getInstance().inserir_linha_concatenadas,0,comhttp,corpo,linhas, linhas.length, 0, numlinhasporvez,0);			
                 } else if (qt>40000) {
                     numlinhasporvez = 10000;
-                    setTimeout(window.fnreq.inserir_linha_concatenadas,0,comhttp,corpo,linhas, linhas.length, 0, numlinhasporvez,0);				
+                    setTimeout(FuncoesRequisicao.getInstance().inserir_linha_concatenadas,0,comhttp,corpo,linhas, linhas.length, 0, numlinhasporvez,0);				
                 }				
             }
-            fnjs.logf(window.fnreq.constructor.name,"inserir_linhas");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"inserir_linhas");
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:comhttp.id_carregando || "todos"
             });
@@ -805,7 +817,7 @@ class FuncoesRequisicao{
 
     inserir_retorno_com_array_tabelaest(params){
         try{
-            fnjs.logi(window.fnreq.constructor.name,"inserir_retorno_com_array_tabelaest");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"inserir_retorno_com_array_tabelaest");
             if (typeof params.comhttp.opcoes_retorno.metodo_insersao === "undefined") {
                 params.comhttp.opcoes_retorno.metodo_insersao = 'append';
             }
@@ -813,7 +825,8 @@ class FuncoesRequisicao{
             if (params.comhttp.opcoes_retorno.metodo_insersao !== 'append' && params.comhttp.opcoes_retorno.metodo_insersao !== vars.nfj.after) { 
                 local_retorno.html('');
             }
-            let branco_se_zero = fnjs.first_valid([params.comhttp.requisicao.requisitar.qual.condicionantes.branco_se_zero,false]);                        
+            let branco_se_zero = fnjs.como_booleano(fnjs.first_valid([params.comhttp.requisicao.requisitar.qual.condicionantes.branco_se_zero,false])); 
+            //alert(branco_se_zero);
             params.comhttp.retorno.dados_retornados.conteudo_html.rodape = params.comhttp.retorno.dados_retornados.conteudo_html.rodape || [];
             for (let ind in params.comhttp.retorno.dados_retornados.conteudo_html.cabecalho) {
                 //alert(ind);
@@ -894,6 +907,7 @@ class FuncoesRequisicao{
                     local_retorno.append('<br />');
                     fnhtml.fntabdados.calcular_tabdados(tab);
                 } else {
+                    console.log(params);
                     console.log("tabela nao encontrada");
                 }
                 if (params.comhttp.opcoes_retorno.metodo_insersao == "html") {
@@ -909,16 +923,16 @@ class FuncoesRequisicao{
                     }
                 }
             } 
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 texto:'processo_concluido',
                 acao:'esconder',
                 id:params.comhttp.id_carregando
             });
-            fnjs.logf(window.fnreq.constructor.name,"inserir_retorno_com_array_tabelaest");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"inserir_retorno_com_array_tabelaest");
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -928,7 +942,7 @@ class FuncoesRequisicao{
 
     inserir_retorno_com_tabelaest(params){
         try{
-            fnjs.logi(window.fnreq.constructor.name,"inserir_retorno_com_tabelaest");
+            fnjs.logi(FuncoesRequisicao.getInstance().constructor.name,"inserir_retorno_com_tabelaest");
 
             if (typeof params.comhttp.opcoes_retorno.metodo_insersao === "undefined") {
                 params.comhttp.opcoes_retorno.metodo_insersao = 'append';
@@ -937,9 +951,10 @@ class FuncoesRequisicao{
             if (params.comhttp.opcoes_retorno.metodo_insersao !== 'append' && params.comhttp.opcoes_retorno.metodo_insersao !== vars.nfj.after) { 
                 local_retorno.html('');
             }
-            let branco_se_zero = fnjs.first_valid([params.comhttp.requisicao.requisitar.qual.condicionantes.branco_se_zero,false]);
+            let branco_se_zero = fnjs.como_booleano(fnjs.first_valid([params.comhttp.requisicao.requisitar.qual.condicionantes.branco_se_zero,false]));
+            //alert(branco_se_zero);
             if (["array","object"].indexOf(fnjs.typeof(params.comhttp.retorno.dados_retornados.conteudo_html.cabecalho)) > -1) {
-                window.fnreq.inserir_retorno_com_array_tabelaest(params);
+                FuncoesRequisicao.getInstance().inserir_retorno_com_array_tabelaest(params);
                 return;
             }
             local_retorno[params.comhttp.opcoes_retorno.metodo_insersao]('<table>' + params.comhttp.retorno.dados_retornados.conteudo_html.cabecalho + '</table>');
@@ -1014,6 +1029,10 @@ class FuncoesRequisicao{
                     for(let key in dados[i]) {
                         if (["cel_qt","cel_peso","cel_valor","cel_perc","cel_perc_med"].indexOf(classes[j]) > -1) {                        
                             val = ((dados[i][key] || '').toString().replace(/\./g,'').replace(',','.')-0);
+                            /*if (val == 0) {
+                                alert(branco_se_zero);
+                                alert(val == 0 && branco_se_zero);
+                            }*/
                             cels.push('<td class="'+(classes[j]||'')+'">' + 
                                 (   val == 0 && branco_se_zero?''
                                     :val.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})
@@ -1057,16 +1076,16 @@ class FuncoesRequisicao{
             } else {
                 console.log("tabela nao encontrada");
             }
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 texto:'processo_concluido',
                 acao:'esconder',
                 id:params.comhttp.id_carregando
             });
-            fnjs.logf(window.fnreq.constructor.name,"inserir_retorno_com_tabelaest");
+            fnjs.logf(FuncoesRequisicao.getInstance().constructor.name,"inserir_retorno_com_tabelaest");
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -1221,7 +1240,7 @@ class FuncoesRequisicao{
                     }
                 }
             }
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 texto:'processo_concluido',
                 acao:'excluir',
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
@@ -1230,7 +1249,7 @@ class FuncoesRequisicao{
          } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -1271,7 +1290,7 @@ class FuncoesRequisicao{
                         params.comhttp.requisicao.requisitar.oque.trim().toLowerCase()!== 'dados_literais') {
                         this.mudar_titulo({titulo:(params.comhttp.requisicao.requisitar.qual.objeto||"").replace(/_/g," ").toUpperCase()});
                     }
-                    window.fnreq.carregando({
+                    FuncoesRequisicao.getInstance().carregando({
                         texto:'processo_concluido',
                         acao:'esconder',
                         id:params.comhttp.id_carregando
@@ -1289,7 +1308,7 @@ class FuncoesRequisicao{
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -1311,7 +1330,7 @@ class FuncoesRequisicao{
                     }
                 }
             } 
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 texto:'processo_concluido',
                 acao:'esconder',
                 id:params.comhttp.id_carregando
@@ -1320,7 +1339,7 @@ class FuncoesRequisicao{
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -1360,7 +1379,7 @@ class FuncoesRequisicao{
                 if (params.funcoes_apos_retornar.length) {
                     $.each(params.funcoes_apos_retornar,function(index,element){
                         if (typeof element !== 'object') {
-                            throw window.fnreq.mensagens.erro_tipo_func_ret;
+                            throw FuncoesRequisicao.getInstance().mensagens.erro_tipo_func_ret;
                         }
                         params.comhttp.eventos.aposretornar.push(element);
                     });
@@ -1371,7 +1390,7 @@ class FuncoesRequisicao{
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -1432,7 +1451,7 @@ class FuncoesRequisicao{
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -1466,7 +1485,7 @@ class FuncoesRequisicao{
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
@@ -1657,7 +1676,7 @@ class FuncoesRequisicao{
                 console.log(fnjs.obterJquery('#' + params.id).find('div.modal-header h5.modal-title'));
                 console.log(fnjs.obterJquery('#' + params.id).find('div.modal-header h5.modal-title').text());
             } else { //esconder			
-                setTimeout(window.fnreq.#excluir_carregando,300,params);
+                setTimeout(FuncoesRequisicao.getInstance().#excluir_carregando,300,params);
             }
             fnjs.logf(this.constructor.name,"carregando");
             return params.id;
@@ -1679,7 +1698,7 @@ class FuncoesRequisicao{
             tipo_requisicao = typeof params.comhttp.requisicao;
             if (tipo_requisicao === 'object') {
                 if (fnjs.como_booleano(fnjs.first_valid([params.comhttp.opcoes_requisicao.mostrar_carregando || params.comhttp.mostrar_carregando])) === true) {
-                    params.comhttp.id_carregando = window.fnreq.carregando({
+                    params.comhttp.id_carregando = FuncoesRequisicao.getInstance().carregando({
                         titulo:"Consultando dados Servidor...",
                         acao:'mostrar',
                         id:params.comhttp.id_carregando,
@@ -1753,7 +1772,7 @@ class FuncoesRequisicao{
                         console.log("Inicio ajax.success");
                         try {
                             comhttp_retorno = comhttp_retorno.trim();
-                            window.fnreq.receber_dados({comhttp:params.comhttp,comhttp_retorno:comhttp_retorno});    
+                            FuncoesRequisicao.getInstance().receber_dados({comhttp:params.comhttp,comhttp_retorno:comhttp_retorno});    
                             console.log("fim ajax.success");
                         } catch (e_processamento) {
                             console.log(e_processamento);
@@ -1766,11 +1785,10 @@ class FuncoesRequisicao{
                         console.log(request);
                         console.log(textStatus);
                         console.log(error);
-                        window.fnreq.carregando({
+                        FuncoesRequisicao.getInstance().carregando({
                             acao:'esconder',
                             id:params.comhttp.id_carregando
-                        });
-                        throw error; 
+                        });                        
                         console.log("Fim ajax.error");
                     }
                 });
@@ -1782,7 +1800,7 @@ class FuncoesRequisicao{
         } catch(e) {
             console.log(e);
             alert(e.message || e);            
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:"todos"
             });
@@ -1831,7 +1849,7 @@ class FuncoesRequisicao{
             params_req.comhttp.eventos.aposretornar = [
                 {
                     arquivo:null,
-                    funcao :'window.fnreq.incluir_inicio',
+                    funcao :'FuncoesRequisicao.getInstance().incluir_inicio',
                     parametros:{recurso:params.recurso,efetuar_pesquisa:params.efetuar_pesquisa}
                 }
             ];			
@@ -1841,16 +1859,13 @@ class FuncoesRequisicao{
         } catch(e) {
             console.log(e);
             alert(e.message || e);
-            window.fnreq.carregando({
+            FuncoesRequisicao.getInstance().carregando({
                 acao:"excluir",
                 id:params.comhttp.id_carregando || params.id_carregando || "todos"
             });
         }
     }
 };
-var fnreq = new FuncoesRequisicao();
 
-window.fnreq = fnreq;
-
-export { fnreq };
+export default FuncoesRequisicao.getInstance(); 
 

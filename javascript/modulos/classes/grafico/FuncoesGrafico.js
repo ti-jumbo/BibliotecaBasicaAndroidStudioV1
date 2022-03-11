@@ -1,7 +1,15 @@
-import { fnjs } from '/sjd/javascript/modulos/classes/javascript/FuncoesJavascript.js';
-
 /**Classe FuncoesGrafico */
 class FuncoesGrafico{
+
+    static #instance = null;
+
+    static getInstance(){
+        if (FuncoesGrafico.#instance == null) {
+            FuncoesGrafico.#instance = new FuncoesGrafico();
+        }
+        return FuncoesGrafico.#instance;
+    }
+
     constructor() {
         try {
             fnjs.logi(this.constructor.name);
@@ -338,6 +346,4 @@ class FuncoesGrafico{
     }
 };
 
-var fngraf = new FuncoesGrafico();
-
-export { fngraf };
+export default FuncoesGrafico.getInstance(); 

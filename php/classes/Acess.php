@@ -1,6 +1,6 @@
 <?php 
     namespace SJD\php\classes;
-  
+    include_once $_SERVER['DOCUMENT_ROOT'].'/SJD/php/initial_loads_unsecure_file.php';
     /**
      * Class to manage access, usually used for check if client is logged or not.
      * @author Antonio ALENCAR Velozo
@@ -15,7 +15,7 @@
         public static function logged() : bool {
             try {
                 Session::startSession();
-                if ($_SESSION["logged"] ?? false) {
+                if ($_SESSION['logged'] ?? false) {
                     Session::closeSessionWrite();
                     return true;
                 } else {

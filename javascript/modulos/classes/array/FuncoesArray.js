@@ -1,7 +1,16 @@
-import { fnjs } from '/sjd/javascript/modulos/classes/javascript/FuncoesJavascript.js';
-
 /**Classe FuncoesArray - utilidades para array */
 class FuncoesArray{
+
+    static #instance = null;
+
+    static getInstance(){
+        if (FuncoesArray.#instance == null) {
+            FuncoesArray.#instance = new FuncoesArray();
+        }
+        return FuncoesArray.#instance;
+    }
+
+
     constructor(){
         try {
             fnjs.logi(this.constructor.name);
@@ -46,6 +55,4 @@ class FuncoesArray{
     }                         
 };
 
-var fnarr = new FuncoesArray();
-
-export { fnarr };
+export default FuncoesArray.getInstance(); 

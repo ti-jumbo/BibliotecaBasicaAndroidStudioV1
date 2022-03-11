@@ -1,8 +1,19 @@
-import { vars } from '/sjd/javascript/modulos/classes/variaveis/Variaveis.js';
-import { fnjs } from '/sjd/javascript/modulos/classes/javascript/FuncoesJavascript.js';
+/*load of modules*/
+const {default:fnjs} = await import('/sjd/javascript/modulos/classes/javascript/FuncoesJavascript.js?'+window.version_loads).catch((error)=>{console.log(error);alert("Erro de carregamento de modulos.\nPor favor, tente atualizar a pagina novamente com Ctrl+F5.\nSe o erro persistir mesmo assim, tente limpar o historico do navegador.\nAinda Persistindo, contacte o administrador da pagina.");});
+const {default:vars} = await import('/sjd/javascript/modulos/classes/variaveis/Variaveis.js?'+window.version_loads).catch((error)=>{console.log(error);alert("Erro de carregamento de modulos.\nPor favor, tente atualizar a pagina novamente com Ctrl+F5.\nSe o erro persistir mesmo assim, tente limpar o historico do navegador.\nAinda Persistindo, contacte o administrador da pagina.");});
 
 /**Classe FuncoesData - utilidades de data */
 class FuncoesData{
+
+    static #instance = null;
+
+    static getInstance(){
+        if (FuncoesData.#instance == null) {
+            FuncoesData.#instance = new FuncoesData();
+        }
+        return FuncoesData.#instance;
+    }
+
     constructor(){
         try {
             fnjs.logi(this.constructor.name);
@@ -690,6 +701,4 @@ class FuncoesData{
     }
 };
 
-var fndt = new FuncoesData();
-
-export { fndt };
+export default FuncoesData.getInstance(); 

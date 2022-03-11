@@ -1,31 +1,20 @@
 <?php
 	namespace SJD\php\classes\funcoes;
-	
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/sjd/php/initial_loads_unsecure_file.php';	
 	
 	/*bloco de definicao de usos*/
 	use SJD\php\classes\{
 		ClasseBase,
 		constantes\Constantes
-		};
+	};
 	use SJD\php\classes\funcoes\{
-			FuncoesIniciais,
-			FuncoesConversao,
-			FuncoesBasicasRetorno
-		};
-		
-		
-	/*bloco de inicializacao e protecao*/	
-	if (count(spl_autoload_functions()) === 0) {
-		set_include_path(str_replace("/",DIRECTORY_SEPARATOR,$_SERVER["DOCUMENT_ROOT"]));
-		spl_autoload_extensions(".php");
-		spl_autoload_register();
-	}
-	FuncoesIniciais::processamentos_iniciais();
-	
+		FuncoesConversao,
+		FuncoesBasicasRetorno
+	};
 	
 	/*codigo*/
 	class FuncoesArray extends ClasseBase{
-		public static $keysub = "sub";
+		public static $keysub = 'sub';
 		public static function acrescentar_elemento_array(&$array,$novos_elementos,$separar_array_novo_como_elemento=true,$manter_chaves = false){
 			$retfunc=[];
 			$i=0;
@@ -34,7 +23,7 @@
 					foreach($novos_elementos as $chave=>$novo_elemento){
 						if ($manter_chaves) {
 							if (isset($array[$chave])) {
-								$array[$chave . "_" . count($array)] = $novo_elemento;
+								$array[$chave . '_' . count($array)] = $novo_elemento;
 							} else {
 								$array[$chave] = $novo_elemento;
 							}
@@ -52,24 +41,24 @@
 		/**
 		 * Verifica se um caminho de chaves existe num array e adicionamlmente faz uma comparacao conforme parametros
 		 */
-		public static function verif_valor_chave($array=[],$array_chaves_profundas=[],$valor=true,$tipo_checagem="valor",$comparacao="igual"){
-			$tipo_array="";
-			$tipo_array_chaves="";
+		public static function verif_valor_chave($array=[],$array_chaves_profundas=[],$valor=true,$tipo_checagem='valor',$comparacao='igual'){
+			$tipo_array='';
+			$tipo_array_chaves='';
 			$retorno=false;
 			$cont=0;
 			$alvo=null;
 			if (isset($array)) {
 				$tipo_array = gettype($array);
 				switch($tipo_array){
-					case "array":
+					case 'array':
 						if (count($array) > 0) {
 							if(isset($array_chaves_profundas)){
 								$tipo_array_chaves=gettype($array_chaves_profundas);
-								if($tipo_array_chaves==="string"){
-									$array_chaves_profundas=explode(",",$array_chaves_profundas);
-									$tipo_array_chaves = "array";
+								if($tipo_array_chaves==='string'){
+									$array_chaves_profundas=explode(',',$array_chaves_profundas);
+									$tipo_array_chaves = 'array';
 								}
-								if($tipo_array_chaves==="array"){
+								if($tipo_array_chaves==='array'){
 									$cont=0;
 									foreach($array_chaves_profundas as $chave){
 										if($alvo===null&&$cont===0){
@@ -80,9 +69,9 @@
 												break(2);
 											}
 										} else {
-											if(gettype($alvo) === "array" && isset($alvo[$chave])) {
+											if(gettype($alvo) === 'array' && isset($alvo[$chave])) {
 												$alvo=$alvo[$chave];
-											} else if (gettype($alvo) === "object" && property_exists($alvo,$chave)) {
+											} else if (gettype($alvo) === 'object' && property_exists($alvo,$chave)) {
 												$alvo=$alvo->{$chave};
 											} else {
 												return false;
@@ -93,12 +82,12 @@
 									}
 									if(isset($alvo)){
 										switch($tipo_checagem){
-											case "setado":
+											case 'setado':
 												return true;
 												break;
-											case "valor":
+											case 'valor':
 												switch($comparacao){
-													case "igual":
+													case 'igual':
 														if ($valor === true || $valor === false) {
 															if (FuncoesConversao::como_boleano($alvo)===$valor) {
 																return true;
@@ -113,26 +102,26 @@
 															}
 														}
 													default:
-														trigger_error("Erro na requisicao: comparacao nao suportado: ".$comparacao,E_USER_ERROR);
+														trigger_error('Erro na requisicao: comparacao nao suportado: '.$comparacao,E_USER_ERROR);
 														break;
 												}									
 												break;										
-											case "tamanho":
-											case "contagem":
-											case "quantidade":
-											case "qt":
-											case "qtd":
-											case "qtde":
-											case "count":
+											case 'tamanho':
+											case 'contagem':
+											case 'quantidade':
+											case 'qt':
+											case 'qtd':
+											case 'qtde':
+											case 'count':
 												switch($comparacao){
-													case "maior": case ">":
-														if (in_array(gettype($alvo),["string","numeric","number"])) {
+													case 'maior': case '>':
+														if (in_array(gettype($alvo),['string','numeric','number'])) {
 															if(strlen($alvo)>$valor){
 																return true;
 															} else {
 																return false;
 															}													
-														} elseif (in_array(gettype($alvo),["array","object","resource"])) {
+														} elseif (in_array(gettype($alvo),['array','object','resource'])) {
 															if(count($alvo)>$valor){
 																return true;
 															} else {
@@ -142,8 +131,8 @@
 															return false;
 														}
 														break;
-													case "maiorouigual": case ">=":
-														if (gettype($alvo) === "string") {
+													case 'maiorouigual': case '>=':
+														if (gettype($alvo) === 'string') {
 															if(strlen($alvo)>=$valor){
 																return true;
 															} else {
@@ -158,12 +147,12 @@
 														}
 														break;
 													default:
-														trigger_error("Erro na requisicao: comparacao nao suportado: ".$comparacao,E_USER_ERROR);
+														trigger_error('Erro na requisicao: comparacao nao suportado: '.$comparacao,E_USER_ERROR);
 														break;
 												}
 												break;
 											default:
-												trigger_error("Erro na requisicao: tipo de checagem nao suportado: ".$tipo_checagem,E_USER_ERROR);
+												trigger_error('Erro na requisicao: tipo de checagem nao suportado: '.$tipo_checagem,E_USER_ERROR);
 												break;
 										}
 									} else {
@@ -171,11 +160,11 @@
 										break;
 									}
 								} else {
-									trigger_error("Erro na requisicao: tipo do arr de chaves nao suportado: ".$tipo_array_chaves,E_USER_ERROR);
+									trigger_error('Erro na requisicao: tipo do arr de chaves nao suportado: '.$tipo_array_chaves,E_USER_ERROR);
 									break;											
 								}							
 							} else {
-								trigger_error("Erro na requisicao: tamanho do arr de chaves nulo , nao suportado: ".$tipo_array_chaves,E_USER_ERROR);
+								trigger_error('Erro na requisicao: tamanho do arr de chaves nulo , nao suportado: '.$tipo_array_chaves,E_USER_ERROR);
 								break;					
 							}
 						} else {
@@ -185,11 +174,11 @@
 						break;			
 					default:
 						if (count($array_chaves_profundas) <= 0) {
-							FuncoesBasicasRetorno::mostrar_msg_sair("Implementar",__FILE__,__FUNCTION__,__LINE__);
+							FuncoesBasicasRetorno::mostrar_msg_sair('Implementar',__FILE__,__FUNCTION__,__LINE__);
 						} else {
 							return false;
 						}
-						trigger_error("Erro na requisicao: tipo de arr nao suportado: ".$tipo_array,E_USER_ERROR);
+						trigger_error('Erro na requisicao: tipo de arr nao suportado: '.$tipo_array,E_USER_ERROR);
 						break;
 				}			
 			}		
@@ -200,17 +189,17 @@
 			Transformar as chaves de um array em associativas baseado no valor do array, tornando o que estiver antes do sinal de = 
 			como sendo a chave do array
 		*/
-		public static function chaves_associativas($array,$separador_chave_valor="="){
+		public static function chaves_associativas($array,$separador_chave_valor='='){
 			$retorno=[];
 			foreach($array as $chave=>$valor){
-				if (gettype($valor) === "string") {
+				if (gettype($valor) === 'string') {
 					if (stripos($valor,$separador_chave_valor) !== false) {
 						$retorno[trim(substr($valor,0,stripos($valor,$separador_chave_valor)))] = trim(substr($valor,stripos($valor,$separador_chave_valor)+1));
 					} else {
-						if (stripos($valor," not in ") !== false) {	
-							$retorno[trim(substr($valor,0,stripos($valor," not in ")))] = trim(substr($valor,stripos($valor," not in ")+1));
-						} else if (stripos($valor," in ") !== false) {	
-							$retorno[trim(substr($valor,0,stripos($valor," in ")))] = trim(substr($valor,stripos($valor," in ")+1));
+						if (stripos($valor,' not in ') !== false) {	
+							$retorno[trim(substr($valor,0,stripos($valor,' not in ')))] = trim(substr($valor,stripos($valor,' not in ')+1));
+						} else if (stripos($valor,' in ') !== false) {	
+							$retorno[trim(substr($valor,0,stripos($valor,' in ')))] = trim(substr($valor,stripos($valor,' in ')+1));
 						} else {
 							$retorno[$chave] = $valor;
 						}
@@ -221,14 +210,14 @@
 			}
 			return $retorno;
 		}
-		public static function procurar_array_estruturado($array,$chave = "cod",$valor = ""){
+		public static function procurar_array_estruturado($array,$chave = 'cod',$valor = ''){
 			$retorno = null;
 			foreach($array as $ch=>&$el){
 				if (strcasecmp(trim($el[$chave]),trim($valor)) == 0) {
 					$retorno = &$el;
 				} else {
-					if (isset($el["sub"])){
-						$retorno = self::procurar_array_estruturado($el["sub"],$chave,$valor);
+					if (isset($el['sub'])){
+						$retorno = self::procurar_array_estruturado($el['sub'],$chave,$valor);
 					}
 				}
 				if ($retorno !== null) {
@@ -239,29 +228,29 @@
 		}
 		/*
 			Transforma um array que nao esta aninhado, mas contem campos de ligacao de aninhamento (cod,codsup), em um array aninhado, colocando 
-			os elementos que tem codsup igual a cod de um elemento existente, dentro deste elemento em um sub array "sub"
+			os elementos que tem codsup igual a cod de um elemento existente, dentro deste elemento em um sub array 'sub'
 		*/
-		public static function estruturar_array($array,$chaveunica="cod",$chavesup = "codsup"){
+		public static function estruturar_array($array,$chaveunica='cod',$chavesup = 'codsup'){
 			$arr_res = [];
 			$cnj_chaves_sup = [];	
 			foreach($array as $ch => $el) {
 				switch(gettype($el)) {
-					case "array":
+					case 'array':
 						if (self::valor_elemento_array($el,$chavesup) == -1) {
 							$arr_res[$ch] = $el;
 						} else {
 							$cnj_chaves_sup[self::valor_elemento_array($el,$chaveunica)] = self::valor_elemento_array($el,$chavesup);
 						}		
 						break;
-					case "object":
-						if (property_exists($el,$chavesup) && trim($el->{$chavesup}) === "" ) {
+					case 'object':
+						if (property_exists($el,$chavesup) && trim($el->{$chavesup}) === '' ) {
 							$cnj_chaves_sup[$el->{$chavesup}] = $el->{$chavesup};
 						} else {					
 							$arr_res[$ch] = $el;
 						}		
 						break;
 					default:
-						FuncoesBasicasRetorno::mostrar_msg_sair("tipo elemento nao esperado: " . gettype($el), __FILE__,__FUNCTION__,__LINE__);
+						FuncoesBasicasRetorno::mostrar_msg_sair('tipo elemento nao esperado: ' . gettype($el), __FILE__,__FUNCTION__,__LINE__);
 						break;
 				}
 			}
@@ -277,20 +266,20 @@
 							foreach($array2 as $ch2 => &$el2) {				
 								if (self::valor_elemento_array($el2,$chavesup) === $valor || strcasecmp(trim(self::valor_elemento_array($el2,$chavesup)),trim($valor)) == 0) {
 									switch(gettype($el)) {
-										case "array":
-											if (!isset($el["sub"])) {
-												$el["sub"] = [];
+										case 'array':
+											if (!isset($el['sub'])) {
+												$el['sub'] = [];
 											}
-											$el["sub"][] = $el2;
+											$el['sub'][] = $el2;
 											break;
-										case "object":
-											if (!property_exists($el,"sub")) {
+										case 'object':
+											if (!property_exists($el,'sub')) {
 												$el->sub = [];
 											}
 											$el->sub[] = $el2;
 											break;
 										default:
-											FuncoesBasicasRetorno::mostrar_msg_sair("tipo do subelemento nao esperado: " . gettype($el),__FILE__,__FUNCTION__,__LINE__);
+											FuncoesBasicasRetorno::mostrar_msg_sair('tipo do subelemento nao esperado: ' . gettype($el),__FILE__,__FUNCTION__,__LINE__);
 											break;
 									}
 									unset($array[$ch2]);
@@ -322,9 +311,9 @@
 		public static function detectar_profundidade_array_tit( &$arr , &$profund_max = 0 , $profund = 0){
 			/*Objetivo: detectar a profundidade de um array multidimensional*/
 			$dados_key_tit = null;
-			if (isset($arr) && $arr !== null && gettype($arr) === "array" && count($arr) > 0) {
+			if (isset($arr) && $arr !== null && gettype($arr) === 'array' && count($arr) > 0) {
 				$dados_key_tit = self::get_dadoskey_arrtit($arr);
-				if ($dados_key_tit["qt_keys"] > $dados_key_tit["qt_keys_naosub"]) {
+				if ($dados_key_tit['qt_keys'] > $dados_key_tit['qt_keys_naosub']) {
 					$profund++;
 					foreach( $arr as $el){
 						self::detectar_profundidade_array_tit($el,$profund_max,$profund);
@@ -337,7 +326,7 @@
 			return $profund_max;
 		}
 		public static function contar_qtmax_subelem_por_dimensao( $el , $contagem = 0){
-			if (gettype($el) === "array" && (array_keys($el) !== ["texto","codligcamposis"] && array_keys($el) !== ["texto","codligcamposis","formatacao"])) {
+			if (gettype($el) === 'array' && (array_keys($el) !== ['texto','codligcamposis'] && array_keys($el) !== ['texto','codligcamposis','formatacao'])) {
 				$contagem = count($el);
 				$contagem_temp = 0;
 				foreach($el as $item) {
@@ -354,69 +343,69 @@
 
 		private static function get_dadoskey_arrtit($el) {
 			$retorno = [];
-			$retorno["texto"] = null;
-			$retorno["qt_keys"] = 0;
-			$retorno["qt_keys_naosub"] = 0;
-			if (gettype($el) === "array" && $el !== null && count($el) > 0) {
-				$retorno["keys_el"] = array_keys($el);
-				$retorno["keys_el_minusc"] = explode(Constantes::subst_virg,strtolower(trim(implode(Constantes::subst_virg,$retorno["keys_el"]))));
-				$retorno["qt_keys"] = count($retorno["keys_el_minusc"]);
-				$retorno["ind_texto"] = array_search("texto",$retorno["keys_el_minusc"]);
-				$retorno["ind_codligcamposis"] = array_search("codligcamposis",$retorno["keys_el_minusc"]);
-				$retorno["ind_formatacao"] = array_search("formatacao",$retorno["keys_el_minusc"]);
-				if ($retorno["ind_texto"] !== false) {
-					$retorno["texto"] = $el[$retorno["keys_el"][$retorno["ind_texto"]]];
-					$retorno["qt_keys_naosub"]++;
+			$retorno['texto'] = null;
+			$retorno['qt_keys'] = 0;
+			$retorno['qt_keys_naosub'] = 0;
+			if (gettype($el) === 'array' && $el !== null && count($el) > 0) {
+				$retorno['keys_el'] = array_keys($el);
+				$retorno['keys_el_minusc'] = explode(Constantes::subst_virg,strtolower(trim(implode(Constantes::subst_virg,$retorno['keys_el']))));
+				$retorno['qt_keys'] = count($retorno['keys_el_minusc']);
+				$retorno['ind_texto'] = array_search('texto',$retorno['keys_el_minusc']);
+				$retorno['ind_codligcamposis'] = array_search('codligcamposis',$retorno['keys_el_minusc']);
+				$retorno['ind_formatacao'] = array_search('formatacao',$retorno['keys_el_minusc']);
+				if ($retorno['ind_texto'] !== false) {
+					$retorno['texto'] = $el[$retorno['keys_el'][$retorno['ind_texto']]];
+					$retorno['qt_keys_naosub']++;
 				}
-				if ($retorno["ind_codligcamposis"] !== false) {
-					$retorno["codligcamposis"] = $el[$retorno["keys_el"][$retorno["ind_codligcamposis"]]];
-					$retorno["qt_keys_naosub"]++;
+				if ($retorno['ind_codligcamposis'] !== false) {
+					$retorno['codligcamposis'] = $el[$retorno['keys_el'][$retorno['ind_codligcamposis']]];
+					$retorno['qt_keys_naosub']++;
 				}
-				if ($retorno["ind_formatacao"] !== false) {
-					$retorno["formatacao"] = $el[$retorno["keys_el"][$retorno["ind_formatacao"]]];
-					$retorno["qt_keys_naosub"]++;
+				if ($retorno['ind_formatacao'] !== false) {
+					$retorno['formatacao'] = $el[$retorno['keys_el'][$retorno['ind_formatacao']]];
+					$retorno['qt_keys_naosub']++;
 				}
 			} else {
-				$retorno["texto"] = $el;
+				$retorno['texto'] = $el;
 			}
 			return $retorno;
 		}
 
 
 		private static function transf_arrmultdimens_arrunidimens_recursivo($array, &$arr_ret, $profundidade_max = 1, $codsup = -1, $linha = 0, $coluna_ini = 0){
-			if (gettype($array) === "array") {
+			if (gettype($array) === 'array') {
 				$coluna = $coluna_ini;
 				foreach($array as $chave => $el) {
 					//print_r($el); exit();
 					$ind = count($arr_ret);					
 					$arr_ret[ $ind ] = [];
-					$arr_ret[ $ind ] [ "cod" ] = $ind ;
-					$arr_ret[ $ind ] [ "codsup" ] = $codsup ;
-					$arr_ret[ $ind ] [ "valor" ] = $chave ;
-					$arr_ret[ $ind ] [ "linha" ] = $linha ;
-					$arr_ret[ $ind ] [ "coluna" ] = $coluna ;
-					$arr_ret[ $ind ] [ "indexreal" ] = $coluna;					
+					$arr_ret[ $ind ] [ 'cod' ] = $ind ;
+					$arr_ret[ $ind ] [ 'codsup' ] = $codsup ;
+					$arr_ret[ $ind ] [ 'valor' ] = $chave ;
+					$arr_ret[ $ind ] [ 'linha' ] = $linha ;
+					$arr_ret[ $ind ] [ 'coluna' ] = $coluna ;
+					$arr_ret[ $ind ] [ 'indexreal' ] = $coluna;					
 					if (is_array($el)) {
 						/*se o el for array, verifica se realmente tem sub elementos ou se sao so colunas especificadores do titulo*/
 						$dados_key_tit = self::get_dadoskey_arrtit($el);						
-						$arr_ret[ $ind ] [ "texto" ] = $arr_ret[ $ind ] [ "texto" ] ?? $arr_ret[ $ind ] [ "valor" ] ?? $chave;
-						if (isset($dados_key_tit["texto"]) && $dados_key_tit["texto"] !== null && gettype($dados_key_tit["texto"]) === "string" && strlen(trim($dados_key_tit["texto"])) > 0) {
-							$arr_ret[$ind]["texto"] = $dados_key_tit["texto"];
+						$arr_ret[ $ind ] [ 'texto' ] = $arr_ret[ $ind ] [ 'texto' ] ?? $arr_ret[ $ind ] [ 'valor' ] ?? $chave;
+						if (isset($dados_key_tit['texto']) && $dados_key_tit['texto'] !== null && gettype($dados_key_tit['texto']) === 'string' && strlen(trim($dados_key_tit['texto'])) > 0) {
+							$arr_ret[$ind]['texto'] = $dados_key_tit['texto'];
 						}
-						if ($dados_key_tit["qt_keys"] === $dados_key_tit["qt_keys_naosub"]) {
+						if ($dados_key_tit['qt_keys'] === $dados_key_tit['qt_keys_naosub']) {
 							/*indica que ja esta na ultima linha dessas colunas*/ 							
-							$arr_ret[$ind]["codligcamposis"] = (isset($dados_key_tit["codligcamposis"])?$dados_key_tit["codligcamposis"]:null);
-							$arr_ret[$ind]["formatacao"] = (isset($dados_key_tit["formatacao"])?$dados_key_tit["formatacao"]:null);
+							$arr_ret[$ind]['codligcamposis'] = (isset($dados_key_tit['codligcamposis'])?$dados_key_tit['codligcamposis']:null);
+							$arr_ret[$ind]['formatacao'] = (isset($dados_key_tit['formatacao'])?$dados_key_tit['formatacao']:null);
 							if ($linha < ($profundidade_max - 1)) {								
-								$arr_ret[$ind]["rowspan"] = $profundidade_max - $linha;
+								$arr_ret[$ind]['rowspan'] = $profundidade_max - $linha;
 							}
 						} else {
 							/*indica que tem mais linhas dessa coluna*/
 							//print_r($dados_key_tit); exit();
-							/*if (trim($arr_ret[$ind]["texto"]) == "562") {
+							/*if (trim($arr_ret[$ind]['texto']) == '562') {
 								print_r($dados_key_tit); exit();
 							}*/
-							$arr_ret[$ind]["colspan"] = $dados_key_tit["qt_keys"] - $dados_key_tit["qt_keys_naosub"];
+							$arr_ret[$ind]['colspan'] = $dados_key_tit['qt_keys'] - $dados_key_tit['qt_keys_naosub'];
 							self::transf_arrmultdimens_arrunidimens_recursivo($el, $arr_ret, $profundidade_max, $ind, $linha + 1, $coluna);
 						}	
 					} else {
@@ -425,19 +414,19 @@
 						if (strlen(trim($el)) === 0) {
 							$texto = $chave;
 						}
-						$arr_ret[$ind]["texto"] = $texto;
+						$arr_ret[$ind]['texto'] = $texto;
 						if ($linha < ($profundidade_max - 1)) {
-							$arr_ret[$ind] ["rowspan"] = ($profundidade_max ) - $linha;
+							$arr_ret[$ind] ['rowspan'] = ($profundidade_max ) - $linha;
 							
 							/*correcao no caso de relatorios tipo pivot (positivacao) */
-							/*if ($arr_ret[ $ind ] [ "rowspan" ] === 1) {
-								$arr_ret[ $ind ] [ "rowspan" ] = 2;
+							/*if ($arr_ret[ $ind ] [ 'rowspan' ] === 1) {
+								$arr_ret[ $ind ] [ 'rowspan' ] = 2;
 							}*/
 						}
 					}	
 					$coluna++;
-					if (isset($arr_ret[$ind]["colspan"])) {
-						$coluna += $arr_ret[$ind]["colspan"] - 1;
+					if (isset($arr_ret[$ind]['colspan'])) {
+						$coluna += $arr_ret[$ind]['colspan'] - 1;
 					}
 				}
 			}
@@ -474,16 +463,16 @@
 			return $arrunidimens_retorno;
 		}*/
 
-		public static function inserir_se_nao_existir($valor,&$array,$clonar=false,$incrementar=false,$tipo=""){
+		public static function inserir_se_nao_existir($valor,&$array,$clonar=false,$incrementar=false,$tipo=''){
 			$encontrado=false;
 			$i=0;
 			if(!in_array($valor,$array)){
 				if($tipo='campo_select'){
-					$als=substr($valor,stripos($valor," as "));
+					$als=substr($valor,stripos($valor,' as '));
 					$encontrado=false;
 					$i='';
 					foreach ($array as $arr){
-						$arrals=substr($arr,stripos($arr," as "));
+						$arrals=substr($arr,stripos($arr,' as '));
 						if($arrals==$als){
 							$encontrado=true;
 							$i=0;				
@@ -492,7 +481,7 @@
 					while ($encontrado==true){
 						$encontrado=false;
 						foreach ($array as $arr){
-							$arrals=substr($arr,stripos($arr," as ")).$i;						
+							$arrals=substr($arr,stripos($arr,' as ')).$i;						
 							if($arrals==$als){
 								$encontrado=true;				
 								$i++;							
@@ -527,7 +516,7 @@
 		public static function arr_str_minusc($arr) {
 			$retorno = null;
 			if (isset($arr)) {
-				if (gettype($arr) === "array") {
+				if (gettype($arr) === 'array') {
 					$novoarr = [];
 					foreach($arr as $chave => $valor) {
 						$novoarr[$chave] = strtolower($valor);
@@ -537,7 +526,7 @@
 			}
 			return $retorno;	
 		}
-		public static function desestruturar_array($arr,&$arr_ret=[],&$chave_unica=-1,$chave_sup=-1,$chave_sup_ini=-1,$criar_chaves=true,$campo_grupamento_sub="sub",$campo_chave_unica="CODELEMENTO",$campo_chave_sup="CODELEMENTOSUP",$campo_chave_sup_ini="CODELEMENTOSUPINI"){
+		public static function desestruturar_array($arr,&$arr_ret=[],&$chave_unica=-1,$chave_sup=-1,$chave_sup_ini=-1,$criar_chaves=true,$campo_grupamento_sub='sub',$campo_chave_unica='CODELEMENTO',$campo_chave_sup='CODELEMENTOSUP',$campo_chave_sup_ini='CODELEMENTOSUPINI'){
 			foreach($arr as $chave=>$elemento){
 				if($criar_chaves===false){
 					$chave_unica=$chave;
@@ -566,7 +555,7 @@
 		public static function valor_elemento_array($array,$chave_elemento, $valor_padrao = null){
 			$retorno = $valor_padrao;
 			if (isset($array)) {
-				if (gettype($array) === "array") {
+				if (gettype($array) === 'array') {
 					if (isset($array[$chave_elemento])) {
 						$retorno = $array[$chave_elemento];
 					} else if (isset($array[strtolower(trim($chave_elemento))])) {
@@ -578,9 +567,9 @@
 			}	
 			return $retorno;	
 		}
-		public static function ordenar_por_chave($array,$chave_ordenar=["ordem"],$tipo_chave="numero") {
+		public static function ordenar_por_chave($array,$chave_ordenar=['ordem'],$tipo_chave='numero') {
 			$ordens = [];
-			if (gettype($chave_ordenar) !== "array") {
+			if (gettype($chave_ordenar) !== 'array') {
 				$chave_ordenar = [$chave_ordenar];
 			}
 			foreach($array as &$el) {
@@ -602,13 +591,13 @@
 				$ordens[] = (integer)$elt;
 			}
 			$cnj_ordenado = [];
-			if ($tipo_chave==="numero") {
+			if ($tipo_chave==='numero') {
 				sort($ordens,SORT_NUMERIC);
 				foreach($ordens as &$ordem) {
 					foreach($array as $chave => &$el) {
 						$elt = &$el;
 						foreach($chave_ordenar as $chave_ord) {
-							if (gettype($elt[$chave_ord]) === "array") {
+							if (gettype($elt[$chave_ord]) === 'array') {
 								$elt = &$elt[$chave_ord];
 							} else {
 								if ((integer)$elt[$chave_ord] === (integer)$ordem) {
@@ -626,7 +615,7 @@
 					foreach($array as $chave => &$el) {
 						$elt = &$el;
 						foreach($chave_ordenar as $chave_ord) {
-							if (gettype($elt[$chave_ord]) === "array") {
+							if (gettype($elt[$chave_ord]) === 'array') {
 								$elt = &$elt[$chave_ord];
 							} else {
 								if ($elt[$chave_ord] === $ordem) {
@@ -642,12 +631,12 @@
 			return $cnj_ordenado;
 		}
 		public static function chaves_minusculas(&$arr) {
-			if (gettype($arr) === "array") {
+			if (gettype($arr) === 'array') {
 				foreach($arr as $ch=>&$el) {
-					if (gettype($el) === "array") {				
+					if (gettype($el) === 'array') {				
 						$el = self::chaves_minusculas($el);
 					}
-					if (gettype($ch) !== "integer") {
+					if (gettype($ch) !== 'integer') {
 						if (strcasecmp(trim($ch),$ch) != 0) {
 							$arr[strtolower(trim($ch))] = $el;
 							unset($arr[$ch]);
@@ -658,9 +647,9 @@
 			return $arr;
 		}
 		public static function chaves_string($arr) {
-			if (gettype($arr) === "array") {
+			if (gettype($arr) === 'array') {
 				foreach($arr as $ch=>&$el) {
-					if (gettype($el) === "array") {				
+					if (gettype($el) === 'array') {				
 						$el = self::chaves_string($el);
 					}
 					$arr[trim($ch)] = $el;
@@ -670,11 +659,11 @@
 			return $arr;
 		}
 		public static function valores_minusculos(&$arr) {
-			if (gettype($arr) === "array") {
+			if (gettype($arr) === 'array') {
 				foreach($arr as $ch=>&$el) {
-					if (gettype($el) === "array") {
+					if (gettype($el) === 'array') {
 						$arr[$ch] = self::valores_minusculos($arr[$ch]);
-					} else if (gettype($el) === "string") {
+					} else if (gettype($el) === 'string') {
 						$arr[$ch] = strtolower($el);
 					}
 				}
@@ -682,12 +671,12 @@
 			return $arr;
 		}
 		public static function valores_string($arr) {
-			if (gettype($arr) === "array") {
+			if (gettype($arr) === 'array') {
 				foreach($arr as $ch=>&$el) {
-					if (gettype($el) === "array") {
+					if (gettype($el) === 'array') {
 						$arr[$ch] = self::valores_string($arr[$ch]);
 					} else {
-						$arr[$ch] = ($el)."";
+						$arr[$ch] = ($el).'';
 					}
 				}
 			}
@@ -695,7 +684,7 @@
 		}
 		public static function array_eliminar_elementos_vazios(&$arr,$chave_el = null) {
 			if ($chave_el !== null) {
-				if (gettype($arr[$chave_el]) === "array") {
+				if (gettype($arr[$chave_el]) === 'array') {
 					if (count($arr[$chave_el]) > 0) {
 						foreach($arr[$chave_el] as $ch=>$el) {
 							self::array_eliminar_elementos_vazios($arr[$chave_el],$ch);
@@ -707,12 +696,12 @@
 						unset($arr[$chave_el]);
 					}
 				} else {
-					if (in_array($arr[$chave_el],[null,""])) {
+					if (in_array($arr[$chave_el],[null,''])) {
 						unset($arr[$chave_el]);
 					}
 				}	
 			} else {
-				if (gettype($arr) === "array") {
+				if (gettype($arr) === 'array') {
 					if (count($arr) > 0) {
 						foreach($arr as $chave_el=>$el) {
 							self::array_eliminar_elementos_vazios($arr,$chave_el);
@@ -724,7 +713,7 @@
 						unset($arr);
 					}
 				} else {
-					if (in_array($arr,[null,""])) {
+					if (in_array($arr,[null,''])) {
 						unset($arr);
 					}
 				}
@@ -733,7 +722,7 @@
 		public static function procurar_por_chave($array,$chave,$valor,$retornar_array = true) {
 			$retorno = null;
 			if (isset($array)) {
-				if (gettype($array) === "array") {
+				if (gettype($array) === 'array') {
 					if (isset($array[$chave])) {
 						if ($array[$chave] === $valor) {
 							if ($retornar_array === true) {
@@ -755,11 +744,11 @@
 			return $retorno;
 		}
 		public static function array_excluir_elementos_nulos(&$array,$considerar_vazio_nulo = true) {		
-			if (gettype($array) === "array") {
+			if (gettype($array) === 'array') {
 				$tem_elemento = false;
 				foreach ($array as $ch => &$el) {
 					if ($el !== null) {
-						if (gettype($el) === "array") {
+						if (gettype($el) === 'array') {
 							$el = self::array_excluir_elementos_nulos($array[$ch],$considerar_vazio_nulo);
 							if ($el === null || count($el) === 0) {
 								unset($array[$ch]);
@@ -997,7 +986,7 @@
 			$maior = 0;
 			$maior_sub = 0;
 			foreach($arr as $ch=>$el) {
-				if (gettype($el) === "array") {
+				if (gettype($el) === 'array') {
 					$maior_sub = self::maior_valor_chave($el,$chave);
 					if ($maior_sub > $maior) {
 						$maior = $maior_sub;
@@ -1030,14 +1019,14 @@
 		}
 		public static function procurar_chave_array_recursivo(array &$array, $chave) {
 			if (isset($array)) {
-				if (gettype($array) === "array") {
+				if (gettype($array) === 'array') {
 					if (count($array) > 0) {
 						foreach($array as $ch => &$el) {
 							if ($ch === $chave) {						
 								$retorno = &$array[$ch];
 								return $retorno;
 							} 
-							if (gettype($array[$ch]) === "array") {
+							if (gettype($array[$ch]) === 'array') {
 								$retorno = self::procurar_chave_array_recursivo($array[$ch],$chave);
 								if ($retorno !== null) {
 									return $retorno;
@@ -1051,14 +1040,14 @@
 		}
 		public static function alterar_chave_array_recursivo(array &$array, $chave, $valor) {
 			if (isset($array)) {
-				if (gettype($array) === "array") {
+				if (gettype($array) === 'array') {
 					if (count($array) > 0) {
 						foreach($array as $ch => &$el) {
 							if ($ch === $chave) {						
 								$array[$ch] = $valor;
 								return true;
 							} 
-							if (gettype($array[$ch]) === "array") {
+							if (gettype($array[$ch]) === 'array') {
 								$retorno = self::alterar_chave_array_recursivo($array[$ch],$chave,$valor);
 								if ($retorno === true) {
 									return true;
@@ -1077,13 +1066,13 @@
 		}
 
 		/**
-		 * transforma um array incluindo seus sub elementos em um unico subelemento "sub"
+		 * transforma um array incluindo seus sub elementos em um unico subelemento 'sub'
 		*/
 		public static function transf_array_em_sub(&$array){
-			if (gettype($array) === "array") {
+			if (gettype($array) === 'array') {
 				foreach($array as $key => $el) {
-					if (gettype($el) === "array" 
-						|| !in_array($key,["texto","codligcamposis"])
+					if (gettype($el) === 'array' 
+						|| !in_array($key,['texto','codligcamposis'])
 					) {
 						if (!isset($array[self::$keysub])) {
 							$array[self::$keysub] = [];
@@ -1101,7 +1090,7 @@
 			if ($profund < $nivel) {
 				$profund = $nivel;
 			}
-			if (gettype($array_tit) === "array") {				
+			if (gettype($array_tit) === 'array') {				
 				foreach($array_tit as $key => $el) {
 					if ($key === self::$keysub) {
 						$tem_sub = true;
@@ -1117,7 +1106,7 @@
 		}
 
 		public static function transf_arrmultdimens_arrunidimens_tit2(&$array_tit, &$array_unidimen, &$cod = -1, $profund,  $codsup = -1, $linha = 0, $coluna_ini = 0, $indexreal = 0) {
-			if (gettype($array_tit) === "array") {
+			if (gettype($array_tit) === 'array') {
 				foreach($array_tit as $key => $el) {
 
 					/*se for sub, recursa*/
@@ -1135,42 +1124,42 @@
 					} else {
 
 						/*se nao for array, verifica se eh um campo e transforma em array*/
-						if (gettype($array_tit[$key]) !== "array") {
-							if (!in_array($key,["texto","codligcamposis"])) {
+						if (gettype($array_tit[$key]) !== 'array') {
+							if (!in_array($key,['texto','codligcamposis'])) {
 								$array_tit[$key] = [
-									"texto"=>$array_tit[$key]
+									'texto'=>$array_tit[$key]
 								];
 							}
 						}
 
-						if (gettype($array_tit[$key]) === "array") {						
+						if (gettype($array_tit[$key]) === 'array') {						
 							$cod++;						
-							$array_tit[$key]["texto"] = $array_tit[$key]["texto"] ?? $array_tit[$key]["valor"] ?? $key;
-							$array_tit[$key]["cod"] = $cod;
-							$array_tit[$key]["codsup"] = $codsup;
-							$array_tit[$key]["linha"] = $linha;
-							$array_tit[$key]["coluna"] = $coluna_ini;// + array_search($key,array_keys($array_tit));							
-							$array_tit[$key]["indexreal"] = $indexreal;
+							$array_tit[$key]['texto'] = $array_tit[$key]['texto'] ?? $array_tit[$key]['valor'] ?? $key;
+							$array_tit[$key]['cod'] = $cod;
+							$array_tit[$key]['codsup'] = $codsup;
+							$array_tit[$key]['linha'] = $linha;
+							$array_tit[$key]['coluna'] = $coluna_ini;// + array_search($key,array_keys($array_tit));							
+							$array_tit[$key]['indexreal'] = $indexreal;
 							$coluna_ini++;
 
 							/*se tiver sub*/
 							if (isset($array_tit[$key][self::$keysub]) 
 								&& $array_tit[$key][self::$keysub] !== null 
-								&& gettype($array_tit[$key][self::$keysub]) === "array"
+								&& gettype($array_tit[$key][self::$keysub]) === 'array'
 								&& count($array_tit[$key][self::$keysub]) > 0
 							) {
 								/*tem sub*/
 								if (count($array_tit[$key][self::$keysub]) > 1) {
-									$array_tit[$key]["colspan"] = count($array_tit[$key][self::$keysub]);
-									$array_tit[$key]["colspan_ini"] = $array_tit[$key]["colspan"];
-									$coluna_ini += $array_tit[$key]["colspan"] - 1;
-									$codsuptemp = $array_tit[$key]["codsup"];
+									$array_tit[$key]['colspan'] = count($array_tit[$key][self::$keysub]);
+									$array_tit[$key]['colspan_ini'] = $array_tit[$key]['colspan'];
+									$coluna_ini += $array_tit[$key]['colspan'] - 1;
+									$codsuptemp = $array_tit[$key]['codsup'];
 									while($codsuptemp > -1) {
 										foreach($array_unidimen as $key2 => &$el2) {
-											if ($el2["cod"] == $codsuptemp) {
-												$el2["colspan"] = ($el2["colspan"] ?? 0) + $array_tit[$key]["colspan"] - ($el2["colspan_ini"] ?? 0);
-												$el2["colspan_ini"] = 0;
-												$codsuptemp = $el2["codsup"];
+											if ($el2['cod'] == $codsuptemp) {
+												$el2['colspan'] = ($el2['colspan'] ?? 0) + $array_tit[$key]['colspan'] - ($el2['colspan_ini'] ?? 0);
+												$el2['colspan_ini'] = 0;
+												$codsuptemp = $el2['codsup'];
 												break;
 											}
 										}
@@ -1180,9 +1169,9 @@
 								//$codsup = $cod;
 
 								$nova_key = $key;
-								$cont = "";
+								$cont = '';
 								if (isset($array_unidimen[$key])) {
-									$nova_key .= "_";					
+									$nova_key .= '_';					
 									$cont = 0;
 									while(isset($array_unidimen[$nova_key.$cont])) {									
 										$cont++;
@@ -1196,7 +1185,7 @@
 									profund: $profund,
 									codsup: $cod,
 									linha: $linha,
-									coluna_ini: $array_tit[$key]["coluna"],
+									coluna_ini: $array_tit[$key]['coluna'],
 									indexreal: $indexreal
 								);
 								unset($array_unidimen[$nova_key.$cont][self::$keysub]);
@@ -1204,13 +1193,13 @@
 							} else {
 								/*nao tem sub, eh a ultima em profundidade*/
 								if (($profund - $linha) > 1) {
-									$array_tit[$key]["rowspan"] = $profund - $linha;									
+									$array_tit[$key]['rowspan'] = $profund - $linha;									
 								}
 
 								$nova_key = $key;
-								$cont = "";
+								$cont = '';
 								if (isset($array_unidimen[$key])) {
-									$nova_key .= "_";					
+									$nova_key .= '_';					
 									$cont = 0;
 									while(isset($array_unidimen[$nova_key.$cont])) {									
 										$cont++;

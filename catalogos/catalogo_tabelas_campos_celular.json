@@ -5561,6 +5561,17 @@
             "codsituacaoregistro":1
          },
          {
+            "codcampodb":"__VALORCHAVESUP__(codtabeladb)036",
+            "codtabeladb":"__VALORCHAVESUP__(codtabeladb)",
+            "nomecampodb":"xml",
+            "aliascampodb":"xml",
+            "nomecampovisivel":"xml",
+            "tipodado":"text",
+            "nomeapp":"sisjdent",
+            "statussinc":1,
+            "codsituacaoregistro":1
+         },
+         {
             "codcampodb":"__VALORCHAVESUP__(codtabeladb)995",
             "codtabeladb":"__VALORCHAVESUP__(codtabeladb)",
             "nomecampodb":"statusentrega",

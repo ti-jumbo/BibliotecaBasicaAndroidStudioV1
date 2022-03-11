@@ -1,28 +1,17 @@
 <?php
 	namespace SJD\php\classes\constantes;	
-	
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/sjd/php/initial_loads_unsecure_file.php';	
 	
 	/*bloco de definicao de usos*/
 	use SJD\php\classes\{
-			ClasseBase,
-			funcoes\FuncoesIniciais,
-			funcoes\FuncoesSisJD
-		};
-	
-		
-	/*bloco de inicializacao e protecao*/	
-	if (count(spl_autoload_functions()) === 0) {
-		set_include_path(str_replace("/",DIRECTORY_SEPARATOR,$_SERVER["DOCUMENT_ROOT"]));
-		spl_autoload_extensions(".php");
-		spl_autoload_register();
-	}
-	FuncoesIniciais::processamentos_iniciais();
-	
+        ClasseBase,        
+        funcoes\FuncoesSisJD
+    };
 	
 	/*codigo*/
     class ConstsQuerysSql extends ClasseBase {
 		public const querys = [
-            "pesquisa_filial"=>"
+            'pesquisa_filial'=>'
                 select
                     pcfilial.codigo,
                     pcfilial.cidade
@@ -32,8 +21,8 @@
                     __CONDICIONANTES__
                 order by 
                     pcfilial.codigo
-            ",
-            "pesquisa_cliente"=>"
+            ',
+            'pesquisa_cliente'=>'
                 select
                     pcclient.codcli,
                     pcclient.cliente
@@ -43,8 +32,8 @@
                     __CONDICIONANTES__
                 order by 
                     pcclient.codcli
-            ",
-            "pesquisa_cidade"=>"
+            ',
+            'pesquisa_cidade'=>'
                 select
                     pccidade.nomecidade,
                     pccidade.uf
@@ -54,8 +43,8 @@
                     __CONDICIONANTES__
                 order by 
                     pccidade.nomecidade
-            ",
-            "pesquisa_estado"=>"
+            ',
+            'pesquisa_estado'=>'
                 select
                     pcestado.codigo,
                     pcestado.estado
@@ -65,8 +54,8 @@
                     __CONDICIONANTES__
                 order by 
                     pcestado.codigo
-            ",
-            "pesquisa_rca"=>"
+            ',
+            'pesquisa_rca'=>'
                 select
                     pcusuari.codusur,
                     pcusuari.nome
@@ -76,8 +65,8 @@
                     __CONDICIONANTES__
                 order by 
                     pcusuari.codusur
-            ",
-            "pesquisa_gerente"=>"
+            ',
+            'pesquisa_gerente'=>'
                 select
                     pcgerente.codgerente,
                     pcgerente.nomegerente
@@ -87,8 +76,8 @@
                     __CONDICIONANTES__
                 order by 
                     pcgerente.codgerente
-            ",
-            "pesquisa_supervisor"=>"
+            ',
+            'pesquisa_supervisor'=>'
                 select
                     pcsuperv.codsupervisor,
                     pcsuperv.nome
@@ -98,8 +87,8 @@
                     __CONDICIONANTES__
                 order by 
                     pcsuperv.codsupervisor
-            ",
-            "pesquisa_regiao"=>"
+            ',
+            'pesquisa_regiao'=>'
                 select
                     pcregiao.numregiao,
                     pcregiao.regiao
@@ -109,8 +98,8 @@
                     __CONDICIONANTES__
                 order by 
                     pcregiao.numregiao
-            ",
-            "pesquisa_praca"=>"
+            ',
+            'pesquisa_praca'=>'
                 select
                     pcpraca.codpraca,
                     pcpraca.praca
@@ -120,8 +109,8 @@
                     __CONDICIONANTES__
                 order by 
                     pcpraca.codpraca
-            ",
-            "pesquisa_rota"=>"
+            ',
+            'pesquisa_rota'=>'
                 select
                     pcrotaexp.codrota,
                     pcrotaexp.descricao
@@ -131,7 +120,7 @@
                     __CONDICIONANTES__
                 order by 
                     pcrotaexp.codrota
-            "
+            '
         ];
 	}
 ?>

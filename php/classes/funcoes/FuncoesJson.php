@@ -1,22 +1,11 @@
 <?php
 	namespace SJD\php\classes\funcoes;
-	
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/sjd/php/initial_loads_unsecure_file.php';	
 	
 	/*bloco de definicao de usos*/
 	use SJD\php\classes\{
-			ClasseBase,
-			funcoes\FuncoesIniciais
-		};
-		
-		
-	/*bloco de inicializacao e protecao*/	
-	if (count(spl_autoload_functions()) === 0) {
-		set_include_path(str_replace("/",DIRECTORY_SEPARATOR,$_SERVER["DOCUMENT_ROOT"]));
-		spl_autoload_extensions(".php");
-		spl_autoload_register();
-	}
-	FuncoesIniciais::processamentos_iniciais();
-	
+		ClasseBase
+	};
 	
 	/*codigo*/
 	class FuncoesJson extends ClasseBase{
@@ -75,8 +64,8 @@
 		 */
 		public static function get_valor(object | array &$objeto, array | string $arr_caminho) {
 			if (isset($objeto) && $objeto !== null) {				
-				if (gettype($arr_caminho) === "string") {				
-					$arr_caminho = explode("/",$arr_caminho);
+				if (gettype($arr_caminho) === 'string') {				
+					$arr_caminho = explode('/',$arr_caminho);
 				}
 				$type_obj = gettype($objeto);
 				$objeto_iterador = &$objeto;
@@ -84,10 +73,10 @@
 					if (strlen(trim($chave)) === 0) {
 						continue;
 					}
-					if ($type_obj === "object" && property_exists($objeto_iterador,$chave)) {
+					if ($type_obj === 'object' && property_exists($objeto_iterador,$chave)) {
 						$objeto_iterador = &$objeto_iterador->{$chave};
 						$type_obj = gettype($objeto_iterador);
-					} else if ($type_obj === "array" && isset($objeto_iterador[$chave])) {
+					} else if ($type_obj === 'array' && isset($objeto_iterador[$chave])) {
 						$objeto_iterador = &$objeto_iterador[$chave];
 						$type_obj = gettype($objeto_iterador);
 					} else {
@@ -109,11 +98,11 @@
 		public static function processar_tag_ref(object | array &$objeto_inicial, &$objeto_atual) {
 			if ($objeto_atual !== null) {
 				foreach($objeto_atual as $chave=>&$valor) {
-					if (gettype($valor) === "object") {
+					if (gettype($valor) === 'object') {
 						self::processar_tag_ref($objeto_inicial,$valor);
 					}
 					if ($chave === "\$ref") {
-						$objeto_atual = self::get_valor($objeto_inicial,str_replace("#","",$valor));
+						$objeto_atual = self::get_valor($objeto_inicial,str_replace('#','',$valor));
 						break;
 					}					
 				}
@@ -134,27 +123,27 @@
 						self::processar_tag_ref($retorno,$retorno);	
 						break;
 					case JSON_ERROR_DEPTH:
-						$mensagem_erro_conversao = json_last_error_msg() . " Profundidade Maxima de conversao de string em json extrapolada";
+						$mensagem_erro_conversao = json_last_error_msg() . ' Profundidade Maxima de conversao de string em json extrapolada';
 						break;
 					case JSON_ERROR_STATE_MISMATCH:
-						$mensagem_erro_conversao = json_last_error_msg() . " Underflow or the modes mismatch";
+						$mensagem_erro_conversao = json_last_error_msg() . ' Underflow or the modes mismatch';
 						break;
 					case JSON_ERROR_CTRL_CHAR:
-						$mensagem_erro_conversao = json_last_error_msg() . " Caractere de controle inesperado";
+						$mensagem_erro_conversao = json_last_error_msg() . ' Caractere de controle inesperado';
 						break;
 					case JSON_ERROR_SYNTAX:
-						$mensagem_erro_conversao = json_last_error_msg() . " string para json mal formada, erro de sintese";
+						$mensagem_erro_conversao = json_last_error_msg() . ' string para json mal formada, erro de sintese';
 						break;
 					case JSON_ERROR_UTF8:
-						$mensagem_erro_conversao = json_last_error_msg() . " string para json contem caracteres nao UTF-8, erro de codificacao de caracteres";
+						$mensagem_erro_conversao = json_last_error_msg() . ' string para json contem caracteres nao UTF-8, erro de codificacao de caracteres';
 						break;
 					default:
-						$mensagem_erro_conversao = json_last_error_msg() . " string para json invalida";
+						$mensagem_erro_conversao = json_last_error_msg() . ' string para json invalida';
 						break;
 					break;
 				}
 			} catch(\Exception $e){
-				$mensagem_erro_conversao .= " " .$e->getmessage();		
+				$mensagem_erro_conversao .= ' ' .$e->getmessage();		
 			}
 			return $retorno;
 		}
@@ -163,7 +152,7 @@
 			$retorno = null;
 			if ($json != null) {
 				foreach($json as $ch => $el) {
-					if (in_array(gettype($el),["object","array"])) {
+					if (in_array(gettype($el),['object','array'])) {
 						$retorno = self::procurar_elemento_json_por_chave($el,$chave,$valor);
 						if ($retorno !== null) {
 							return $retorno;
@@ -182,8 +171,8 @@
 			$escapers =     array("\\"  ,"\b" ,"\f" ,"\n" ,"\r" ,"\t" ,"\u" ,"/"  ,"\'" ,"\x08","\x0c","[,","{,",",]",",}",",,");
 			$replacements = array("\\\\","\\b","\\f","\\n","\\r","\\t","\\u","\\/","\\'","\\f" ,"\\b" ,"[" ,"{" ,"]" ,"}" ,"," );
 			$str = str_replace($escapers, $replacements, $str);
-			$str = str_replace("[,","[",$str);
-			$str = str_replace("{,","{",$str);
+			$str = str_replace('[,','[',$str);
+			$str = str_replace('{,','{',$str);
 			$retorno = json_decode($str,true);			
 			if (json_last_error() != 0) {
 				print_r([
@@ -192,7 +181,7 @@
 				]);
 				echo gettype($str);
 				print_r($str); 
-				FuncoesBasicasRetorno::mostrar_msg_sair("erro de conversao de json: " . json_last_error_msg(),__FILE__,__FUNCTION__,__LINE__);
+				FuncoesBasicasRetorno::mostrar_msg_sair('erro de conversao de json: ' . json_last_error_msg(),__FILE__,__FUNCTION__,__LINE__);
 			}
 			return $retorno;
 		}

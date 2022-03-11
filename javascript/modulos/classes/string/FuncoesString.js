@@ -1,9 +1,19 @@
-import { vars } from '/sjd/javascript/modulos/classes/variaveis/Variaveis.js';
-import { fnjs } from '/sjd/javascript/modulos/classes/javascript/FuncoesJavascript.js';
-import { fnreq } from '/sjd/javascript/modulos/classes/requisicao/FuncoesRequisicao.js';
+/*load of modules*/
+const {default:fnjs} = await import('/sjd/javascript/modulos/classes/javascript/FuncoesJavascript.js?'+window.version_loads).catch((error)=>{console.log(error);alert("Erro de carregamento de modulos.\nPor favor, tente atualizar a pagina novamente com Ctrl+F5.\nSe o erro persistir mesmo assim, tente limpar o historico do navegador.\nAinda Persistindo, contacte o administrador da pagina.");});
+const {default:vars} = await import('/sjd/javascript/modulos/classes/variaveis/Variaveis.js?'+window.version_loads).catch((error)=>{console.log(error);alert("Erro de carregamento de modulos.\nPor favor, tente atualizar a pagina novamente com Ctrl+F5.\nSe o erro persistir mesmo assim, tente limpar o historico do navegador.\nAinda Persistindo, contacte o administrador da pagina.");});
 
 /**Classe FuncoesString - utilidades para string */
 class FuncoesString {
+
+    static #instance = null;
+
+    static getInstance(){
+        if (FuncoesString.#instance == null) {
+            FuncoesString.#instance = new FuncoesString();
+        }
+        return FuncoesString.#instance;
+    }
+
     constructor(){
         try {
             fnjs.logi(this.constructor.name);
@@ -161,6 +171,4 @@ class FuncoesString {
     
 };
 
-var fnstr = new FuncoesString();
-
-export { fnstr };
+export default FuncoesString.getInstance(); 

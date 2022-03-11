@@ -25,7 +25,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SJD</title>    
 	<link href="/bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/sjd/css//1.1/estilos.css?<?php echo Constantes::versao_arquivos; ?>" rel="stylesheet" />
+	<link href="/sjd/css//estilos.css?<?php echo Constantes::versao_arquivos; ?>" rel="stylesheet" />
 	<script type="text/javascript" src="/jquery/3.6.0/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>    
 
@@ -40,7 +40,6 @@
 			alert(e.message || e);
 		}
 	</script>
-	<script type="module" src="/sjd/javascript/modulos/ModuloPrincipal.js?<?php echo Constantes::versao_arquivos; ?>"></script>
 	__SCRIPTS__
 </head>
 <body onload="window.fnsisjd.iniciar_pagina({elemento:'<?php echo __VNOMERECURSO__; ?>'});">

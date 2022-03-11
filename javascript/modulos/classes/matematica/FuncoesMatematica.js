@@ -1,6 +1,17 @@
-import { fnjs } from '/sjd/javascript/modulos/classes/javascript/FuncoesJavascript.js';
+/*load modules*/ 
+const {default:fnjs} = await import('/sjd/javascript/modulos/classes/javascript/FuncoesJavascript.js?'+window.version_loads).catch((error)=>{console.log(error);alert("Erro de carregamento de modulos.\nPor favor, tente atualizar a pagina novamente com Ctrl+F5.\nSe o erro persistir mesmo assim, tente limpar o historico do navegador.\nAinda Persistindo, contacte o administrador da pagina.");});
 
 class FuncoesMatematica{
+
+    static #instance = null;
+
+    static getInstance(){
+        if (FuncoesMatematica.#instance == null) {
+            FuncoesMatematica.#instance = new FuncoesMatematica();
+        }
+        return FuncoesMatematica.#instance;
+    }
+
     constructor(){
         try {
             fnjs.logi(this.constructor.name);
@@ -110,6 +121,4 @@ class FuncoesMatematica{
     }
 };
 
-var fnmat = new FuncoesMatematica();
-
-export { fnmat };
+export default FuncoesMatematica.getInstance(); 

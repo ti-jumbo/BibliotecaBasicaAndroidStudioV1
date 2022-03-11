@@ -1,8 +1,17 @@
-import { fnjs } from '/sjd/javascript/modulos/classes/javascript/FuncoesJavascript.js';
 /**
  * Classe FuncoesObjeto
  */
  class FuncoesObjeto{
+
+    static #instance = null;
+
+    static getInstance(){
+        if (FuncoesObjeto.#instance == null) {
+            FuncoesObjeto.#instance = new FuncoesObjeto();
+        }
+        return FuncoesObjeto.#instance;
+    }
+
      constructor() {
         try {
             fnjs.logi(this.constructor.name);
@@ -201,6 +210,4 @@ import { fnjs } from '/sjd/javascript/modulos/classes/javascript/FuncoesJavascri
     } 
 };
 
-var fnobj = new FuncoesObjeto();
-
-export { fnobj };
+export default FuncoesObjeto.getInstance(); 
